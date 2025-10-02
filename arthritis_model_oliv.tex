@@ -1,0 +1,351 @@
+\documentclass[a4paper, 12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+%\usepackage[french]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\usepackage{hyperref}
+\usepackage{geometry}
+\geometry{margin=1in}
+
+\title{A mathematical modelling of rheumatoid arthritis}
+\author{F. Apparailly, P. Azerad, O. Bortolotti,  G. Courties,  O. Iosifescu, A. Parmeggiani. }
+\date{\today}
+\usepackage{authblk}
+\renewcommand\Authands{, }
+
+\author[1]{F. Apparailly}
+\author[2]{P. Azerad}
+\author[1]{O. Bortolotti}
+\author[1]{G. Courties}
+\author[2]{O. Iosifescu}
+\author[3]{A. Parmeggiani}
+
+\affil[1]{IRMB, UMR1183, Université de Montpellier and INSERM, France}
+\affil[2]{IMAG, UMR5149, Université de Montpellier, France}
+\affil[3]{L2C, UMR5221, Université de Montpellier, France}
+  
+\begin{document}
+
+\maketitle 
+We model the interaction between three populations of cells
+in the context of arthritis, namely   the neutrophiles,  the tissue resident macrophages (SubLining Tissue Resident Macrophages) and  the Monocyte Macrophages. The  
+SL-TRM macrophage cells  reside in the outer border of the joint. The  Momac (monocytes-macrophages) cells  are coming from the  reservoir of monocytes in the marrow. 
+Basically the crisis scenario is the following:
+The arthritis crisis is triggered by an external signal (injection of immune serum containing antigens) that activates the immune system and provokes an inflammatory response. 
+The antigens are recognized by the macrophages L-TRM (lining tissue resident macrophages) cells that secrete inflammatory chemokines and cytokines. 
+These cytokines activate the fibroblasts which in turn recruit the neutrophiles cells from the blood stream into the joint. 
+The cytokines also recruit the Momac cells from the blood stream into the joint. There is a positive feedback since the inflammation is amplified by the neutrophiles that are recruited in the joint by the chemokines secreted by the Momac cells. 
+The macrophages SL-TRM cells have a protective role since they inhibit the inflammation but they are depleted during the crisis because they are penalized by the proliferation of Momac cells.
+\section{Model}
+Basically the crisis scenario is the following:
+The arthritis crisis is triggered by an external signal (injection of immune serum containing antigens) that activates the immune system and provokes an inflammatory response. 
+The antigens are recognized by the macrophages L-TRM (lining tissue resident macrophages) cells that secrete inflammatory chemokines and cytokines. 
+These cytokines activate the fibroblasts which in turn recruit the neutrophiles cells from the blood stream into the joint. 
+The cytokines also recruit the Momac cells from the blood stream into the joint. There is a positive feedback since the inflammation is amplified by the neutrophiles that are recruited in the joint by the chemokines secreted by the Momac cells. 
+The macrophages SL-TRM cells have a protective role since they inhibit the inflammation but they are depleted during the crisis because they are inhibited by the proliferation of Momac cells.
+\subsection{Mathematical Model}
+Let us denote by $T(t)$ the population of SL-TRM cells and by $M(t)$ the population of Momac cells at time $t$.
+The cells $T$ (SL-TRM) and $M$ (Momac) interact with each other in the following way.
+The Momac cells $M$ are recruited from the blood stream at a constant rate $a$. They die at a rate $\delta_M$ and they transform into SL-TRM cells at a rate $b$. The SL-TRM cells $T$ die at a rate $\delta_T$. The interaction between the two populations is described by the following system of differential equations
+
+The inflammatory state $S(t)$ is enhanced by neutrophils $N$ and inhibited by SL-TRM macrophages $T$.
+
+Inflammation further increases neutrophils (factor $\alpha$), increases Momac (factor $\beta$), and decreases SL-TRM (factor $\gamma$).
+
+Notice that we do not keep track of the population of fibroblasts, but rather the population of neutrophils, which are recruited by inflammatory chemokines.
+
+The variable $N(t)$ designates the population of neutrophils at time $t$. Finally $S(t)$ is the inflammatory signal at time $t$.
+ The model is given by the following system of ordinary differential equations:
+
+\begin{equation}
+\left\{
+\begin{aligned}
+\frac{dS}{dt} &= (a\, N - b\,T) S \\
+\frac{dN}{dt} &= \alpha S N - \delta_N N (N-1) \\
+\frac{dM}{dt} &= \beta S - \delta_M M (M-1) \\
+\frac{dT}{dt} &= -\gamma S T + \delta_M M (1-T)
+\end{aligned}
+\right.
+\label{eq:system}
+\end{equation}
+
+where $a,b,\alpha,\beta,\gamma, \delta_N, \delta_M$ are positive parameters.
+To make things easier to undestand, we summarize the model in the following diagram (see Figure \ref{fig:graphe}).
+
+
+
+\begin{figure}[htb!]
+\begin{center}
+    \begin{tikzpicture}[node distance=4cm, auto, >=latex, thick]
+
+        % Compartiments
+        \node[draw, rectangle, fill=red!10, minimum width=3cm, minimum height=1cm] (N) {Neutrophiles $N$};
+        \node[draw, rectangle, fill=green!10, minimum width=3cm, minimum height=1cm, right=of N] (M) {Momac $M$};
+        \node[draw, rectangle, fill=magenta!10, minimum width=3cm, minimum height=1cm, right=of M] (T) {SL-TRM $T$};
+        \node[draw, circle, fill=blue!10, minimum size=2cm, below=of M, yshift=-1cm] (S) {Immune signal $S$};
+
+        % Flèches et labels
+        \draw[->, thick] (N) to[bend left=20] node[left, xshift=-2mm, yshift=2mm] {foster $(a)$} (S);
+        \draw[-|, thick] (T) to[bend left=20] node[right, xshift=2mm] {inhibate $(b)$} (S);
+        \draw[->, thick] (S) to[bend left=20] node[left] {activation$(\alpha)$} (N);
+        \draw[->, thick] (S) to[bend left=10] node[left,xshift=6mm] {activation $(\beta)$} (M);
+        \draw[-|, thick] (S) to[bend left=20] node[left, xshift=2mm] {inhibate $(\gamma)$} (T);
+        \draw[-|, thick, loop above, looseness=8] (N) to node[above] {destruction $(\delta_N)$} (N);
+        \draw[-|, thick, loop above, looseness=8] (M) to node[above] {destruction $(\delta_M)$} (M);
+        \draw[->, thick] (M.east) -- node[below, yshift=-2mm] {conversion $(\delta_M)$} (T.west);
+
+    \end{tikzpicture}
+\end{center}
+\label{fig:graphe}
+\caption{Schematic representation of the model}
+\end{figure}
+
+\bigskip
+
+\textbf{Remark (Comments and questions on the model):}
+
+\begin{itemize}
+\item to be discussed with our immunologists collaborators
+\end{itemize}
+
+\section{Analysis of the model}
+\subsection{Equilibria points}
+\emph{Equilibria points} of the system are found by setting the right-hand side of the system to zero, i.e. by solving the following system of equations:
+01 The equilibrium points $(S^*, N^*, M^*, T^*)$ satisfy the following system:
+\begin{align}
+(a N^* - b T^*) S^* &= 0 \label{eq:equilibrium_S} \\
+\alpha S^* N^* - \delta_N N^* (N^* - 1) &= 0 \label{eq:equilibrium_N} \\
+\beta S^* - \delta_M M^* (M^* - 1) &= 0 \label{eq:equilibrium_M} \\
+-\gamma S^* T^* + \delta_M M^* (1 - T^*) &= 0 \label{eq:equilibrium_T}
+\end{align}
+
+This gives the following equilibria points.
+A first natural equilibrium point is given by $S^* = 0, N^* = 1, M^* = 1, T^* = 1$. This point corresponds to the disease-free state, where there is no inflammation ($S^* = 0$) and the populations of neutrophils, Momac, and SL-TRM are at their baseline    levels ($N^* = 1, M^* = 1, T^* = 1$).
+There are other equilibria points with $S^* = 0$  namely
+$S^* = 0, N^* = 0, M^* = 0, T^* = t$, with arbitrary $t$;
+ $S^* = 0, N^* = 0, M^* = 1, T^* = 1$;
+ $S^* = 0, N^* = 1, M^* = 0, T^* = t$, with arbitrary $t$.
+
+
+For equilibria points with $S^* \neq 0$, from equation \eqref{eq:equilibrium_S} we have $a N^* - b T^* = 0$, hence 
+\begin{equation}
+T^* = \frac{a}{b} N^*
+\label{eq:T_in_terms_of_N}.
+\end{equation}
+Factoring $N^*$ from equation \eqref{eq:equilibrium_N},  we obtain:
+\[
+N^* \left( \alpha S^* - \delta_N (N^* - 1) \right) = 0
+\]
+This gives us two possibilities: either $N^* = 0$ or $\alpha S^* - \delta_N (N^* - 1) = 0$. If $N^* = 0$, 
+then from equation \eqref{eq:equilibrium_S} we have $a \cdot 0 - b T^* = 0$, hence $T^* = 0$. From equation \eqref{eq:equilibrium_T}, we get $ M^* = 0$. Then from equation \eqref{eq:equilibrium_M}, we have $\beta S^* - \delta_M \cdot 0 = 0$, 
+hence $S^* = 0$. This contradicts our assumption that $S^* \neq 0$. Therefore, the case $N^* = 0$ is not possible for equilibria with $S^* \neq 0$.    
+Therefore $\alpha S^* - \delta_N (N^* - 1) = 0$, so we can express $S^*$ in terms of $N^*$:
+\begin{equation}
+S^* = \frac{\delta_N}{\alpha} (N^* - 1)
+\label{eq:S_in_terms_of_N}
+\end{equation}
+We substitute \eqref{eq:T_in_terms_of_N}-\eqref{eq:S_in_terms_of_N}  into equation \eqref{eq:equilibrium_M} and \eqref{eq:equilibrium_T} and obtain a 2 by 2 system for  $M^*$ and  $N^*$:
+By substituting $T^* = \frac{a}{b} N^*$ and $S^* = \frac{\delta_N}{\alpha}(N^* - 1)$ into the equilibrium equations for $M^*$ and $T^*$, we obtain the following system for $N^*$ and $M^*$:
+\[
+\left\{
+\begin{aligned}
+&\beta \frac{\delta_N}{\alpha}(N^* - 1) - \delta_M M^* (M^* - 1) = 0 \\
+&-\gamma \frac{\delta_N}{\alpha}(N^* - 1) \cdot \frac{a}{b} N^* + \delta_M M^* \left(1 - \frac{a}{b} N^*\right) = 0
+\end{aligned}
+\right.
+\]
+This system allows us to determine the equilibrium values $N^*$ and $M^*$ when $S^* \neq 0$.
+Indeed we can express $N^*$ in terms of $M^*$ from the first equation:
+\begin{equation}
+N^* = 1 + \frac{\alpha \,\delta_M}{\beta \,\delta_N} M^* (M^* - 1)
+\label{eq:N_in_terms_of_M}
+\end{equation}
+Substituting this expression for $N^*$ into the second equation, we obtain an equation for $M^*$:
+\begin{equation}
+    M^* = \frac{a \,\gamma \,\delta_N}{b\, \alpha \,\delta_M} \frac{N^* (N^* - 1)}{(1 - \frac{a}{b} N^*)}
+    \label{eq:M_in_terms_of_N}
+\end{equation}
+Geometrically, the equilibria points with $S^* \neq 0$ correspond to the intersection points of the parabola defined by equations \eqref{eq:N_in_terms_of_M} and  the hyperbola defined by equation \eqref{eq:M_in_terms_of_N} in the $(N^*, M^*)$ plane. The number of such intersection points (and hence the number of equilibria with $S^* \neq 0$) depends on the parameters of the model.
+Substituting \eqref{eq:N_in_terms_of_M} into \eqref{eq:M_in_terms_of_N}, we  would obtain a quartic equation in $N^*$, which we do not write explicitly here due to its complexity.
+From basic algebra, we can show that there are at most 4 such intersection points, hence at most 4 equilibria points with $S^* \neq 0$. 
+We can be more precise because the biological feasibility imposes the roots to be real nonnegative numbers.
+Due to the structure of the irreducible  polynomial on $\mathbb{R}$ we can have either 0, or 2, or 4 real roots.
+We can find the asymptotes of the hyperbola and the apex of the parabola to determine the possible number of intersection points in the first quadrant.
+We rewrite the equation  \eqref{eq:M_in_terms_of_N} of the hyperbola as follows:
+\begin{equation}
+-\frac{\gamma \delta_N}{\alpha \delta_M}  (N^* + b/a -1) + \frac{(b/a)^{2}(1-b/a)}{(N^* - b/a)} 
+\label{eq:hyperbola_rewritten}
+\end{equation}
+From this expression, we see that the hyperbola has a vertical asymptote at $N^* = b/a$ and an oblique asymptote at $M^* = -\frac{\gamma \delta_N}{\alpha \delta_M} (N^*+ b/a - 1)$.
+The parabola  \eqref{eq:N_in_terms_of_M} is horizontal in the $N,M$ plane, has its apex at  $N_{min} = 1 - \frac{\alpha \,\delta_M}{4 \beta \,\delta_N}$ and $M=1/2$ and is symmetric with respect to the horizontal line $M = 1/2$ and opens eastwards.
+We plot some typical cases in the following figure.
+Notice that we need only 4 \emph{non dimensional} parameters $a/b$, $\alpha/\beta$, $\gamma/\alpha$, and $\delta_N/\delta_M$ instead of the 7 original parameters.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.45\textwidth]{equilibres.png}
+    \includegraphics[width=0.45\textwidth]{equilibres_1.png}\\
+    \includegraphics[width=0.45\textwidth]{equilibres_2.png}
+    \includegraphics[width=0.45\textwidth]{equilibres_3.png}\\
+    \caption{equilibria in the $(N^*, M^*)$ plane, left $a < b$, right $a > b$.}
+    \label{fig:intersections}
+\end{figure}
+
+\subsection{Stability analysis}
+\emph{Stability analysis} of the equilibria point $ (S^*, N^*, M^*, T^*)$ is done by linearizing the system around this point.
+The Jacobian matrix of the system is given by:
+\[
+J = \begin{pmatrix}
+aN - bT & aS & 0 & -bS \\
+\alpha N & \alpha S - \delta_N (2N-1) & 0 & 0 \\
+\beta & 0 & -\delta_M (2M-1) & 0 \\
+-\gamma T & 0 & \delta_M (1-T) & -\gamma S - \delta_M M
+\end{pmatrix}
+\]
+We analyze first the stability of the disease-free equilibrium point $(S^*, N^*, M^*, T^*) = (0, 1, 1, 1)$.
+At this point, the Jacobian matrix simplifies to:
+\[
+J|_{(S^*, N^*, M^*, T^*) = (0, 1, 1, 1)} =
+\begin{pmatrix}
+a - b & 0 & 0 & 0 \\
+\alpha & - \delta_N & 0 & 0 \\
+\beta & 0 & -\delta_M & 0 \\
+-\gamma & 0 & 0 & -\delta_M
+\end{pmatrix}
+\]
+We notice immediately that the eigenvalues of this matrix are  $a-b$, $-\delta_N$ and $-\delta_M$. The last two are negative since $\delta_N, \delta_M > 0$. The remaining eigenvalue  is $a-b$. Thus the disease-free equilibrium is stable if $a < b$ and unstable if $a > b$. 
+This means that if the inflammatory effect of Neutrophiles cells controlled by paramater $a$ is less than the curing effect of the  SL-TRM macrophages controlled by parameter $b$, the system will return to the disease-free state. Conversely, if $a > b$, the system may move away from this equilibrium, potentially leading to a chronic inflammatory state.
+The stability of other equilibria points can be analyzed similarly by evaluating the Jacobian matrix at those points and determining the eigenvalues.
+\par\noindent For $S^* = 0, N^* = 0, M^* = 0, T^* = t$, with arbitrary $t$, the Jacobian matrix becomes:
+\[
+J|_{(S^*, N^*, M^*, T^*) = (0, 0, 0, t)} =
+\begin{pmatrix}
+- b t & 0 & 0 & 0 \\
+0 & \delta_N & 0 & 0 \\
+\beta & 0 & \delta_M & 0 \\
+-\gamma t & 0 & \delta_M (1 - t) & 0
+\end{pmatrix}
+\]
+The eigenvalues of this matrix are $-b t$, $\delta_N$, $\delta_M$, and $0$. Since $\delta_N$ and $\delta_M$ are positive, this equilibrium point is unstable. Even if the immune signal will decrease exponentially fast, the populations of neutrophiles and momac will grow out of bound. This unstable equilibrium will not be observed in practice.
+\par\noindent For $S^* = 0, N^* = 0, M^* = 1, T^* = 1$, the Jacobian matrix is:
+\[
+J|_{(S^*, N^*, M^*, T^*) = (0, 0, 1, 1)} =
+\begin{pmatrix}
+-b & 0 & 0 & 0 \\
+0 & \delta_N & 0 & 0 \\
+\beta & 0 & -\delta_M & 0 \\
+-\gamma & 0 & 0 & -\delta_M
+\end{pmatrix}
+\]
+The eigenvalues of this matrix are $-b$, $\delta_N$, $-\delta_M$, and $-\gamma$. Since there is a positive eigenvalue , this equilibrium point is unstable. Neutrophiles can grow out of bound. This equilibrium will not be observed in practice neither.
+\par\noindent For $S^* = 0, N^* = 1, M^* = 0, T^* = t$, with arbitrary $t$, the Jacobian matrix is
+\[
+J|_{(S^*, N^*, M^*, T^*) = (0, 1, 0, t)} =
+\begin{pmatrix}
+- b t & 0 & 0 & 0 \\
+\alpha & -\delta_N & 0 & 0 \\
+\beta & 0 & \delta_M & 0 \\
+-\gamma t & 0 & \delta_M (1 - t) & 0
+\end{pmatrix}
+\]
+There is a positive eigenvalue $\delta_M$, hence this equilibrium point is unstable. Momac can grow out of bound. This equilibrium will not be observed in practice neither.
+
+\section{Numerical simulations}
+Here we reproduce one typical simulations of the model using the following parameters:
+$\alpha=1, \beta=1, \gamma=1,
+       \delta_N=1, \delta_M=1, a=0.35,\; b=1$,  duration=20 days and initial conditions $S(0)=1, N(0)=1, M(0)=1, T(0)=1$.
+\begin{figure}[htbp]
+    \centering
+    \includegraphics{output.png}
+    %\includegraphics[height= .2\textheight, width=.9\textwidth]{arthritis_2.png}
+    %\includegraphics[height= .2\textheight, width=.9\textwidth]{arthritis_3.png}
+    %\includegraphics[height= .2\textheight, width=.9\textwidth]{arthritis_4.png}
+    \caption{}
+\end{figure}
+
+\emph{We need to have realistic values for the parameters to feed the model.}
+
+The Python Jupyter notebook used to perform the simulations is available at \url{GitHub}.
+
+\subsection{Bifurcation analysis}
+We perform a bifurcation analysis with respect to the \emph{non dimensional} parameters $a/b$, $\alpha/\beta$, $\gamma/\alpha$, and $\delta_N/\delta_M$. We vary $a$ in the interval $[0,1]$ and $b$ in the interval $[0.1,2]$. For each pair $(a,b)$, we simulate the system for 20 days and we record the value of $S$ at the final time. The results are shown in the following heatmap.
+
+\section*{Acknowledgments}
+This work was supported by the IMMUN4CURE project of IHU Montpellier.
+%\clearpage
+% Bibliography réarrangée par ordre chronologique
+
+\begin{thebibliography}{9}
+% 2005
+\bibitem{jit2005}
+Jit, M., et al. (2005).% ode compartement
+\newblock Mathematical modelling of rheumatoid arthritis.
+\newblock \emph{Rheumatology}, 44, 323--331.
+\newblock \url{https://doi.org/10.1093/rheumatology/keh491}
+
+% 2013
+\bibitem{baker2013}
+Baker, M., et al. (2013).
+\newblock Mathematical modelling of cytokine-mediated inflammation in rheumatoid arthritis
+\newblock \emph{Mathematical Medicine and Biology}, 30, 311--337. \url{https://doi.org/10.1093/imammb/dqs026}
+
+% 2017
+\bibitem{mathbiol2017} %ode compartement
+Baker, M., et al. (2017).
+\newblock Mathematical modelling of cytokines, MMPs and
+fibronectin fragments in osteoarthritic cartilage
+\newblock \emph{Journal of Mathematical Biology}, 75, 985--1024 (2017).
+\newblock \url{https://doi.org/10.1007/s00285-017-1104-y}
+
+% 2018
+\bibitem{baker2018} %ode compartement
+Baker, M., et al. (2018).
+\newblock Mathematical models of inflammation and its resolution.
+\newblock \emph{Immunology Letters}, 196, 1--10.
+\newblock \url{https://doi.org/10.1016/j.imlet.2018.01.005}
+
+\bibitem{zhou2018}
+Zhou, X., et al. (2018).% ode compartement
+\newblock Circuit Design Features of a Stable Two-Cell System.
+\newblock \emph{Cell}, 172, 744--757.
+\newblock \url{https://doi.org/10.1016/j.cell.2018.01.015}
+
+% 2019
+\bibitem{jaiani2019}%ode compartement
+Odisharia, K.,  Odisharia, V.,  Tsereteli, P., 
+and  Janikashvili, N. (2019).
+\newblock On the Mathematical Model of Drug
+Treatment of Rheumatoid Arthritis
+\newblock In
+G. Jaiani and D. Natroshvili (eds.).
+\newblock Mathematics, Informatics, and their Applications in Natural Sciences and Engineering.
+\newblock \emph{Springer Proceedings in Mathematics \& Statistics}, 2019. \url{https://doi.org/10.1007/978-3-030-10419-1_10}
+
+% 2020
+\bibitem{Handel2020}%review
+Handel, A., et al  (2020).
+\newblock Simulation modelling for immunologists
+\newblock \emph{Nature Reviews Immunology}, 20, 186--195. \url{https://doi.org/10.1038/s41577-019-0235-3}
+
+% 2022
+\bibitem{macfarlane2022} %review
+Macfarlane, F. R., Chaplain, M. A. J., \& Eftimie, R. (2022).
+\newblock Mathematical models of immune-mediated diseases: A review.
+\newblock \emph{Mathematics}, 10(3), 456.
+
+% 2024
+\bibitem{frontiers2024} %review
+Ugolkov, Y., et al. (2024).
+\newblock Mathematical modeling in
+autoimmune diseases: from theory to clinical application
+\newblock \emph{Frontiers in Immunology}, 15, 1371620. \url{https://doi.org/10.3389/fimmu.2024.1371620}
+
+
+\end{thebibliography}
+
+
+\end{document}
