@@ -260,7 +260,7 @@ $\alpha=1, \beta=1, \gamma=1,
        \delta_N=1, \delta_M=1, a=0.35,\; b=1$,  duration=20 days and initial conditions $S(0)=1, N(0)=1, M(0)=1, T(0)=1$.
 \begin{figure}[htbp]
     \centering
-    \includegraphics{output.png}
+    \includegraphics[width=.7\textwidth]{output.png}
     %\includegraphics[height= .2\textheight, width=.9\textwidth]{arthritis_2.png}
     %\includegraphics[height= .2\textheight, width=.9\textwidth]{arthritis_3.png}
     %\includegraphics[height= .2\textheight, width=.9\textwidth]{arthritis_4.png}
@@ -269,7 +269,7 @@ $\alpha=1, \beta=1, \gamma=1,
 
 \emph{We need to have realistic values for the parameters to feed the model.}
 
-The Python Jupyter notebook used to perform the simulations is available at \url{GitHub}.
+The Python Jupyter notebook used to perform the simulations is available at \url{https://github.com/azerad/immunomath}.
 
 \subsection{Bifurcation analysis}
 We perform a bifurcation analysis with respect to the \emph{non dimensional} parameters $a/b$, $\alpha/\beta$, $\gamma/\alpha$, and $\delta_N/\delta_M$. We vary $a$ in the interval $[0,1]$ and $b$ in the interval $[0.1,2]$. For each pair $(a,b)$, we simulate the system for 20 days and we record the value of $S$ at the final time. The results are shown in the following heatmap.
