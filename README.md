@@ -7,8 +7,8 @@ a repo to interact with colleagues on the project IHU IMMUN4CARE WP1-3
 
 Ouvre un terminal et tape :
 ```bash
-git clone https://github.com/<utilisateur>/<nom-du-repo>.git
-cd <nom-du-repo>
+git clone https://github.com/azerad/immunomath.git
+cd immunomath
 ```
 
 ### 2. Créer une branche pour travailler (recommandé)
