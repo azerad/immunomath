@@ -194,7 +194,117 @@ Notice that we need only 4 \emph{non dimensional} parameters $a/b$, $\alpha/\bet
     \caption{equilibria in the $(N^*, M^*)$ plane, left $a < b$, right $a > b$.}
     \label{fig:intersections}
 \end{figure}
+There is a smarter way \footnote{thanks to O. Iosifescu} to find the number of equilibria points with $S^* \neq 0$ leading to a cubic equation in $T^*$.
+We express $N^*$ in terms of $T^*$ from equation \eqref{eq:T_in_terms_of_N}:
+\begin{equation}
+N^* = \frac{b}{a} T^*
+\label{eq:N_in_terms_of_T}
+\end{equation}
+Substituting this expression for $N^*$ into equation \eqref{eq:S_in_terms_of_N}, we obtain:
+\begin{equation}
+S^* = \frac{\delta_N}{\alpha} \left(\frac{b}{a} T^* - 1\right)
+\label{eq:S_in_terms_of_T}
+\end{equation}
+From equation \eqref{eq:equilibrium_M} and equation \eqref{eq:equilibrium_T}, 
+we derive  $\delta_M M^* = \frac{\beta S^*}{M^* - 1}$ and $\delta_M M^* = \frac{\gamma S^* T^*}{1 - T^*}$.
+Equating these two expressions for $\delta_M M^*$, we obtain:
+\[\frac{\beta S^*}{M^* - 1} = \frac{\gamma S^* T^*}{1 - T^*}
+\]
+Assuming $S^* \neq 0$, we can simplify this equation to:
+\[\frac{\beta}{M^* - 1} = \frac{\gamma T^*}{1 - T^*}
+\]
+From this, we can express $M^*$ in terms of $T^*$:
+\begin{equation}
+M^* = 1 + \frac{\beta (1 - T^*)}{\gamma T^*} = 1 - \frac{\beta}{\gamma} + \frac{\beta}{\gamma T^*}
+\label{eq:M_in_terms_of_T}
+\end{equation}  
 
+Substituting the expression for $M^*$  and $S^*$ into the last equation \eqref{eq:equilibrium_T}, we obtain 
+\begin{equation}
+  -\gamma \frac{\delta_N}{\alpha} \left(\frac{b}{a} T^* - 1\right) T^* + \delta_M \left(1 - \frac{\beta}{\gamma} + \frac{\beta}{\gamma T^*}\right) (1 - T^*) = 0      
+\end{equation}
+Since $T^* \neq 0$, we can multiply this equation by $T^*$ and rearrange the terms to obtain a cubic equation for $T^*$:
+\begin{equation}
+\frac{\gamma}{\alpha} \frac{\delta_N}{\delta_M} \frac{b}{a} (T^*)^3 + \left( 1-   \frac{\gamma}{\alpha} \frac{\delta_N}{\delta_M}  - \frac{\beta}{\gamma}\right) (T^*)^2 + \left( 2\frac{\beta}{\gamma} -1 \right) T^* - \frac{\beta}{\gamma} = 0
+\end{equation}
+Rewriting this equation in the standard unitary form $(T^*)^3 + p (T^*)^2 + q T^* + r = 0$, we have:
+\begin{equation}
+\left(T^*\right)^3 + \frac{\alpha}{\gamma} \frac{\delta_M}{\delta_N} \frac{a}{b} \left(1- \frac{\beta}{\gamma} - \frac{\gamma}{\alpha} \frac{\delta_N}{\delta_M}\right) (T^*)^2 + \frac{\alpha}{\gamma} \frac{\delta_M}{\delta_N} \frac{a}{b} \left(2\frac{\beta}{\gamma} -1 \right) T^* - \frac{\alpha}{\gamma} \frac{\delta_M}{\delta_N} \frac{a}{b} \frac{\beta}{\gamma} = 0
+\end{equation}
+Notice that the coefficients of this cubic equation depend only on the 4 \emph{non dimensional} parameters $a/b$, $\alpha/\beta$, $\gamma/\alpha$, and $\delta_N/\delta_M$.
+Denoting these dimensionless parameters by $A = a/b$, $B = \beta/\gamma$, $C = \alpha/\gamma$, and $D = \delta_M/\delta_N$, we can rewrite the cubic equation as follows:
+\begin{equation}    
+\left(T^*\right)^3 +  A C D \left(1- B- \frac{1}{C D} \right) (T^*)^2 + A C D \left(2 B -1 \right) T^* - A B C D = 0
+\label{eq:cubic_T}
+\end{equation}  
+From basic algebra, we can show that there are at most 3 such intersection points, hence at most 3 equilibria points with $S^* \neq 0$. 
+We can be more precise because the biological feasibility imposes the roots to be real nonnegative numbers.
+Since $ABCD > 0$,  there is at least one positive root. 
+But we can be more precise using 
+\emph{Descartes' rule of signs}. It states that the number of positive real roots of a polynomial (counting multiplicities) is equal to the number of sign changes between consecutive nonzero coefficients, or less than that by an even number. 
+In our case, the coefficients of the cubic polynomial in \eqref{eq:cubic_T} are:
+\[1, \quad A C D \left(1- B- \frac{1}{C D} \right), \quad A C D \left(2 B -1 \right), \quad - A B C D   \]  
+So the number of sign changes depends on the signs of the second and third coefficients.
+We have the following cases:
+\begin{itemize}
+\item If $ B +\frac{1}{C D} > 1$ and $B > 1/2$, then there are 3 sign changes and the cubic has one or three positive roots.
+\item If $B +\frac{1}{C D}  < 1$ and $B > 1/2 $, then there is one sign change and the cubic has only one positive roots.
+\item If $B +\frac{1}{C D}  < 1$ and $B < 1/2$, then there is one sign changes and the cubic has only one positive root.
+\item If $B +\frac{1}{C D}  > 1$ and $B < 1/2$, then there is one sign change and the cubic has only one positive root.
+\end{itemize}
+\bigskip
+We can plot some typical cases in the following figure (see Figure \ref{fig:cubics}).
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.45\textwidth, height=5cm]{cubic_1.png}
+    \includegraphics[width=0.45\textwidth, height=5cm]{cubic_2.png}\\
+    \includegraphics[width=0.45\textwidth, height=5cm]{cubic_3.png}
+    \includegraphics[width=0.45\textwidth, height=5cm]{cubic_4.png}\\
+    \caption{Cubic equation in $T^*$, left $B<1/2$, right $B>1/2$.}
+    \label{fig:cubics}
+\end{figure}
+
+\par\noindent We can use Cardano's method to find the roots of the cubic equation \eqref{eq:cubic_T}. We rewrite it in the standard form:
+\[ T^3 + p T^2 + q T + r = 0
+\]
+where
+\[ p = A C D \left(1- B- \frac{1}{C D} \right), \quad
+q = A C D \left(2 B -1 \right), \quad
+r = -A B C D
+\]
+We perform the change of variable $T = x - p/3$ to eliminate the quadratic term and obtain the depressed cubic equation:
+\[
+x^3 + \mathcal{A} x + \mathcal{B} = 0
+\]
+where
+\[
+\mathcal{A} = q - \frac{p^2}{3}, \quad \mathcal{B} = \frac{2 p^3}{27} - \frac{p q}{3} + r
+\]
+The discriminant of this equation is given by:
+\[
+\Delta = \left(\frac{\mathcal{B}}{2}\right)^2 + \left(\frac{\mathcal{A}}{3}\right)^3
+\]
+
+The nature of the roots depends on the sign of the discriminant $\Delta$:
+\begin{itemize}
+\item If $\Delta > 0$, there is one real root and two complex conjugate roots.
+\item If $\Delta = 0$, all roots are real and at least two are equal.
+\item If $\Delta < 0$, all roots are real and unequal.
+\end{itemize}
+Hence we can characterize the case when we have three distinct real roots by the condition $\Delta < 0$, which is equivalent to:
+\[ \left(\frac{\mathcal{A}}{3}\right)^3 < - \left(\frac{\mathcal{B}}{2}\right)^2
+\]
+This condition can be rewritten in terms of the original parameters  using computer algebra as follows:
+to be done
+The real roots can be found using Cardano's formulas. If $\Delta \geq 0$, the real root is given by:
+\[
+x = \sqrt[3]{-\frac{\mathcal{B}}{2} + \sqrt{\Delta}} + \sqrt[3]{-\frac{\mathcal{B}}{2} - \sqrt{\Delta}}
+\]
+If $\Delta < 0$, the three real roots are given by:
+\[
+x_k = 2 \sqrt{-\frac{\mathcal{A}}{3}} \cos\left(\frac{1}{3} \arccos\left(\frac{3 \mathcal{B}}{2 \mathcal{A}} \sqrt{-\frac{3}{\mathcal{A}}}\right) - \frac{2 k \pi}{3}\right), \quad k = 0, 1, 2
+\]
+\par\noindent Finally, we can recover the roots $T^*$ of the original cubic equation using the relation $T^* = x + p/3$.            
 \subsection{Stability analysis}
 \emph{Stability analysis} of the equilibria point $ (S^*, N^*, M^*, T^*)$ is done by linearizing the system around this point.
 The Jacobian matrix of the system is given by:
