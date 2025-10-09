@@ -27,7 +27,7 @@
 \affil[1]{IRMB, UMR1183, Université de Montpellier and INSERM, France}
 \affil[2]{IMAG, UMR5149, Université de Montpellier, France}
 \affil[3]{L2C, UMR5221, Université de Montpellier, France}
-  
+\newtheorem{rem}{Remark}[section] 
 \begin{document}
 
 \maketitle 
@@ -236,7 +236,12 @@ Denoting these dimensionless parameters by $A = a/b$, $B = \beta/\gamma$, $C = \
 \begin{equation}    
 \left(T^*\right)^3 +  A C D \left(1- B- \frac{1}{C D} \right) (T^*)^2 + A C D \left(2 B -1 \right) T^* - A B C D = 0
 \label{eq:cubic_T}
-\end{equation}  
+\end{equation} 
+\begin{rem}
+There is an obvious solution in the particular case $A = a/b = 1$, namely $T^* = 1$. This solution corresponds to the disease-free equilibrium point $S^* = 0, N^* = 1, M^* = 1, T^* = 1$.  
+But this solution is not relevant for the case $S^* \neq 0$ that we are considering here.
+\end{rem}
+
 From basic algebra, we can show that there are at most 3 such intersection points, hence at most 3 equilibria points with $S^* \neq 0$. 
 We can be more precise because the biological feasibility imposes the roots to be real nonnegative numbers.
 Since $ABCD > 0$,  there is at least one positive root. 
@@ -299,10 +304,10 @@ This condition can be rewritten in terms of the original parameters  using compu
 \left(\frac{\mathcal{A}}{3}\right)^3 < - \left(\frac{\mathcal{B}}{2}\right)^2
 \] where 
 \[
-\mathcal{A}=A \left(-A (C D (B - 1) + 1)^2 + 3 C D (2 B - 1)\right)/3
+\mathcal{A}=A \Big(-A (C D (B - 1) + 1)^2 + 3 C D (2 B - 1)\Big)/3
 \]
 \[
-\mathcal{B}= A \left(-2 A^2 (C D (B - 1) + 1)^3 + 9 A C D (2 B - 1)(C D (B - 1) + 1) - 27 B C D\right)/27
+\mathcal{B}= A \Big(-2 A^2 (C D (B - 1) + 1)^3 + 9 A C D (2 B - 1)(C D (B - 1) + 1) - 27 B C D\Big)/27
 \]
 \[
 \Delta = \frac{A^2}{2916} \Bigg(
@@ -324,7 +329,7 @@ If $\Delta < 0$, the three real roots are given by:
 x_k = 2 \sqrt{-\frac{\mathcal{A}}{3}} \cos\left(\frac{1}{3} \arccos\left(\frac{3 \mathcal{B}}{2 \mathcal{A}} \sqrt{-\frac{3}{\mathcal{A}}}\right) - \frac{2 k \pi}{3}\right), \quad k = 0, 1, 2
 \]
 Here we plot a case with three distinct positive roots (see Figure \ref{fig:three_roots}).
-Namely we take $A = 1$, $B = 7$, $C = 1.1$, and $D = 1.1$.
+Namely we take $A = 0.9$, $B = 7$, $C = 1.1$, and $D = 1.1$.
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.6\textwidth]{three_roots.png}
