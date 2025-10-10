@@ -232,7 +232,7 @@ Rewriting this equation in the standard unitary form $(T^*)^3 + p (T^*)^2 + q T^
 \left(T^*\right)^3 + \frac{\alpha}{\gamma} \frac{\delta_M}{\delta_N} \frac{a}{b} \left(1- \frac{\beta}{\gamma} - \frac{\gamma}{\alpha} \frac{\delta_N}{\delta_M}\right) (T^*)^2 + \frac{\alpha}{\gamma} \frac{\delta_M}{\delta_N} \frac{a}{b} \left(2\frac{\beta}{\gamma} -1 \right) T^* - \frac{\alpha}{\gamma} \frac{\delta_M}{\delta_N} \frac{a}{b} \frac{\beta}{\gamma} = 0
 \end{equation}
 Notice that the coefficients of this cubic equation depend only on the 4 \emph{non dimensional} parameters $a/b$, $\alpha/\beta$, $\gamma/\alpha$, and $\delta_N/\delta_M$.
-Denoting these dimensionless parameters by $A = a/b$, $B = \beta/\gamma$, $C = \alpha/\gamma$, and $D = \delta_M/\delta_N$, we can rewrite the cubic equation as follows:
+We choose the following dimensionless parameters by $A = a/b$, $B = \beta/\gamma$, $C = \alpha/\gamma$, and $D = \delta_M/\delta_N$, we can rewrite the cubic equation as follows:
 \begin{equation}    
 \left(T^*\right)^3 +  A C D \left(1- B- \frac{1}{C D} \right) (T^*)^2 + A C D \left(2 B -1 \right) T^* - A B C D = 0
 \label{eq:cubic_T}
@@ -336,6 +336,11 @@ Namely we take $A = 0.9$, $B = 7$, $C = 1.1$, and $D = 1.1$.
     \caption{Cubic equation with three distinct real roots.}
     \label{fig:three_roots}
 \end{figure}
+\begin{rem}
+    there is an interesting phenomenon of potential \emph{bifurcation} when the parameters vary and the number of equilibria points changes. This is a topic for further study.
+In particular, when the equilibrium point with $S^* \neq 0$  when $S^* \ll 1$ is close to the disease-free equilibrium point $S^* = 0, N^* = 1, M^* = 1, T^* = 1$, we can perform a local stability analysis using perturbation methods.
+We should analyze this with the tool of catastrophe theory.
+\end{rem}
 \par\noindent Finally, we can recover the roots $T^*$ of the original cubic equation using the relation $T^* = x + p/3$.            
 \subsection{Stability analysis}
 \emph{Stability analysis} of the equilibria point $ (S^*, N^*, M^*, T^*)$ is done by linearizing the system around this point.
