@@ -126,9 +126,9 @@ To make things easier to undestand, we summarize the model in the following diag
 This gives the following equilibria points.
 A first natural equilibrium point is given by $S^* = 0, N^* = 1, M^* = 1, T^* = 1$. This point corresponds to the disease-free state, where there is no inflammation ($S^* = 0$) and the populations of neutrophils, Momac, and SL-TRM are at their baseline    levels ($N^* = 1, M^* = 1, T^* = 1$).
 There are other equilibria points with $S^* = 0$  namely
-$S^* = 0, N^* = 0, M^* = 0, T^* = t$, with arbitrary $t$;
+$S^* = 0, N^* = 0, M^* = 0, T^* = R$, with arbitrary $R$;
  $S^* = 0, N^* = 0, M^* = 1, T^* = 1$;
- $S^* = 0, N^* = 1, M^* = 0, T^* = t$, with arbitrary $t$.
+ $S^* = 0, N^* = 1, M^* = 0, T^* = R$, with arbitrary $R$.
 
 
 For equilibria points with $S^* \neq 0$, from equation \eqref{eq:equilibrium_S} we have $a N^* - b T^* = 0$, hence 
@@ -362,17 +362,17 @@ a - b & 0 & 0 & 0 \\
 We notice immediately that the eigenvalues of this matrix are  $a-b$, $-\delta_N$ and $-\delta_M$. The last two are negative since $\delta_N, \delta_M > 0$. The remaining eigenvalue  is $a-b$. Thus the disease-free equilibrium is stable if $a < b$ and unstable if $a > b$. 
 This means that if the inflammatory effect of Neutrophiles cells controlled by paramater $a$ is less than the curing effect of the  SL-TRM macrophages controlled by parameter $b$, the system will return to the disease-free state. Conversely, if $a > b$, the system may move away from this equilibrium, potentially leading to a chronic inflammatory state.
 The stability of other equilibria points can be analyzed similarly by evaluating the Jacobian matrix at those points and determining the eigenvalues.
-\par\noindent For $S^* = 0, N^* = 0, M^* = 0, T^* = t$, with arbitrary $t$, the Jacobian matrix becomes:
+\par\noindent For $S^* = 0, N^* = 0, M^* = 0, T^* = R$, with arbitrary $R$, the Jacobian matrix becomes:
 \[
-J|_{(S^*, N^*, M^*, T^*) = (0, 0, 0, t)} =
+J|_{(S^*, N^*, M^*, T^*) = (0, 0, 0, R)} =
 \begin{pmatrix}
-- b t & 0 & 0 & 0 \\
+- b R & 0 & 0 & 0 \\
 0 & \delta_N & 0 & 0 \\
 \beta & 0 & \delta_M & 0 \\
--\gamma t & 0 & \delta_M (1 - t) & 0
+-\gamma R & 0 & \delta_M (1 - R) & 0
 \end{pmatrix}
 \]
-The eigenvalues of this matrix are $-b t$, $\delta_N$, $\delta_M$, and $0$. Since $\delta_N$ and $\delta_M$ are positive, this equilibrium point is unstable. Even if the immune signal will decrease exponentially fast, the populations of neutrophiles and momac will grow out of bound. This unstable equilibrium will not be observed in practice.
+The eigenvalues of this matrix are $-b R$, $\delta_N$, $\delta_M$, and $0$. Since $\delta_N$ and $\delta_M$ are positive, this equilibrium point is unstable. Even if the immune signal will decrease exponentially fast, the populations of neutrophiles and momac will grow out of bound. This unstable equilibrium will not be observed in practice.
 \par\noindent For $S^* = 0, N^* = 0, M^* = 1, T^* = 1$, the Jacobian matrix is:
 \[
 J|_{(S^*, N^*, M^*, T^*) = (0, 0, 1, 1)} =
@@ -384,14 +384,14 @@ J|_{(S^*, N^*, M^*, T^*) = (0, 0, 1, 1)} =
 \end{pmatrix}
 \]
 The eigenvalues of this matrix are $-b$, $\delta_N$, $-\delta_M$, and $-\gamma$. Since there is a positive eigenvalue , this equilibrium point is unstable. Neutrophiles can grow out of bound. This equilibrium will not be observed in practice neither.
-\par\noindent For $S^* = 0, N^* = 1, M^* = 0, T^* = t$, with arbitrary $t$, the Jacobian matrix is
+\par\noindent For $S^* = 0, N^* = 1, M^* = 0, T^* = R$, with arbitrary $R$, the Jacobian matrix is
 \[
-J|_{(S^*, N^*, M^*, T^*) = (0, 1, 0, t)} =
+J|_{(S^*, N^*, M^*, T^*) = (0, 1, 0, R)} =
 \begin{pmatrix}
-- b t & 0 & 0 & 0 \\
+a - b R & 0 & 0 & 0 \\
 \alpha & -\delta_N & 0 & 0 \\
 \beta & 0 & \delta_M & 0 \\
--\gamma t & 0 & \delta_M (1 - t) & 0
+-\gamma R & 0 & \delta_M (1 - R) & 0
 \end{pmatrix}
 \]
 There is a positive eigenvalue $\delta_M$, hence this equilibrium point is unstable. Momac can grow out of bound. This equilibrium will not be observed in practice neither.
