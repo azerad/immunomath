@@ -183,7 +183,7 @@ M^*= -\frac{\gamma \delta_N}{\alpha \delta_M}  (N^* + b/a -1) + \frac{(b/a)^{2}(
 From this expression, we see that the hyperbola has a vertical asymptote at $N^* = b/a$ and an oblique asymptote $M^* = -\frac{\gamma \delta_N}{\alpha \delta_M} (N^*+ b/a - 1)$.
 The parabola  \eqref{eq:N_in_terms_of_M} is horizontal in the $N,M$ plane, has its apex at  $N_{min} = 1 - \frac{\alpha \,\delta_M}{4 \beta \,\delta_N}$ and $M=1/2$ and is symmetric with respect to the horizontal line $M = 1/2$ and opens eastwards.
 We plot some typical cases in the following figure.
-Notice that we need only 4 \emph{non dimensional} parameters $a/b$, $\alpha/\beta$, $\gamma/\alpha$, and $\delta_N/\delta_M$ instead of the 7 original parameters.
+Notice that we need only 3 \emph{non dimensional} parameters $a/b$, $\alpha/\beta$, $\displaystyle{\frac{\gamma \delta_N}{\alpha \delta_M}}$ instead of the 7 original parameters.
 
 \begin{figure}[htbp]
     \centering
@@ -232,9 +232,17 @@ Rewriting this equation in the standard unitary form $(T^*)^3 + p (T^*)^2 + q T^
 \left(T^*\right)^3 + \frac{\alpha}{\gamma} \frac{\delta_M}{\delta_N} \frac{a}{b} \left(1- \frac{\beta}{\gamma} - \frac{\gamma}{\alpha} \frac{\delta_N}{\delta_M}\right) (T^*)^2 + \frac{\alpha}{\gamma} \frac{\delta_M}{\delta_N} \frac{a}{b} \left(2\frac{\beta}{\gamma} -1 \right) T^* - \frac{\alpha}{\gamma} \frac{\delta_M}{\delta_N} \frac{a}{b} \frac{\beta}{\gamma} = 0
 \end{equation}
 Notice that the coefficients of this cubic equation depend only on the 3 \emph{non dimensional} parameters $a/b$, $\beta/\gamma$, and $\displaystyle{\frac{\alpha\,\delta_M}{\gamma \,\delta_N}}$.
-We choose the following dimensionless parameters by $A = a/b$, $B = \beta/\gamma$, and $C = \displaystyle{\frac{\alpha\,\delta_M}{\gamma \,\delta_N}}$. We can rewrite the cubic equation as follows:
+We choose the following dimensionless parameters: $A = a/b$, $B = \beta/\gamma$, and $C = \displaystyle{\frac{\gamma \,\delta_N}{\alpha\,\delta_M}}$. We can rewrite the cubic equation as follows:
+\begin{rem}
+The parameters $A$, $B$, and $C$ have the following biological interpretations:
+\begin{itemize}
+    \item $A = a/b$: This parameter represents the ratio of the inflammatory effect of the neutrophils w.r.t. the anti-inflammatory effect of the macrophages.
+    \item $B = \beta/\gamma$: This parameter represents the ratio of the increasing rate of the Momac to the decreasing rate of the macrophage.
+    \item $C = \frac{\gamma \,\delta_N}{\alpha\,\delta_M} = \frac{\gamma}{\alpha} : \frac{\delta_M}{\delta_N}$: This parameter represents the ratio of the macrophages vs the neutrophiles effects in the disease progression.
+\end{itemize}   
+\end{rem}
 \begin{equation}    
-\left(T^*\right)^3 +  A C  \left(1- B- \frac{1}{C} \right) (T^*)^2 + A C \left(2 B -1 \right) T^* - A B C = 0
+\left(T^*\right)^3 +  \frac{A}{C}  \left(1- B- C \right) (T^*)^2 + \frac{A}{C} \left(2 B -1 \right) T^* - \frac{A B}{C} = 0
 \label{eq:cubic_T}
 \end{equation} 
 \begin{rem}
@@ -244,18 +252,18 @@ But this solution is not relevant for the case $S^* \neq 0$ that we are consider
 
 From basic algebra, we can show that there are at most 3 such intersection points, hence at most 3 equilibria points with $S^* \neq 0$. 
 We can be more precise because the biological feasibility imposes the roots to be real nonnegative numbers.
-Since $ABCD > 0$,  there is at least one positive root. 
+Since $\frac{AB}{C} > 0$,  there is at least one positive root. 
 But we can be more precise using 
 \emph{Descartes' rule of signs}. It states that the number of positive real roots of a polynomial (counting multiplicities) is equal to the number of sign changes between consecutive nonzero coefficients, or less than that by an even number. 
 In our case, the coefficients of the cubic polynomial in \eqref{eq:cubic_T} are:
-\[1, \quad A C \left(1- B- \frac{1}{C} \right), \quad A C \left(2 B -1 \right), \quad - A B C   \]  
+\[1, \quad \frac{A}{C} \left(1- B- C \right), \quad \frac{A}{C} \left(2 B -1 \right), \quad - \frac{A B}{C}   \]  
 So the number of sign changes depends on the signs of the second and third coefficients.
 We have the following cases:
 \begin{itemize}
-\item If $ B +\frac{1}{C} > 1$ and $B > 1/2$, then there are 3 sign changes and the cubic has one or three positive roots.
-\item If $B +\frac{1}{C}  < 1$ and $B > 1/2 $, then there is one sign change and the cubic has only one positive roots.
-\item If $B +\frac{1}{C}  < 1$ and $B < 1/2$, then there is one sign changes and the cubic has only one positive root.
-\item If $B +\frac{1}{C}  > 1$ and $B < 1/2$, then there is one sign change and the cubic has only one positive root.
+\item If $ B +C > 1$ and $B > 1/2$, then there are 3 sign changes and the cubic has one or three positive roots.
+\item If $B +C  < 1$ and $B > 1/2 $, then there is one sign change and the cubic has only one positive roots.
+\item If $B +C  < 1$ and $B < 1/2$, then there is one sign changes and the cubic has only one positive root.
+\item If $B +C  > 1$ and $B < 1/2$, then there is one sign change and the cubic has only one positive root.
 \end{itemize}
 \bigskip
 We can plot some typical cases in the following figure (see Figure \ref{fig:cubics}).
@@ -273,9 +281,9 @@ We can plot some typical cases in the following figure (see Figure \ref{fig:cubi
 \[ T^3 + p T^2 + q T + r = 0
 \]
 where
-\[ p = A C \left(1- B- \frac{1}{C} \right), \quad
-q = A C \left(2 B -1 \right), \quad
-r = -A B C
+\[ p = \frac{A}{C} \left(1- B- C \right), \quad
+q = \frac{A}{C} \left(2 B -1 \right), \quad
+r = -\frac{A B}{C}
 \]
 We perform the change of variable $T = x - p/3$ to eliminate the quadratic term and obtain the depressed cubic equation:
 \[
@@ -307,14 +315,14 @@ This condition can be rewritten in terms of the original parameters  using compu
 \mathcal{A}=A \Big(-A (C (B - 1) + 1)^2 + 3 C (2 B - 1)\Big)/3
 \]
 \[
-\mathcal{B}= A \Big(-2 A^2 (C (B - 1) + 1)^3 + 9 A C (2 B - 1)(C (B - 1) + 1) - 27 B C\Big)/27
+\mathcal{B}= A \Big(-2 A^2 (C (B - 1) + 1)^3 + 9 \frac{A}{C} (2 B - 1)(C (B - 1) + 1) - 27 B C\Big)/27
 \]
 \[
 \Delta = \frac{A^2}{2916} \Bigg(
     -4 A \left[A(C (B - 1) + 1)^2 - 3 C (2 B - 1)\right]^3 
 \]
 \[
-    + \left[2 A^2 (C (B - 1) + 1)^3 - 9 A C (2 B - 1)(C (B - 1) + 1) + 27 B C\right]^2
+    + \left[2 A^2 (C (B - 1) + 1)^3 - 9 \frac{A}{C} (2 B - 1)(C (B - 1) + 1) + 27 B C\right]^2
 \Bigg)
 \]
 
