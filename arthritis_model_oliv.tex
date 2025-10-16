@@ -231,16 +231,17 @@ Rewriting this equation in the standard unitary form $(T^*)^3 + p (T^*)^2 + q T^
 \begin{equation}
 \left(T^*\right)^3 + \frac{\alpha}{\gamma} \frac{\delta_M}{\delta_N} \frac{a}{b} \left(1- \frac{\beta}{\gamma} - \frac{\gamma}{\alpha} \frac{\delta_N}{\delta_M}\right) (T^*)^2 + \frac{\alpha}{\gamma} \frac{\delta_M}{\delta_N} \frac{a}{b} \left(2\frac{\beta}{\gamma} -1 \right) T^* - \frac{\alpha}{\gamma} \frac{\delta_M}{\delta_N} \frac{a}{b} \frac{\beta}{\gamma} = 0
 \end{equation}
-Notice that the coefficients of this cubic equation depend only on the 3 \emph{non dimensional} parameters $a/b$, $\beta/\gamma$, and $\displaystyle{\frac{\alpha\,\delta_M}{\gamma \,\delta_N}}$.
-We choose the following dimensionless parameters: $A = a/b$, $B = \beta/\gamma$, and $C = \displaystyle{\frac{\gamma \,\delta_N}{\alpha\,\delta_M}}$. We can rewrite the cubic equation as follows:
+Notice that the coefficients of this cubic equation depend only on the 3 \emph{non dimensional} parameters $a/b$, $\beta/\gamma$, and $\displaystyle{\frac{\gamma \,\delta_N}{\alpha\,\delta_M}}$.
+We choose the following dimensionless parameters: $A = a/b$, $B = \beta/\gamma$, and $C = \displaystyle{\frac{\gamma \,\delta_N}{\alpha\,\delta_M}}$.
 \begin{rem}
 The parameters $A$, $B$, and $C$ have the following biological interpretations:
 \begin{itemize}
-    \item $A = a/b$: This parameter represents the ratio of the inflammatory effect of the neutrophils w.r.t. the anti-inflammatory effect of the macrophages.
-    \item $B = \beta/\gamma$: This parameter represents the ratio of the increasing rate of the Momac to the decreasing rate of the macrophage.
-    \item $C = \frac{\gamma \,\delta_N}{\alpha\,\delta_M} = \frac{\gamma}{\alpha} : \frac{\delta_M}{\delta_N}$: This parameter represents the ratio of the macrophages vs the neutrophiles effects in the disease progression.
+    \item $A = a/b$. This parameter represents the ratio of the inflammatory effect of the neutrophils w.r.t. the anti-inflammatory effect of the macrophages.
+    \item $B = \beta/\gamma$. This parameter represents the ratio of the increasing rate of the Momac to the decreasing rate of the macrophage.
+    \item $C = \frac{\gamma \,\delta_N}{\alpha\,\delta_M} = \left[\frac{\gamma}{\delta_M} : \frac{\alpha}{\delta_N}\right]$. This parameter represents the ratio of the macrophages vs the neutrophiles effects in the disease progression.
 \end{itemize}   
 \end{rem}
+Using these parameters, the cubic equation in $T^*$ becomes:
 \begin{equation}    
 \left(T^*\right)^3 +  \frac{A}{C}  \left(1- B- C \right) (T^*)^2 + \frac{A}{C} \left(2 B -1 \right) T^* - \frac{A B}{C} = 0
 \label{eq:cubic_T}
@@ -313,19 +314,15 @@ This condition can be rewritten in terms of the original parameters  using compu
 \left(\frac{\mathcal{A}}{3}\right)^3 < - \left(\frac{\mathcal{B}}{2}\right)^2
 \] where 
 \[
-\mathcal{A}=A \Big(-A (C (B - 1) + 1)^2 + 3 C (2 B - 1)\Big)/3
+\mathcal{A}=\frac{A}{ 3 C^2} \Big(-A (B + C - 1)^2 + 3 C(2B - 1)\Big)
 \]
 \[
-\mathcal{B}= A \Big(-2 A^2 (C (B - 1) + 1)^3 + 9 \frac{A}{C} (2 B - 1)(C (B - 1) + 1) - 27 B C\Big)/27
+\mathcal{B}= \frac{A} {27 C^3} \Big(-2A^2 (B + C - 1)^3 + 9 A C (2 B - 1)(B + C - 1) - 27 B C^2\Big)
 \]
 \[
-\Delta = \frac{A^2}{2916} \Bigg(
-    -4 A \left[A(C (B - 1) + 1)^2 - 3 C (2 B - 1)\right]^3 
+\Delta = \frac{A^2} {2916 C^6} \Bigg(-4 A (A (B + C - 1)^2 - 3 C (2 B - 1))^3 + (2 A^2 (B + C - 1)^3 - 9 A C (2 B - 1) (B + C - 1) + 27 B C^2)^2\Bigg)
 \]
-\[
-    + \left[2 A^2 (C (B - 1) + 1)^3 - 9 \frac{A}{C} (2 B - 1)(C (B - 1) + 1) + 27 B C\right]^2
-\Bigg)
-\]
+\par\noindent
 
 
 
@@ -338,7 +335,7 @@ If $\Delta < 0$, the three real roots are given by:
 x_k = 2 \sqrt{-\frac{\mathcal{A}}{3}} \cos\left(\frac{1}{3} \arccos\left(\frac{3 \mathcal{B}}{2 \mathcal{A}} \sqrt{-\frac{3}{\mathcal{A}}}\right) + \frac{2 k \pi}{3}\right), \quad k = 0, 1, 2
 \]
 Here we plot a case with three distinct positive roots (see Figure \ref{fig:three_roots}).
-Namely we take $A = 0.9$, $B = 7$, $C = 1.1$, and $D = 1.1$.
+Namely we take $A = 0.9$, $B = 7$ and $C = 1.1$.
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.6\textwidth]{three_roots.png}
