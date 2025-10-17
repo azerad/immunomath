@@ -231,8 +231,7 @@ Rewriting this equation in the standard unitary form $(T^*)^3 + p (T^*)^2 + q T^
 \begin{equation}
 \left(T^*\right)^3 + \frac{\alpha}{\gamma} \frac{\delta_M}{\delta_N} \frac{a}{b} \left(1- \frac{\beta}{\gamma} - \frac{\gamma}{\alpha} \frac{\delta_N}{\delta_M}\right) (T^*)^2 + \frac{\alpha}{\gamma} \frac{\delta_M}{\delta_N} \frac{a}{b} \left(2\frac{\beta}{\gamma} -1 \right) T^* - \frac{\alpha}{\gamma} \frac{\delta_M}{\delta_N} \frac{a}{b} \frac{\beta}{\gamma} = 0
 \end{equation}
-Notice that the coefficients of this cubic equation depend only on the 3 \emph{non dimensional} parameters $a/b$, $\beta/\gamma$, and $\displaystyle{\frac{\gamma \,\delta_N}{\alpha\,\delta_M}}$.
-We choose the following dimensionless parameters: $A = a/b$, $B = \beta/\gamma$, and $C = \displaystyle{\frac{\gamma \,\delta_N}{\alpha\,\delta_M}}$.
+Notice that the coefficients of this cubic equation depend only on the 3 \emph{non dimensional} parameters $A=a/b$, $B=\beta/\gamma$, and $C=\displaystyle{\frac{\gamma \,\delta_N}{\alpha\,\delta_M}}$.
 \begin{rem}
 The parameters $A$, $B$, and $C$ have the following biological interpretations:
 \begin{itemize}
@@ -254,7 +253,7 @@ But this solution is not relevant for the case $S^* \neq 0$ that we are consider
 Note further that if  $T^* = 1$  then  from Eq. \eqref{eq:cubic_T} we get
 \[ 1 +  \frac{A}{C}  \left(1- B- C \right) + \frac{A}{C} \left(2 B -1 \right) - \frac{A B}{C} = 0
 \]
-so that $A = 1$.
+so that $A = 1$ and we recover the previous remark.
 
 \end{rem}
 
@@ -432,7 +431,7 @@ $\alpha=1, \beta=1, \gamma=1,
 The Python Jupyter notebook used to perform the simulations is available at \url{https://github.com/azerad/immunomath}.
 
 \subsection{Bifurcation analysis}
-We perform a bifurcation analysis with respect to the \emph{non dimensional} parameters $a/b$, $\alpha/\beta$, $\gamma/\alpha$, and $\delta_N/\delta_M$. We vary $a$ in the interval $[0,1]$ and $b$ in the interval $[0.1,2]$. For each pair $(a,b)$, we simulate the system for 20 days and we record the value of $S$ at the final time. The results are shown in the following heatmap.
+We perform a bifurcation analysis with respect to the \emph{non dimensional} parameters $A=a/b$, $B=\alpha/\beta$, $C=\gamma \delta_M/\alpha\delta_M$. We vary $A, B, C$ in the interval $[0.1,2]$. For each triple $(A,B,C)$, we simulate the system for 20 days and we record the value of $S,N,M,T$ at the final time. The results are shown in the following heatmap.
 
 \section*{Acknowledgments}
 This work was supported by the IMMUN4CURE project of IHU Montpellier.
