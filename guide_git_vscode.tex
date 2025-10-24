@@ -1,0 +1,174 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\usepackage{enumitem}
+\usepackage{fontawesome5}
+\usepackage{graphicx}
+
+\definecolor{vscodeblue}{RGB}{0,122,204}
+\definecolor{gitgreen}{RGB}{40,167,69}
+\definecolor{commandbg}{RGB}{245,245,245}
+
+\title{\textbf{Guide de Synchronisation Git avec VS Code}\\
+\large Projet immunomath}
+\author{Équipe IMMUN4CURE}
+\date{Octobre 2025}
+
+\begin{document}
+
+\maketitle
+
+\section*{Introduction}
+
+Ce guide explique comment synchroniser votre branche locale \texttt{main} avec le dépôt GitHub du projet \textbf{immunomath} en utilisant Visual Studio Code.
+
+\vspace{0.5cm}
+
+\begin{tcolorbox}[colback=vscodeblue!5,colframe=vscodeblue,title={\faInfoCircle\ Objectif}]
+Récupérer les dernières modifications du projet depuis GitHub pour travailler sur la version la plus récente du code.
+\end{tcolorbox}
+
+\section{Méthode 1 : Interface Graphique VS Code \faMousePointer}
+
+\subsection*{Étape 1 : Vérifier/Changer de branche}
+
+\begin{enumerate}[leftmargin=2cm]
+    \item Regardez en \textbf{bas à gauche} de la fenêtre VS Code
+    \item Vous verrez le nom de la branche actuelle (ex: \texttt{main}, \texttt{feature/xyz})
+    \item Cliquez sur ce nom de branche
+    \item Dans le menu déroulant qui apparaît, sélectionnez \texttt{\textbf{main}}
+\end{enumerate}
+
+\begin{tcolorbox}[colback=commandbg,colframe=gray,leftrule=3mm]
+\faLightbulb\ \textbf{Astuce :} Cette action équivaut à la commande \texttt{git checkout main}
+\end{tcolorbox}
+
+\subsection*{Étape 2 : Synchroniser avec GitHub}
+
+Vous avez \textbf{deux options} :
+
+\subsubsection*{Option A : Bouton de synchronisation (recommandé)}
+
+\begin{enumerate}[leftmargin=2cm]
+    \item Cherchez l'icône de \textbf{synchronisation} \faSync\ dans la barre d'état (en bas de VS Code)
+    \item OU cherchez les flèches circulaires en haut à droite de l'onglet Source Control
+    \item Cliquez sur cette icône
+    \item VS Code va automatiquement :
+    \begin{itemize}
+        \item[\faDownload] Télécharger les modifications distantes
+        \item[\faMagic] Fusionner les changements avec votre version locale
+        \item[\faUpload] Pousser vos modifications locales (si nécessaire)
+    \end{itemize}
+\end{enumerate}
+
+\subsubsection*{Option B : Menu Palette de commandes}
+
+\begin{enumerate}[leftmargin=2cm]
+    \item Appuyez sur \texttt{\textbf{Ctrl+Shift+P}} (Windows/Linux) ou \texttt{\textbf{Cmd+Shift+P}} (Mac)
+    \item Tapez : \texttt{Git: Pull}
+    \item Appuyez sur \texttt{Entrée}
+\end{enumerate}
+
+\vspace{0.5cm}
+
+\begin{tcolorbox}[colback=gitgreen!10,colframe=gitgreen,title={\faCheckCircle\ Confirmation}]
+Un message apparaîtra en bas à droite confirmant la synchronisation réussie.
+\end{tcolorbox}
+
+\newpage
+
+\section{Méthode 2 : Terminal Intégré \faTerminal}
+
+Si vous préférez utiliser les commandes Git directement :
+
+\subsection*{Étape 1 : Ouvrir le terminal}
+
+\begin{enumerate}[leftmargin=2cm]
+    \item Appuyez sur \texttt{\textbf{Ctrl+`}} (touche accent grave sous Échap)
+    \item OU Menu \fabars\ $\rightarrow$ Terminal $\rightarrow$ Nouveau terminal
+\end{enumerate}
+
+\subsection*{Étape 2 : Exécuter les commandes}
+
+Tapez les commandes suivantes dans le terminal :
+
+\begin{tcolorbox}[colback=black,colframe=black,colupper=white,fontupper=\ttfamily]
+\$ git checkout main\\
+\$ git pull origin main
+\end{tcolorbox}
+
+\vspace{0.3cm}
+
+\textbf{Explication :}
+\begin{itemize}
+    \item \texttt{git checkout main} : Bascule sur la branche principale
+    \item \texttt{git pull origin main} : Récupère et fusionne les modifications de GitHub
+\end{itemize}
+
+\section{Gestion des Conflits \faExclamationTriangle}
+
+Si des conflits apparaissent (vous et un collaborateur avez modifié les mêmes lignes) :
+
+\begin{enumerate}[leftmargin=2cm]
+    \item VS Code ouvrira automatiquement l'éditeur de conflits
+    \item Vous verrez des sections marquées :
+    \begin{itemize}
+        \item \textcolor{blue}{\texttt{<<<<<<< HEAD}} : Vos modifications locales
+        \item \textcolor{red}{\texttt{=======}} : Séparateur
+        \item \textcolor{green}{\texttt{>>>>>>> origin/main}} : Modifications distantes
+    \end{itemize}
+    \item Utilisez les boutons au-dessus du conflit :
+    \begin{itemize}
+        \item \texttt{Accept Current Change} : Garder vos modifications
+        \item \texttt{Accept Incoming Change} : Garder les modifications de GitHub
+        \item \texttt{Accept Both Changes} : Garder les deux
+        \item \texttt{Compare Changes} : Voir les différences côte à côte
+    \end{itemize}
+    \item Sauvegardez le fichier après résolution
+    \item Validez la fusion via l'interface Source Control
+\end{enumerate}
+
+\section{Bonnes Pratiques \faCheckDouble}
+
+\begin{enumerate}
+    \item \textbf{Synchronisez régulièrement} : Au début de chaque session de travail
+    \item \textbf{Commitez vos changements} avant de synchroniser pour éviter les pertes
+    \item \textbf{Vérifiez la branche active} avant de commencer à travailler
+    \item \textbf{Communiquez} avec l'équipe sur les fichiers modifiés pour éviter les conflits
+\end{enumerate}
+
+\section{Aide Rapide \faQuestionCircle}
+
+\begin{center}
+\begin{tabular}{|p{6cm}|p{8cm}|}
+\hline
+\textbf{Problème} & \textbf{Solution} \\
+\hline
+Je ne vois pas l'icône de synchronisation & Vérifiez que vous êtes dans un dépôt Git. Ouvrez le panneau Source Control (Ctrl+Shift+G) \\
+\hline
+Message d'erreur lors du pull & Assurez-vous d'avoir committé ou mis de côté vos modifications locales \\
+\hline
+Conflit de fusion & Suivez les instructions de la Section 3 pour résoudre les conflits \\
+\hline
+Branche main introuvable & Vérifiez le nom exact de la branche (peut être \texttt{master} sur certains dépôts) \\
+\hline
+\end{tabular}
+\end{center}
+
+\vspace{1cm}
+
+\begin{tcolorbox}[colback=yellow!10,colframe=orange,title={\faPhone\ Contact}]
+Pour toute question ou problème, n'hésitez pas à contacter l'équipe technique du projet IMMUN4CURE.
+\end{tcolorbox}
+
+\vspace{0.5cm}
+
+\begin{center}
+\textit{Dépôt GitHub : } \url{https://github.com/azerad/immunomath}
+\end{center}
+
+\end{document}
