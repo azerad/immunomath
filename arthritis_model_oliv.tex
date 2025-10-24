@@ -257,12 +257,15 @@ so that $A = 1$ and we recover the previous remark.
 \end{rem}
 \begin{rem}
     Conversely if $A=1$, then $T^* = 1$ is a root of the cubic equation \eqref{eq:cubic_T}. We can factor the cubic polynomial as follows:
-    \[(T^* - 1) \left( (T^*)^2 + \frac{1}{C} (1 - B)    T^* + \frac{B}{C} \right) = 0
-    \]
+    \begin{equation}
+    (T^* - 1) \left( (T^*)^2 + \frac{1}{C} (B - 1) T^* + \frac{B}{C} \right) = 0
+    \label{eq:factored_cubic}
+    \end{equation}
     \begin{itemize}
         \item If $B \leq 1$, then the coefficients of the quadratic factor are positive, hence there are no other positive roots.
         \item If $B > 1$, the quadratic factor has  either two positive roots (if the discriminant is positive) or no real roots (if the discriminant is negative).
-    The quadratic factor has discriminant $\Delta = \frac{1}{C^2} (B^2 - 2 B - 4 B C + 1)$.
+    The quadratic factor has discriminant 
+    $\Delta = \frac{(B-1)^2 - 4 B C }{C^2}$.
     Thus, we have:
     \begin{itemize}
         \item If $\Delta > 0$, there are two distinct real roots given by:
@@ -270,7 +273,7 @@ so that $A = 1$ and we recover the previous remark.
         T^* = \frac{\frac{(B-1)}{C}  \pm \sqrt{\Delta}}{2}
         \]
         Both roots are positive if $B > 1$
-        \item If $\Delta = 0$, there is one positive root given by:
+        \item If $\Delta = 0$, there is one (double) positive root given by:
         \[
         T^*  = \frac{B - 1}{2 C}
         \]
@@ -278,7 +281,18 @@ so that $A = 1$ and we recover the previous remark.
     \end{itemize}
     \end{itemize}
 \end{rem}
+The sign of the discriminant of the quadratic factor depends on the parameters $B$ and $C$:  
+$\Delta > 0$ iff $\frac{(B-1)^2}{4B} > C$.
+Let us plot the curve $\frac{(B-1)^2}{4B}$ in the $(B,C)$ plane (see Figure \ref{fig:BC_plane}).    
+\begin{figure}
+    \centering
+    \includegraphics[height=7cm, width=0.6\textwidth]{discriminant_curve.png}
+    \caption{grey region where $\Delta > 0$.}
+    \label{fig:BC_plane}        
+\end{figure}    
+Looking  at the figure \ref{fig:BC_plane}, we see that the typical situation is when $\Delta < 0$, hence there are no other positive roots apart from $T^* = 1$.  
 
+\par\noindent Returning to the general case $A \neq 1$, we analyze the number of positive roots of the cubic equation \eqref{eq:cubic_T}.
 From basic algebra, we can show that there are at most 3 such intersection points, hence at most 3 equilibria points with $S^* \neq 0$. 
 We can be more precise because the biological feasibility imposes the roots to be real nonnegative numbers.
 Since $\frac{AB}{C} > 0$,  there is at least one positive root. 
@@ -289,7 +303,7 @@ In our case, the coefficients of the cubic polynomial in \eqref{eq:cubic_T} are:
 So the number of sign changes depends on the signs of the second and third coefficients.
 We have the following cases:
 \begin{itemize}
-\item If $ B +C > 1$ and $B > 1/2$, then there are 3 sign changes and the cubic has one or three positive roots.
+\item If $ B +C > 1$ and $B > 1/2$, then there are 3 sign changes and the cubic has one or three positive roots, which can collapse according to their multiplicities.
 \item If $B +C  < 1$ and $B > 1/2 $, then there is one sign change and the cubic has only one positive roots.
 \item If $B +C  < 1$ and $B < 1/2$, then there is one sign changes and the cubic has only one positive root.
 \item If $B +C  > 1$ and $B < 1/2$, then there is one sign change and the cubic has only one positive root.
