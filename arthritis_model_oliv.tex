@@ -256,11 +256,27 @@ Note further that if  $T^* = 1$  then  from Eq. \eqref{eq:cubic_T} we get
 so that $A = 1$ and we recover the previous remark.
 \end{rem}
 \begin{rem}
-    If $A=1$, then $T^* = 1$ is a root of the cubic equation \eqref{eq:cubic_T}. We can factor the cubic polynomial as follows:
+    Conversely if $A=1$, then $T^* = 1$ is a root of the cubic equation \eqref{eq:cubic_T}. We can factor the cubic polynomial as follows:
     \[(T^* - 1) \left( (T^*)^2 + \frac{1}{C} (1 - B)    T^* + \frac{B}{C} \right) = 0
     \]
+    \begin{itemize}
+        \item If $B \leq 1$, then the coefficients of the quadratic factor are positive, hence there are no other positive roots.
+        \item If $B > 1$, the quadratic factor has  either two positive roots (if the discriminant is positive) or no real roots (if the discriminant is negative).
     The quadratic factor has discriminant $\Delta = \frac{1}{C^2} (B^2 - 2 B - 4 B C + 1)$.
-    The nature of the roots depends on the sign of the discriminant $\Delta$:
+    Thus, we have:
+    \begin{itemize}
+        \item If $\Delta > 0$, there are two distinct real roots given by:
+        \[
+        T^* = \frac{\frac{(B-1)}{C}  \pm \sqrt{\Delta}}{2}
+        \]
+        Both roots are positive if $B > 1$
+        \item If $\Delta = 0$, there is one positive root given by:
+        \[
+        T^*  = \frac{B - 1}{2 C}
+        \]
+        \item If $\Delta < 0$, there are no real roots.
+    \end{itemize}
+    \end{itemize}
 \end{rem}
 
 From basic algebra, we can show that there are at most 3 such intersection points, hence at most 3 equilibria points with $S^* \neq 0$. 
