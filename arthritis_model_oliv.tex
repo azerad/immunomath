@@ -248,15 +248,11 @@ Using these parameters, the cubic equation in $T^*$ becomes:
 \begin{rem}
 There is an obvious solution in the particular case $A = a/b = 1$, namely $T^* = 1$. This solution corresponds to the disease-free equilibrium point $S^* = 0, N^* = 1, M^* = 1, T^* = 1$.  
 But this solution is not relevant for the case $S^* \neq 0$ that we are considering here.
-\end{rem}
-\begin{rem}
 Note further that if  $T^* = 1$  then  from Eq. \eqref{eq:cubic_T} we get
 \[ 1 +  \frac{A}{C}  \left(1- B- C \right) + \frac{A}{C} \left(2 B -1 \right) - \frac{A B}{C} = 0
 \]
-so that $A = 1$ and we recover the previous remark.
-\end{rem}
-\begin{rem}
-    Conversely if $A=1$, then $T^* = 1$ is a root of the cubic equation \eqref{eq:cubic_T}. We can factor the cubic polynomial as follows:
+so that $A = 1$ hence $T=1$ is a root of the cubic equation \eqref{eq:cubic_T} iff $A=1$.
+Therefore we can factor the cubic polynomial as follows:
     \begin{equation}
     (T^* - 1) \left( (T^*)^2 + \frac{1}{C} (B - 1) T^* + \frac{B}{C} \right) = 0
     \label{eq:factored_cubic}
@@ -272,7 +268,6 @@ so that $A = 1$ and we recover the previous remark.
         \[
         T^* = \frac{\frac{(B-1)}{C}  \pm \sqrt{\Delta}}{2}
         \]
-        Both roots are positive if $B > 1$
         \item If $\Delta = 0$, there is one (double) positive root given by:
         \[
         T^*  = \frac{B - 1}{2 C}
@@ -290,8 +285,13 @@ Let us plot the curve $\frac{(B-1)^2}{4B}$ in the $(B,C)$ plane (see Figure \ref
     \caption{grey region where $\Delta > 0$.}
     \label{fig:BC_plane}        
 \end{figure}    
-Looking  at the figure \ref{fig:BC_plane}, we see that the typical situation is when $\Delta < 0$, hence there are no other positive roots apart from $T^* = 1$.  
-
+Looking  at the figure \ref{fig:BC_plane}, 
+we see that the typical situation is when $\Delta < 0$, hence there are no other positive roots apart from $T^* = 1$. But for a careful choice of parameters $B$ and $C$, we can indeed have three equilibria. 
+\begin{figure}
+\centering
+\includegraphics[height=4cm]{three_roots_A=1.png}
+\label{fig:three_roots_A=1}
+\end{figure}
 \par\noindent Returning to the general case $A \neq 1$, we analyze the number of positive roots of the cubic equation \eqref{eq:cubic_T}.
 From basic algebra, we can show that there are at most 3 such intersection points, hence at most 3 equilibria points with $S^* \neq 0$. 
 We can be more precise because the biological feasibility imposes the roots to be real nonnegative numbers.
