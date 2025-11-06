@@ -451,7 +451,28 @@ a - b R & 0 & 0 & 0 \\
 \end{pmatrix}
 \]
 There is a positive eigenvalue $\delta_M$, hence this equilibrium point is unstable. Momac can grow out of bound. This equilibrium will not be observed in practice neither.
-
+\bigskip
+\begin{center}
+\begin{tikzpicture}
+\node[draw=gray!60, fill=gray!5, rounded corners, inner sep=8pt] (box) {
+    \begin{minipage}{0.86\textwidth}
+        \centering
+        {\Large\bfseries\color{blue}To Do List}\\[6pt]
+        \begin{itemize}
+            \item[$\blacksquare$] \textcolor{black}{Is there a way to reduce the system introducing new nonlinear variables, taking advantage of the 3  adimensional parameters?}
+            \item[$\blacksquare$] \textcolor{black}{Recompute equilibria and simplify algebra}
+            \item[$\blacksquare$] \textcolor{black}{Write Python code to compute equilibria numerically}
+            \item[$\blacksquare$] {\textcolor{red}{perform stability analysis of non homeostasic equilibria (chronic inflammation)}}
+            \item[$\blacksquare$] \textcolor{red}{Perform bifurcation analysis and plot results}
+            \item[$\blacksquare$] \textcolor{red}{investigate possibility of limit cycles}
+            \item[$\blacksquare$] \textcolor{red}{is there hysteresis phenomenon?}
+            \item[$\blacksquare$] \textcolor{black}{Run numerical simulations with realistic rates}
+            \item[$\blacksquare$] \textcolor{blue}{Discuss model assumptions/results with immunology collaborators}
+        \end{itemize}
+    \end{minipage}
+};
+\end{tikzpicture}
+\end{center}
 \section{Numerical simulations}
 Here we reproduce one typical simulations of the model using the following parameters:
 $\alpha=1, \beta=1, \gamma=1,
