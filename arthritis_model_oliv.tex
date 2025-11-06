@@ -184,6 +184,10 @@ From this expression, we see that the hyperbola has a vertical asymptote at $N^*
 The parabola  \eqref{eq:N_in_terms_of_M} is horizontal in the $N,M$ plane, has its apex at  $N_{min} = 1 - \frac{\alpha \,\delta_M}{4 \beta \,\delta_N}$ and $M=1/2$ and is symmetric with respect to the horizontal line $M = 1/2$ and opens eastwards.
 We plot some typical cases in the following figure.
 Notice that we need only 3 \emph{non dimensional} parameters $a/b$, $\alpha/\beta$, $\displaystyle{\frac{\gamma \delta_N}{\alpha \delta_M}}$ instead of the 7 original parameters.
+\begin{rem}
+    The fact that only 3 non dimensional parameters determine the number of equilibria points with $S^* \neq 0$ suggests that it might be possible to reduce the original system \eqref{eq:system} to a simpler system depending only on these 3 parameters. 
+    Although the equilibrium points depend indeed on 3 parameters only, the dynamical behavior could be more complex. Anyway it is not obvious to design the synthetic variables which could capture this complexity. They might not be easily expressible in terms of the original variables. This could be an interesting direction for further research.
+\end{rem}
 
 \begin{figure}[htbp]
     \centering
@@ -459,7 +463,7 @@ There is a positive eigenvalue $\delta_M$, hence this equilibrium point is unsta
         \centering
         {\Large\bfseries\color{blue}To Do List}\\[6pt]
         \begin{itemize}
-            \item[$\blacksquare$] \textcolor{black}{Is there a way to reduce the system introducing new nonlinear variables, taking advantage of the 3  adimensional parameters?}
+            \item[$\blacksquare$] \textcolor{black}{Is there a way to reduce the system introducing new nonlinear variables, depending only on the 3  adimensional parameters?}
             \item[$\blacksquare$] \textcolor{black}{Recompute equilibria and simplify algebra}
             \item[$\blacksquare$] \textcolor{black}{Write Python code to compute equilibria numerically}
             \item[$\blacksquare$] {\textcolor{red}{perform stability analysis of non homeostasic equilibria (chronic inflammation)}}
