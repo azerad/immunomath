@@ -397,6 +397,27 @@ In particular, when the equilibrium point with $S^* \neq 0$  when $S^* \ll 1$ is
 We should analyze this with the tool of catastrophe theory.
 \end{rem}
 \par\noindent Finally, we can recover the roots $T^*$ of the original cubic equation using the relation $T^* = x^* + p/3$.
+\bigskip
+We have to make sure that the roots $T^*$ found are biologically feasible, i.e. that they lead to nonnegative values of $S^*$, $N^*$, and $M^*$.
+From equations \eqref{eq:N_in_terms_of_T}, \eqref{eq:S_in_terms_of_T}, and \eqref{eq:M_in_terms_of_T}, we have: 
+\[N^* = \frac{b}{a} T^*, \quad S^* = \frac{\delta_N}{\alpha} \left(\frac{b}{a} T^* - 1\right), \quad M^* = 1 - \frac{\beta}{\gamma} + \frac{\beta}{\gamma T^*}
+\]
+Thus, the conditions for biological feasibility are:
+\begin{itemize}
+\item $N^* \geq 0$  iff $T^* \geq 0$ (always true since we consider only positive roots)
+\item $S^* \geq 0$  iff $T^* \geq \frac{a}{b}$
+\item $M^* \geq 0$  iff $T^* \leq \frac{\beta}{\beta - \gamma}$ if $\beta > \gamma$; always true if $\beta \leq \gamma$.
+\end{itemize}
+\bigskip
+\noindent In summary, the equilibria points of the system can be classified as follows:
+\begin{itemize}
+\item Disease-free equilibrium: $(S^*, N^*, M^*, T^*) = (0, 1, 1, 1)$.
+\item Other equilibria with $S^* = 0$: 
+$S^* = 0, N^* = 0, M^* = 0, T^* = R$, with arbitrary $R$;
+ $S^* = 0, N^* = 0, M^* = 1, T^* = 1$;
+ $S^* = 0, N^* = 1, M^* = 0, T^* = R$, with arbitrary $R$.
+\item Equilibria with $S^* \neq 0$: determined by the positive roots of the cubic equation \eqref{eq:cubic_T} in $T^*$, with corresponding values of $N^*$, $M^*$, and $S^*$ given by equations \eqref{eq:N_in_terms_of_T}, \eqref{eq:M_in_terms_of_T}, and \eqref{eq:S_in_terms_of_T}, respectively.
+\end{itemize}       
 \subsection{Stability analysis}
 \emph{Stability analysis} of the equilibria point $ (S^*, N^*, M^*, T^*)$ is done by linearizing the system around this point.
 The Jacobian matrix of the system is given by:
