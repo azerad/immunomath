@@ -404,10 +404,15 @@ From equations \eqref{eq:N_in_terms_of_T}, \eqref{eq:S_in_terms_of_T}, and \eqre
 \]
 Thus, the conditions for biological feasibility are:
 \begin{itemize}
+\item $S^* \geq 0$ iff $T^* \geq \frac{a}{b} = A$  
 \item $N^* \geq 0$  iff $T^* \geq 0$ (always true since we consider only positive roots)
-\item $S^* \geq 0$  iff $T^* \geq \frac{a}{b}$
-\item $M^* \geq 0$  iff $T^* \leq \frac{\beta}{\beta - \gamma}$ if $\beta > \gamma$; always true if $\beta \leq \gamma$.
+\item $M^* \geq 0$  iff $T^* \leq \frac{\beta}{\beta - \gamma}= \frac{B}{B-1}= 1 + \frac{1}{B-1}$ if $B= \frac{\beta}{\gamma} > 1$; always true if $B \leq 1$.
 \end{itemize}
+So the biological feasibility conditions can be summarized as follows:
+\begin{eqnarray}
+T^* &\geq& A \label{feas_T1} \\
+T^* &\leq& 1 + \frac{1}{B-1} \quad \text{if } B > 1 \label{feas_T2}
+\end{eqnarray}
 \bigskip
 \noindent In summary, the equilibria points of the system can be classified as follows:
 \begin{itemize}
@@ -417,6 +422,8 @@ $S^* = 0, N^* = 0, M^* = 0, T^* = R$, with arbitrary $R$;
  $S^* = 0, N^* = 0, M^* = 1, T^* = 1$;
  $S^* = 0, N^* = 1, M^* = 0, T^* = R$, with arbitrary $R$.
 \item Equilibria with $S^* \neq 0$: determined by the positive roots of the cubic equation \eqref{eq:cubic_T} in $T^*$, with corresponding values of $N^*$, $M^*$, and $S^*$ given by equations \eqref{eq:N_in_terms_of_T}, \eqref{eq:M_in_terms_of_T}, and \eqref{eq:S_in_terms_of_T}, respectively.
+Apart from the disease-free equilibrium, only those roots satisfying the biological feasibility conditions lead to valid equilibria points.
+Thus the number of biologically feasible equilibria with $S^* \neq 0$ depends on the parameters $A$, $B$ as well as the feasibility conditions \ref{feas_T1}-\ref{feas_T2}. 
 \end{itemize}       
 \subsection{Stability analysis}
 \emph{Stability analysis} of the equilibria point $ (S^*, N^*, M^*, T^*)$ is done by linearizing the system around this point.
