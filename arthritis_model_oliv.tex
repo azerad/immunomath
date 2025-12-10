@@ -571,7 +571,13 @@ We can also plot some 2D projections of the 4D phase space trajectory using the 
 The Python Jupyter notebook used to perform the simulations is available at \url{https://github.com/azerad/immunomath}.
 
 \subsection{Bifurcation analysis}
-We perform a bifurcation analysis with respect to the \emph{non dimensional} parameters $A=a/b$, $B=\alpha/\beta$, $C=\gamma \delta_M/\alpha\delta_M$. We vary $A, B, C$ in the interval $[0.1,2]$. For each triple $(A,B,C)$, we simulate the system for 20 days and we record the value of $S,N,M,T$ at the final time. The results are shown in the following heatmap.
+We perform a bifurcation analysis with respect to the \emph{non dimensional} parameters $A=a/b$, $B=\alpha/\beta$, $C=\gamma \delta_M/\alpha\delta_M$. 
+We \emph{conjecture} that biologically feasible equilibria with $S^* \neq 0$ only exist if $A<1$ and they are unstable
+and that for $A\geq  1$ the only biologically feasible equilibrium is the disease-free equilibrium which is unstable  since $a>b$.
+We have a  bifurcation at $A=1$: for $A<1$ there is one biologically feasible equilibrium with $S^* \neq 0$ which is unstable and the disease-free equilibrium is stable; for $A>1$ the disease-free equilibrium is unstable and there is no other biologically feasible equilibrium.
+\par\noindent
+
+
 
 \section*{Acknowledgments}
 This work was supported by the IMMUN4CURE project of IHU Montpellier.
