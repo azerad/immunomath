@@ -443,9 +443,17 @@ $S^* = 0, N^* = 0, M^* = 0, T^* = R$, with arbitrary $R$;
 Apart from the disease-free equilibrium, only those roots satisfying the biological feasibility conditions lead to valid equilibria points.
 For instance in the case $A=1.1$, $B=5$, $C=2/3$ plotted in Figure \ref{fig:three_roots}, we have three distinct positive roots of the cubic equation \eqref{eq:cubic_T},
 but none satisfying the biological feasibility conditions.
-We conjecture that this is a general phenomenon when $A \neq 1$.
+We conjecture that this is a general phenomenon when $A \geq 1$.
 Thus the number of biologically feasible equilibria with $S^* \neq 0$ depends on the parameters $A$, $B$ as well as the feasibility conditions \ref{feas_T1}-\ref{feas_T2}. 
-\end{itemize}       
+We conjecture that when $A < 1$, it is possible to have one  biologically feasible equilibria with $S^* \neq 0$. The computations are somewhat involved  and 
+but we can plot the feasible region in the $(A,B,C)$ space (see Figure \ref{fig:feasible_region}).
+\end{itemize} 
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.6\textwidth]{feasibility_regions_3D.png}
+    \caption{Feasible region in the $(A,B,C)$ space.}
+    \label{fig:feasible_region}
+\end{figure}      
 \subsection{Stability analysis}
 \emph{Stability analysis} of the equilibria point $ (S^*, N^*, M^*, T^*)$ is done by linearizing the system around this point.
 The Jacobian matrix of the system is given by:
