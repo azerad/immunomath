@@ -31,15 +31,13 @@
 \begin{document}
 
 \maketitle 
+\begin{abstract}
 We model the interaction between three populations of cells
 in the context of arthritis, namely   the neutrophiles,  the tissue resident macrophages (SubLining Tissue Resident Macrophages) and  the Monocyte Macrophages. The  
 SL-TRM macrophage cells  reside in the outer border of the joint. The  Momac (monocytes-macrophages) cells  are coming from the  reservoir of monocytes in the marrow. 
-Basically the crisis scenario is the following:
-The arthritis crisis is triggered by an external signal (injection of immune serum containing antigens) that activates the immune system and provokes an inflammatory response. 
-The antigens are recognized by the macrophages L-TRM (lining tissue resident macrophages) cells that secrete inflammatory chemokines and cytokines. 
-These cytokines activate the fibroblasts which in turn recruit the neutrophiles cells from the blood stream into the joint. 
-The cytokines also recruit the Momac cells from the blood stream into the joint. There is a positive feedback since the inflammation is amplified by the neutrophiles that are recruited in the joint by the chemokines secreted by the Momac cells. 
-The macrophages SL-TRM cells have a protective role since they inhibit the inflammation but they are depleted during the crisis because they are penalized by the proliferation of Momac cells.
+
+We propose a minimal ordinary differential equation model of acute inflammatory response in a joint, describing interactions between neutrophils, lining tissue-resident macrophages (SL-TRM), and recruited monocyte-derived macrophages (Momac). The model couples an inflammatory signal S to three cell populations (N, T, M) and incorporates recruitment, conversion, nonlinear self-limitation and mutual regulation. By nondimensionalization we show that the equilibrium structure depends on three adimensional parameters A, B, C and derive a cubic equation characterizing nontrivial steady states. We perform an analytical study of equilibria and their stability, identify a bifurcation at A = 1 separating disease-free and inflamed regimes, and discuss conditions for multiple steady states and biological feasibility. Numerical simulations illustrate typical transient dynamics and phase-space geometry. The model provides a simple framework to explore mechanisms of chronic inflammation, guide parameter estimation from data, and extend to control or treatment scenarios.
+\end{abstract}
 \section{Model}
 Basically the crisis scenario is the following:
 The arthritis crisis is triggered by an external signal (injection of immune serum containing antigens) that activates the immune system and provokes an inflammatory response. 
@@ -77,7 +75,20 @@ where $a,b,\alpha,\beta,\gamma, \delta_N, \delta_M$ are positive parameters.
 To make things easier to undestand, we summarize the model in the following diagram (see Figure \ref{fig:graphe}).
 
 
-
+\usetikzlibrary{decorations.markings}
+\tikzset{
+    mid arrow/.style={
+        decoration={markings, mark=at position 0.5 with {\arrow{>}}},
+        postaction={decorate}
+    },
+    mid bar/.style={
+        decoration={markings, mark=at position 0.5 with {\arrow{|-}}},
+        postaction={decorate}
+    }
+}
+% Usage examples (adapt to your existing \draw lines):
+% \draw[mid arrow, thick] (N) to[bend left=20] (S);
+% \draw[mid bar, thick]   (T) to[bend left=20] (S);
 \begin{figure}[htb!]
 \begin{center}
     \begin{tikzpicture}[node distance=4cm, auto, >=latex, thick]
@@ -89,14 +100,14 @@ To make things easier to undestand, we summarize the model in the following diag
         \node[draw, circle, fill=blue!10, minimum size=2cm, below=of M, yshift=-1cm] (S) {Immune signal $S$};
 
         % Flèches et labels
-        \draw[->, thick] (N) to[bend left=20] node[left, xshift=-2mm, yshift=2mm] {foster $(a)$} (S);
+        \draw[mid arrow, thick] (N) to[bend left=20] node[left, xshift=-2mm, yshift=2mm] {foster $(a)$} (S);
         \draw[-|, thick] (T) to[bend left=20] node[right, xshift=2mm] {inhibate $(b)$} (S);
-        \draw[->, thick] (S) to[bend left=20] node[left] {activation$(\alpha)$} (N);
-        \draw[->, thick] (S) to[bend left=10] node[left,xshift=6mm] {activation $(\beta)$} (M);
+        \draw[mid arrow, thick] (S) to[bend left=20] node[left] {activation$(\alpha)$} (N);
+        \draw[mid arrow, thick] (S) to[bend left=10] node[left,xshift=6mm] {activation $(\beta)$} (M);
         \draw[-|, thick] (S) to[bend left=20] node[left, xshift=2mm] {inhibate $(\gamma)$} (T);
         \draw[-|, thick, loop above, looseness=8] (N) to node[above] {destruction $(\delta_N)$} (N);
         \draw[-|, thick, loop above, looseness=8] (M) to node[above] {destruction $(\delta_M)$} (M);
-        \draw[->, thick] (M.east) -- node[below, yshift=-2mm] {conversion $(\delta_M)$} (T.west);
+        \draw[mid arrow, thick] (M.east) -- node[below, yshift=-2mm] {conversion $(\delta_M)$} (T.west);
 
     \end{tikzpicture}
 \end{center}
@@ -109,13 +120,13 @@ To make things easier to undestand, we summarize the model in the following diag
 \textbf{Remark (Comments and questions on the model):}
 
 \begin{itemize}
-\item to be discussed with our immunologists collaborators
+\item to be completed by our immunologists collaborators
 \end{itemize}
 
 \section{Analysis of the model}
 \subsection{Equilibria points}
 \emph{Equilibria points} of the system are found by setting the right-hand side of the system to zero, i.e. by solving the following system of equations:
-01 The equilibrium points $(S^*, N^*, M^*, T^*)$ satisfy the following system:
+ The equilibrium points $(S^*, N^*, M^*, T^*)$ satisfy the following system:
 \begin{align}
 (a N^* - b T^*) S^* &= 0 \label{eq:equilibrium_S} \\
 \alpha S^* N^* - \delta_N N^* (N^* - 1) &= 0 \label{eq:equilibrium_N} \\
@@ -125,86 +136,75 @@ To make things easier to undestand, we summarize the model in the following diag
 
 This gives the following equilibria points.
 A first natural equilibrium point is given by $S^* = 0, N^* = 1, M^* = 1, T^* = 1$. This point corresponds to the disease-free state, where there is no inflammation ($S^* = 0$) and the populations of neutrophils, Momac, and SL-TRM are at their baseline    levels ($N^* = 1, M^* = 1, T^* = 1$).
+
 There are other equilibria points with $S^* = 0$  namely
 $S^* = 0, N^* = 0, M^* = 0, T^* = R$, with arbitrary $R$;
  $S^* = 0, N^* = 0, M^* = 1, T^* = 1$;
  $S^* = 0, N^* = 1, M^* = 0, T^* = R$, with arbitrary $R$.
+\begin{rem}
+These equilibria points with $S^* = 0$ and $N^* = 0$ or $M^* = 0$ are not biologically relevant since they correspond to the absence of neutrophils or Momac cells, which is not realistic in a living organism.
+\end{rem}
 
-
-For equilibria points with $S^* \neq 0$, from equation \eqref{eq:equilibrium_S} we have $a N^* - b T^* = 0$, hence 
-\begin{equation}
-T^* = \frac{a}{b} N^*
-\label{eq:T_in_terms_of_N}.
-\end{equation}
-Factoring $N^*$ from equation \eqref{eq:equilibrium_N},  we obtain:
-\[
-N^* \left( \alpha S^* - \delta_N (N^* - 1) \right) = 0
-\]
-This gives us two possibilities: either $N^* = 0$ or $\alpha S^* - \delta_N (N^* - 1) = 0$. If $N^* = 0$, 
-then from equation \eqref{eq:equilibrium_S} we have $a \cdot 0 - b T^* = 0$, hence $T^* = 0$. From equation \eqref{eq:equilibrium_T}, we get $ M^* = 0$. Then from equation \eqref{eq:equilibrium_M}, we have $\beta S^* - \delta_M \cdot 0 = 0$, 
-hence $S^* = 0$. This contradicts our assumption that $S^* \neq 0$. Therefore, the case $N^* = 0$ is not possible for equilibria with $S^* \neq 0$.    
-Therefore $\alpha S^* - \delta_N (N^* - 1) = 0$, so we can express $S^*$ in terms of $N^*$:
-\begin{equation}
-S^* = \frac{\delta_N}{\alpha} (N^* - 1)
-\label{eq:S_in_terms_of_N}
-\end{equation}
-We substitute \eqref{eq:T_in_terms_of_N}-\eqref{eq:S_in_terms_of_N}  into equation \eqref{eq:equilibrium_M} and \eqref{eq:equilibrium_T} and obtain a 2 by 2 system for  $M^*$ and  $N^*$:
-By substituting $T^* = \frac{a}{b} N^*$ and $S^* = \frac{\delta_N}{\alpha}(N^* - 1)$ into the equilibrium equations for $M^*$ and $T^*$, we obtain the following system for $N^*$ and $M^*$:
-\[
-\left\{
-\begin{aligned}
-&\beta \frac{\delta_N}{\alpha}(N^* - 1) - \delta_M M^* (M^* - 1) = 0 \\
-&-\gamma \frac{\delta_N}{\alpha}(N^* - 1) \cdot \frac{a}{b} N^* + \delta_M M^* \left(1 - \frac{a}{b} N^*\right) = 0
-\end{aligned}
-\right.
-\]
-This system allows us to determine the equilibrium values $N^*$ and $M^*$ when $S^* \neq 0$.
-Indeed we can express $N^*$ in terms of $M^*$ from the first equation:
-\begin{equation}
-N^* = 1 + \frac{\alpha \,\delta_M}{\beta \,\delta_N} M^* (M^* - 1)
-\label{eq:N_in_terms_of_M}
-\end{equation}
-Substituting this expression for $N^*$ into the second equation, we obtain an equation for $M^*$:
-\begin{equation}
-    M^* = \frac{a \,\gamma \,\delta_N}{b\, \alpha \,\delta_M} \frac{N^* (N^* - 1)}{(1 - \frac{a}{b} N^*)}
-    \label{eq:M_in_terms_of_N}
-\end{equation}
-Geometrically, the equilibria points with $S^* \neq 0$ correspond to the intersection points of the parabola defined by equations \eqref{eq:N_in_terms_of_M} and  the hyperbola defined by equation \eqref{eq:M_in_terms_of_N} in the $(N^*, M^*)$ plane. The number of such intersection points (and hence the number of equilibria with $S^* \neq 0$) depends on the parameters of the model.
+% Commented-out derivation for equilibria with S^* \neq 0
+%For equilibria points with $S^* \neq 0$, from equation \eqref{eq:equilibrium_S} we have $a N^* - b T^* = 0$, hence 
+%Therefore $\alpha S^* - \delta_N (N^* - 1) = 0$, so we can express $S^*$ in terms of $N^*$:
+%\begin{equation}
+%S^* = \frac{\delta_N}{\alpha} (N^* - 1)
+%\label{eq:S_in_terms_of_N}
+%\end{equation}
+%We substitute \eqref{eq:T_in_terms_of_N}-\eqref{eq:S_in_terms_of_N}  into equation \eqref{eq:equilibrium_M} and \eqref{eq:equilibrium_T} and obtain a 2 by 2 system for  $M^*$ and  $N^*$:
+%By substituting $T^* = \frac{a}{b} N^*$ and $S^* = \frac{\delta_N}{\alpha}(N^* - 1)$ into the equilibrium equations for $M^*$ and $T^*$, we obtain the following system for $N^*$ and $M^*$:
+%\[
+%\left\{
+%\begin{aligned}
+%&\beta \frac{\delta_N}{\alpha}(N^* - 1) - \delta_M M^* (M^* - 1) = 0 \\
+%&-\gamma \frac{\delta_N}{\alpha}(N^* - 1) \cdot \frac{a}{b} N^* + \delta_M M^* \left(1 - \frac{a}{b} N^*\right) = 0
+%\end{aligned}
+%\right.
+%\]
+%This system allows us to determine the equilibrium values $N^*$ and $M^*$ when $S^* \neq 0$.
+%Indeed we can express $N^*$ in terms of $M^*$ from the first equation:
+%\begin{equation}
+%N^* = 1 + \frac{\alpha \,\delta_M}{\beta \,\delta_N} M^* (M^* - 1)
+%\label{eq:N_in_terms_of_M}
+%\end{equation}
+%Substituting this expression for $N^*$ into the second equation, we obtain an equation for $M^*$:
+%\begin{equation}
+%    M^* = \frac{a \,\gamma \,\delta_N}{b\, \alpha \,\delta_M} \frac{N^* (N^* - 1)}{(1 - \frac{a}{b} N^*)}
+%    \label{eq:M_in_terms_of_N}
+%\end{equation}
+%Geometrically, the equilibria points with $S^* \neq 0$ correspond to the intersection points of the parabola defined by equations \eqref{eq:N_in_terms_of_M} and  the hyperbola defined by equation \eqref{eq:M_in_terms_of_N} in the $(N^*, M^*)$ plane. The number of such intersection points (and hence the number of equilibria with $S^* \neq 0$) depends on the parameters of the model.
 %Substituting \eqref{eq:N_in_terms_of_M} into \eqref{eq:M_in_terms_of_N}, we  would obtain a quartic equation in $N^*$, which we do not write explicitly here due to its complexity.
 %From basic algebra, we can show that there are at most 4 such intersection points, hence at most 4 equilibria points with $S^* \neq 0$. 
 %We can be more precise because the biological feasibility imposes the roots to be real nonnegative numbers.
 %Due to the structure of the irreducible  polynomial on $\mathbb{R}$ we can have either 0, or 2, or 4 real roots.
-We can find the asymptotes of the hyperbola and the apex of the parabola to determine the possible number of intersection points in the first quadrant.
-We rewrite the equation  \eqref{eq:M_in_terms_of_N} of the hyperbola as follows:
-\begin{equation}
-M^*= -\frac{\gamma \delta_N}{\alpha \delta_M}  (N^* + b/a -1) + \frac{(b/a)^{2}(1-b/a)}{(N^* - b/a)} 
-\label{eq:hyperbola_rewritten}
-\end{equation}
-From this expression, we see that the hyperbola has a vertical asymptote at $N^* = b/a$ and an oblique asymptote $M^* = -\frac{\gamma \delta_N}{\alpha \delta_M} (N^*+ b/a - 1)$.
-The parabola  \eqref{eq:N_in_terms_of_M} is horizontal in the $N,M$ plane, has its apex at  $N_{min} = 1 - \frac{\alpha \,\delta_M}{4 \beta \,\delta_N}$ and $M=1/2$ and is symmetric with respect to the horizontal line $M = 1/2$ and opens eastwards.
-We plot some typical cases in the following figure.
-Notice that we need only 3 \emph{non dimensional} parameters $a/b$, $\alpha/\beta$, $\displaystyle{\frac{\gamma \delta_N}{\alpha \delta_M}}$ instead of the 7 original parameters.
-\begin{rem}
-    The fact that only 3 non dimensional parameters determine the number of equilibria points with $S^* \neq 0$ suggests that it might be possible to reduce the original system \eqref{eq:system} to a simpler system depending only on these 3 parameters. 
-    Although the equilibrium points depend indeed on 3 parameters only, the dynamical behavior could be more complex. Anyway it is not obvious to design the synthetic variables which could capture this complexity. They might not be easily expressible in terms of the original variables. This could be an interesting direction for further research.
-\end{rem}
+%We can find the asymptotes of the hyperbola and the apex of the parabola to determine the possible number of intersection points in the first quadrant.
+%We rewrite the equation  \eqref{eq:M_in_terms_of_N} of the hyperbola as follows:
+%\begin{equation}
+%M^*= -\frac{\gamma \delta_N}{\alpha \delta_M}  (N^* + b/a -1) + \frac{(b/a)^{2}(1-b/a)}{(N^* - b/a)} 
+%\label{eq:hyperbola_rewritten}
+%\end{equation}
+%From this expression, we see that the hyperbola has a vertical asymptote at $N^* = b/a$ and an oblique asymptote $M^* = -\frac{\gamma \delta_N}{\alpha \delta_M} (N^*+ b/a - 1)$.
+%The parabola  \eqref{eq:N_in_terms_of_M} is horizontal in the $N,M$ plane, has its apex at  $N_{min} = 1 - \frac{\alpha \,\delta_M}{4 \beta \,\delta_N}$ and $M=1/2$ and is symmetric with respect to the horizontal line $M = 1/2$ and opens eastwards.
+%We plot some typical cases in the following figure.
 
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=0.45\textwidth]{equilibres.png}
-    \includegraphics[width=0.45\textwidth]{equilibres_1.png}\\
-    \includegraphics[width=0.45\textwidth]{equilibres_2.png}
-    \includegraphics[width=0.45\textwidth]{equilibres_3.png}\\
-    \caption{equilibria in the $(N^*, M^*)$ plane, left $a < b$, right $a > b$.}
-    \label{fig:intersections}
-\end{figure}
-There is a smarter way \footnote{thanks to O. Iosifescu} to find the number of equilibria points with $S^* \neq 0$ leading to a cubic equation in $T^*$.
-We express $N^*$ in terms of $T^*$ from equation \eqref{eq:T_in_terms_of_N}:
+
+%\begin{figure}[htbp]
+%    \centering
+%    \includegraphics[width=0.45\textwidth]{equilibres.png}
+%    \includegraphics[width=0.45\textwidth]{equilibres_1.png}\\
+%    \includegraphics[width=0.45\textwidth]{equilibres_2.png}
+%    \includegraphics[width=0.45\textwidth]{equilibres_3.png}\\
+%    \caption{equilibria in the $(N^*, M^*)$ plane, left $a < b$, right $a > b$.}
+%    \label{fig:intersections}
+%\end{figure}
+Let us  find the  equilibria points with $S^* \neq 0$.
+We express $N^*$ in terms of $T^*$ from equation \eqref{eq:equilibrium_S}:
 \begin{equation}
 N^* = \frac{b}{a} T^*
 \label{eq:N_in_terms_of_T}
 \end{equation}
-Substituting this expression for $N^*$ into equation \eqref{eq:S_in_terms_of_N}, we obtain:
+Substituting this expression for $N^*$ into equation \eqref{eq:equilibrium_N}, we obtain:
 \begin{equation}
 S^* = \frac{\delta_N}{\alpha} \left(\frac{b}{a} T^* - 1\right)
 \label{eq:S_in_terms_of_T}
@@ -235,6 +235,12 @@ Rewriting this equation in the standard unitary form $(T^*)^3 + p (T^*)^2 + q T^
 \begin{equation}
 \left(T^*\right)^3 + \frac{\alpha}{\gamma} \frac{\delta_M}{\delta_N} \frac{a}{b} \left(1- \frac{\beta}{\gamma} - \frac{\gamma}{\alpha} \frac{\delta_N}{\delta_M}\right) (T^*)^2 + \frac{\alpha}{\gamma} \frac{\delta_M}{\delta_N} \frac{a}{b} \left(2\frac{\beta}{\gamma} -1 \right) T^* - \frac{\alpha}{\gamma} \frac{\delta_M}{\delta_N} \frac{a}{b} \frac{\beta}{\gamma} = 0
 \end{equation}
+Notice that we need only 3 \emph{non dimensional} parameters $a/b$, $\alpha/\beta$, $\displaystyle{\frac{\gamma \delta_N}{\alpha \delta_M}}$ instead of the 7 original parameters.
+\begin{rem}
+    The fact that only 3 non dimensional parameters determine the number of equilibria points with $S^* \neq 0$ suggests that it might be possible to reduce the original system \eqref{eq:system} to a simpler system depending only on these 3 parameters. 
+    Although the equilibrium points depend indeed on 3 parameters only, the dynamical behavior could be more complex. Anyway it is not obvious to design the synthetic variables which could capture this complexity. They might not be easily expressible in terms of the original variables. This could be an interesting direction for further research.
+\end{rem}
+
 Notice that the coefficients of this cubic equation depend only on the 3 \emph{non dimensional} parameters $A=a/b$, $B=\beta/\gamma$, and $C=\displaystyle{\frac{\gamma \,\delta_N}{\alpha\,\delta_M}}$.
 \begin{rem}
 The parameters $A$, $B$, and $C$ have the following biological interpretations:
