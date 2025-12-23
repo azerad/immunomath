@@ -520,15 +520,18 @@ There is a positive eigenvalue $\delta_M$, hence this equilibrium point is unsta
 \subsubsection{Stability of equilibrium with $S^*\neq 0$.}
 The stability of the equilibria with $S^* \neq 0$ can be analyzed similarly by evaluating the Jacobian matrix at those points and determining the eigenvalues.
 The computations are somewhat involved and will be done numerically for given values of the parameters $A$, $B$, and $C$.
-We proved that biologically feasible equilibrium with $S^* \neq 0$ only exists if $A<1$ and is unstable under a threshold $A_0<1$ independant of $B$ and $C$ (to be proved rigorously).
+We proved that biologically feasible equilibrium with $S^* \neq 0$ only exists if $A<1$ and is unstable under a threshold $A_0<1$ very close to $1$, independant of $B$ and $C$ (to be proved rigorously).
 For $A\geq  1$ the only biologically feasible equilibrium is the disease-free equilibrium which is unstable  since $a>b$.
 
 \subsection{Bifurcation analysis}
 We perform a bifurcation analysis with respect to the \emph{non dimensional} parameters $A=a/b$.
-From the stability analysis, we see that we  have  bifurcations at $A=A_0$ and $A=1$: for $A<A_0$ there are two biologically feasible equilibrium, one  inflammatoty one with $S^* \neq 0$ which is unstable and the disease-free equilibrium which  is stable; 
+From the stability analysis, we see that we  have  bifurcations at $A=A_0$ and $A=1$: for $A<A_0\approx 0.998$ there are two biologically feasible equilibrium, one  inflammatoty one with $S^* \neq 0$ which is unstable and the disease-free equilibrium which  is stable; 
 between $A=A_0$ and $A=1$ there are two equilibria, one inflammatory and one disease-free equilibrium, both are stable; for $A>1$ the disease-free equilibrium is unstable and there is no other biologically feasible equilibrium.
 The number and stability of equilibria change as the parameter $A$ crosses these critical values, indicating bifurcation points in the system's dynamics.   
 We can plot the bifurcation diagram in the $(A,S^*)$ plane (see Figure \ref{fig:bifurcation}).
+\begin{figure}
+ \includegraphics[scale=0.5]{bifurcation_stab.png}   
+\end{figure}
 \par\noindent
 \bigskip\\
 \begin{center}
