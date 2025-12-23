@@ -117,11 +117,10 @@ To make things easier to undestand, we summarize the model in the following diag
 
 \bigskip
 
-\textbf{Remark (Comments and questions on the model):}
+\textbf{Comments and questions on the model:}
+\marginpar{\textcolor{red}{\small to be completed by immunologists collaborators}}
 
-\begin{itemize}
-\item to be completed by our immunologists collaborators
-\end{itemize}
+
 
 \section{Analysis of the model}
 \subsection{Equilibria points}
@@ -143,6 +142,7 @@ $S^* = 0, N^* = 0, M^* = 0, T^* = R$, with arbitrary $R$;
  $S^* = 0, N^* = 1, M^* = 0, T^* = R$, with arbitrary $R$.
 \begin{rem}
 These equilibria points with $S^* = 0$ and $N^* = 0$ or $M^* = 0$ are not biologically relevant since they correspond to the absence of neutrophils or Momac cells, which is not realistic in a living organism.
+Anyway, we will prove later that these equilibria points are unstable, so they will not be observed in practice.
 \end{rem}
 
 % Commented-out derivation for equilibria with S^* \neq 0
@@ -198,7 +198,7 @@ These equilibria points with $S^* = 0$ and $N^* = 0$ or $M^* = 0$ are not biolog
 %    \caption{equilibria in the $(N^*, M^*)$ plane, left $a < b$, right $a > b$.}
 %    \label{fig:intersections}
 %\end{figure}
-Let us  find the  equilibria points with $S^* \neq 0$.
+\subsubsection{Equilibria points with $S^* \neq 0$.}
 We express $N^*$ in terms of $T^*$ from equation \eqref{eq:equilibrium_S}:
 \begin{equation}
 N^* = \frac{b}{a} T^*
@@ -240,8 +240,7 @@ Notice that we need only 3 \emph{non dimensional} parameters $a/b$, $\alpha/\bet
  %   The fact that only 3 non dimensional parameters determine the number of equilibria points with $S^* \neq 0$ suggests that it might be possible to reduce the original system \eqref{eq:system} to a simpler system depending only on these 3 parameters. 
   %  Although the equilibrium points depend indeed on 3 parameters only, the dynamical behavior could be more complex. Anyway it is not obvious to design the synthetic variables which could capture this complexity. They might not be easily expressible in terms of the original variables. This could be an interesting direction for further research.
 %\end{rem}
-
-Notice that the coefficients of this cubic equation depend only on the 3 \emph{non dimensional} parameters $A=a/b$, $B=\beta/\gamma$, and $C=\displaystyle{\frac{\gamma \,\delta_N}{\alpha\,\delta_M}}$.
+In the following, we denote the 3 \emph{non dimensional} parameters as $A=a/b$, $B=\beta/\gamma$, and $C=\displaystyle{\frac{\gamma \,\delta_N}{\alpha\,\delta_M}}$.
 \begin{rem}
 The parameters $A$, $B$, and $C$ have the following biological interpretations:
 \begin{itemize}
@@ -402,16 +401,18 @@ Namely we take $A = 1.1$, $B = 5$ and $C = \frac{2}{3}$.
     \caption{Cubic equation with three distinct real roots.}
     \label{fig:three_roots}
 \end{figure}
-\begin{rem}
-    there is an interesting phenomenon of potential \emph{bifurcation} when the parameters vary and the number of equilibria points changes. This is a topic for further study.
-In particular, when the equilibrium point with $S^* \neq 0$  when $S^* \ll 1$ is close to the disease-free equilibrium point $S^* = 0, N^* = 1, M^* = 1, T^* = 1$, we can perform a local stability analysis using perturbation methods.
-We should analyze this with the tool of catastrophe theory.
-\end{rem}
+% \begin{rem}
+%     there is an interesting phenomenon of potential \emph{bifurcation} when the parameters vary and the number of equilibria points changes. This is a topic for further study.
+% In particular, when the equilibrium point with $S^* \neq 0$  when $S^* \ll 1$ is close to the disease-free equilibrium point $S^* = 0, N^* = 1, M^* = 1, T^* = 1$, we can perform a local stability analysis using perturbation methods.
+% We should analyze this with the tool of catastrophe theory.
+% \end{rem}
 \par\noindent 
 Finally, we can recover the roots $T^*$ of the original cubic equation 
 using the relation $T^* = x^* - p/3$.
 \bigskip\\
-We have to make sure that the roots $T^*$ found are biologically feasible, i.e. that they lead to nonnegative values of $S^*$, $N^*$, and $M^*$.
+We have to make sure that the nonegative roots $T^*$ found are biologically feasible, i.e. that they lead to nonnegative values of $S^*$, $N^*$, and $M^*$.
+For instance in the case $A=1.1$, $B=5$, $C=2/3$ plotted in Figure \ref{fig:three_roots}, we have three distinct positive roots of the cubic equation \eqref{eq:cubic_T},
+but none satisfying the biological feasibility conditions.\smallskip\\
 From equations \eqref{eq:N_in_terms_of_T}, \eqref{eq:S_in_terms_of_T}, and \eqref{eq:M_in_terms_of_T}, we have: 
 \[N^* = \frac{b}{a} T^*, \quad S^* = \frac{\delta_N}{\alpha} \left(\frac{b}{a} T^* - 1\right), \quad M^* = 1 - \frac{\beta}{\gamma} + \frac{\beta}{\gamma T^*}
 \]
@@ -436,22 +437,20 @@ Let us consider again the particular case $A = a/b = 1$, if $B \leq 1$  there is
  Moreover, the other root $T^* = \frac{B-1 - \sqrt{\Delta}}{2C} \leq \frac{B-1}{2C}.$
  In order to be feasible, this root should satisfy $\frac{B-1 - \sqrt{\Delta}}{2C} \leq \frac{B}{B-1}$,
 which implies  $C \geq \frac{(B-1)^2}{2B}$, contradicting the assumption $\Delta \geq 0$.
-\bigskip
-In the general case $A \neq 1$, the feasibility conditions \eqref{feas_T1}-\eqref{feas_T2} have to be checked for each positive root found.
-\noindent In summary, the equilibria points of the system can be classified as follows:
+\bigskip\\
+In the general case $A \neq 1$, the feasibility conditions \eqref{feas_T1}-\eqref{feas_T2} have to be checked for each positive root found. This can be done numerically for given values of the parameters $A$, $B$, and $C$.
+ For $A>1$, it can be shown that  none of the positive roots satisfy the feasibility conditions (see Figure \ref{fig:three_roots}) whereas for $A<1$, there is always exactly one feasible root (in addition to the disease-free equilibrium) (see Figure \ref{fig:feasible_region}).
+\marginpar{\textcolor{red}{\small mathematical proof to be added by Oana}} 
+\par\noindent Let us summarize. The feasible equilibria points of the system can be classified as follows:
 \begin{itemize}
 \item Disease-free equilibrium: $(S^*, N^*, M^*, T^*) = (0, 1, 1, 1)$.
 \item Other equilibria with $S^* = 0$: 
 $S^* = 0, N^* = 0, M^* = 0, T^* = R$, with arbitrary $R$;
  $S^* = 0, N^* = 0, M^* = 1, T^* = 1$;
  $S^* = 0, N^* = 1, M^* = 0, T^* = R$, with arbitrary $R$.
-\item Equilibria with $S^* \neq 0$: determined by the positive roots of the cubic equation \eqref{eq:cubic_T} in $T^*$, with corresponding values of $N^*$, $M^*$, and $S^*$ given by equations \eqref{eq:N_in_terms_of_T}, \eqref{eq:M_in_terms_of_T}, and \eqref{eq:S_in_terms_of_T}, respectively.
-Apart from the disease-free equilibrium, only those roots satisfying the biological feasibility conditions lead to valid equilibria points.
-For instance in the case $A=1.1$, $B=5$, $C=2/3$ plotted in Figure \ref{fig:three_roots}, we have three distinct positive roots of the cubic equation \eqref{eq:cubic_T},
-but none satisfying the biological feasibility conditions.
-We conjecture that this is a general phenomenon when $A \geq 1$.
-Thus the number of biologically feasible equilibria with $S^* \neq 0$ depends on the parameters $A$, $B$ as well as the feasibility conditions \ref{feas_T1}-\ref{feas_T2}. 
-We conjecture that when $A < 1$, it is possible to have one  biologically feasible equilibria with $S^* \neq 0$. The computations are somewhat involved  and 
+\item Feasible equilibria with $S^* \neq 0$: 
+None when $A \geq 1$.
+We conjecture that when $A < 1$, it is possible to have only one  biologically feasible equilibria with $S^* \neq 0$. The computations are somewhat involved  and \marginpar{\textcolor{red}{\small rigorous proofs to be added by Oana}}
 but we can plot the feasible region in the $(A,B,C)$ space (see Figure \ref{fig:feasible_region}).
 \end{itemize} 
 \begin{figure}[htbp]
