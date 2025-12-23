@@ -132,8 +132,7 @@ To make things easier to undestand, we summarize the model in the following diag
 \beta S^* - \delta_M M^* (M^* - 1) &= 0 \label{eq:equilibrium_M} \\
 -\gamma S^* T^* + \delta_M M^* (1 - T^*) &= 0 \label{eq:equilibrium_T}
 \end{align}
-
-This gives the following equilibria points.
+\subsubsection{Inflammation free equilibria ($S^* =0$).}
 A first natural equilibrium point is given by $S^* = 0, N^* = 1, M^* = 1, T^* = 1$. This point corresponds to the disease-free state, where there is no inflammation ($S^* = 0$) and the populations of neutrophils, Momac, and SL-TRM are at their baseline    levels ($N^* = 1, M^* = 1, T^* = 1$).
 
 There are other equilibria points with $S^* = 0$  namely
@@ -470,6 +469,7 @@ aN - bT & aS & 0 & -bS \\
 -\gamma T & 0 & \delta_M (1-T) & -\gamma S - \delta_M M
 \end{pmatrix}
 \]
+\subsubsection{Stability of  inflammation free equilibria ($S^* =0$).}
 We analyze first the stability of the disease-free equilibrium point $(S^*, N^*, M^*, T^*) = (0, 1, 1, 1)$.
 At this point, the Jacobian matrix simplifies to:
 \[
@@ -517,7 +517,20 @@ a - b R & 0 & 0 & 0 \\
 \end{pmatrix}
 \]
 There is a positive eigenvalue $\delta_M$, hence this equilibrium point is unstable. Momac can grow out of bound. This equilibrium will not be observed in practice neither.
-\bigskip
+\subsubsection{Stability of equilibrium with $S^*\neq 0$.}
+The stability of the equilibria with $S^* \neq 0$ can be analyzed similarly by evaluating the Jacobian matrix at those points and determining the eigenvalues.
+The computations are somewhat involved and will be done numerically for given values of the parameters $A$, $B$, and $C$.
+We proved that biologically feasible equilibrium with $S^* \neq 0$ only exists if $A<1$ and is unstable under a threshold $A_0<1$ independant of $B$ and $C$ (to be proved rigorously).
+For $A\geq  1$ the only biologically feasible equilibrium is the disease-free equilibrium which is unstable  since $a>b$.
+
+\subsection{Bifurcation analysis}
+We perform a bifurcation analysis with respect to the \emph{non dimensional} parameters $A=a/b$.
+From the stability analysis, we see that we  have  bifurcations at $A=A_0$ and $A=1$: for $A<A_0$ there are two biologically feasible equilibrium, one  inflammatoty one with $S^* \neq 0$ which is unstable and the disease-free equilibrium which  is stable; 
+between $A=A_0$ and $A=1$ there are two equilibria, one inflammatory and one disease-free equilibrium, both are stable; for $A>1$ the disease-free equilibrium is unstable and there is no other biologically feasible equilibrium.
+The number and stability of equilibria change as the parameter $A$ crosses these critical values, indicating bifurcation points in the system's dynamics.   
+We can plot the bifurcation diagram in the $(A,S^*)$ plane (see Figure \ref{fig:bifurcation}).
+\par\noindent
+\bigskip\\
 \begin{center}
 \begin{tikzpicture}
 \node[draw=gray!60, fill=gray!5, rounded corners, inner sep=8pt] (box) {
@@ -525,9 +538,9 @@ There is a positive eigenvalue $\delta_M$, hence this equilibrium point is unsta
         \centering
         {\Large\bfseries\color{blue}To Do List}\\[6pt]
         \begin{itemize}
-            \item[$\blacksquare$] \textcolor{black}{Is there a way to reduce the system introducing new nonlinear variables, depending only on the 3  adimensional parameters?}
-            \item[$\blacksquare$] \textcolor{black}{Recompute equilibria and simplify algebra}
-            \item[$\blacksquare$] \textcolor{black}{Write Python code to compute equilibria numerically}
+            %\item[$\blacksquare$] \textcolor{black}{Is there a way to reduce the system introducing new nonlinear variables, depending only on the 3  adimensional parameters?}
+            %\item[$\blacksquare$] \textcolor{black}{Recompute equilibria and simplify algebra}
+            %\item[$\blacksquare$] \textcolor{black}{Write Python code to compute equilibria numerically}
             \item[$\blacksquare$] {\textcolor{red}{perform stability analysis of non homeostasic equilibria (chronic inflammation)}}
             \item[$\blacksquare$] \textcolor{red}{Perform bifurcation analysis and plot results}
             \item[$\blacksquare$] \textcolor{red}{investigate possibility of limit cycles}
@@ -575,12 +588,6 @@ We can also plot some 2D projections of the 4D phase space trajectory using the 
 
 The Python Jupyter notebook used to perform the simulations is available at \url{https://github.com/azerad/immunomath}.
 
-\subsection{Bifurcation analysis}
-We perform a bifurcation analysis with respect to the \emph{non dimensional} parameters $A=a/b$, $B=\alpha/\beta$, $C=\gamma \delta_M/\alpha\delta_M$. 
-We \emph{conjecture} that biologically feasible equilibria with $S^* \neq 0$ only exist if $A<1$ and they are unstable
-and that for $A\geq  1$ the only biologically feasible equilibrium is the disease-free equilibrium which is unstable  since $a>b$.
-We have a  bifurcation at $A=1$: for $A<1$ there is one biologically feasible equilibrium with $S^* \neq 0$ which is unstable and the disease-free equilibrium is stable; for $A>1$ the disease-free equilibrium is unstable and there is no other biologically feasible equilibrium.
-\par\noindent
 
 
 
