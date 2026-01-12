@@ -438,10 +438,10 @@ Let us consider again the particular case $A = a/b = 1$, if $B \leq 1$  there is
 which implies  $C \geq \frac{(B-1)^2}{2B}$, contradicting the assumption $\Delta \geq 0$.
 \bigskip\\
 In the general case $A \neq 1$, the feasibility conditions \eqref{feas_T1}-\eqref{feas_T2} have to be checked for each positive root found. 
-For $A>1$, it will be shown that none of the positive roots satisfy the feasibility conditions (see Figure \ref{fig:three_roots}) whereas for $A<1$, there is always exactly one feasible root (in addition to the disease-free equilibrium) (see Figure \ref{fig:feasible_region}).
-Prooving this, there are four cases to consider depending on the signs of $A - 1$ and $B - 1$.
-\begin{enumerate}
-\item case $A > 1$ and $B \geq 1$.\\ 
+For $A>1$, we will show that none of the positive roots satisfy the feasibility conditions (see Figure \ref{fig:three_roots}) whereas for $A<1$, there is always exactly one feasible root (in addition to the disease-free equilibrium) (see Figure \ref{fig:feasible_region}).
+To this aim, we consider four cases  depending on the signs of $A - 1$ and $B - 1$.
+\begin{description}
+\item[-] Case $A > 1$ and $B \geq 1$.\\ 
 Let us define $f(T^*)$ as the cubic polynomial in the left-hand side of equation \eqref{eq:cubic_T}. 
 If $B>1$ we have
 \begin{eqnarray*}
@@ -451,23 +451,23 @@ f(T^*)&=&{T^*}^3-\frac{A}{C}(B-1){T^*}^2-A{T^*}^2+\frac{A}{C}(B-1)T^*+\frac{A}{C
 So $f(T^*)>0$, for $T^* \in [A, \frac{B}{B-1}]$  if $B>1$.\\
 If $B=1$ then $f(T^*)={T^*}^2(T^*-A)+\frac{A}{C}(T^*-1)>0$ for $T^*>A$.\\
 Hence, thanks to \eqref{feas_T1} and \eqref{feas_T2}, there is no feasible root in this case.
-\item case $A > 1$ and $B < 1$.
-As \begin{eqnarray*}
+\item[-] Case $A > 1$ and $B < 1$.
+Since \begin{eqnarray*}
 f(T^*)=\frac{A}{C}(B-1)(T^*-\frac{B}{B-1})(1-T^*)+{T^*}^2(T^*-A)&>&0
 \end{eqnarray*}
 for $T^* \geq A$ and $B<1$, there is no feasible root in this case either. 
-\item case $A < 1$ and $B  \geq1$.\\
+\item[-] Case $A < 1$ and $B  \geq1$.\\
 We compute $f(1)=1-A>0$ and $f(A)=(A-1)\frac{A}{C}(A(1-B)+B)<0$, so there is at least one feasible root in this case.\\
 If $B>1$, computing the derivative $f'(T^*)$ we have:
 \begin{eqnarray*}
 f'(T^*) &=& \frac{A}{C}(B-1)\big[(\frac{B}{B-1}-T^*)+(1-T^*)\big]+2{T^*}(T^*-A)+{T^*}^2 >0
 \end{eqnarray*}
 for $T^* \in [A,1]$. So there is exactly one root in the interval $[A,1]$.
-As once again $f(T^*)=\frac{A}{C}(B-1)(T^*-\frac{B}{B-1})(1-T^*)+{T^*}^2(T^*-A)$ is positive for $T^* \in [1, \frac{B}{B-1}]$, there is exactly one feasible root in this case.\\
+Since once again $f(T^*)=\frac{A}{C}(B-1)(T^*-\frac{B}{B-1})(1-T^*)+{T^*}^2(T^*-A)$ is positive for $T^* \in [1, \frac{B}{B-1}]$, there is exactly one feasible root in this case.\\
 If $B=1$, we have $f(T^*)={T^*}^2(T^*-A)+\frac{A}{C}(T^*-1)>0$ for $T^*>1$ and $f'(T^*)={T^*}^2+2{T^*}({T^*}-A)+\frac{A}{C}>0$ for $T^* \in [A,1]$. 
 So there is exactly one feasible root in this case too.
-\item case $A < 1$ and $B < 1$.\\
-As $f(1)=1-A>0$ and $f(A)=(A-1)\frac{A}{C}(A(1-B)+B)<0$, there is at least one feasible root in this case too.
+\item[-] Case $A < 1$ and $B < 1$.\\
+Since $f(1)=1-A>0$ and $f(A)=(A-1)\frac{A}{C}(A(1-B)+B)<0$, there is at least one feasible root in this case too.
 Let $\tilde{T}=T^*-A$ and $\tilde{f}(\tilde{T})=f(\tilde{T}+A)$. Then the equation $\tilde{f}(\tilde{T})=0$ is written as:
 \begin{eqnarray*}
 \tilde{T}^3 +\left(3A+\frac{A}{C}(1-B-C)\right)\tilde{T}^2&+&\left(3A^2+2\frac{A^2}{C}(1-B-C)+\frac{A}{C}(2B-1)\right)\tilde{T}\\
@@ -478,7 +478,7 @@ Let $\tilde{T}=T^*-A$ and $\tilde{f}(\tilde{T})=f(\tilde{T}+A)$. Then the equati
     Using {\sl Descartes' rule of signs} we can see that there is exactly one positive root $\tilde{T}$ 
     of the cubic equation $\tilde{f}(\tilde{T})=0$  as the coefficients of $\tilde{T}^3$ and $\tilde{T}^2$ are positive and the constant term is negative. 
     So there is exactly one feasible root $T^*\geq A$ in this case too.
-\end{enumerate}
+\end{description}
 \par\noindent Let us summarize. The feasible equilibria points of the system can be classified as follows:
 \begin{itemize}
 \item Disease-free equilibrium: $(S^*, N^*, M^*, T^*) = (0, 1, 1, 1)$.
