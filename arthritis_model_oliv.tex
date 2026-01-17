@@ -32,19 +32,46 @@
 
 \maketitle 
 \begin{abstract}
-We model the interaction between three populations of cells
-in the context of arthritis, namely   the neutrophiles,  the tissue resident macrophages (SubLining Tissue Resident Macrophages) and  the Monocyte Macrophages. The  
-SL-TRM macrophage cells  reside in the outer border of the joint. The  Momac (monocytes-macrophages) cells  are coming from the  reservoir of monocytes in the marrow. 
+We developed a mathematical model to describe the inflammatory dynamics 
+during arthritis development and resolution, focusing on the interaction between three key immune cell populations 
+within the joint, namely neutrophils (N), synovial sublining tissue-resident macrophages (SL-TRM, T),
+ and circulating monocytes that are recruited into the inflamed joint and differentiate into monocyte-derived macrophages (MoMac, M).
+An inflammatory signal (S), representing the response to an external arthritogenic stimulus, 
+drives the recruitment and activation of neutrophils and MoMac, while SL-TRM exert a regulatory and protective role.
+We propose a minimal ordinary differential equation model of acute inflammatory response into a joint that couples an inflammatory signal S to the three cell populations (N, T, M) and incorporates recruitment, conversion, nonlinear self-limitation and mutual regulation.
+ Using nondimensionalization, we showed that the equilibrium structure depends on three adimensional parameters A, B, C and derives a cubic equation characterizing nontrivial steady states.
+We performed an analytical study of equilibria and their stability, and identified a bifurcation at A = 1 separating a disease-free regime from a sustained inflammatory state, 
+and discussed conditions for multiple biological feasible steady states, consistent with transient or persistent inflammation. 
+Numerical simulations illustrate typical transient dynamics and phase- space geometry. 
+In conclusion, our model provides a framework to explore mechanisms underlying acute versus sustained joint inflammation and offers a basis for parameter estimation from experimental data, and future extensions toward evaluation of therapeutic strategies.
 
-We propose a minimal ordinary differential equation model of acute inflammatory response in a joint, describing interactions between neutrophils, lining tissue-resident macrophages (SL-TRM), and recruited monocyte-derived macrophages (Momac). The model couples an inflammatory signal S to three cell populations (N, T, M) and incorporates recruitment, conversion, nonlinear self-limitation and mutual regulation. By nondimensionalization we show that the equilibrium structure depends on three adimensional parameters A, B, C and derive a cubic equation characterizing nontrivial steady states. We perform an analytical study of equilibria and their stability, identify a bifurcation at A = 1 separating disease-free and inflamed regimes, and discuss conditions for multiple steady states and biological feasibility. Numerical simulations illustrate typical transient dynamics and phase-space geometry. The model provides a simple framework to explore mechanisms of chronic inflammation, guide parameter estimation from data, and extend to control or treatment scenarios.
 \end{abstract}
 \section{Model}
-Basically the crisis scenario is the following:
-The arthritis crisis is triggered by an external signal (injection of immune serum containing antigens) that activates the immune system and provokes an inflammatory response. 
-The antigens are recognized by the macrophages L-TRM (lining tissue resident macrophages) cells that secrete inflammatory chemokines and cytokines. 
-These cytokines activate the fibroblasts which in turn recruit the neutrophiles cells from the blood stream into the joint. 
-The cytokines also recruit the Momac cells from the blood stream into the joint. There is a positive feedback since the inflammation is amplified by the neutrophiles that are recruited in the joint by the chemokines secreted by the Momac cells. 
-The macrophages SL-TRM cells have a protective role since they inhibit the inflammation but they are depleted during the crisis because they are inhibited by the proliferation of Momac cells.
+In the experimental mouse model of arthritis used in this study,
+ the acute inflammatory response is triggered by an external signal (injection of an arthritogenic serum) 
+ that activates the immune system and initiates an inflammatory response 
+ within the joint tissue, which is composed of a lining and sub-lining membrane.
+  At steady state, the synovial lining membrane is populated by specialized tissue-resident macrophages (L-TRM) 
+  that form a protective barrier and contribute to immune regulation. TRM are also present within the sublining membrane (SL-TRM),
+   scattered and fewer in number. 
+  Both TRM contribute to early immune sensing of environmental cues, exerting an overall protective and regulatory role by limiting excessive inflammation.
+   However, during arthritis inflammatory flares, while L-TRM remain preserved, SL-TRM. are progressively depleted. 
+   This depletion is concomitant with the accumulation of macrophages derived from blood monocytes infiltrating the inflamed joints (MoMac). 
+   The loss of the SL-TRM population weakens synovial immune regulation and favors persistent inflammatory cell infiltration through 
+   to the local production of cytokines and chemokines. This activation promotes the rapid recruitment of neutrophils (N) from the bloodstream into the joint, 
+   where they become the dominant cell population during the acute phase of inflammation.
+    Neutrophils amplify the inflammatory response through the release of pro-inflammatory mediators. 
+     Based on these biological observations, we modeled the joint inflammatory response as the interaction between an inflammatory signal and three cell populations—N, SL-TRM, and MoMac—capturing recruitment,
+      amplification, and regulatory mechanisms in a minimal dynamical framework.
+
+
+
+%Basically the crisis scenario is the following:
+%The arthritis crisis is triggered by an external signal (injection of immune serum containing antigens) that activates the immune system and provokes an inflammatory response. 
+%The antigens are recognized by the macrophages L-TRM (lining tissue resident macrophages) cells that secrete inflammatory chemokines and cytokines. 
+%These cytokines activate the fibroblasts which in turn recruit the neutrophiles cells from the blood stream into the joint. 
+%The cytokines also recruit the Momac cells from the blood stream into the joint. There is a positive feedback since the inflammation is amplified by the neutrophiles that are recruited in the joint by the chemokines secreted by the Momac cells. 
+%The macrophages SL-TRM cells have a protective role since they inhibit the inflammation but they are depleted during the crisis because they are inhibited by the proliferation of Momac cells.
 \subsection{Mathematical Model}
 Let us denote by $T(t)$ the population of SL-TRM cells and by $M(t)$ the population of Momac cells at time $t$.
 The cells $T$ (SL-TRM) and $M$ (Momac) interact with each other in the following way.
@@ -100,14 +127,14 @@ To make things easier to undestand, we summarize the model in the following diag
         \node[draw, circle, fill=blue!10, minimum size=2cm, below=of M, yshift=-1cm] (S) {Immune signal $S$};
 
         % Flèches et labels
-        \draw[mid arrow, thick] (N) to[bend left=20] node[left, xshift=-2mm, yshift=2mm] {foster $(a)$} (S);
-        \draw[-|, thick] (T) to[bend left=20] node[right, xshift=2mm] {inhibate $(b)$} (S);
-        \draw[mid arrow, thick] (S) to[bend left=20] node[left] {activation$(\alpha)$} (N);
-        \draw[mid arrow, thick] (S) to[bend left=10] node[left,xshift=6mm] {activation $(\beta)$} (M);
-        \draw[-|, thick] (S) to[bend left=20] node[left, xshift=2mm] {inhibate $(\gamma)$} (T);
-        \draw[-|, thick, loop above, looseness=8] (N) to node[above] {destruction $(\delta_N)$} (N);
-        \draw[-|, thick, loop above, looseness=8] (M) to node[above] {destruction $(\delta_M)$} (M);
-        \draw[mid arrow, thick] (M.east) -- node[below, yshift=-2mm] {conversion $(\delta_M)$} (T.west);
+        \draw[mid arrow, line width=1.5pt] (N) to[bend left=20] node[left, xshift=-2mm, yshift=2mm] {foster $(a)$} (S);
+        \draw[-|, line width=1.5pt] (T) to[bend left=20] node[right, xshift=2mm] {inhibate $(b)$} (S);\draw[-|, thick] (T) to[bend left=20] node[right, xshift=2mm] {inhibate $(b)$} (S);
+        \draw[mid arrow, line width=1.5pt] (S) to[bend left=20] node[left] {activation$(\alpha)$} (N);
+        \draw[mid arrow, line width=1.5pt] (S) to[bend left=10] node[left,xshift=6mm] {activation $(\beta)$} (M);
+        \draw[-|, line width=1.5pt] (S) to[bend left=20] node[left, xshift=2mm] {inhibate $(\gamma)$} (T);
+        \draw[-|, line width=1.5pt, loop above, looseness=8] (N) to node[above] {destruction $(\delta_N)$} (N);
+        \draw[-|, line width=1.5pt, loop above, looseness=8] (M) to node[above] {destruction $(\delta_M)$} (M);
+        \draw[mid arrow, line width=1.5pt] (M.east) -- node[below, yshift=-2mm] {conversion $(\delta_M)$} (T.west);
 
     \end{tikzpicture}
 \end{center}
@@ -575,7 +602,7 @@ The eigenvalues of this matrix can be found by solving the characteristic polyno
 &- a S \alpha N {\delta_M}^2 (2M-1) \frac{M}{T} - b \delta_N N {\delta_M}^2 M^2 (1-T)
 \end{eqnarray*}
 Due to the Descartes' rule of signs, we claim that the polynomial $P(\lambda)$ has one positive root (hence the equilibrium is unstable). Indeed, the coefficients of $P(\lambda)$ are positive for the terms in 
-$\lambda^4$ and $\lambda^3$, whereas the constant term is negative. To prove that there are only one change of sign and hence one positive root, we have to check that if the coefficient of $\lambda$ is positive then the coefficient of 
+$\lambda^4$ and $\lambda^3$, whereas the constant term is negative. To prove that there is only one change of sign and hence one positive root, we have to check that if the coefficient of $\lambda$ is positive then the coefficient of 
 $\lambda^2$ is positive too. 
 
 \noindent
@@ -602,11 +629,11 @@ Due to \eqref{ineq2} and \eqref{ineq3}, the coefficient of $\lambda^2$ is positi
 We proved that biologically feasible equilibrium with $S^* \neq 0$ only exists if $A<1$ and is unstable.
 For $A\geq  1$ the only biologically feasible equilibrium is the disease-free equilibrium which is unstable since $a>b$.
 
-\subsection{Bifurcation analysis}
-We perform a bifurcation analysis with respect to the \emph{non dimensional} parameters $A=a/b$.
-From the stability analysis, we see that we  have  bifurcations at $A=A_0$ and $A=1$: for $A<A_0\approx 0.998$ there are two biologically feasible equilibrium, one  inflammatoty one with $S^* \neq 0$ which is unstable and the disease-free equilibrium which  is stable; 
-between $A=A_0$ and $A=1$ there are two equilibria, one inflammatory and one disease-free equilibrium, both are stable; for $A>1$ the disease-free equilibrium is unstable and there is no other biologically feasible equilibrium.
-The number and stability of equilibria change as the parameter $A$ crosses these critical values, indicating bifurcation points in the system's dynamics.   
+\subsection{Bifurcation diagram}
+We perform a bifurcation analysis with respect to the \emph{non dimensional} parameters $A=a/b$. We restict to the biologically relevant feasible equilibria.
+From the stability analysis above, we see that we  have only one  bifurcation at  $A=1$: for $A<1$ there are two biologically feasible equilibria, one  inflammatory one with $S^* \neq 0$ which is unstable and the disease-free equilibrium which  is stable; 
+for $A>1$ the disease-free equilibrium is unstable and there is no other biologically feasible equilibrium.
+The number and stability of equilibria change as the parameter $A$ crosses the critical value $A=1$, indicating bifurcation points in the system's dynamics.   
 We can plot the bifurcation diagram in the $(A,S^*)$ plane (see Figure \ref{fig:bifurcation}).
 \begin{figure}
  \includegraphics[scale=0.5]{bifurcation_stab.png}      
@@ -625,14 +652,15 @@ We can plot the bifurcation diagram in the $(A,S^*)$ plane (see Figure \ref{fig:
             %\item[$\blacksquare$] \textcolor{black}{Is there a way to reduce the system introducing new nonlinear variables, depending only on the 3  adimensional parameters?}
             %\item[$\blacksquare$] \textcolor{black}{Recompute equilibria and simplify algebra}
             %\item[$\blacksquare$] \textcolor{black}{Write Python code to compute equilibria numerically}
-            \item[$\blacksquare$] {\textcolor{red}{perform stability analysis of non homeostasic equilibria (chronic inflammation)}}
-            \item[$\blacksquare$] \textcolor{red}{Perform bifurcation analysis and plot results}
-            \item[$\blacksquare$] \textcolor{red}{investigate possibility of limit cycles}
-            \item[$\blacksquare$] \textcolor{red}{is there hysteresis phenomenon?}
-            \item[$\blacksquare$] \textcolor{green}{Plot 4d phase space trajectories (projections)}
-            \item[$\blacksquare$] \textcolor{black}{Run numerical simulations with realistic rates}
-            \item[$\blacksquare$] \textcolor{blue}{Discuss model assumptions/results with immunology collaborators}
-            \item[$\blacksquare$] \textcolor{cyan}{use optimal control theory to model treatments (corticosteroids, anti TNF alpha, etc.)}
+            %\item[$\blacksquare$] {\textcolor{red}{perform stability analysis of non homeostasic equilibria (chronic inflammation)}}
+            %\item[$\blacksquare$] \textcolor{red}{Perform bifurcation analysis and plot results}
+            \item[$\blacksquare$] \textcolor{blue}{investigate possibility of limit cycles for A=1}
+            \item[$\blacksquare$] \textcolor{blue}{is there hysteresis phenomenon?}
+            \item[$\blacksquare$] \textcolor{blue}{Plot 4d phase space trajectories (projections)}
+            \item[$\blacksquare$] \textcolor{blue}{Plot 2d phase space trajectories (Momac, Monocytes) or (neutrophiles, monocytes)(projections)}
+            \item[$\blacksquare$] \textcolor{blue}{Run numerical simulations with realistic rates}
+            \item[$\blacksquare$] \textcolor{blue}{calibrate results with immunology collaborators}
+            \item[$\blacksquare$] \textcolor{red}{use optimal control theory to model treatments (corticosteroids, anti TNF alpha, ethanecerp, inhibitor of neutrophiles degranulation,...)}
         \end{itemize}
     \end{minipage}
 };
