@@ -557,9 +557,50 @@ a - b R & 0 & 0 & 0 \\
 There is a positive eigenvalue $\delta_M$, hence this equilibrium point is unstable. Momac can grow out of bound. This equilibrium will not be observed in practice neither.
 \subsubsection{Stability of equilibrium with $S^*\neq 0$.}
 The stability of the equilibria with $S^* \neq 0$ can be analyzed similarly by evaluating the Jacobian matrix at those points and determining the eigenvalues.
-The computations are somewhat involved and will be done numerically for given values of the parameters $A$, $B$, and $C$.
-We proved that biologically feasible equilibrium with $S^* \neq 0$ only exists if $A<1$ and is unstable under a threshold $A_0<1$ very close to $1$, independant of $B$ and $C$ (to be proved rigorously).
-For $A\geq  1$ the only biologically feasible equilibrium is the disease-free equilibrium which is unstable  since $a>b$.
+Taking into account the equilibrium equations \eqref{eq:equilibrium_S}, \eqref{eq:equilibrium_N}, and \eqref{eq:equilibrium_T}, the Jacobian matrix at $(S^*, N^*, M^*, T^*)$ is:
+
+\[
+J = \begin{pmatrix}
+0 & aS & 0 & -bS \\
+\alpha N &  - \delta_N (N) & 0 & 0 \\
+\beta & 0 & -\delta_M (2M-1) & 0 \\
+-\gamma T & 0 & \delta_M (1-T) & - \delta_M\frac{M}{T} 
+\end{pmatrix}
+\]
+The eigenvalues of this matrix can be found by solving the characteristic polynomial $\det(J - \lambda I) = 0$. A straightforward computation shows that the characteristic polynomial is given by:
+\begin{eqnarray*}
+&P(\lambda) = \lambda^4 + \Big(\delta_N N + \delta_M (2M-1) + \delta_M \frac{M}{T}\Big) \lambda^3 \\
+&+ \Big(\delta_N N \delta_M(2M-1 + \frac{M}{T}) + {\delta_M}^2 (2M-1)\frac{M}{T} -a S \alpha N - b S \beta \gamma \Big) \lambda^2 \\
+&+ \Big(- a S \alpha N \delta_M (2M-1+\frac{M}{T})  - b S\gamma T\delta_N N + \delta_N N {\delta_M}^2(2M-1)\frac{M}{T}- b{\delta_M}^2 M^2(1-T)\Big) \lambda \\
+&- a S \alpha N {\delta_M}^2 (2M-1) \frac{M}{T} - b \delta_N N {\delta_M}^2 M^2 (1-T)
+\end{eqnarray*}
+Due to the Descartes' rule of signs, we claim that the polynomial $P(\lambda)$ has one positive root (hence the equilibrium is unstable). Indeed, the coefficients of $P(\lambda)$ are positive for the terms in 
+$\lambda^4$ and $\lambda^3$, whereas the constant term is negative. To prove that there are only one change of sign and hence one positive root, we have to check that if the coefficient of $\lambda$ is positive then the coefficient of 
+$\lambda^2$ is positive too. 
+
+\noindent
+If the coefficient of $\lambda$ is positive we have the following inequality:
+\[
+ a S \alpha N \delta_M (2M-1+\frac{M}{T})+ b{\delta_M}^2 M^2(1-T)+ b S\gamma T\delta_N N < \delta_N N {\delta_M}^2(2M-1)\frac{M}{T}
+\]
+Thanks to the positivity of all terms, we can deduce the following inequalities:
+\begin{equation}
+ a S \alpha N \delta_M (2M-1+\frac{M}{T}) < \delta_N N {\delta_M}^2(2M-1)\frac{M}{T},
+\label{ineq1}
+\end{equation}
+and
+\begin{equation}
+ b S\gamma T < {\delta_M}^2(2M-1)\frac{M}{T}.
+\label{ineq2}
+\end{equation}
+Inequality \eqref{ineq1} implies that 
+\begin{equation}\label{ineq3}
+a S \alpha N < a S \alpha N\left(\frac{{\delta_M}^2 {(2M-1+\frac{M}{T}) }^2}{{\delta_M}^2(2M-1)\frac{M}{T}}\right)<\delta_N N \delta_M (2M-1+\frac{M}{T}).
+\end{equation}
+Due to \eqref{ineq2} and \eqref{ineq3}, the coefficient of $\lambda^2$ is positive.
+\par\noindent
+We proved that biologically feasible equilibrium with $S^* \neq 0$ only exists if $A<1$ and is unstable.
+For $A\geq  1$ the only biologically feasible equilibrium is the disease-free equilibrium which is unstable since $a>b$.
 
 \subsection{Bifurcation analysis}
 We perform a bifurcation analysis with respect to the \emph{non dimensional} parameters $A=a/b$.
