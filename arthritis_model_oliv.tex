@@ -4,6 +4,7 @@
 \usepackage[T1]{fontenc}
 %\usepackage[french]{babel}
 \usepackage{amsmath, amssymb}
+\usepackage{amsthm}
 \usepackage{graphicx}
 \usepackage{tikz}
 \usetikzlibrary{positioning}
@@ -27,7 +28,9 @@
 \affil[1]{IRMB, UMR1183, Université de Montpellier and INSERM, France}
 \affil[2]{IMAG, UMR5149, Université de Montpellier, France}
 \affil[3]{L2C, UMR5221, Université de Montpellier, France}
-\newtheorem{rem}{Remark}[section] 
+\newtheorem{rem}{Remark}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}{Proposition}[section]
 \begin{document}
 
 \maketitle 
@@ -144,12 +147,31 @@ To make things easier to undestand, we summarize the model in the following diag
 
 \bigskip
 
-\textbf{Comments and questions on the model:}
-\marginpar{\textcolor{red}{\small to be completed by immunologists collaborators}}
+%\textbf{Comments and questions on the model:}
+%\marginpar{\textcolor{red}{\small to be completed by immunologists collaborators}}
 
 
 
 \section{Analysis of the model}
+\subsection{Existence and non-negativity of the solution.}
+Existence and uniqueness of a local solution of the system \eqref{eq:system} is guaranteed by the Cauchy-Lipschitz theorem since the right-hand side of the system is locally Lipschitz continuous.
+\begin{proposition}
+If the initial conditions $S(0)$, $N(0)$, $M(0)$, and $T(0)$ are nonnegative, then the solution $(S(t), N(t), M(t), T(t))$ of the system \eqref{eq:system} remains nonnegative for all $t \geq 0$.   
+\end{proposition}
+\begin{proof}
+We consider the vector field $F=(f_1, f_2, f_3, f_4)$ for $y=(y_1, y_2, y_3, y_4)\in \mathbb{R}^4$ given by:
+\begin{equation*}
+  \left\{
+\begin{aligned}
+f_1(y) &= (a y_2 - b y_4) y_1, \\
+f_2(y) &= \alpha y_1 y_2 - \delta_N y_2 (y_2 - 1), \\
+f_3(y) &= \beta y_1 - \delta_M y_3 (y_3 - 1), \\
+f_4(y) &= -\gamma y_1 y_4 + \delta_M y_3 (1 - y_4).
+\end{aligned}
+\right.
+\end{equation*}
+We observe that the vector field $F$ is \emph{quasi-positive}, i.e. for each $i=1,2,3,4$, we have $f_i(y) \geq 0$ whenever $y_i = 0$ and $y_j \geq 0$ for all $j \neq i$. Thus from Theorem 3.2 in \cite{smoller1994shock}, we deduce that if the initial conditions are nonnegative, then the solution remains nonnegative for all $t \geq 0$.
+\end{proof}
 \subsection{Equilibria points}
 \emph{Equilibria points} of the system are found by setting the right-hand side of the system to zero, i.e. by solving the following system of equations:
  The equilibrium points $(S^*, N^*, M^*, T^*)$ satisfy the following system:
@@ -400,7 +422,7 @@ This condition can be rewritten in terms of the original parameters  using compu
 \mathcal{B}= \frac{A} {27 C^3} \Big(-2A^2 (B + C - 1)^3 + 9 A C (2 B - 1)(B + C - 1) - 27 B C^2\Big)
 \]
 \[
-\Delta_3 = \frac{A^2} {2916 C^6} \Bigg(-4 A (A (B + C - 1)^2 - 3 C (2 B - 1))^3 + (2 A^2 (B + C - 1)^3 - 9 A C (2 B - 1) (B + C - 1) + 27 B C^2)^2\Bigg)
+\Delta_3 = \frac{A^2} {108 C^4} \Bigg(A^2 (4BC-1) (B + C - 1)^2 - 2AC (2B-1)(B^2-9BC-B-2) + 27 B^2 C^2\Bigg)
 \]
 \par\noindent
 
@@ -709,6 +731,12 @@ This work was supported by the IMMUN4CURE project of IHU Montpellier.
 % Bibliography réarrangée par ordre chronologique
 
 \begin{thebibliography}{9}
+% 1994
+\bibitem{smoller1994shock}
+Smoller, J. A. (1994).
+\newblock Shock Waves and Reaction-Diffusion Equations.
+\newblock \emph{Springer-Verlag}, New York.
+
 % 2005
 \bibitem{jit2005}
 Jit, M., et al. (2005).% ode compartement
