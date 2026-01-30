@@ -660,10 +660,10 @@ for $A>1$ the disease-free equilibrium is unstable and there is no other biologi
 The number and stability of equilibria change as the parameter $A$ crosses the critical value $A=1$, indicating bifurcation points in the system's dynamics.   
 We can plot the bifurcation diagram in the $(A,S^*)$ plane (see Figure \ref{fig:bifurcation}).
 \begin{figure}
- \includegraphics[scale=0.5]{bifurcation_stab.png}      
-  \label{fig:bifurcation}
-  \caption{Bifurcation diagram in the $(A,T^*)$ plane.}
- \end{figure}
+ \includegraphics[scale=0.5]{bifurcation.png}      
+ \caption{Bifurcation diagram in the $(A,T^*)$ plane.}
+ \label{fig:bifurcation}
+\end{figure}
 \par\noindent
 \bigskip\\
 \begin{center}
@@ -692,17 +692,41 @@ We can plot the bifurcation diagram in the $(A,S^*)$ plane (see Figure \ref{fig:
 \end{tikzpicture}
 \end{center}
 \section{Numerical simulations}
-Here we reproduce one typical simulations of the model using the following parameters:
+Here we reproduce some typical simulations of the model using the following parameters:
 $\alpha=1, \beta=1, \gamma=1,
        \delta_N=1, \delta_M=1, a=0.35,\; b=1$,  duration=20 days and initial conditions $S(0)=1, N(0)=1, M(0)=1, T(0)=1$.
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=.7\textwidth]{output.png}
-    %\includegraphics[height= .2\textheight, width=.9\textwidth]{arthritis_2.png}
-    %\includegraphics[height= .2\textheight, width=.9\textwidth]{arthritis_3.png}
-    %\includegraphics[height= .2\textheight, width=.9\textwidth]{arthritis_4.png}
-    \caption{}
+    \includegraphics[width=.7\textwidth]{A=0,35.png}
+    \caption{A=0.35}
+    \label{035}
 \end{figure}
+Now let us take $a=0.38$, keeping the other parameters unchanged.
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=.7\textwidth]{A=0,38.png}
+    \caption{A=0.38}
+    \label{038}
+\end{figure}
+We see clearly  in fig. \ref{035} that for $A=0.35 < 1$ the system converges to the disease-free equilibrium, whereas for $A=0.38 > 1$ the system diverges away from this equilibrium, indicating a chronic inflammatory state, see fig. \ref{038}. 
+We can also decrease the initial immune signal $S(0)$ to see if the system converges to the disease-free equilibrium or diverges away from it.
+Halving the initial immune signal i.e.taking $S(0)=0.5$ and $A=0.38$, we obtain the following result:
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=.7\textwidth]{A=0,38_S0=0,5.png}
+    \caption{A=0.38, S(0)=0.5}
+    \label{038_05}
+\end{figure}
+We see in fig. \ref{038_05} that even if $A=0.38 > 1$, the system converges to the disease-free equilibrium, indicating that the initial immune signal is not strong enough to trigger a chronic inflammatory state.
+We can also start from a depressed immunitory state, taking $S(0)=0.5, N(0)=1, M(0)=0.1, T(0)=0.05$ and $A=0.38$. We observe in fig. \ref{038_depressed} that the system diverges away from the disease-free equilibrium, indicating a chronic inflammatory state, even if the initial immune signal is low.
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=.7\textwidth]{A=0,38_S0=0,5_M=0,1_T=0,05.png}
+    \caption{A=0.38, depressed initial conditions}
+    \label{038_depressed}
+\end{figure}
+\bigskip\\   
+\par\noindent
 We can plot a phase space trajectory in the $(S,N,M,T)$ 4D space, using color intensity to represent the $S$ variable in fig. \ref{phase_space_color}.
 \begin{figure}[!htbp]
     \centering
