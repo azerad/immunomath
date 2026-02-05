@@ -725,7 +725,21 @@ We can also start from a depressed immunitory state, taking $S(0)=0.5, N(0)=1, M
     \caption{A=0.38, depressed initial conditions}
     \label{038_depressed}
 \end{figure}
-\bigskip\\   
+
+
+To see how the parameter $A=a/b$ controls the healing prognosis
+we plot in Fig. \ref{heal} a $(A,S)$ plane figure where for each value of $A$ and starting value $(S(0)=S,N=1,M=1,T=1)$
+ we run the model for three weeks and see how far from the disease-free state the systems ends up.
+ We color in green points where $(S,M,N,T)$ is close to $(0,1,1,1)$ up to a given tolerance (say 5\%).
+ We color in red points which end up far away from the equilibrium.
+ \begin{figure}[!htbp]
+    \centering
+    \includegraphics[scale=0.5]{healing.png}
+    \caption{Healing w.r.t. $A=a/b$ and initial dose of immune signal $S$}
+    \label{heal}
+\end{figure}
+We notice that for $A<1$, the system converges to the disease-free equilibrium provided that the   initial immune signal $S(0)$ is below a given threshold. This threshold increases as $A$ decreases, meaning that the system can tolerate higher initial immune signals without diverging away from the disease-free equilibrium when $A$ is smaller. For $A>1$, the system diverges away from the disease-free equilibrium for all values of the initial immune signal $S(0)$, indicating a chronic inflammatory state regardless of the initial conditions.
+\mbox{}\\   
 \par\noindent
 We can plot a phase space trajectory in the $(S,N,M,T)$ 4D space, using color intensity to represent the $S$ variable in fig. \ref{phase_space_color}.
 \begin{figure}[!htbp]
