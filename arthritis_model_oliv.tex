@@ -590,8 +590,11 @@ a - b & 0 & 0 & 0 \\
 -\gamma & 0 & 0 & -\delta_M
 \end{pmatrix}
 \]
-We notice immediately that the eigenvalues of this matrix are  $a-b$, $-\delta_N$ and $-\delta_M$. The last two are negative since $\delta_N, \delta_M > 0$. The remaining eigenvalue  is $a-b$. Thus the disease-free equilibrium is stable if $a < b$ and unstable if $a > b$. 
+We notice immediately that the eigenvalues of this matrix are  $a-b$, $-\delta_N$ and $-\delta_M$.
+ The last two are negative since $\delta_N, \delta_M > 0$. The remaining eigenvalue  is $a-b$. Thus the disease-free equilibrium is stable if $a < b$ and unstable if $a > b$. 
 This means that if the inflammatory effect of Neutrophiles cells controlled by paramater $a$ is less than the curing effect of the  SL-TRM macrophages controlled by parameter $b$, the system will return to the disease-free state. Conversely, if $a > b$, the system may move away from this equilibrium, potentially leading to a chronic inflammatory state.
+The particular case $a = b$ corresponds to a bifurcation point where the stability of the disease-free equilibrium changes. In this case, a more detailed analysis is needed to determine the behavior of the system near this point, which  involve higher-order terms in the Taylor expansion of the system around the equilibrium.
+The numerical simulations, see section \ref{sec:numerical_simulations} suggest that for $a=b$ the system quickly diverges from the disease-free equilibrium, hence this equilibrium is unstable in this case too.
 The stability of other equilibria points can be analyzed similarly by evaluating the Jacobian matrix at those points and determining the eigenvalues.
 \par\noindent For $S^* = 0, N^* = 0, M^* = 0, T^* = R$, with arbitrary $R$, the Jacobian matrix becomes:
 \[
@@ -684,34 +687,33 @@ We can plot the bifurcation diagram in the $(A,S^*)$ plane (see Figure \ref{fig:
  \caption{Bifurcation diagram in the $(A,T^*)$ plane.}
  \label{fig:bifurcation}
 \end{figure}
-\par\noindent
-\bigskip\\
-\begin{center}
-\begin{tikzpicture}
-\node[draw=gray!60, fill=gray!5, rounded corners, inner sep=8pt] (box) {
-    \begin{minipage}{0.86\textwidth}
-        \centering
-        {\Large\bfseries\color{blue}To Do List}\\[6pt]
-        \begin{itemize}
+%\par\noindent
+%\bigskip\\
+%\begin{center}
+%\begin{tikzpicture}
+%\node[draw=gray!60, fill=gray!5, rounded corners, inner sep=8pt] (box) {
+%    \begin{minipage}{0.86\textwidth}
+%        \centering
+%        {\Large\bfseries\color{blue}To Do List}\\[6pt]
+%        \begin{itemize}
             %\item[$\blacksquare$] \textcolor{black}{Is there a way to reduce the system introducing new nonlinear variables, depending only on the 3  adimensional parameters?}
             %\item[$\blacksquare$] \textcolor{black}{Recompute equilibria and simplify algebra}
             %\item[$\blacksquare$] \textcolor{black}{Write Python code to compute equilibria numerically}
             %\item[$\blacksquare$] {\textcolor{red}{perform stability analysis of non homeostasic equilibria (chronic inflammation)}}
             %\item[$\blacksquare$] \textcolor{red}{Perform bifurcation analysis and plot results}
-            \item[$\blacksquare$] \textcolor{blue}{compute attracting sets for A=1/ when there is a zero eigenvalue (center manifold theory)}
-            \item[$\blacksquare$] \textcolor{blue}{is there hysteresis phenomenon? compute domain of persistence/ disease-free attraction basins in the (S,A) plane as in Torres et al. 2024}
-            \item[$\blacksquare$] \textcolor{blue}{Plot 4d phase space trajectories (projections)}
-            \item[$\blacksquare$] \textcolor{blue}{Plot 2d phase space trajectories (Momac, Monocytes) or (neutrophiles, monocytes)(projections)}
-            \item[$\blacksquare$] \textcolor{blue}{Run numerical simulations with realistic rates}
-            \item[$\blacksquare$] \textcolor{blue}{perform sensitivity analysis of parameters}
-            \item[$\blacksquare$] \textcolor{blue}{calibrate results with immunology collaborators}
-            \item[$\blacksquare$] \textcolor{red}{use optimal control theory to model treatments (corticosteroids, anti TNF alpha, ethanecerp, inhibitor of neutrophiles degranulation,...)}
-        \end{itemize}
-    \end{minipage}
-};
-\end{tikzpicture}
-\end{center}
-\section{Numerical simulations}
+            %\item[$\blacksquare$] \textcolor{blue}{compute attracting sets for A=1/ when there is a zero eigenvalue (center manifold theory)}
+            %\item[$\blacksquare$] \textcolor{blue}{is there hysteresis phenomenon? compute domain of persistence/ disease-free attraction basins in the (S,A) plane as in Torres et al. 2024}
+            %\item[$\blacksquare$] \textcolor{blue}{Plot 4d phase space trajectories (projections)}
+            %\item[$\blacksquare$] \textcolor{blue}{Plot 2d phase space trajectories (Momac, Monocytes) or (neutrophiles, monocytes)(projections)}
+            %\item[$\blacksquare$] \textcolor{blue}{Run numerical simulations with realistic rates}
+            %\item[$\blacksquare$] \textcolor{blue}{perform sensitivity analysis of parameters}
+            %\item[$\blacksquare$] \textcolor{blue}{calibrate results with immunology collaborators}
+            %\item[$\blacksquare$] \textcolor{red}{use optimal control theory to model treatments (corticosteroids, anti TNF alpha, ethanecerp, inhibitor of neutrophiles degranulation,...)}
+        %\end{itemize}
+    %\end{minipage}
+%\end{tikzpicture}
+%\end{center}
+\section{Numerical simulations}\label{sec:numerical_simulations}
 Here we reproduce some typical simulations of the model using the following parameters:
 $\alpha=1, \beta=1, \gamma=1,
        \delta_N=1, \delta_M=1, a=0.35,\; b=1$,  duration=20 days and initial conditions $S(0)=1, N(0)=1, M(0)=1, T(0)=1$.
@@ -779,7 +781,7 @@ We can also plot some 2D projections of the 4D phase space trajectory using the 
 \bigskip
 \noindent
 
-\emph{We need to have realistic values for the parameters to feed the model.}
+%\emph{We need to have realistic values for the parameters to feed the model.}
 
 The Python Jupyter notebook used to perform the simulations is available at \url{https://github.com/azerad/immunomath}.
 
