@@ -55,7 +55,7 @@ In the experimental mouse model of arthritis used in this study,
  that activates the immune system and initiates an inflammatory response 
  within the joint tissue, which is composed of a lining and sub-lining membrane.
   At steady state, the synovial lining membrane is populated by specialized tissue-resident macrophages (L-TRM) 
-  that form a protective barrier and contribute to immune regulation. TRM are also present within the sublining membrane (SL-TRM),
+  that form a protective barrier and contribute to immune regulation. Tissue-resident macrophages (TRM) are also present within the sublining membrane (SL-TRM),
    scattered and fewer in number. 
   Both TRM contribute to early immune sensing of environmental cues, exerting an overall protective and regulatory role by limiting excessive inflammation.
    However, during arthritis inflammatory flares, while L-TRM remain preserved, SL-TRM. are progressively depleted. 
@@ -174,12 +174,26 @@ We observe that the vector field $F$ is \emph{quasi-positive}, i.e. for each $i=
 \end{proof}
 This property is biologically meaningful since the variables $S$, $N$, $M$, and $T$ represent cell populations, which cannot be negative. Our model thus ensures that the solutions remain within the biologically relevant domain.       
 \begin{rem}
-    We did not  include degradation terms in the $S$,$N$, $M$ equations, which could ensure the boundedness of the solution. Indeed we shall see that in some cases the solution may not be bounded for all time, at least for $S$,$N$ and $M$.
-     Actually we are interested in the  immune response to an external stimulus, which can be very strong and can lead to a very high level of inflammation and cell recruitment from the bloodstream or marrow. The transient dynamics of the system can be very complex and can involve large variations in the levels of inflammation and cell populations, which may not be captured by a model that includes degradation terms that dampens the growth of these variables.
+    We did not  include degradation terms in the $S$,$N$, $M$ equations, which could ensure the boundedness of the solution. 
+    Indeed we shall see that in some cases the solution may not be bounded for all time, at least for $S$,$N$ and $M$.
+     Actually we are interested in the  immune response to an external stimulus, which can lead to a very high level of inflammation and cell recruitment from the bloodstream or marrow. 
+     The transient dynamics of the system can involve large variations in the levels of inflammation and cell populations, which may be shadowed by a model that includes degradation terms that dampens the growth of these variables.
     In this case, the solution may not be bounded for all time, but it can still be biologically relevant since we are interested in the crisis dynamics rather than the long-term behavior of the system.
-    In future work, we could consider adding degradation terms to the equations to ensure boundedness of the solution, but this would also add complexity to the model and may not be necessary for capturing the transient dynamics of interest.
-    However the solution is always bounded in the $T$ variable, since $T(t) \leq 1$ for all $t \geq 0$. This is biologically relevant since the population of SL-TRM cells cannot exceed a certain maximum level due to spatial constraints within the joint tissue and regulatory mechanisms that limit their proliferation.
+    However  one can easily prove that $T$ variable is always bounded by 1. This is biologically relevant since the population of SL-TRM cells is limited by spatial constraints within the joint tissue and regulatory mechanisms that control their proliferation.
 \end{rem}
+
+    \marginpar{\textcolor{red}{\small is it biological fact that SL-TRM is bounded by disease-free value?}}
+
+\begin{proposition}
+The variable $T(t)$ is bounded by 1 for all $t \geq 0$. 
+\end{proposition}
+\begin{proof}
+    Let us consider the equation for $T$:
+\begin{equation*}
+\frac{dT}{dt} = -\gamma S T + \delta_M M (1 - T)
+\end{equation*}
+If for some $t_0 >0$, we have $T(t_0) = 1$, then we have $1 - T(t) = 0$, hence $\delta_M M (1 - T) = 0$. Since $-\gamma S T \leq 0$, we deduce that $\frac{dT}{dt} \leq 0$ whenever $T(t) = 1$. Thus, if the solution starts with $T(0) \leq 1$, it cannot cross the threshold $T=1$ and must remain bounded by 1 for all time.
+\end{proof}
 \subsection{Equilibria points}
 \emph{Equilibria points} of the system are found by setting the right-hand side of the system to zero, i.e. by solving the following system of equations:
  The equilibrium points $(S^*, N^*, M^*, T^*)$ satisfy the following system:
@@ -197,8 +211,8 @@ $S^* = 0, N^* = 0, M^* = 0, T^* = R$, with arbitrary $R$;
  $S^* = 0, N^* = 0, M^* = 1, T^* = 1$;
  $S^* = 0, N^* = 1, M^* = 0, T^* = R$, with arbitrary $R$.
 \begin{rem}
-These equilibria points with $S^* = 0$ and $N^* = 0$ or $M^* = 0$ are not biologically relevant since they correspond to the absence of neutrophils or Momac cells, which is not realistic in a living organism.
-Anyway, we will prove later that these equilibria points are unstable, so they will not be observed in practice.
+These equilibria points with  $N^* = 0$ or $M^* = 0$ are not biologically relevant since they correspond to the absence of neutrophils or Momac cells, which is not realistic in a living organism.
+Furthermore, we will prove later that these equilibria points are unstable, so they will not be observed in practice.
 \end{rem}
 
 % Commented-out derivation for equilibria with S^* \neq 0
