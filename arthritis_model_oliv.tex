@@ -55,15 +55,16 @@ Mathematical modelling of arthritis or other auto-immune disease is relatively r
 of Rheumatoid Arthritis (RA).
 In Jit et. al.  \cite{jit2005} RA vs. systemic inflammatory response syndrom is modelled by a system of four differential equations, describing the evolution of population of certain cell compartments, namely TNF-$\alpha$ (free or bound), antibodies and antibody-antigen complexes.
 The effect of TNF-$\alpha$ inhibitors like (s)TNFR2, Etanecerp, Infliximab are investigated.
-Baker et al.\cite{baker2013} introduced a model with inﬂammation
-(p) and anti-inﬂammation (a) and considered a system of two dif-
-ferential equations for p and a. More complex models are introduced in \cite{baker2018}. 
+Baker et al.\cite{baker2013, baker2017} introduced a model with inﬂammation
+(p) and anti-inﬂammation (a) and considered a system of two differential equations for p and a. More complex models are introduced in \cite{baker2018}. 
 Other compartment type models are considered in \cite{jaiani2019}. 
 There exist also spatialized models (\cite{friedman}) where PDE (partial differential equations) are used to model a joint (synovial fluid and cartilage).
 Effects of drugs such as inﬂiximab, which blocks TNF-$\alpha$ ; methotrexate
 which increases apoptosis of macrophages, and tocilizumab
 which blocks the receptor of IL-6 are investigated.
-See \cite{macfarlane2020} for a careful and exhaustive bibliography in 2020.\par
+See \cite{macfarlane2020} for a careful and exhaustive bibliography in 2020.
+We chose a compromise between complexity which could involve  as many as 15 equations with 48 parameters like in 
+\cite{relouw} and a too crude model. Specifically, our model, presented in the next section, has 4 equations and 7 parameters \par
 The paper is organized as follows.
 In Section \ref{sec:model} we present the model discussed in the paper. In Section \ref{sec:analysis} we analyse the mathematical properties of the differential system, compute its steady states and discuss their stability. In Section \ref{sec:numerical_simulations}, we present some numerical simulations pertaining to different scenarii.
 The paper ends with  Section \ref{sec:conclusion} concluding remarks and future work perspectives.
@@ -842,7 +843,7 @@ Haraux A. (2016)
 \newblock \emph{J. Korean Math. Soc.} 54,  1817--1828; MR3718426
 \newblock\url{https://doi.org/10.4134/JKMS.j160701}
 % 2017
-\bibitem{mathbiol2017} %ode compartement
+\bibitem{baker2017} %ode compartement
 Baker, M., et al. (2017).
 \newblock Mathematical modelling of cytokines, MMPs and
 fibronectin fragments in osteoarthritic cartilage
