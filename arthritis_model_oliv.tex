@@ -50,11 +50,26 @@ In conclusion, our model provides a framework to explore mechanisms underlying a
 
 \end{abstract}
 \section{Introduction}
-Mathematical modelling of arthritis or other auto-immune disease is relatively recent. An early and pioneer paper on the topic is \cite{jit2005} where the rheumatoid arthritis/ systemic inflammatory response syndrom is modelled by a system of differential equations, describing the evolution of population of certain cell compartments, namely TNF-$\alpha$ (free or bound), antibodies and antibody-antigen complexes. 
-There exist also spatialized models (\cite{friedman})
-See \cite{macfarlane2020} for a careful and exhaustive bibliography in 2020.
 
-\section{Model}
+Mathematical modelling of arthritis or other auto-immune disease is relatively recent. There are several mathematical models that deal with aspects
+of Rheumatoid Arthritis (RA).
+In Jit et. al.  \cite{jit2005} RA vs. systemic inflammatory response syndrom is modelled by a system of four differential equations, describing the evolution of population of certain cell compartments, namely TNF-$\alpha$ (free or bound), antibodies and antibody-antigen complexes.
+The effect of TNF-$\alpha$ inhibitors like (s)TNFR2, Etanecerp, Infliximab are investigated.
+Baker et al.\cite{baker2013} introduced a model with inﬂammation
+(p) and anti-inﬂammation (a) and considered a system of two dif-
+ferential equations for p and a. More complex models are introduced in \cite{baker2018}. 
+Other compartment type models are considered in \cite{jaiani2019}. 
+There exist also spatialized models (\cite{friedman}) where PDE (partial differential equations) are used to model a joint (synovial fluid and cartilage).
+Effects of drugs such as inﬂiximab, which blocks TNF-$\alpha$ ; methotrexate
+which increases apoptosis of macrophages, and tocilizumab
+which blocks the receptor of IL-6 are investigated.
+See \cite{macfarlane2020} for a careful and exhaustive bibliography in 2020.\par
+The paper is organized as follows.
+In Section \ref{sec:model} we present the model discussed in the paper. In Section \ref{sec:analysis} we analyse the mathematical properties of the differential system, compute its steady states and discuss their stability. In Section \ref{sec:numerical_simulations}, we present some numerical simulations pertaining to different scenarii.
+The paper ends with  Section \ref{sec:conclusion} concluding remarks and future work perspectives.
+
+
+\section{Model}\label{sec:model}
 In the experimental mouse model of arthritis used in this study,
  the acute inflammatory response is triggered by an external signal (injection of an arthritogenic serum) 
  that activates the immune system and initiates an inflammatory response 
@@ -157,7 +172,7 @@ To make things easier to undestand, we summarize the model in the following diag
 
 
 
-\section{Analysis of the model}
+\section{Analysis of the model}\label{sec:analysis}
 \subsection{Existence and non-negativity of the solution.}
 Existence and uniqueness of a local solution of the system \eqref{eq:system} is guaranteed by the Cauchy-Lipschitz theorem since the right-hand side of the system is locally Lipschitz continuous.
 \begin{proposition}
@@ -790,6 +805,8 @@ For $A>1$, the system diverges away from the disease-free equilibrium for all va
 %\emph{We need to have realistic values for the parameters to feed the model.}
 
 The Python Jupyter notebook used to perform the simulations is available at \url{https://github.com/azerad/immunomath}.
+\section{Concluding remarks}\label{sec:conclusion} In this work, we designed a simple model able to describe essential features of the monocyte-macrophages, neutrophiles and sub lining tissue resident macrophages dynamics submitted to an inflammatory stimulus.
+We identify a single parameter controlling the positive or negative feedbacks processes at stake in auto-immune diseases. Essentially it is the ratio between the inflammatory effect of neutrophiles vs the anti-inflammatory effect of SL-TRM macrophages. It suggests that drugs acting differently of neutrophiles and SL-TRM macrophages could be effective in curing arthritis.
 
 
 
@@ -798,7 +815,7 @@ The Python Jupyter notebook used to perform the simulations is available at \url
 This work was supported by the IMMUN4CURE project of IHU Montpellier.
 %\clearpage
 % Bibliography réarrangée par ordre chronologique
-\newpage
+%\newpage
 \begin{thebibliography}{9}
 % 1994
 %\bibitem{smoller1994shock}
@@ -851,6 +868,7 @@ N. Moise and A. Friedman, (2019)
 \newblock Rheumatoid arthritis, a mathematical model, 
 \newblock \emph{J. Theoret. Biol.}, 461, 17--33
 \url{https://doi.org/10.1016/j.jtbi.2018.10.039}
+
 \bibitem{jaiani2019}%ode compartement
 Odisharia, K.,  Odisharia, V.,  Tsereteli, P., 
 and  Janikashvili, N. (2019).
@@ -887,7 +905,7 @@ Ugolkov, Y., et al. (2024)
 autoimmune diseases: from theory to clinical application
 \newblock \emph{Frontiers in Immunology}, 15, 1371620. \url{https://doi.org/10.3389/fimmu.2024.1371620}
 
-\bibitem{citekey}
+\bibitem{relouw}
  Relouw Freek J. A.,  van Riel Natal A. W.,  Kox Matthijs,  Taal H. Rob,  Koch Birgit C. P.,  Prins Menno W. J.
 (2024)
 \newblock Mathematical model of the inﬂammatory
