@@ -31,6 +31,10 @@
 \newtheorem{rem}{Remark}[section]
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{proposition}{Proposition}[section]
+\newcommand{\keywords}[1]{%
+  \par\noindent\textbf{Keywords : }#1
+}
+
 \begin{document}
 
 \maketitle 
@@ -49,21 +53,34 @@ Numerical simulations illustrate typical transient dynamics and phase- space geo
 In conclusion, our model provides a framework to explore mechanisms underlying acute versus sustained joint inflammation and offers a basis for parameter estimation from experimental data, and future extensions toward evaluation of therapeutic strategies.
 
 \end{abstract}
+\keywords{Arthritis;  Bifurcation Analysis; Inflammation; Persistence.}
+
 \section{Introduction}
 Mathematical modelling of arthritis or other auto-immune disease is relatively recent.
+The ﬁrst papers date back to the 1970s. Since
+then, the number of relevant articles increased exponentially,
+reaching more than 200 publications per year by 2024. 
+For a systematic survey on mathematical modelling of auto-immune disease we refer to Ugolkov et. al. \cite{frontiers2024}.
+See also  Macfarlane et. al. \cite{macfarlane2020} for another careful and exhaustive bibliography in 2020.
+
 An illuminative survey paper introducing the issues and pitfalls of mathematical modelling in immunology is Andrew et. al.  \cite{andrew}. Indeed there are already several mathematical models that deal with aspects
-of Rheumatoid Arthritis (RA).
+of Rheumatoid Arthritis (RA). Handel et. al. \cite{Handel2020} gives also examples and guidelines for sound mathematical modelling in immunology.
 In Jit et. al.  \cite{jit2005} RA vs. systemic inflammatory response syndrom is modelled by a system of four differential equations, describing the evolution of population of certain cell compartments, namely TNF-$\alpha$ (free or bound), antibodies and antibody-antigen complexes.
 The effect of TNF-$\alpha$ inhibitors like (s)TNFR2, Etanecerp, Infliximab are investigated.
-Baker et al.\cite{baker2013, baker2017} introduced a model with inﬂammation
-(p) and anti-inﬂammation (a) and considered a system of two differential equations for p and a. More complex models are introduced in \cite{baker2018}. 
+Baker et al.\cite{baker2013} introduced a model with inﬂammation
+(p) and anti-inﬂammation (a) and considered a system of two differential equations for p and a. More complex models exhibiting various types of  bifurcations are introduced in \cite{baker2017}. 
 In Odisharia et. al. \cite{jaiani2019} a 5 differential equation system is investigated to simulate the effect of tocilizumab on the populations of B and T-lymphocytes and cell population of cartilage.  
 There exist also spatialized models, see Friedman et. al. (\cite{friedman}) where PDE (partial differential equations) are used to model a joint (synovial fluid and cartilage).
 Effects of drugs such as inﬂiximab, which blocks TNF-$\alpha$ ; methotrexate
 which increases apoptosis of macrophages, and tocilizumab
 which blocks the receptor of IL-6 are investigated.
-In Relouw et. al. \cite{relouw} a 15 equations model with 48 parameters is introduced to model sepsis
-See \cite{macfarlane2020} for a careful and exhaustive bibliography in 2020.
+In Relouw et. al. \cite{relouw} a 15 equations model with 48 parameters is introduced to model sepsis.
+A paper that particularly inspired us is Ciuperca et. al. \cite{torres2024} which focus on Alzheimer disease and presents a minimal compartment model with  5 equations describing the concentrations of 
+ A$\beta$-oligomers,
+oligomers in the amyloid plaques,
+A$\beta$-monomers,
+microglial cells, and
+interleukins.
 Here we chose a compromise between complexity and accuracy  and simplicity to catch essential features. Specifically, our model, presented in the next section, has 4 equations and 7 parameters and is an ordinary differential equations systems. The behavior of the system will be shown to depend on a single nondimensional parameter.
 Despite its simplicity (or due to) we hope that it can bring some understanding of the arthritis process and new ideas for therapy.\par
 The paper is organized as follows.
@@ -807,8 +824,9 @@ For $A>1$, the system diverges away from the disease-free equilibrium for all va
 %\emph{We need to have realistic values for the parameters to feed the model.}
 
 The Python Jupyter notebook used to perform the simulations is available at \url{https://github.com/azerad/immunomath}.
-\section{Concluding remarks}\label{sec:conclusion} In this work, we designed a simple model able to describe essential features of the monocyte-macrophages, neutrophiles and sub lining tissue resident macrophages dynamics submitted to an inflammatory stimulus.
-We identify a single parameter controlling the positive or negative feedbacks processes at stake in auto-immune diseases. Essentially it is the ratio between the inflammatory effect of neutrophiles vs the anti-inflammatory effect of SL-TRM macrophages. It suggests that drugs acting differently of neutrophiles and SL-TRM macrophages could be effective in curing arthritis.
+\section{Concluding remarks and perspectives.}\label{sec:conclusion} In this work, we designed a simple model able to describe essential features of the monocyte-macrophages, neutrophiles and sub lining tissue resident macrophages dynamics submitted to an inflammatory stimulus.
+We identify a single parameter controlling the positive or negative feedbacks processes at stake in arthritis. Essentially it is the ratio between the inflammatory effect of neutrophiles vs the anti-inflammatory effect of SL-TRM macrophages. It suggests that drugs acting \emph{differently} of neutrophiles and SL-TRM macrophages could be effective in curing arthritis.
+In future work, we plan to study the effect of such drugs using optimal control theory.
 
 
 
