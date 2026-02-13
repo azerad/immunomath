@@ -50,21 +50,22 @@ In conclusion, our model provides a framework to explore mechanisms underlying a
 
 \end{abstract}
 \section{Introduction}
-
-Mathematical modelling of arthritis or other auto-immune disease is relatively recent. There are several mathematical models that deal with aspects
+Mathematical modelling of arthritis or other auto-immune disease is relatively recent.
+An illuminative survey paper introducing the issues and pitfalls of mathematical modelling in immunology is Andrew et. al.  \cite{andrew}. Indeed there are already several mathematical models that deal with aspects
 of Rheumatoid Arthritis (RA).
 In Jit et. al.  \cite{jit2005} RA vs. systemic inflammatory response syndrom is modelled by a system of four differential equations, describing the evolution of population of certain cell compartments, namely TNF-$\alpha$ (free or bound), antibodies and antibody-antigen complexes.
 The effect of TNF-$\alpha$ inhibitors like (s)TNFR2, Etanecerp, Infliximab are investigated.
 Baker et al.\cite{baker2013, baker2017} introduced a model with inﬂammation
 (p) and anti-inﬂammation (a) and considered a system of two differential equations for p and a. More complex models are introduced in \cite{baker2018}. 
-Other compartment type models are considered in \cite{jaiani2019}. 
-There exist also spatialized models (\cite{friedman}) where PDE (partial differential equations) are used to model a joint (synovial fluid and cartilage).
+In Odisharia et. al. \cite{jaiani2019} a 5 differential equation system is investigated to simulate the effect of tocilizumab on the populations of B and T-lymphocytes and cell population of cartilage.  
+There exist also spatialized models, see Friedman et. al. (\cite{friedman}) where PDE (partial differential equations) are used to model a joint (synovial fluid and cartilage).
 Effects of drugs such as inﬂiximab, which blocks TNF-$\alpha$ ; methotrexate
 which increases apoptosis of macrophages, and tocilizumab
 which blocks the receptor of IL-6 are investigated.
+In Relouw et. al. \cite{relouw} a 15 equations model with 48 parameters is introduced to model sepsis
 See \cite{macfarlane2020} for a careful and exhaustive bibliography in 2020.
-We chose a compromise between complexity which could involve  as many as 15 equations with 48 parameters like in 
-\cite{relouw} and a too crude model. Specifically, our model, presented in the next section, has 4 equations and 7 parameters \par
+Here we chose a compromise between complexity and accuracy  and simplicity to catch essential features. Specifically, our model, presented in the next section, has 4 equations and 7 parameters and is an ordinary differential equations systems. The behavior of the system will be shown to depend on a single nondimensional parameter.
+Despite its simplicity (or due to) we hope that it can bring some understanding of the arthritis process and new ideas for therapy.\par
 The paper is organized as follows.
 In Section \ref{sec:model} we present the model discussed in the paper. In Section \ref{sec:analysis} we analyse the mathematical properties of the differential system, compute its steady states and discuss their stability. In Section \ref{sec:numerical_simulations}, we present some numerical simulations pertaining to different scenarii.
 The paper ends with  Section \ref{sec:conclusion} concluding remarks and future work perspectives.
@@ -830,6 +831,14 @@ Jit, M., et al. (2005).% ode compartement
 \newblock Mathematical modelling of rheumatoid arthritis.
 \newblock \emph{Rheumatology}, 44, 323--331.
 \newblock \url{https://doi.org/10.1093/rheumatology/keh491}
+% 2007
+\bibitem{andrew}
+ Andrew, Sarah M.
+Baker, Christopher T.H.
+Bocharov, Gennady A. (2007)
+\newblock Rival approaches to mathematical modelling in immunology
+\newblock \emph{Journal of computational and applied mathematics}, 205, p.669--686
+\url{https://doi.org/10.1016/j.cam.2006.03.035}
 
 % 2013
 \bibitem{baker2013}
