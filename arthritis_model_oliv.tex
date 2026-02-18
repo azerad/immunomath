@@ -62,9 +62,11 @@ the ﬁrst papers date back to the 1970s. Since
 then, the number of relevant articles increased exponentially,
 reaching more than 200 publications per year by 2024. 
 See also  Macfarlane et. al. \cite{macfarlane2020} for another careful and exhaustive bibliography in 2020.
-
-An illuminative survey paper introducing the issues and pitfalls of mathematical modelling in immunology is Andrew et. al.  \cite{andrew}. Indeed there are already several mathematical models that deal with aspects
-of Rheumatoid Arthritis (RA). We refer to Handel et. al. \cite{Handel2020} for  examples and guidelines for sound mathematical modelling in immunology.
+An illuminative survey paper introducing the issues and pitfalls of mathematical modelling in immunology is Andrew et. al.  \cite{andrew}. 
+ We refer to Handel et. al. \cite{Handel2020} for  examples and guidelines for sound mathematical modelling in immunology.
+Among mathematical models that deal with aspects
+of Rheumatoid Arthritis (RA), we can mention the following ones.
+In Seymour et. al. \cite{seymour2001} a 4 equations model is introduced to describe the dynamics of the population of monocytes and the concentrations of three cytokines, namely IL-6, TNF-$\alpha$ and IL-10. 
 In Jit et. al.  \cite{jit2005} RA vs. systemic inflammatory response syndrom is modelled by a system of four differential equations, describing the evolution of population of certain cell compartments, namely TNF-$\alpha$ (free or bound), antibodies and antibody-antigen complexes.
 The effect of TNF-$\alpha$ inhibitors like (s)TNFR2, Etanecerp, Infliximab are investigated.
 Baker et al.\cite{baker2013} introduced a model with inﬂammation
@@ -81,7 +83,8 @@ oligomers in the amyloid plaques,
 A$\beta$-monomers,
 microglial cells, and
 interleukins.
-Here we chose a compromise between complexity and accuracy  and simplicity to catch essential features. Specifically, our model, presented in the next section, has 4 equations and 7 parameters and is an ordinary differential equations systems. The behavior of the system will be shown to depend on a single nondimensional parameter.
+
+Here we chose a compromise between simplicity and accuracy   to catch essential features. We chose to focus on cell populations and their interactions instead of the fine description of the many cytokines dynamics involved. Specifically, our model, presented in the next section, has 4 equations and only 7 parameters and is an ordinary differential equations systems. The behavior of the system will be shown to depend on a single nondimensional parameter.
 Despite its simplicity (or due to) we hope that it can bring some understanding of the arthritis process and new ideas for therapy.\par
 The paper is organized as follows.
 In Section \ref{sec:model} we present the model discussed in the paper. In Section \ref{sec:analysis} we analyse the mathematical properties of the differential system, compute its steady states and discuss their stability. In Section \ref{sec:numerical_simulations}, we present some numerical simulations pertaining to different scenarii.
@@ -170,12 +173,12 @@ To make things easier to undestand, we summarize the model in the following diag
 
         % Flèches et labels
         \draw[mid arrow, line width=1.5pt] (N) to[bend left=20] node[left, xshift=-2mm, yshift=2mm] {foster $(a)$} (S);
-        \draw[-|, line width=1.5pt] (T) to[bend left=20] node[right, xshift=2mm] {inhibate $(b)$} (S);\draw[-|, thick] (T) to[bend left=20] node[right, xshift=2mm] {inhibate $(b)$} (S);
+        \draw[dashed,-|, line width=1.5pt] (T) to[bend left=20] node[right, xshift=2mm] {inhibate $(b)$} (S);
         \draw[mid arrow, line width=1.5pt] (S) to[bend left=20] node[left] {activation$(\alpha)$} (N);
         \draw[mid arrow, line width=1.5pt] (S) to[bend left=10] node[left,xshift=6mm] {activation $(\beta)$} (M);
-        \draw[-|, line width=1.5pt] (S) to[bend left=20] node[left, xshift=2mm] {inhibate $(\gamma)$} (T);
-        \draw[-|, line width=1.5pt, loop above, looseness=8] (N) to node[above] {destruction $(\delta_N)$} (N);
-        \draw[-|, line width=1.5pt, loop above, looseness=8] (M) to node[above] {destruction $(\delta_M)$} (M);
+        \draw[dashed, line width=1.5pt, -|] (S) to[bend left=20] node[left, xshift=2mm] {inhibate $(\gamma)$} (T);
+        \draw[dashed,-|, line width=1.5pt, loop above, looseness=8] (N) to node[above] {destruction $(\delta_N)$} (N);
+        \draw[dashed,-|, line width=1.5pt, loop above, looseness=8] (M) to node[above] {destruction $(\delta_M)$} (M);
         \draw[mid arrow, line width=1.5pt] (M.east) -- node[below, yshift=-2mm] {conversion $(\delta_M)$} (T.west);
 
     \end{tikzpicture}
@@ -607,7 +610,7 @@ When $A < 1$, there is only one biologically feasible equilibria with $S^* \neq 
     \label{fig:feasible_region}
 \end{figure}      
 \subsection{Stability analysis}
-\emph{Stability analysis} of the equilibria point $ (S^*, N^*, M^*, T^*)$ is done by linearizing the system around this point.
+\emph{Linear stability analysis} of the equilibria point $ (S^*, N^*, M^*, T^*)$ is done by linearizing the system around this point.
 The Jacobian matrix of the system is given by:
 \[
 J = \begin{pmatrix}
@@ -617,6 +620,8 @@ aN - bT & aS & 0 & -bS \\
 -\gamma T & 0 & \delta_M (1-T) & -\gamma S - \delta_M M
 \end{pmatrix}
 \]
+According to the linear stability theory, the equilibrium point is (locally asymptotically) stable if all eigenvalues of the Jacobian matrix have negative real parts, and unstable if at least one eigenvalue has a positive real part. In what follows,
+ we analyze the stability of the different equilibria points found in the previous section. By locally asymptotically stable, we mean that if the system is perturbed slightly from the equilibrium point, it will return to the equilibrium point as time goes to infinity. On the other hand, if the equilibrium point is unstable, a small perturbation will cause the system to move away from the equilibrium point.
 \subsubsection{Stability of  inflammation free equilibria ($S^* =0$).}
 We analyze first the stability of the disease-free equilibrium point $(S^*, N^*, M^*, T^*) = (0, 1, 1, 1)$.
 At this point, the Jacobian matrix simplifies to:
@@ -838,7 +843,7 @@ This work was supported by the IMMUN4CURE project of IHU Montpellier.
 %\newpage
 \begin{thebibliography}{9}
 % 2001
-\bibitem{seymour}
+\bibitem{seymour2001}
 Seymour, R. M. \& Anderson, B. (2001)
 \newblock Pro-inflammatory–anti-inflammatory cytokine dynamics
 mediated by cytokine-receptor dynamics in monocytes.
