@@ -61,9 +61,9 @@ According to the systematic survey on mathematical modelling of auto-immune dise
 the ﬁrst papers date back to the 1970s. Since
 then, the number of relevant articles increased exponentially,
 reaching more than 200 publications per year by 2024. 
-See also  Macfarlane et. al. \cite{macfarlane2020} for another careful and exhaustive bibliography in 2020.
+However according to Macfarlane et. al. \cite{macfarlane2020} which provides another careful and exhaustive bibliography in 2020, the number of  mathematical models of RA is still relatively small.
 An illuminative survey paper introducing the issues and pitfalls of mathematical modelling in immunology is Andrew et. al.  \cite{andrew}. 
- We refer to Handel et. al. \cite{Handel2020} for  examples and guidelines for sound mathematical modelling in immunology.
+We refer to Handel et. al. \cite{Handel2020} for  examples and guidelines for sound mathematical modelling in immunology and also for the free software R-package DSAIRM \cite{dsairm2019} that allows to easily simulate and analyze a large variety of mathematical models of immune response.
 Among mathematical models that deal with aspects
 of Rheumatoid Arthritis (RA), we can mention the following ones.
 In Seymour et. al. \cite{seymour2001} a 4 equations model is introduced to describe the dynamics of the population of monocytes and the concentrations of three cytokines, namely IL-6, TNF-$\alpha$ and IL-10. 
@@ -72,11 +72,13 @@ The effect of TNF-$\alpha$ inhibitors like (s)TNFR2, Etanecerp, Infliximab are i
 Baker et al.\cite{baker2013} introduced a model with inﬂammation
 (p) and anti-inﬂammation (a) and considered a system of two differential equations for p and a. More complex models exhibiting various types of  bifurcations are introduced in \cite{baker2017}. 
 In Odisharia et. al. \cite{jaiani2019} a 5 differential equation system is investigated to simulate the effect of tocilizumab on the populations of B and T-lymphocytes and cell population of cartilage.  
-There exist also spatialized models, see Friedman et. al. (\cite{friedman}) where PDE (partial differential equations) are used to model a joint (synovial fluid and cartilage).
+There exist also spatialized models, see Friedman et. al. (\cite{friedman}) where PDE (partial differential equations) are used to model a joint (synovial fluid and cartilage) and  Macfarlane et. al. \cite{macfarlane2022}
+ where an hybrid model is introduced to describe pannus formation in a joint.
 Effects of drugs such as inﬂiximab, which blocks TNF-$\alpha$ ; methotrexate
 which increases apoptosis of macrophages, and tocilizumab
 which blocks the receptor of IL-6 are investigated.
 In Relouw et. al. \cite{relouw} a 15 equations model with 48 parameters is introduced to model sepsis.
+In Zhou et. al. \cite{zhou2018} a 4 differential equations model is introduced to describe the dynamics of the population of macrophages and fibroblasts cells and their mutual growth factor.
 A paper that particularly inspired us is Ciuperca et. al. \cite{torres2024} which focus on Alzheimer disease and presents a minimal compartment model with  5 equations describing the concentrations of 
  A$\beta$-oligomers,
 oligomers in the amyloid plaques,
@@ -166,7 +168,7 @@ To make things easier to undestand, we summarize the model in the following diag
     \begin{tikzpicture}[node distance=4cm, auto, >=latex, thick]
 
         % Compartiments
-        \node[draw, rectangle, fill=red!10, minimum width=3cm, minimum height=1cm] (N) {Neutrophiles $N$};
+        \node[draw, rectangle, fill=red!10, minimum width=3cm, minimum height=1cm] (N) {Neutrophils $N$};
         \node[draw, rectangle, fill=green!10, minimum width=3cm, minimum height=1cm, right=of N] (M) {Momac $M$};
         \node[draw, rectangle, fill=magenta!10, minimum width=3cm, minimum height=1cm, right=of M] (T) {SL-TRM $T$};
         \node[draw, circle, fill=blue!10, minimum size=2cm, below=of M, yshift=-1cm] (S) {Immune signal $S$};
@@ -892,6 +894,12 @@ Zhou, X., et al. (2018).% ode compartement
 \newblock \url{https://doi.org/10.1016/j.cell.2018.01.015}
 
 % 2019
+\bibitem{dsairm2019}
+Handel, A. et al. (2019)
+\newblock Software DSAIRM: dynamical systems
+approach to immune response modeling. GitHub
+\newblock\url{https://ahgroup.github.io/DSAIRM/}
+
 \bibitem{friedman}
 Moise, N. and Friedman, A. (2019)
 \newblock Rheumatoid arthritis, a mathematical model, 
