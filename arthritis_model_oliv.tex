@@ -46,24 +46,24 @@ within the joint, namely neutrophils (N), synovial sublining tissue-resident mac
 An inflammatory signal (S), representing the response to an external arthritogenic stimulus, 
 drives the recruitment and activation of neutrophils and MoMac, while SL-TRM exert a regulatory and protective role.
 We propose a minimal ordinary differential equation model of acute inflammatory response into a joint that couples an inflammatory signal S to the three cell populations (N, T, M) and incorporates recruitment, conversion, nonlinear self-limitation and mutual regulation.
- Using nondimensionalization, we showed that the equilibrium structure depends on three adimensional parameters A, B, C and derived a cubic equation characterizing nontrivial steady states.
+ We showed that the equilibrium structure depends on three adimensional parameters A, B, C and derived a cubic equation characterizing nontrivial steady states.
 We performed an analytical study of equilibria and their stability, and identified a bifurcation at A = 1 separating a disease-free regime from a sustained inflammatory state, 
 and discussed conditions for multiple biological feasible steady states, consistent with transient or persistent inflammation. 
-Numerical simulations illustrate typical transient dynamics. 
+Numerical simulations illustrate typical transient dynamics under various scenarios. 
 In conclusion, our model provides a framework to explore mechanisms underlying acute versus sustained joint inflammation and offers a basis for parameter estimation from experimental data, and future extensions toward evaluation of therapeutic strategies.
 
 \end{abstract}
 \keywords{Arthritis;  Bifurcation Analysis; Inflammation; Persistence.}
 
 \section{Introduction}
-Mathematical modelling of arthritis or other auto-immune disease is relatively recent.
+Mathematical modelling of  auto-immune disease is relatively recent.
 According to the systematic survey on mathematical modelling of auto-immune disease by  Ugolkov et. al. \cite{frontiers2024},
 the ﬁrst papers date back to the 1970s. Since
 then, the number of relevant articles increased exponentially,
 reaching more than 200 publications per year by 2024. 
 However according to Macfarlane et. al. \cite{macfarlane2020} which provides another careful and exhaustive bibliography in 2020, the number of  mathematical models of RA is still relatively small.
 An illuminative survey paper introducing the issues and pitfalls of mathematical modelling in immunology is Andrew et. al.  \cite{andrew}. 
-We refer to Handel et. al. \cite{Handel2020} for  examples and guidelines for sound mathematical modelling in immunology and also for the free software R-package DSAIRM \cite{dsairm2019} that allows to easily simulate and analyze a large variety of mathematical models of immune response.
+We refer to Handel et. al. \cite{Handel2020} for  examples and guidelines for sound mathematical modelling in immunology and also for the free software R-package DSAIRM \cite{dsairm2019} which allows to easily simulate and analyze a large variety of mathematical models of immune response.
 Among mathematical models that deal with aspects
 of Rheumatoid Arthritis (RA), we can mention the following ones.
 In Seymour et. al. \cite{seymour2001} a 4 equations model is introduced to describe the dynamics of the population of monocytes and the concentrations of three cytokines, namely IL-6, TNF-$\alpha$ and IL-10. 
@@ -222,7 +222,7 @@ This property is biologically meaningful since the variables $S$, $N$, $M$, and 
     Indeed we shall see that in some cases the solution may not be bounded for all time, at least for $S$,$N$ and $M$.
      Actually we are interested in the  immune response to an external stimulus, which can lead to a very high level of inflammation and cell recruitment from the bloodstream or marrow. 
      The transient dynamics of the system can involve large variations in the levels of inflammation and cell populations, which may be shadowed by a model that includes degradation terms that dampens the growth of these variables.
-    In this case, the solution may not be bounded for all time, but it can still be biologically relevant since we are interested in the crisis dynamics rather than the long-term behavior of the system.
+    In our model, the solution may not be bounded for all time, but it can still be biologically relevant since we are interested in the crisis dynamics rather than the long-term behavior of the system.
     However  one can easily prove that $T$ variable is always bounded by 1. This is biologically relevant since the population of SL-TRM cells is limited by spatial constraints within the joint tissue and regulatory mechanisms that control their proliferation.
 \end{rem}
 
