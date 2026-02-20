@@ -793,8 +793,20 @@ We can also start from a depressed immunitory state, taking $S(0)=0.5, N(0)=1, M
     \caption{A=0.38, depressed initial conditions}
     \label{038_depressed}
 \end{figure}
-
-
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=.7\textwidth]{A=0,072_S0=5.png}
+    \caption{A=0.072, S(0)=5}
+    \label{A=0,072}
+\end{figure}
+We can also start from a very high initial immune signal, taking $S(0)=5, N(0)=1, M(0)=1, T(0)=1$ and $A=0.072$. We observe in fig. \ref{A=0,072} that the system returns to the disease-free equilibrium, indicating that even if the initial immune signal is high, the system can still heal when $A=0.072 < 1$.
+But if we slightly increase $A$ to $A=0.073$, keeping the other parameters unchanged, we observe in fig. \ref{A=0,073} that the system diverges away from the disease-free equilibrium, indicating a chronic inflammatory state.
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=.7\textwidth]{A=0,073_S0=5.png}
+    \caption{A=0.073, S(0)=5}
+    \label{A=0,073}
+\end{figure}
 To see how the parameter $A=a/b$ controls the healing prognosis
 we plot in Fig. \ref{heal} a $(A,S)$ plane figure where for each value of $A$ and starting value $(S(0)=S,N=1,M=1,T=1)$
  we run the model for three weeks and see how far from the disease-free state the systems ends up.
@@ -806,7 +818,10 @@ we plot in Fig. \ref{heal} a $(A,S)$ plane figure where for each value of $A$ an
     \caption{Healing w.r.t. $A=a/b$ and initial dose of immune signal $S$}
     \label{heal}
 \end{figure}
-We notice that for $A<1$, the system converges to the disease-free equilibrium provided that the   initial immune signal $S(0)$ is below a given threshold. This threshold increases as $A$ decreases, meaning that the system can tolerate higher initial immune signals without diverging away from the disease-free equilibrium when $A$ is smaller. 
+We notice that for $A<1$, the system converges to the disease-free equilibrium provided that the   initial immune signal $S(0)$ is below a given threshold.
+ This threshold increases as $A$ decreases, meaning that the system can tolerate higher initial immune signals without diverging away from the disease-free equilibrium when $A$ is smaller. 
+ For $S(0)> 5$, meaning the immune signal dosis is five times the standard value, the system diverges away from the disease-free equilibrium for all values of $A$, 
+ indicating a chronic inflammatory state regardless of the value of $A>0$ when the initial immune signal is too high.
 For $A>1$, the system diverges away from the disease-free equilibrium for all values of the initial immune signal $S(0)$, indicating a chronic inflammatory state regardless of the initial conditions.
 % \mbox{}\\   
 % \par\noindent
@@ -839,7 +854,7 @@ In future work, we plan to study the effect of such drugs using optimal control 
 
 
 \section*{Acknowledgments}
-This work was supported by the IMMUN4CURE project of IHU Montpellier.
+We acknowledge the support of Immun4Cure University Hospital Institute "Institute for innovative immunotherapies in autoimmune diseases" [France 2030/ANR-23-IHUA-0009].
 %\clearpage
 % Bibliography réarrangée par ordre chronologique
 %\newpage
