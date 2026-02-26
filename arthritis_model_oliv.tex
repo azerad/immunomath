@@ -720,7 +720,31 @@ a S \alpha N < a S \alpha N\left(\frac{{\delta_M}^2 {(2M-1+\frac{M}{T}) }^2}{{\d
 Due to \eqref{ineq2} and \eqref{ineq3}, the coefficient of $\lambda^2$ is positive.
 \par\noindent
 We proved that biologically feasible equilibrium with $S^* \neq 0$ only exists if $A<1$ and is unstable.
-For $A\geq  1$ the only biologically feasible equilibrium is the disease-free equilibrium which is unstable since $a>b$.
+For $A> 1$ the only biologically feasible equilibrium is the disease-free equilibrium which is unstable since $a>b$.
+For $A=1$ the disease-free equilibrium is a non-hyperbolic equilibrium with eigenvalues $0$, $-\delta_N$, $-\delta_M$ and $-\delta_M$. 
+The stability of this equilibrium can be analyzed using the center manifold theory. We prowe here that the center manifold is repulsive for $S^* \geq 0$, hence the equilibrium is unstable.\\
+In this case there is one center direction and three stable directions. We define new variables $x=S$, $y=N-1$, $z=M-1$, and $w=T-1$ to shift the equilibrium point to the origin. The system can be rewritten as:
+\begin{eqnarray*}
+\dot{x} &=&  ax (y - w) \\
+\dot{y} &=& (y+1)(\alpha x - \delta_N y ) \\
+\dot{z} &=& \beta x - \delta_M z (z+1)\\
+\dot{w} &=& -\gamma x(w + 1) - \delta_M w (z+ 1)
+\end{eqnarray*} 
+The linear part of the system is given by:
+\begin{eqnarray*}
+\dot{x} &=& 0 \\
+\dot{y} &=&\alpha x - \delta_N y \\
+\dot{z} &=&\beta x - \delta_M z \\
+\dot{w} &=&-\gamma x - \delta_M w
+\end{eqnarray*}
+where the center direction is given by the variable $x$ and the stable directions are given by the variables $y$, $z$, and $w$.
+The center manifold can be expressed as a graph of the form $h(x) = (h_1(x), h_2(x), h_3(x))$ where $h_i(0) = 0$ for $i=1,2,3$.
+We can compute the Taylor expansion of $h$ and find that the first nonzero term is given by $h_1(x) = \frac{\alpha}{\delta_N} x + o(x)$, $h_2(x) = \frac{\beta}{\delta_M} x + o(x)$, and $h_3(x) = -\frac{\gamma}{\delta_M} x + o(x)$.
+The dynamics on the center manifold is given by: 
+\begin{eqnarray*}
+\dot{x} &=& ax^2(\frac{\alpha}{\delta_N}+ \frac{\gamma}{\delta_M}) + o(x^2)
+\end{eqnarray*}
+Since $\frac{\alpha}{\delta_N}+ \frac{\gamma}{\delta_M} > 0$, the center manifold is repulsive for $x \geq 0$, hence the equilibrium is unstable.
 
 \subsection{Bifurcation diagram}
 We perform a bifurcation analysis with respect to the \emph{non dimensional} parameters $A=a/b$. We restict to the biologically relevant feasible equilibria.
