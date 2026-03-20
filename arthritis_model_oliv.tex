@@ -44,7 +44,7 @@ during arthritis development and resolution, focusing on the interaction between
 within the joint, namely neutrophils (N), synovial sublining tissue-resident macrophages (SL-TRM, T),
  and circulating monocytes that are recruited into the inflamed joint and differentiate into monocyte-derived macrophages (MoMac, M).
 An inflammatory signal (S), representing the response to an external arthritogenic stimulus, 
-drives the recruitment and activation of neutrophils and MoMac, while SL-TRM exert a regulatory and protective role.
+drives the recruitment and activation of neutrophils and Momac, while SL-TRM exert a regulatory and protective role.
 We propose a minimal ordinary differential equation model of acute inflammatory response into a joint that couples an inflammatory signal S to the three cell populations (N, T, M) and incorporates recruitment, conversion, nonlinear self-limitation and mutual regulation.
  We showed that the equilibrium structure depends on three adimensional parameters A, B, C and derived a cubic equation characterizing nontrivial steady states.
 We performed an analytical study of equilibria and their stability, and identified a bifurcation at A = 1 separating a disease-free regime from a sustained inflammatory state, 
@@ -69,17 +69,18 @@ of Rheumatoid Arthritis (RA), we can mention the following ones.
 In Seymour et. al. \cite{seymour2001} a 4 equations model is introduced to describe the dynamics of the population of monocytes and the concentrations of three cytokines, namely IL-6, TNF-$\alpha$ and IL-10. 
 In Jit et. al.  \cite{jit2005} RA vs. systemic inflammatory response syndrom is modelled by a system of four differential equations, describing the evolution of population of certain cell compartments, namely TNF-$\alpha$ (free or bound), antibodies and antibody-antigen complexes.
 The effect of TNF-$\alpha$ inhibitors like (s)TNFR2, Etanecerp, Infliximab are investigated.
-Baker et al.\cite{baker2013} introduced a model with inﬂammation
-(p) and anti-inﬂammation (a) and considered a system of two differential equations for p and a. More complex models exhibiting various types of  bifurcations are introduced in \cite{baker2017}. 
+Baker et al.\cite{baker2013} introduced a model with pro-inﬂammation 
+(p) and anti-inﬂammation cells (a) and considered a system of two differential equations for p and a. More complex models exhibiting various types of  bifurcations are introduced in \cite{baker2017}. 
 In Odisharia et. al. \cite{jaiani2019} a 5 differential equation system is investigated to simulate the effect of tocilizumab on the populations of B and T-lymphocytes and cell population of cartilage.  
-There exist also spatialized models, see Friedman et. al. (\cite{friedman}) where PDE (partial differential equations) are used to model a joint (synovial fluid and cartilage) and  Macfarlane et. al. \cite{macfarlane2022}
+There exist also spatialized models, see Friedman et. al. \cite{friedman} where PDE (partial differential equations) are used to model a joint (synovial fluid and cartilage) and  Macfarlane et. al. \cite{macfarlane2022}
  where an hybrid model is introduced to describe pannus formation in a joint.
 Effects of drugs such as inﬂiximab, which blocks TNF-$\alpha$ ; methotrexate
 which increases apoptosis of macrophages, and tocilizumab
 which blocks the receptor of IL-6 are investigated.
 In Relouw et. al. \cite{relouw} a 15 equations model with 48 parameters is introduced to model sepsis.
 In Zhou et. al. \cite{zhou2018} a 4 differential equations model is introduced to describe the dynamics of the population of macrophages and fibroblasts cells and their mutual growth factor.
-A paper that particularly inspired us is Ciuperca et. al. \cite{torres2024} which focus on Alzheimer disease and presents a minimal compartment model with  5 equations describing the concentrations of 
+A paper that particularly inspired us 
+is Ciuperca et. al. \cite{torres2024} which focus on Alzheimer disease and presents a minimal compartment model with  5 equations describing the concentrations of 
  A$\beta$-oligomers,
 oligomers in the amyloid plaques,
 A$\beta$-monomers,
@@ -103,12 +104,12 @@ In the experimental mouse model of arthritis used in this study,
    scattered and fewer in number. 
   Both TRM contribute to early immune sensing of environmental cues, exerting an overall protective and regulatory role by limiting excessive inflammation.
    However, during arthritis inflammatory flares, while L-TRM remain preserved, SL-TRM. are progressively depleted. 
-   This depletion is concomitant with the accumulation of macrophages derived from blood monocytes infiltrating the inflamed joints (MoMac). 
+   This depletion is concomitant with the accumulation of macrophages derived from blood monocytes infiltrating the inflamed joints (Momac). 
    The loss of the SL-TRM population weakens synovial immune regulation and favors persistent inflammatory cell infiltration through 
    to the local production of cytokines and chemokines. This activation promotes the rapid recruitment of neutrophils (N) from the bloodstream into the joint, 
    where they become the dominant cell population during the acute phase of inflammation.
     Neutrophils amplify the inflammatory response through the release of pro-inflammatory mediators. 
-     Based on these biological observations, we modeled the joint inflammatory response as the interaction between an inflammatory signal and three cell populations—N, SL-TRM, and MoMac—capturing recruitment,
+     Based on these biological observations, we modeled the joint inflammatory response as the interaction between an inflammatory signal and three cell populations—N, SL-TRM, and Momac—capturing recruitment,
       amplification, and regulatory mechanisms in a minimal dynamical framework.
 
 
@@ -120,9 +121,12 @@ In the experimental mouse model of arthritis used in this study,
 %The cytokines also recruit the Momac cells from the blood stream into the joint. There is a positive feedback since the inflammation is amplified by the neutrophiles that are recruited in the joint by the chemokines secreted by the Momac cells. 
 %The macrophages SL-TRM cells have a protective role since they inhibit the inflammation but they are depleted during the crisis because they are inhibited by the proliferation of Momac cells.
 \subsection{Mathematical Model}
-Let us denote by $T(t)$ the population of SL-TRM cells and by $M(t)$ the population of Momac cells at time $t$.
+% explain the model when S=0 with the usual logistic growth of the cell populations, and then explain the effect of the inflammation on the recruitment and proliferation of the cells.
+%explain the effect of the cells on the inflammation and the feedback loop between the inflammation and the cell populations.
+Let us denote by $T_0$ the baseline population of SL-TRM cells in the joint, and by $M_0$ the baseline population of Momac cells in the joint. We can then rescale the variables $T$ and $M$ by their respective baseline values to obtain relative populations.
+Let us denote by $T(t)$ the relative population of SL-TRM cells and by $M(t)$ the relative population of Momac cells at time $t$.
 The cells $T$ (SL-TRM) and $M$ (Momac) interact with each other in the following way.
-The Momac cells $M$ are recruited from the blood stream at a constant rate $a$. They die at a rate $\delta_M$ and they transform into SL-TRM cells at a rate $b$. The SL-TRM cells $T$ die at a rate $\delta_T$. The interaction between the two populations is described by the following system of differential equations
+The Momac cells $M$ are recruited from the blood stream at a  rate $\beta S$ proportional to the inflammatory signal. They die at a rate $\delta_M\, M(M-1)$ and they transform into SL-TRM cells at a rate $\delta_M$. The SL-TRM cells $T$ die at a rate $\delta_M T$. The interaction between the two populations is described by the following system of differential equations
 
 The inflammatory state $S(t)$ is enhanced by neutrophils $N$ and inhibited by SL-TRM macrophages $T$.
 
@@ -130,7 +134,7 @@ Inflammation further increases neutrophils (factor $\alpha$), increases Momac (f
 
 Notice that we do not keep track of the population of fibroblasts, but rather the population of neutrophils, which are recruited by inflammatory chemokines.
 
-The variable $N(t)$ designates the population of neutrophils at time $t$. Finally $S(t)$ is the inflammatory signal at time $t$.
+The variable $N(t)$ designates the relative population of neutrophils at time $t$ with respect to the baseline population $N_0$. Finally $S(t)$ is the inflammatory signal at time $t$. We take as unity the standard dose of the arthritogenic serum, so that $S(t)$ is dimensionless and represents the relative strength of the inflammatory signal with respect to the standard dose.
  The model is given by the following system of ordinary differential equations:
 
 \begin{equation}
@@ -146,8 +150,11 @@ The variable $N(t)$ designates the population of neutrophils at time $t$. Finall
 \end{equation}
 
 where $a,b,\alpha,\beta,\gamma, \delta_N, \delta_M$ are positive parameters.
-To make things easier to undestand, we summarize the model in the following diagram (see Figure \ref{fig:graphe}).
-
+\begin{rem}
+The term $\delta_M M (1-T)$ in the equation for $T$ models the conversion of Momac cells into SL-TRM cells, which is supported by experimental evidence.
+Note that we could have add another parameter $\delta_T\neq \delta_M$ in this equation for $T$, but we choose to keep it simple since it did not change the dynamics of the crisis.
+To make things easier to undestand, we summarize the model in the following diagram (see figure \ref{fig:graphe}).
+\end{rem}
 
 \usetikzlibrary{decorations.markings}
 \tikzset{
@@ -175,10 +182,10 @@ To make things easier to undestand, we summarize the model in the following diag
 
         % Flèches et labels
         \draw[mid arrow, line width=1.5pt] (N) to[bend left=20] node[left, xshift=-2mm, yshift=2mm] {foster $(a)$} (S);
-        \draw[dashed,-|, line width=1.5pt] (T) to[bend left=20] node[right, xshift=2mm] {inhibate $(b)$} (S);
+        \draw[dashed,-|, line width=1.5pt] (T) to[bend left=20] node[right, xshift=2mm] {inhibition $(b)$} (S);
         \draw[mid arrow, line width=1.5pt] (S) to[bend left=20] node[left] {activation$(\alpha)$} (N);
         \draw[mid arrow, line width=1.5pt] (S) to[bend left=10] node[left,xshift=6mm] {activation $(\beta)$} (M);
-        \draw[dashed, line width=1.5pt, -|] (S) to[bend left=20] node[left, xshift=2mm] {inhibate $(\gamma)$} (T);
+        \draw[dashed, line width=1.5pt, -|] (S) to[bend left=20] node[left, xshift=2mm] {inhibition $(\gamma)$} (T);
         \draw[dashed,-|, line width=1.5pt, loop above, looseness=8] (N) to node[above] {destruction $(\delta_N)$} (N);
         \draw[dashed,-|, line width=1.5pt, loop above, looseness=8] (M) to node[above] {destruction $(\delta_M)$} (M);
         \draw[mid arrow, line width=1.5pt] (M.east) -- node[below, yshift=-2mm] {conversion $(\delta_M)$} (T.west);
@@ -229,7 +236,11 @@ This property is biologically meaningful since the variables $S$, $N$, $M$, and 
     \marginpar{\textcolor{red}{\small is it biological fact that SL-TRM is bounded by disease-free value?}}
 
 \begin{proposition}
-The variable $T(t)$ is bounded by 1 for all $t \geq 0$. 
+Assume that the initial condition $T(0)$ is less than or equal to 1, then
+the variable $T(t)$ is bounded by 1 for all $t \geq 0$. 
+If $T(0) > 1$, then $T(t)$ is bounded by $T(0)$ for all $t \geq 0$.
+If $S(t)\to 0$ as $t\to +\infty$, then $T(t)\to 1$ as $t\to +\infty$.
+If $S(t)\to +\infty$ as $t\to +\infty$, then $T(t)\to 0$ as $t\to +\infty$.
 \end{proposition}
 \begin{proof}
     Let us consider the equation for $T$:
@@ -237,6 +248,7 @@ The variable $T(t)$ is bounded by 1 for all $t \geq 0$.
 \frac{dT}{dt} = -\gamma S T + \delta_M M (1 - T)
 \end{equation*}
 If for some $t_0 >0$, we have $T(t_0) = 1$, then we have $1 - T(t) = 0$, hence $\delta_M M (1 - T) = 0$. Since $-\gamma S T \leq 0$, we deduce that $\frac{dT}{dt} \leq 0$ whenever $T(t) = 1$. Thus, if the solution starts with $T(0) \leq 1$, it cannot cross the threshold $T=1$ and must remain bounded by 1 for all time.
+In the other case, if $T(0) > 1$, then we have $1 - T(0) < 0$, hence $\delta_M M (1 - T(0)) < 0$. Since $-\gamma S T \leq 0$, we deduce that $\frac{dT}{dt} < 0$ at $t=0$. Thus, the solution will decrease and cannot exceed its initial value $T(0)$ for all time.    
 \end{proof}
 \subsection{Equilibria points}
 \emph{Equilibria points} of the system are found by setting the right-hand side of the system to zero, i.e. by solving the following system of equations:
@@ -256,7 +268,7 @@ $S^* = 0, N^* = 0, M^* = 0, T^* = R$, with arbitrary $R$;
  $S^* = 0, N^* = 1, M^* = 0, T^* = R$, with arbitrary $R$.
 \begin{rem}
 These equilibria points with  $N^* = 0$ or $M^* = 0$ are not biologically relevant since they correspond to the absence of neutrophils or Momac cells, which is not realistic in a living organism.
-Furthermore, we will prove later that these equilibria points are unstable, so they will not be observed in practice.
+Furthermore, we will prove later that these equilibria points are unstable, so they will not be observed in physiological conditions.
 \end{rem}
 
 % Commented-out derivation for equilibria with S^* \neq 0
@@ -349,7 +361,7 @@ Rewriting this equation in the standard unitary form $(T^*)^3 + p (T^*)^2 + q T^
 \begin{equation}
 \left(T^*\right)^3 + \frac{\alpha}{\gamma} \frac{\delta_M}{\delta_N} \frac{a}{b} \left(1- \frac{\beta}{\gamma} - \frac{\gamma}{\alpha} \frac{\delta_N}{\delta_M}\right) (T^*)^2 + \frac{\alpha}{\gamma} \frac{\delta_M}{\delta_N} \frac{a}{b} \left(2\frac{\beta}{\gamma} -1 \right) T^* - \frac{\alpha}{\gamma} \frac{\delta_M}{\delta_N} \frac{a}{b} \frac{\beta}{\gamma} = 0
 \end{equation}
-Notice that we need only 3 \emph{non dimensional} parameters $a/b$, $\alpha/\beta$, $\displaystyle{\frac{\gamma \delta_N}{\alpha \delta_M}}$ instead of the 7 original parameters.
+Notice that we need only 3 \emph{non dimensional} parameters $a/b$, $\beta/\gamma$, $\displaystyle{\frac{\gamma \delta_N}{\alpha \delta_M}}$ instead of the 7 original parameters.
 %\begin{rem}
  %   The fact that only 3 non dimensional parameters determine the number of equilibria points with $S^* \neq 0$ suggests that it might be possible to reduce the original system \eqref{eq:system} to a simpler system depending only on these 3 parameters. 
   %  Although the equilibrium points depend indeed on 3 parameters only, the dynamical behavior could be more complex. Anyway it is not obvious to design the synthetic variables which could capture this complexity. They might not be easily expressible in terms of the original variables. This could be an interesting direction for further research.
@@ -401,7 +413,7 @@ Therefore we can factor the cubic polynomial as follows:
 \end{rem}
 The sign of the discriminant of the quadratic factor depends on the parameters $B$ and $C$:  
 $\Delta > 0$ iff $\frac{(B-1)^2}{4B} > C$.
-Let us plot the curve $\frac{(B-1)^2}{4B}$ in the $(B,C)$ plane (see Figure \ref{fig:BC_plane}).    
+Let us plot the curve $\frac{(B-1)^2}{4B}$ in the $(B,C)$ plane (see figure \ref{fig:BC_plane}).    
 \begin{figure}
     \centering
     \includegraphics[height=5cm, width=0.6\textwidth]{discriminant_curve.png}
@@ -435,7 +447,7 @@ We have the following cases:
 \item If $B +C  > 1$ and $B < 1/2$, then there is one sign change and the cubic has only one positive root.
 \end{itemize}
 \bigskip
-We can plot some typical cases in the following figure (see Figure \ref{fig:cubics}).
+We can plot some typical cases in the following figure (see figure \ref{fig:cubics}).
 \begin{figure}[!htbp]
     \centering
     \includegraphics[width=0.45\textwidth, height=5cm]{cubic_1.png}
@@ -467,7 +479,7 @@ The discriminant of this equation is given by:
 \Delta_3 = \left(\frac{\mathcal{B}}{2}\right)^2 + \left(\frac{\mathcal{A}}{3}\right)^3
 \]
 
-The nature of the roots depends on the sign of the discriminant $\Delta$:
+The nature of the roots depends on the sign of the discriminant $\Delta_3$:
 \begin{itemize}
 \item If $\Delta_3 > 0$, there is one real root and two complex conjugate roots.
 \item If $\Delta_3 = 0$, all roots are real and at least two are equal.
@@ -476,17 +488,15 @@ The nature of the roots depends on the sign of the discriminant $\Delta$:
 Hence we can characterize the case when we have three distinct real roots by the condition $\Delta_3 < 0$, which is equivalent to:
 \[ \left(\frac{\mathcal{A}}{3}\right)^3 < - \left(\frac{\mathcal{B}}{2}\right)^2
 \]
-This condition can be rewritten in terms of the original parameters  using computer algebra as follows:
+The parameters $\mathcal{A}$ and $\mathcal{B}$ can be rewritten in terms of the original parameters  using computer algebra as follows:
 %%%% TO DO: compute again with sympy
-\[
-\left(\frac{\mathcal{A}}{3}\right)^3 < - \left(\frac{\mathcal{B}}{2}\right)^2
-\] where 
 \[
 \mathcal{A}=\frac{A}{ 3 C^2} \Big(-A (B + C - 1)^2 + 3 C(2B - 1)\Big)
 \]
 \[
 \mathcal{B}= \frac{A} {27 C^3} \Big(-2A^2 (B + C - 1)^3 + 9 A C (2 B - 1)(B + C - 1) - 27 B C^2\Big)
 \]
+The discriminant $\Delta_3$ can be rewritten in terms of the original parameters as follows:
 \[
 \Delta_3 = \frac{A^2} {108 C^4} \Bigg(A^2 (4BC-1) (B + C - 1)^2 - 2AC (2B-1)(B^2-9BC-B-2) + 27 B^2 C^2\Bigg)
 \]
@@ -507,7 +517,7 @@ If $\Delta_3 = 0$, the real roots are given by:
 \[x_1^* = 2 \sqrt[3]{-\frac{\mathcal{B}}{2}}, \quad x_2^* = x_3^* =  \sqrt[3]{\frac{\mathcal{B}}{2}}
 \]
 \par\noindent
-Here we plot a case with three distinct positive roots (see Figure \ref{fig:three_roots}).
+Here we plot a case with three distinct positive roots (see figure \ref{fig:three_roots}).
 Namely we take $A = 1.1$, $B = 5$ and $C = \frac{2}{3}$.
 \begin{figure}[htbp]
     \centering
@@ -525,7 +535,7 @@ Finally, we can recover the roots $T^*$ of the original cubic equation
 using the relation $T^* = x^* - p/3$.
 \bigskip\\
 We have to make sure that the nonegative roots $T^*$ found are biologically feasible, i.e. that they lead to nonnegative values of $S^*$, $N^*$, and $M^*$.
-For instance in the case $A=1.1$, $B=5$, $C=2/3$ plotted in Figure \ref{fig:three_roots}, we have three distinct positive roots of the cubic equation \eqref{eq:cubic_T},
+For instance in the case $A=1.1$, $B=5$, $C=2/3$ plotted in figure \ref{fig:three_roots}, we have three distinct positive roots of the cubic equation \eqref{eq:cubic_T},
 but none satisfying the biological feasibility conditions.\smallskip\\
 From equations \eqref{eq:N_in_terms_of_T}, \eqref{eq:S_in_terms_of_T}, and \eqref{eq:M_in_terms_of_T}, we have: 
 \[N^* = \frac{b}{a} T^*, \quad S^* = \frac{\delta_N}{\alpha} \left(\frac{b}{a} T^* - 1\right), \quad M^* = 1 - \frac{\beta}{\gamma} + \frac{\beta}{\gamma T^*}
@@ -545,7 +555,7 @@ Let us consider again the particular case $A = a/b = 1$, if $B \leq 1$  there is
 \begin{equation}
 1 \leq T^* \leq 1 + \frac{1}{B-1}.
 \end{equation}
- We can check easily that only the disease-free root $T^* = 1$ satisfies this condition, while the other two roots are outside this interval (see Figure \ref{fig:roots_A=1}).
+ We can check easily that only the disease-free root $T^* = 1$ satisfies this condition, while the other two roots are outside this interval (see figure \ref{fig:roots_A=1}).
  Indeed if $\Delta \geq 0$, we have $C \leq \frac{(B-1)^2}{4B}$, 
  hence $\frac{B-1}{2C} \geq \frac{B-1}{2 \frac{(B-1)^2}{4B}} = \frac{2B}{B-1} \geq 2  $ so  the root $T^* = \frac{B-1 + \sqrt{\Delta}}{2C} \geq 2  $ is not feasible.
  Moreover, the other root $T^* = \frac{B-1 - \sqrt{\Delta}}{2C} \leq \frac{B-1}{2C}.$
@@ -553,7 +563,7 @@ Let us consider again the particular case $A = a/b = 1$, if $B \leq 1$  there is
 which implies  $C \geq \frac{(B-1)^2}{2B}$, contradicting the assumption $\Delta \geq 0$.
 \bigskip\\
 In the general case $A \neq 1$, the feasibility conditions \eqref{feas_T1}-\eqref{feas_T2} have to be checked for each positive root found. 
-For $A>1$, we will show that none of the positive roots satisfy the feasibility conditions (see Figure \ref{fig:three_roots}) whereas for $A<1$, there is always exactly one feasible root (in addition to the disease-free equilibrium) (see Figure \ref{fig:feasible_region}).
+For $A>1$, we will show that none of the positive roots satisfy the feasibility conditions (see figure \ref{fig:three_roots}) whereas for $A<1$, there is always exactly one feasible root (in addition to the disease-free equilibrium) (see figure \ref{fig:feasible_region}).
 To this aim, we consider four cases  depending on the signs of $A - 1$ and $B - 1$.
 \begin{description}
 \item[-] Case $A > 1$ and $B \geq 1$.\\ 
@@ -602,13 +612,13 @@ $S^* = 0, N^* = 0, M^* = 0, T^* = R$, with arbitrary $R$;
  $S^* = 0, N^* = 0, M^* = 1, T^* = 1$;
  $S^* = 0, N^* = 1, M^* = 0, T^* = R$, with arbitrary $R$.
 \item Feasible equilibria with $S^* \neq 0$: 
-None when $A \geq 1$.
-When $A < 1$, there is only one biologically feasible equilibria with $S^* \neq 0$ (see proof and Figure \ref{fig:feasible_region}).
+None when $A \geq 1$. We shall see in the numerical simulations that in this case the system quickly diverges away from the disease-free equilibrium, no matter how weak is the initial inflammation. This suggests that the system is in a chronic inflammatory state with $S^* \neq 0$.
+When $A < 1$, there is only one biologically feasible equilibria with $S^* \neq 0$ (see proof and figure \ref{fig:feasible_region}). We shall see in the next section that this equilibrium is unstable, and the numerical simulations suggest that the system converges to the disease-free equilibrium, hence the inflammation is resolved.
 \end{itemize} 
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.6\textwidth]{feasibility_regions_3D.png}
-    \caption{Feasible region in the $(A,B,C)$ space.}
+    \caption{Feasible region in the $(A,B,C)$ space, when $S^* \neq 0$.}
     \label{fig:feasible_region}
 \end{figure}      
 \subsection{Stability analysis}
@@ -652,7 +662,7 @@ J|_{(S^*, N^*, M^*, T^*) = (0, 0, 0, R)} =
 -\gamma R & 0 & \delta_M (1 - R) & 0
 \end{pmatrix}
 \]
-The eigenvalues of this matrix are $-b R$, $\delta_N$, $\delta_M$, and $0$. Since $\delta_N$ and $\delta_M$ are positive, this equilibrium point is unstable. Even if the immune signal will decrease exponentially fast, the populations of neutrophiles and momac will grow out of bound. This unstable equilibrium will not be observed in practice.
+The eigenvalues of this matrix are $-b R$, $\delta_N$, $\delta_M$, and $0$. Since $\delta_N$ and $\delta_M$ are positive, this equilibrium point is unstable. Even if the immune signal will decrease exponentially fast, the populations of neutrophiles and Momac will grow out of bound. This unstable equilibrium where the inflammation is zero as well as the population of neutrophiles and Momac is highly unlikely to be observed in practice.
 \par\noindent For $S^* = 0, N^* = 0, M^* = 1, T^* = 1$, the Jacobian matrix is:
 \[
 J|_{(S^*, N^*, M^*, T^*) = (0, 0, 1, 1)} =
@@ -751,7 +761,7 @@ We perform a bifurcation analysis with respect to the \emph{non dimensional} par
 From the stability analysis above, we see that we  have only one  bifurcation at  $A=1$: for $A<1$ there are two biologically feasible equilibria, one  inflammatory one with $S^* \neq 0$ which is unstable and the disease-free equilibrium which  is stable; 
 for $A>1$ the disease-free equilibrium is unstable and there is no other biologically feasible equilibrium.
 The number and stability of equilibria change as the parameter $A$ crosses the critical value $A=1$, indicating bifurcation points in the system's dynamics.   
-We can plot the bifurcation diagram in the $(A,S^*)$ plane (see Figure \ref{fig:bifurcation}).
+We can plot the bifurcation diagram in the $(A,S^*)$ plane (see figure \ref{fig:bifurcation}).
 \begin{figure}
  \includegraphics[scale=0.5]{bifurcation.png}      
  \caption{Bifurcation diagram in the $(A,T^*)$ plane.}
