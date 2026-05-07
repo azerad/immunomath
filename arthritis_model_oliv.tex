@@ -123,7 +123,7 @@ In the experimental mouse model of arthritis used in this study,
 \subsection{Mathematical Model}
 % explain the model when S=0 with the usual logistic growth of the cell populations, and then explain the effect of the inflammation on the recruitment and proliferation of the cells.
 %explain the effect of the cells on the inflammation and the feedback loop between the inflammation and the cell populations.
-Let us denote by $T_0$ the baseline population of SL-TRM cells in the joint, and by $M_0$ the baseline population of Momac cells in the joint. We can then rescale the variables $T$ and $M$ by their respective baseline values to obtain relative populations.
+Let us denote by $\widehat{T}$ the baseline population of SL-TRM cells in the joint, and by $\widehat{M}$ the baseline population of Momac cells in the joint. We can then rescale the variables $T$ and $M$ by their respective baseline values to obtain relative populations.
 Let us denote by $T(t)$ the relative population of SL-TRM cells and by $M(t)$ the relative population of Momac cells at time $t$.
 The cells $T$ (SL-TRM) and $M$ (Momac) interact with each other in the following way.
 The Momac cells $M$ are recruited from the blood stream at a  rate $\beta S$ proportional to the inflammatory signal. They die at a rate $\delta_M\, M(M-1)$ and they transform into SL-TRM cells at a rate $\delta_M$. The SL-TRM cells $T$ die at a rate $\delta_M T$. The interaction between the two populations is described by the following system of differential equations
@@ -134,7 +134,7 @@ Inflammation further increases neutrophils (factor $\alpha$), increases Momac (f
 
 Notice that we do not keep track of the population of fibroblasts, but rather the population of neutrophils, which are recruited by inflammatory chemokines.
 
-The variable $N(t)$ designates the relative population of neutrophils at time $t$ with respect to the baseline population $N_0$. Finally $S(t)$ is the inflammatory signal at time $t$. We take as unity the standard dose of the arthritogenic serum, so that $S(t)$ is dimensionless and represents the relative strength of the inflammatory signal with respect to the standard dose.
+The variable $N(t)$ designates the relative population of neutrophils at time $t$ with respect to the baseline population $\widehat{N}$. Finally $S(t)$ is the inflammatory signal at time $t$. We take as unity the standard dose of the arthritogenic serum, so that $S(t)$ is dimensionless and represents the relative strength of the inflammatory signal with respect to the standard dose.
  The model is given by the following system of ordinary differential equations:
 
 \begin{equation}
@@ -230,7 +230,7 @@ This property is biologically meaningful since the variables $S$, $N$, $M$, and 
      Actually we are interested in the  immune response to an external stimulus, which can lead to a very high level of inflammation and cell recruitment from the bloodstream or marrow. 
      The transient dynamics of the system can involve large variations in the levels of inflammation and cell populations, which may be shadowed by a model that includes degradation terms that dampens the growth of these variables.
     In our model, the solution may not be bounded for all time, but it can still be biologically relevant since we are interested in the crisis dynamics rather than the long-term behavior of the system.
-    However  one can easily prove that $T$ variable is always bounded by 1. This is biologically relevant since the population of SL-TRM cells is limited by spatial constraints within the joint tissue and regulatory mechanisms that control their proliferation.
+    However  one can easily prove that $T$ variable is always bounded by its initial value. This is biologically relevant since the population of SL-TRM cells is limited by spatial constraints within the joint tissue and regulatory mechanisms that control their proliferation.
 \end{rem}
 
     \marginpar{\textcolor{red}{\small is it biological fact that SL-TRM is bounded by disease-free value?}}
@@ -239,20 +239,55 @@ This property is biologically meaningful since the variables $S$, $N$, $M$, and 
 Assume that the initial condition $T(0)$ is less than or equal to 1, then
 the variable $T(t)$ is bounded by 1 for all $t \geq 0$. 
 If $T(0) > 1$, then $T(t)$ is bounded by $T(0)$ for all $t \geq 0$.
-If $S(t)\to 0$ as $t\to +\infty$, then $T(t)\to 1$ as $t\to +\infty$.
-If $S(t)\to +\infty$ as $t\to +\infty$, then $T(t)\to 0$ as $t\to +\infty$.
+%If $S(t)\to 0$ as $t\to +\infty$, then $T(t)\to 1$ as $t\to +\infty$.
+%If $S(t)\to +\infty$ as $t\to +\infty$, then $T(t)\to 0$ as $t\to +\infty$.
 \end{proposition}
 \begin{proof}
     Let us consider the equation for $T$:
 \begin{equation*}
 \frac{dT}{dt} = -\gamma S T + \delta_M M (1 - T)
 \end{equation*}
-If for some $t_0 >0$, we have $T(t_0) = 1$, then we have $1 - T(t) = 0$, hence $\delta_M M (1 - T) = 0$. Since $-\gamma S T \leq 0$, we deduce that $\frac{dT}{dt} \leq 0$ whenever $T(t) = 1$. Thus, if the solution starts with $T(0) \leq 1$, it cannot cross the threshold $T=1$ and must remain bounded by 1 for all time.
-In the other case, if $T(0) > 1$, then we have $1 - T(0) < 0$, hence $\delta_M M (1 - T(0)) < 0$. Since $-\gamma S T \leq 0$, we deduce that $\frac{dT}{dt} < 0$ at $t=0$. Thus, the solution will decrease and cannot exceed its initial value $T(0)$ for all time.    
+%If for some $t_0 >0$, we have $T(t_0) = 1$, then we have $1 - T(t_0) = 0$, hence $\delta_M M (1 - T) = 0$. Since $-\gamma S T \leq 0$, we deduce that $\frac{dT}{dt} \leq 0$ whenever $T(t) = 1$. Thus, if the solution starts with $T(0) \leq 1$, it cannot cross the threshold $T=1$ and must remain bounded by 1 for all time.
+%In the other case, if $T(0) > 1$, then we have $1 - T(0) < 0$, hence $\delta_M M (1 - T(0)) \leq  0$. Since $-\gamma S T \leq 0$, we deduce that $\frac{dT}{dt} \leq  0$ at $t=0$. Thus, the solution will decrease and cannot exceed its initial value $T(0)$ for all time.    
+Let us recall Gronwall's lemma: if $u(t)$ is a function satisfying the differential inequality
+\begin{equation*}
+\frac{du}{dt} \leq \alpha(t) u(t)
+\end{equation*}
+for some function $\alpha(t)$, then we have
+\begin{equation*}
+u(t) \leq u(0) \exp{\int_0^t \alpha(s) ds}.
+\end{equation*}
+If $T(0) \leq 1$, we can write the equation for $T-1$ as
+\begin{equation*}
+\frac{d(T-1)}{dt} = -\gamma S (T-1) - \delta_M M (T-1) -\gamma S 
+\leq (-\gamma S - \delta_M M) (T-1)
+\end{equation*}
+Thus, by Gronwall's lemma, we have
+\begin{equation*}
+T(t) - 1 \leq (T(0) - 1) \exp{\int_0^t (-\gamma S(s) - \delta_M M(s)) ds} \leq 0
+\end{equation*}
+which proves that $T(t) \leq 1$ for all $t \geq 0$.\\
+In the other case, if $T(0) > 1$, we can write the equation for $T - T(0)$ as
+\begin{equation*}
+\frac{d(T - T(0))}{dt} = -\gamma S (T - T(0)) - \delta_M M (T - T(0)) + \delta_M M (1 - T(0)) - \gamma S T(0) \leq (-\gamma S - \delta_M M) (T - T(0))
+\end{equation*}
+Thus, by Gronwall's lemma, we have
+\begin{equation*}
+T(t) - T(0) \leq (T(0) - T(0)) \exp{\int_0^t (-\gamma S(s) - \delta_M M(s)) ds} = 0
+\end{equation*}
+which proves that $T(t) \leq T(0)$ for all $t \geq 0$.  
 \end{proof}
+Using the same approach, we can also bound from below the variables $M$ and  $N$.
+\begin{proposition}
+Assume that the initial condition $M(0)$ (resp. $N(0)$) is greater than or equal to 1, then
+the variable $M(t)$ (resp. $N(t)$) is greater than or equal to 1 for all $t \geq 0$. If $M(0) < 1$ (resp. $N(0) < 1$), then $M(t)$ (resp. $N(t)$) is greater than or equal to $M(0)$ (resp. $N(0)$) for all $t \geq 0$.    
+\end{proposition}
+\begin{rem}
+The upper boundedness of $T$ and the lower bounds for $M$ and $N$ are biologically relevant since they reflect the regulatory mechanisms that control the populations of SL-TRM, Momac, and neutrophils within the joint tissue. The population of SL-TRM cells is limited by spatial constraints and regulatory feedback, while the populations of Momac and neutrophils cannot fall below certain levels due to their large supply in blood and marrow.
+\end{rem}
 \subsection{Equilibria points}
-\emph{Equilibria points} of the system are found by setting the right-hand side of the system to zero, i.e. by solving the following system of equations:
- The equilibrium points $(S^*, N^*, M^*, T^*)$ satisfy the following system:
+\emph{Equilibria points} of the system are found by setting the right-hand side of the system to zero, i.e.
+ the equilibrium points $(S^*, N^*, M^*, T^*)$ satisfy the following system of algebraic equations:
 \begin{align}
 (a N^* - b T^*) S^* &= 0 \label{eq:equilibrium_S} \\
 \alpha S^* N^* - \delta_N N^* (N^* - 1) &= 0 \label{eq:equilibrium_N} \\
@@ -335,6 +370,8 @@ Substituting this expression for $N^*$ into equation \eqref{eq:equilibrium_N}, w
 S^* = \frac{\delta_N}{\alpha} \left(\frac{b}{a} T^* - 1\right)
 \label{eq:S_in_terms_of_T}
 \end{equation}
+Since we are now looking for equilibria points with $S^* \neq 0$, \eqref{eq:equilibrium_M} and \eqref{eq:equilibrium_T} imply both $M^* \neq 1$ and $T^* \neq 1$.
+ %Thus, we can express $M^*$ in terms of $S^*$ from equation \eqref{eq:equilibrium_M}: 
 From equation \eqref{eq:equilibrium_M} and equation \eqref{eq:equilibrium_T}, 
 we derive  $\delta_M M^* = \frac{\beta S^*}{M^* - 1}$ and $\delta_M M^* = \frac{\gamma S^* T^*}{1 - T^*}$.
 Equating these two expressions for $\delta_M M^*$, we obtain:
