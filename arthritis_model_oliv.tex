@@ -224,16 +224,11 @@ f_4(y) &= -\gamma y_1 y_4 + \delta_M y_3 (1 - y_4).
 We observe that the vector field $F$ is \emph{quasi-positive}, i.e. for each $i=1,2,3,4$, we have $f_i(y) \geq 0$ whenever $y_i = 0$ and $y_j \geq 0$ for all $j \neq i$. Thus from Proposition 2.1 in \cite{haraux2016}, we deduce that if the initial conditions are nonnegative, then the solution remains nonnegative for all $t \geq 0$.
 \end{proof}
 This property is biologically meaningful since the variables $S$, $N$, $M$, and $T$ represent cell populations, which cannot be negative. Our model thus ensures that the solutions remain within the biologically relevant domain.       
-\begin{rem}
-    We did not  include degradation terms in the $S$,$N$, $M$ equations, which could ensure the boundedness of the solution. 
-    Indeed we shall see that in some cases the solution may not be bounded for all time, at least for $S$,$N$ and $M$.
-     Actually we are interested in the  immune response to an external stimulus, which can lead to a very high level of inflammation and cell recruitment from the bloodstream or marrow. 
-     The transient dynamics of the system can involve large variations in the levels of inflammation and cell populations, which may be shadowed by a model that includes degradation terms that dampens the growth of these variables.
-    In our model, the solution may not be bounded for all time, but it can still be biologically relevant since we are interested in the crisis dynamics rather than the long-term behavior of the system.
-    However  one can easily prove that $T$ variable is always bounded by its initial value. This is biologically relevant since the population of SL-TRM cells is limited by spatial constraints within the joint tissue and regulatory mechanisms that control their proliferation.
+\subsection{Boundedness of the solution.}
+Considering the equation for $T$, one can easily prove that $T(t)$  is always bounded by its initial value $T(0)$ or by 1 if $T(0) \leq 1$, for all $t \geq 0$. 
+\begin{rem}This is biologically relevant since the population of SL-TRM cells is limited by spatial constraints within the joint tissue and regulatory mechanisms that control their proliferation.
 \end{rem}
-
-    \marginpar{\textcolor{red}{\small is it biological fact that SL-TRM is bounded by disease-free value?}}
+\marginpar{\textcolor{red}{\small is it biological fact that SL-TRM is bounded by disease-free value?}}
 
 \begin{proposition}
 Assume that the initial condition $T(0)$ is less than or equal to 1, then
@@ -277,7 +272,15 @@ T(t) - T(0) \leq (T(0) - T(0)) \exp{\int_0^t (-\gamma S(s) - \delta_M M(s)) ds} 
 \end{equation*}
 which proves that $T(t) \leq T(0)$ for all $t \geq 0$.  
 \end{proof}
-Using the same approach, we can also bound from below the variables $M$ and  $N$.
+About the variables $S$, $N$ and $M$, we did not  include degradation terms in the $S$, $N$ and  $M$ equations, which could ensure the boundedness of $S$, $N$ and $M$.
+    Indeed we shall see in Section \ref{sec:numerical_simulations} that in some cases the solution may not be bounded for all time, at least for $S$, $N$ and $M$.
+     Actually we are interested in the  immune response to an external stimulus, which can lead to a very high level of inflammation and cell recruitment from the bloodstream or marrow. 
+     The transient dynamics of the system can involve large variations in the levels of inflammation and cell populations, which may be shadowed by a model that includes degradation terms that dampens the growth of these variables.
+    In our model, the solution may not be bounded for all time,
+     but it can still be biologically relevant since we are interested in the early crisis dynamics 
+     rather than the long-term behavior of the system.\\
+However, we can still derive some lower bounds for the variables $M$ and $N$.    
+Using Gronwall's lemma like in the previous proof, we can also bound from below the variables $M$ and  $N$.
 \begin{proposition}
 Assume that the initial condition $M(0)$ (resp. $N(0)$) is greater than or equal to 1, then
 the variable $M(t)$ (resp. $N(t)$) is greater than or equal to 1 for all $t \geq 0$. If $M(0) < 1$ (resp. $N(0) < 1$), then $M(t)$ (resp. $N(t)$) is greater than or equal to $M(0)$ (resp. $N(0)$) for all $t \geq 0$.    
