@@ -61,17 +61,17 @@ According to the systematic survey on mathematical modelling of auto-immune dise
 the ﬁrst papers date back to the 1970s. Since
 then, the number of relevant articles increased exponentially,
 reaching more than 200 publications per year by 2024. 
-However according to Macfarlane et. al. \cite{macfarlane2020} which provides another careful and exhaustive bibliography in 2020, the number of  mathematical models of RA is still relatively small.
+However according to Macfarlane et. al. \cite{macfarlane2020} which provides another careful and exhaustive bibliography in 2020, the number of  mathematical models of Rheumatoid Arthritis (RA) is still relatively small.
 An illuminative survey paper introducing the issues and pitfalls of mathematical modelling in immunology is Andrew et. al.  \cite{andrew}. 
 We refer to Handel et. al. \cite{Handel2020} for  examples and guidelines for sound mathematical modelling in immunology and also for the free software R-package DSAIRM \cite{dsairm2019} which allows to easily simulate and analyze a large variety of mathematical models of immune response.
 Among mathematical models that deal with aspects
-of Rheumatoid Arthritis (RA), we can mention the following ones.
+of RA, we can mention the following ones.
 In Seymour et. al. \cite{seymour2001} a 4 equations model is introduced to describe the dynamics of the population of monocytes and the concentrations of three cytokines, namely IL-6, TNF-$\alpha$ and IL-10. 
 In Jit et. al.  \cite{jit2005} RA vs. systemic inflammatory response syndrom is modelled by a system of four differential equations, describing the evolution of population of certain cell compartments, namely TNF-$\alpha$ (free or bound), antibodies and antibody-antigen complexes.
 The effect of TNF-$\alpha$ inhibitors like (s)TNFR2, Etanecerp, Infliximab are investigated.
 Baker et al.\cite{baker2013} introduced a model with pro-inﬂammation 
 (p) and anti-inﬂammation cells (a) and considered a system of two differential equations for p and a. More complex models exhibiting various types of  bifurcations are introduced in \cite{baker2017}. 
-In Odisharia et. al. \cite{jaiani2019} a 5 differential equation system is investigated to simulate the effect of tocilizumab on the populations of B and T-lymphocytes and cell population of cartilage.  
+In Odisharia et. al. \cite{jaiani2019} a 5 differential equations system is investigated to simulate the effect of tocilizumab on the populations of B and T-lymphocytes and cell population of cartilage.  
 There exist also spatialized models, see Friedman et. al. \cite{friedman} where PDE (partial differential equations) are used to model a joint (synovial fluid and cartilage) and  Macfarlane et. al. \cite{macfarlane2022}
  where an hybrid model is introduced to describe pannus formation in a joint.
 Effects of drugs such as inﬂiximab, which blocks TNF-$\alpha$ ; methotrexate
@@ -123,19 +123,18 @@ In the experimental mouse model of arthritis used in this study,
 \subsection{Mathematical Model}
 % explain the model when S=0 with the usual logistic growth of the cell populations, and then explain the effect of the inflammation on the recruitment and proliferation of the cells.
 %explain the effect of the cells on the inflammation and the feedback loop between the inflammation and the cell populations.
-Let us denote by $\widehat{T}$ the baseline population of SL-TRM cells in the joint, and by $\widehat{M}$ the baseline population of Momac cells in the joint. We can then rescale the variables $T$ and $M$ by their respective baseline values to obtain relative populations.
-Let us denote by $T(t)$ the relative population of SL-TRM cells and by $M(t)$ the relative population of Momac cells at time $t$.
+The variable $S(t)$ is the inflammatory signal at time $t$. We take as unity the standard dose of the arthritogenic serum, so that $S(t)$ is dimensionless and represents the relative strength of the inflammatory signal with respect to the standard dose.
+We rescale all variables by their respective baseline values in the disease-free state, so that they are dimensionless and represent relative populations with respect to their baseline levels.
+Namely variable $N(t)$ (resp. $M(t)$, $T(t)$) designates the relative population of neutrophils (resp. Momac cells, SL-TRM cells) at time $t$ with respect to the baseline population $\widehat{N}$ (resp. $\widehat{M}$, $\widehat{T}$).\\
 The cells $T$ (SL-TRM) and $M$ (Momac) interact with each other in the following way.
-The Momac cells $M$ are recruited from the blood stream at a  rate $\beta S$ proportional to the inflammatory signal. They die at a rate $\delta_M\, M(M-1)$ and they transform into SL-TRM cells at a rate $\delta_M$. The SL-TRM cells $T$ die at a rate $\delta_M T$. The interaction between the two populations is described by the following system of differential equations
+The Momac cells $M$ are recruited from the blood stream at a  rate $\beta S$ proportional to the inflammatory signal. They die at a rate $\delta_M\, M(M-1)$ and they transform into SL-TRM cells at a rate $\delta_M$. The SL-TRM cells $T$ die at a rate $\delta_M M$. 
 
 The inflammatory state $S(t)$ is enhanced by neutrophils $N$ and inhibited by SL-TRM macrophages $T$.
 
 Inflammation further increases neutrophils (factor $\alpha$), increases Momac (factor $\beta$), and decreases SL-TRM (factor $\gamma$).
 
-Notice that we do not keep track of the population of fibroblasts, but rather the population of neutrophils, which are recruited by inflammatory chemokines.
-
-The variable $N(t)$ designates the relative population of neutrophils at time $t$ with respect to the baseline population $\widehat{N}$. Finally $S(t)$ is the inflammatory signal at time $t$. We take as unity the standard dose of the arthritogenic serum, so that $S(t)$ is dimensionless and represents the relative strength of the inflammatory signal with respect to the standard dose.
- The model is given by the following system of ordinary differential equations:
+Notice that we do not keep track of the population of fibroblasts, but rather the population of neutrophils, which are recruited by inflammatory chemokines.\\
+The model is given by the following system of ordinary differential equations:
 
 \begin{equation}
 \left\{
