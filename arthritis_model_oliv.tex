@@ -126,32 +126,36 @@ In the experimental mouse model of arthritis used in this study,
 The variable $S(t)$ is the inflammatory signal at time $t$. We take as unity the standard dose of the arthritogenic serum, so that $S(t)$ is dimensionless and represents the relative strength of the inflammatory signal with respect to the standard dose.
 We rescale all variables by their respective baseline values in the disease-free state, so that they are dimensionless and represent relative populations with respect to their baseline levels.
 Namely variable $N(t)$ (resp. $M(t)$, $T(t)$) designates the relative population of neutrophils (resp. Momac cells, SL-TRM cells) at time $t$ with respect to the baseline population $\widehat{N}$ (resp. $\widehat{M}$, $\widehat{T}$).\\
-The cells $T$ (SL-TRM) and $M$ (Momac) interact with each other in the following way.
-The Momac cells $M$ are recruited from the blood stream at a  rate $\beta S$ proportional to the inflammatory signal. They die at a rate $\delta_M\, M(M-1)$ and they transform into SL-TRM cells at a rate $\delta_M$. The SL-TRM cells $T$ die at a rate $\delta_M M$. 
-
-The inflammatory state $S(t)$ is enhanced by neutrophils $N$ and inhibited by SL-TRM macrophages $T$.
-
-Inflammation further increases neutrophils (factor $\alpha$), increases Momac (factor $\beta$), and decreases SL-TRM (factor $\gamma$).
-
-Notice that we do not keep track of the population of fibroblasts, but rather the population of neutrophils, which are recruited by inflammatory chemokines.\\
 The model is given by the following system of ordinary differential equations:
 
-\begin{equation}
-\left\{
-\begin{aligned}
-\frac{dS}{dt} &= (a\, N - b\,T) S \\
-\frac{dN}{dt} &= \alpha S N - \delta_N N (N-1) \\
-\frac{dM}{dt} &= \beta S - \delta_M M (M-1) \\
-\frac{dT}{dt} &= -\gamma S T + \delta_M M (1-T)
-\end{aligned}
-\right.
-\label{eq:system}
-\end{equation}
-
+\begin{subequations}\label{eq:system}
+\renewcommand{\theequation}{\theparentequation.\arabic{equation}}
+\begin{align}
+\frac{dS}{dt} &= (a\, N - b\,T) S \label{eq:system:S}\\
+\frac{dN}{dt} &= \alpha S N - \delta_N N (N-1) \label{eq:system:N}\\
+\frac{dM}{dt} &= \beta S - \delta_M M (M-1) \label{eq:system:M}\\
+\frac{dT}{dt} &= -\gamma S T + \delta_M M (1-T) \label{eq:system:T}
+\end{align}
+\end{subequations}
 where $a,b,\alpha,\beta,\gamma, \delta_N, \delta_M$ are positive parameters.
+
+Let us explain the meaning of each term in the system \eqref{eq:system}.
+The inflammatory state $S(t)$ is enhanced by neutrophils $N$ (factor $a$) and inhibited by SL-TRM macrophages $T$ (factor $b$), which translates into the differential equation \eqref{eq:system:S}.
+Neutrophils $N$ are recruited by the inflammatory signal $S$ (factor $\alpha$) and they have a nonlinear logistic self-limitation (factor $\delta_N$). This is modeled by the term $\delta_N N (N-1)$ in the equation for $N$,
+which is negative when N > 1 and positive when N < 1, hence in the absence of inflammation it tends to stabilize the
+population of neutrophils around its baseline level. This is the meaning of equation \eqref{eq:system:N}.
+ 
+Equation \eqref{eq:system:M} describes the dynamics of the Momac cells $M$. They are recruited from the blood stream at a  rate $\beta S$ proportional to the inflammatory signal. They have a self-regulation mechanism analogous to that of neutrophils. 
+
+Equation \eqref{eq:system:T} describes the dynamics of the SL-TRM cells $T$. The SL-TRM cells $T$ are destroyed by the inflammatory signal at a rate $\gamma S$. When $T$ is less than 1, the term $\delta_M M (1-T)$ is positive and contributes to the growth of $T$, while when $T$ is greater than 1, this term becomes negative and contributes to the decrease of $T$. This models the fact that the population of SL-TRM cells is regulated by the population of Momac cells, which can promote their proliferation when they are depleted, but can also inhibit them when they are in excess. 
+
+
+In the system \eqref{eq:system}, we see that inflammation further increases neutrophils (factor $\alpha$), increases Momac (factor $\beta$), and decreases SL-TRM (factor $\gamma$).
+
+Notice that we do not keep track of the population of fibroblasts, but rather the population of neutrophils, which are recruited by inflammatory chemokines.\\
 \begin{rem}
-The term $\delta_M M (1-T)$ in the equation for $T$ models the conversion of Momac cells into SL-TRM cells, which is supported by experimental evidence.
-Note that we could have add another parameter $\delta_T\neq \delta_M$ in this equation for $T$, but we choose to keep it simple since it did not change the dynamics of the crisis.
+The term $\delta_M M (1-T)$ in the equation for $T$ models somehow the conversion of Momac cells into SL-TRM cells, which is supported by experimental evidence.
+Note that we could have taken another parameter $\delta_T\neq \delta_M$ in this equation for $T$, but we choose to keep it simple since it did not change the dynamics of the crisis.
 To make things easier to undestand, we summarize the model in the following diagram (see figure \ref{fig:graphe}).
 \end{rem}
 
@@ -898,7 +902,7 @@ We notice that for $A<1$, the system converges to the disease-free equilibrium p
  This threshold increases as $A$ decreases, meaning that the system can tolerate higher initial immune signals without diverging away from the disease-free equilibrium when $A$ is smaller. 
  For $S(0)> 5$, meaning the immune signal dosis is five times the standard value, the system diverges away from the disease-free equilibrium for all values of $A$, 
  indicating a chronic inflammatory state regardless of the value of $A>0$ when the initial immune signal is too high.
-For $A>1$, the system diverges away from the disease-free equilibrium for all values of the initial immune signal $S(0)$, indicating a chronic inflammatory state regardless of the initial conditions.
+For $A>1$, the system diverges away from the disease-free equilibrium for all values of the initial immune signal $S(0)$, indicating a persistent inflammatory state regardless of the initial conditions.
 % \mbox{}\\   
 % \par\noindent
 % We can plot a phase space trajectory in the $(S,N,M,T)$ 4D space, using color intensity to represent the $S$ variable in fig. \ref{phase_space_color}.
