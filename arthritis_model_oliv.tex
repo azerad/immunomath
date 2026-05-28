@@ -425,60 +425,10 @@ Using these parameters, the cubic equation in $T^*$ becomes:
 \begin{equation} 
 \left(T^*\right)^3 +  \frac{A}{C}  \left(1- B- C \right) (T^*)^2 + \frac{A}{C} \left(2 B -1 \right) T^* - \frac{A B}{C} = 0
 \label{eq:cubic_T}
-\end{equation} 
-\begin{rem} Particular case $A = 1$.
-There is an obvious solution in the particular case $A = a/b = 1$, namely $T^* = 1$. This solution corresponds to the inflammation free equilibrium point $S^* = 0, N^* = 1, M^* = 1, T^* = 1$.  
-But this solution is not relevant for the case $S^* \neq 0$ that we are considering here.
-Note further that if  $T^* = 1$  then  from Eq. \eqref{eq:cubic_T} we get
-\[ 1 +  \frac{A}{C}  \left(1- B- C \right) + \frac{A}{C} \left(2 B -1 \right) - \frac{A B}{C} = 0
-\]
-which simplifies to $A = 1.$ Hence $T=1$ is a root of the cubic equation \eqref{eq:cubic_T} iff $A=1$.
-Therefore we can factor the cubic polynomial as follows:
-    \begin{equation}
-    (T^* - 1) \left( (T^*)^2 - \frac{1}{C} (B - 1) T^* + \frac{B}{C} \right) = 0
-    \label{eq:factored_cubic}
-    \end{equation}
-    \begin{itemize}
-        \item If $B \leq 1$, then the coefficients of the quadratic factor are positive, hence there are no other positive roots.
-        \item If $B > 1$, the quadratic factor has  either two positive roots (if the discriminant is positive) or no real roots (if the discriminant is negative).
-    The quadratic factor has discriminant 
-    $\Delta = \frac{(B-1)^2 - 4 B C }{C^2}$.
-    Thus, we have:
-    \begin{itemize}
-        \item If $\Delta > 0$, there are two distinct real roots given by:
-        \[
-        T^* = \frac{\frac{(B- 1)}{C}  \pm \sqrt{\Delta}}{2}
-        \]
-        \item If $\Delta = 0$, there is one (double) positive root given by:
-        \[
-        T^*  = \frac{B - 1}{2 C}
-        \]
-        \item If $\Delta < 0$, there are no real roots.
-    \end{itemize}
-    \end{itemize}
-\end{rem}
-The sign of the discriminant of the quadratic factor depends on the parameters $B$ and $C$:  
-$\Delta > 0$ iff $\frac{(B-1)^2}{4B} > C$.
-Let us plot the curve $\frac{(B-1)^2}{4B}$ in the $(B,C)$ plane (see fig.\ref{fig:BC_plane}).    
-\begin{figure}
-    \centering
-    \includegraphics[height=5cm, width=0.6\textwidth]{discriminant_curve.png}
-    \caption{ $A=1$, number of roots.}
-    \label{fig:BC_plane}        
-\end{figure}    
-Looking  at  figure \ref{fig:BC_plane}, 
-we see that the typical situation is when $\Delta < 0$, hence there are no other positive roots apart from $T^* = 1$.
-But for a careful choice of parameters $B$ and $C$, we can indeed have three equilibria, see fig.\ref{fig:roots_A=1}. 
-\begin{figure}
-\centering
-\includegraphics[height=4cm]{onepositive_A=1.png}
-\includegraphics[height=4cm]{three_roots_A=1.png}
-\caption{$A=1$, Left 1 positive root,\quad Right  3 positive roots}
-\label{fig:roots_A=1}
-\end{figure} 
-\par\noindent Returning to the general case $A \neq 1$, we analyze the number of positive roots of the cubic equation \eqref{eq:cubic_T}.
+\end{equation}
+\par\noindent We now determine the number of positive roots of the cubic equation \eqref{eq:cubic_T}.
 From basic algebra, we can show that there are at most 3 such intersection points, hence at most 3 equilibria points with $S^* \neq 0$. 
-We can be more precise because the biological feasibility imposes the roots to be real nonnegative numbers.
+We have to take into account  the biological feasibility which imposes the roots to be real nonnegative numbers.
 Since $\frac{AB}{C} > 0$,  there is at least one positive root. 
 But we can be more precise using 
 \emph{Descartes' rule of signs}. It states that the number of positive real roots of a polynomial (counting multiplicities) is equal to the number of sign changes between consecutive nonzero coefficients, or less than that by an even number. 
@@ -597,12 +547,19 @@ So the biological feasibility conditions can be summarized as follows:
 T^* &\geq& A \label{feas_T1} \\
 T^* &\leq& 1 + \frac{1}{B-1} \quad \text{if } B > 1 \label{feas_T2}
 \end{eqnarray}
-Let us consider again the particular case $A = a/b = 1$, if $B \leq 1$  there is only one equilibrium, the disease-free $(S^*, N^*, M^*, T^*) = (0, 1, 1, 1)$ otherwise if $B>1$ the feasibility conditions \eqref{feas_T1}-\eqref{feas_T2} reduce to:
+Let us consider first the particular case $A = a/b = 1$. In this case, we have an obvious solution $T^* = 1$ which corresponds to the disease-free equilibrium point.
+Therefore we can factor the cubic polynomial as follows:
+    \begin{equation}
+    (T^* - 1) \left( (T^*)^2 - \frac{1}{C} (B - 1) T^* + \frac{B}{C} \right) = 0.
+    \label{eq:factored_cubic}
+    \end{equation}
+ If $B \leq 1$, all the coefficient of the quadratic polynomial are positive, so there is only one equilibrium, the disease-free $(S^*, N^*, M^*, T^*) = (0, 1, 1, 1).$ 
+ Otherwise if $B>1$ the feasibility conditions \eqref{feas_T1}-\eqref{feas_T2} reduce to:
 \begin{equation}
 1 \leq T^* \leq 1 + \frac{1}{B-1}.
 \end{equation}
- We can check easily that only the disease-free root $T^* = 1$ satisfies this condition, while the other two roots are outside this interval (see figure \ref{fig:roots_A=1}).
- Indeed if $\Delta \geq 0$, we have $C \leq \frac{(B-1)^2}{4B}$, 
+ We can check easily that only the disease-free root $T^* = 1$ satisfies this condition, while the other two roots are outside this interval, as we prove now.
+ Indeed if the discriminant of the quadratic factor $\Delta = \frac{(B-1)^2 - 4BC}{C^2} \geq 0$, we have $C \leq \frac{(B-1)^2}{4B}$, 
  hence $\frac{B-1}{2C} \geq \frac{B-1}{2 \frac{(B-1)^2}{4B}} = \frac{2B}{B-1} \geq 2  $ so  the root $T^* = \frac{B-1 + \sqrt{\Delta}}{2C} \geq 2  $ is not feasible.
  Moreover, the other root $T^* = \frac{B-1 - \sqrt{\Delta}}{2C} \leq \frac{B-1}{2C}.$
  In order to be feasible, this root should satisfy $\frac{B-1 - \sqrt{\Delta}}{2C} \leq \frac{B}{B-1}$,
