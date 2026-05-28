@@ -566,7 +566,7 @@ Therefore we can factor the cubic polynomial as follows:
 which implies  $C \geq \frac{(B-1)^2}{2B}$, contradicting the assumption $\Delta \geq 0$.
 \bigskip\\
 In the general case $A \neq 1$, the feasibility conditions \eqref{feas_T1}-\eqref{feas_T2} have to be checked for each positive root found. 
-For $A>1$, we will show that none of the positive roots satisfy the feasibility conditions (see figure \ref{fig:three_roots}) whereas for $A<1$, there is always exactly one feasible root (in addition to the disease-free equilibrium) (see figure \ref{fig:feasible_region}).
+For $A>1$, we will show that none of the positive roots satisfy the feasibility conditions (see figure \ref{fig:three_roots}) whereas for $A<1$, there is always exactly one feasible root (in addition to the disease-free equilibrium). 
 To this aim, we consider four cases  depending on the signs of $A - 1$ and $B - 1$.
 \begin{description}
 \item[-] Case $A > 1$ and $B \geq 1$.\\ 
@@ -616,14 +616,9 @@ $S^* = 0, N^* = 0, M^* = 0, T^* = R$, with arbitrary $R$;
  $S^* = 0, N^* = 1, M^* = 0, T^* = R$, with arbitrary $R$.
 \item Feasible equilibria with $S^* \neq 0$: 
 None when $A \geq 1$. We shall see in the numerical simulations that in this case the system quickly diverges away from the disease-free equilibrium, no matter how weak is the initial inflammation. This suggests that the system is in a chronic inflammatory state with $S^* \neq 0$.
-When $A < 1$, there is only one biologically feasible equilibria with $S^* \neq 0$ (see proof and figure \ref{fig:feasible_region}). We shall see in the next section that this equilibrium is unstable, and the numerical simulations suggest that the system converges to the disease-free equilibrium, hence the inflammation is resolved.
+When $A < 1$, there is only one biologically feasible equilibria with $S^* \neq 0$. We shall see in the next section that this equilibrium is unstable, and the numerical simulations suggest that the system converges to the disease-free equilibrium, hence the inflammation is resolved.
 \end{itemize} 
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=0.6\textwidth]{feasibility_regions_3D.png}
-    \caption{Feasible region in the $(A,B,C)$ space, when $S^* \neq 0$.}
-    \label{fig:feasible_region}
-\end{figure}      
+%     
 \subsection{Stability analysis}
 \emph{Linear stability analysis} of the equilibria point $ (S^*, N^*, M^*, T^*)$ is done by linearizing the system around this point.
 The Jacobian matrix of the system is given by:
