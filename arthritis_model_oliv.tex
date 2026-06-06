@@ -94,8 +94,8 @@ In Section \ref{sec:model} we present the model discussed in the paper. In Secti
 The paper ends with  Section \ref{sec:conclusion} concluding remarks and future work perspectives.
 
 
-\section{Model}\label{sec:model}
-In the experimental mouse model of arthritis used in this study,
+\section{Biological Model}\label{sec:model}
+In the experimental mouse model of arthritis used in this study, namely Serum Transfer Arthritis (STA),
  the acute inflammatory response is triggered by an external signal (injection of an arthritogenic serum) 
  that activates the immune system and initiates an inflammatory response 
  within the joint tissue, which is composed of a lining and sub-lining membrane.
@@ -103,13 +103,13 @@ In the experimental mouse model of arthritis used in this study,
   that form a protective barrier and contribute to immune regulation. Tissue-resident macrophages (TRM) are also present within the sublining membrane (SL-TRM),
    scattered and fewer in number. 
   Both TRM contribute to early immune sensing of environmental cues, exerting an overall protective and regulatory role by limiting excessive inflammation.
-   However, during arthritis inflammatory flares, while L-TRM remain preserved, SL-TRM. are progressively depleted. 
+   However, during arthritis inflammatory flares, while L-TRM remain preserved, SL-TRM are progressively depleted. 
    This depletion is concomitant with the accumulation of macrophages derived from blood monocytes infiltrating the inflamed joints (Momac). 
    The loss of the SL-TRM population weakens synovial immune regulation and favors persistent inflammatory cell infiltration through 
    to the local production of cytokines and chemokines. This activation promotes the rapid recruitment of neutrophils (N) from the bloodstream into the joint, 
    where they become the dominant cell population during the acute phase of inflammation.
     Neutrophils amplify the inflammatory response through the release of pro-inflammatory mediators. 
-     Based on these biological observations, we modeled the joint inflammatory response as the interaction between an inflammatory signal and three cell populations—N, SL-TRM, and Momac—capturing recruitment,
+     Based on these biological observations \cite{courties}, we modeled the joint inflammatory response as the interaction between an inflammatory signal and three cell populations—N, SL-TRM, and Momac—capturing recruitment,
       amplification, and regulatory mechanisms in a minimal dynamical framework.
 
 
@@ -120,7 +120,7 @@ In the experimental mouse model of arthritis used in this study,
 %These cytokines activate the fibroblasts which in turn recruit the neutrophiles cells from the blood stream into the joint. 
 %The cytokines also recruit the Momac cells from the blood stream into the joint. There is a positive feedback since the inflammation is amplified by the neutrophiles that are recruited in the joint by the chemokines secreted by the Momac cells. 
 %The macrophages SL-TRM cells have a protective role since they inhibit the inflammation but they are depleted during the crisis because they are inhibited by the proliferation of Momac cells.
-\subsection{Mathematical Model}
+\subsection{Mathematical Modelling}
 % explain the model when S=0 with the usual logistic growth of the cell populations, and then explain the effect of the inflammation on the recruitment and proliferation of the cells.
 %explain the effect of the cells on the inflammation and the feedback loop between the inflammation and the cell populations.
 The variable $S(t)$ is the inflammatory signal at time $t$. We take as unity the standard dose of the arthritogenic serum, so that $S(t)$ is dimensionless and represents the relative strength of the inflammatory signal with respect to the standard dose.
@@ -146,7 +146,8 @@ Neutrophils $N$ are recruited by the inflammatory signal $S$ (factor $\alpha$) a
 which is negative when N > 1 and positive when N < 1, hence in the absence of inflammation it tends to stabilize the
 population of neutrophils around its baseline level. This is the meaning of equation \eqref{eq:system:N}.
  
-Equation \eqref{eq:system:M} describes the dynamics of the Momac cells $M$. They are recruited from the blood stream at a  rate $\beta S$ proportional to the inflammatory signal. They have a self-regulation mechanism analogous to that of neutrophils. 
+Equation \eqref{eq:system:M} describes the dynamics of the Momac cells $M$. They are recruited from the blood stream at a  rate $\beta S$ proportional to the inflammatory signal. They have a logistic self-regulation mechanism analogous to that of neutrophils.
+ Note that the linear rate $\beta S$ of recruitment of Momac cells is not proportional to the current population of Momac cells, which models the fact that the recruitment of Momac cells from the blood stream is not directly influenced by the current population of Momac cells in the joint, but rather by the level of inflammation.
 
 Equation \eqref{eq:system:T} describes the dynamics of the SL-TRM cells $T$. The SL-TRM cells $T$ are destroyed by the inflammatory signal at a rate $\gamma S$. When $T$ is less than 1, the term $\delta_M M (1-T)$ is positive and contributes to the growth of $T$, while when $T$ is greater than 1, this term becomes negative and contributes to the decrease of $T$. This models the fact that the population of SL-TRM cells is regulated by the population of Momac cells, which can promote their proliferation when they are depleted, but can also inhibit them when they are in excess. 
 
@@ -155,8 +156,8 @@ In the system \eqref{eq:system}, we see that inflammation further increases neut
 
 Notice that we do not keep track of the population of fibroblasts, but rather the population of neutrophils, which are recruited by inflammatory chemokines.\\
 \begin{rem}
-The term $\delta_M M (1-T)$ in the equation for $T$ models somehow the conversion of Momac cells into SL-TRM cells, which is supported by experimental evidence.
-Note that we could have taken another parameter $\delta_T\neq \delta_M$ in this equation for $T$, but we choose to keep it simple by limiting the number of parameters, since it does not change the dynamics of the crisis.
+The term $\delta_M M (1-T)$ in the equation for $T$ models somehow the stimulation of  SL-TRM cells by Momac cells, which is supported by experimental evidence \cite{courties}.
+Note that we could have taken another parameter $\delta_T\neq \delta_M$ in this equation for $T$, but we choose to keep it simple by limiting the number of parameters, since analysis and numerical simulations show that it does not change the dynamics of the crisis.
 To make things easier to undestand, we summarize the model in the following diagram (see figure \ref{fig:graphe}).
 \end{rem}
 
@@ -190,9 +191,9 @@ To make things easier to undestand, we summarize the model in the following diag
         \draw[mid arrow, line width=1.5pt] (S) to[bend left=20] node[left] {activation$(\alpha)$} (N);
         \draw[mid arrow, line width=1.5pt] (S) to[bend left=10] node[left,xshift=6mm] {activation $(\beta)$} (M);
         \draw[dashed, line width=1.5pt, -|] (S) to[bend left=20] node[left, xshift=2mm] {inhibition $(\gamma)$} (T);
-        \draw[dashed,-|, line width=1.5pt, loop above, looseness=8] (N) to node[above] {destruction $(\delta_N)$} (N);
-        \draw[dashed,-|, line width=1.5pt, loop above, looseness=8] (M) to node[above] {destruction $(\delta_M)$} (M);
-        \draw[mid arrow, line width=1.5pt] (M.east) -- node[below, yshift=-2mm] {conversion $(\delta_M)$} (T.west);
+        \draw[dashed,-|, line width=1.5pt, loop above, looseness=8] (N) to node[above] {regulation $(\delta_N)$} (N);
+        \draw[dashed,-|, line width=1.5pt, loop above, looseness=8] (M) to node[above] {regulation $(\delta_M)$} (M);
+        \draw[mid arrow, line width=1.5pt] (M.east) -- node[below, yshift=-2mm] {stimulation $(\delta_M)$} (T.west);
 
     \end{tikzpicture}
 \end{center}
@@ -232,12 +233,12 @@ This property is biologically meaningful since the variables $S$, $N$, $M$, and 
 Considering the equation for $T$, one can easily prove that $T(t)$  is always bounded by its initial value $T(0)$ or by 1 if $T(0) \leq 1$, for all $t \geq 0$. 
 \begin{rem}This is biologically relevant since the population of SL-TRM cells is limited by spatial constraints within the joint tissue and regulatory mechanisms that control their proliferation.
 \end{rem}
-\marginpar{\textcolor{red}{\small is it biological fact that SL-TRM is bounded by disease-free value?}}
+\textcolor{red}{\small is it biological fact that SL-TRM is bounded by disease-free value?}
 
 \begin{proposition}
 Assume that the initial condition $T(0)$ is less than or equal to 1, then
-the variable $T(t)$ is bounded by 1 for all $t \geq 0$. 
-If $T(0) > 1$, then $T(t)$ is bounded by $T(0)$ for all $t \geq 0$.
+the variable $T(t)$ remains less than or equal to 1 for all $t \geq 0$. 
+If $T(0) > 1$, then $T(t)$ remains less than or equal to $T(0)$ for all $t \geq 0$.
 %If $S(t)\to 0$ as $t\to +\infty$, then $T(t)\to 1$ as $t\to +\infty$.
 %If $S(t)\to +\infty$ as $t\to +\infty$, then $T(t)\to 0$ as $t\to +\infty$.
 \end{proposition}
@@ -292,7 +293,7 @@ the variable $M(t)$ (resp. $N(t)$) is greater than or equal to 1 for all $t \geq
 \begin{rem}
 The upper boundedness of $T$ and the lower bounds for $M$ and $N$ are biologically relevant since they reflect the regulatory mechanisms that control the populations of SL-TRM, Momac, and neutrophils within the joint tissue. The population of SL-TRM cells is limited by spatial constraints and regulatory feedback, while the populations of Momac and neutrophils cannot fall below certain levels due to their large supply in blood and marrow.
 \end{rem}
-\marginpar{\textcolor{red}{\small is it biologically correct?}}
+\textcolor{red}{\small is it biologically correct?}
 
 \subsection{Equilibria points}
 \emph{Equilibria points} of the system are found by setting the right-hand side of the system to zero, i.e.
@@ -615,7 +616,7 @@ $S^* = 0, N^* = 0, M^* = 0, T^* = R$, with arbitrary $R$;
  $S^* = 0, N^* = 0, M^* = 1, T^* = 1$;
  $S^* = 0, N^* = 1, M^* = 0, T^* = R$, with arbitrary $R$.
 \item Feasible equilibria with $S^* \neq 0$: 
-None when $A \geq 1$. We shall see in the numerical simulations that in this case the system quickly diverges away from the disease-free equilibrium, no matter how weak is the initial inflammation. This suggests that the system is in a chronic inflammatory state with $S^* \neq 0$.
+None when $A \geq 1$. We shall see in the numerical simulations that in this case the system quickly diverges away from the disease-free equilibrium, no matter how weak is the initial inflammation. This suggests that the system is in a persistent inflammatory state with $S^* \neq 0$.
 When $A < 1$, there is only one biologically feasible equilibria with $S^* \neq 0$. We shall see in the next section that this equilibrium is unstable, and the numerical simulations suggest that the system converges to the disease-free equilibrium, hence the inflammation is resolved.
 \end{itemize} 
 %     
@@ -646,7 +647,7 @@ a - b & 0 & 0 & 0 \\
 \]
 We notice immediately that the eigenvalues of this matrix are  $a-b$, $-\delta_N$ and $-\delta_M$.
  The last two are negative since $\delta_N, \delta_M > 0$. The remaining eigenvalue  is $a-b$. Thus the disease-free equilibrium is stable if $a < b$ and unstable if $a > b$. 
-This means that if the inflammatory effect of Neutrophiles cells controlled by paramater $a$ is less than the curing effect of the  SL-TRM macrophages controlled by parameter $b$, the system will return to the disease-free state. Conversely, if $a > b$, the system may move away from this equilibrium, potentially leading to a chronic inflammatory state.
+This means that if the inflammatory effect of Neutrophiles cells controlled by paramater $a$ is less than the curing effect of the  SL-TRM macrophages controlled by parameter $b$, the system will return to the disease-free state. Conversely, if $a > b$, the system may move away from this equilibrium, potentially leading to a persistent inflammatory state.
 The particular case $a = b$ corresponds to a bifurcation point where the stability of the disease-free equilibrium changes. In this case, a more detailed analysis is needed to determine the behavior of the system near this point, which  involve higher-order terms in the Taylor expansion of the system around the equilibrium.
 The numerical simulations, see section \ref{sec:numerical_simulations} suggest that for $a=b$ the system quickly diverges from the disease-free equilibrium, and indeed this equilibrium is unstable in this case as we prove below using the center manifold theory.
 \par For $a=b$ the disease-free equilibrium is a non-hyperbolic equilibrium with eigenvalues $0$, $-\delta_N$, $-\delta_M$ and $-\delta_M$. 
@@ -818,8 +819,8 @@ Halving the initial immune signal i.e.taking $S(0)=0.5$ and $A=0.38$, we obtain 
     \caption{A=0.38, S(0)=0.5}
     \label{038_05}
 \end{figure}
-We see in fig.~\ref{038_05} that even if $A=0.38$, the system converges to the disease-free equilibrium, indicating that the initial immune signal is not strong enough to trigger a chronic inflammatory state.
-We can also start from a depressed immunitory state, taking $S(0)=0.5, N(0)=1, M(0)=0.1, T(0)=0.05$ and $A=0.38$. We observe in fig. \ref{038_depressed} that the system diverges away from the disease-free equilibrium, indicating a chronic inflammatory state, even if the initial immune signal is low.
+We see in fig.~\ref{038_05} that even if $A=0.38$, the system converges to the disease-free equilibrium, indicating that the initial immune signal is not strong enough to trigger a persistent inflammatory state.
+We can also start from a depressed immunitory state, taking $S(0)=0.5, N(0)=1, M(0)=0.1, T(0)=0.05$ and $A=0.38$. We observe in fig. \ref{038_depressed} that the system diverges away from the disease-free equilibrium, indicating a persistent inflammatory state, even if the initial immune signal is low.
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=.7\textwidth]{A=0,38_S0=0,5_M=0,1_T=0,05.png}
@@ -833,7 +834,7 @@ We can also start from a depressed immunitory state, taking $S(0)=0.5, N(0)=1, M
     \label{A=0,072}
 \end{figure}
 We can also start from a very high initial immune signal, taking $S(0)=5, N(0)=1, M(0)=1, T(0)=1$ and $A=0.072$. We observe in fig. \ref{A=0,072} that the system returns to the disease-free equilibrium, indicating that even if the initial immune signal is high, the system can still heal when $A=0.072 < 1$.
-But if we slightly increase $A$ to $A=0.073$, keeping the other parameters unchanged, we observe in fig. \ref{A=0,073} that the system diverges away from the disease-free equilibrium, indicating a chronic inflammatory state.
+But if we slightly increase $A$ to $A=0.073$, keeping the other parameters unchanged, we observe in fig. \ref{A=0,073} that the system diverges away from the disease-free equilibrium, indicating a persistent inflammatory state.
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=.7\textwidth]{A=0,073_S0=5.png}
@@ -854,9 +855,8 @@ we plot in Fig. \ref{heal} a $(A,S)$ plane figure where for each value of $A$ an
 We notice that for $A<1$, the system converges to the disease-free equilibrium provided that the   initial immune signal $S(0)$ is below a given threshold.
  This threshold increases as $A$ decreases, meaning that the system can tolerate higher initial immune signals without diverging away from the disease-free equilibrium when $A$ is smaller. 
  For $S(0)> 5$, meaning the immune signal dosis is five times the standard value, the system diverges away from the disease-free equilibrium for all values of $A$, 
- indicating a chronic inflammatory state regardless of the value of $A>0$ when the initial immune signal is too high.
-For $A>1$, the system diverges away from the disease-free equilibrium for all values of the initial immune signal $S(0)$, indicating a persistent inflammatory state regardless of the initial conditions. This suggests that for $A>1$ the system is in a SIRS (\emph{systemic inflammatory response syndrome}) state, 
-where the inflammation is self-sustained and does not resolve even if the initial immune signal is low.
+ indicating a persistent inflammatory state regardless of the value of $A>0$ when the initial immune signal is too high.
+For $A>1$, the system diverges away from the disease-free equilibrium for all values of the initial immune signal $S(0)$, indicating a persistent inflammatory state regardless of the initial conditions. This suggests that for $A>1$ the system is in a persistent inflammatory state, where the  inflammation is self-sustained and does not resolve, even if the initial immune signal is low.
 % \mbox{}\\   
 % \par\noindent
 % We can plot a phase space trajectory in the $(S,N,M,T)$ 4D space, using color intensity to represent the $S$ variable in fig. \ref{phase_space_color}.
@@ -883,8 +883,7 @@ The Python Jupyter notebook used to perform the simulations is available at \url
 \section{Concluding remarks and perspectives.}\label{sec:conclusion} In this work, we designed a simple model able to describe essential features of the monocyte-macrophages, neutrophiles and sub lining tissue resident macrophages dynamics submitted to an inflammatory stimulus.
 We identify a single parameter controlling the positive or negative feedbacks processes at stake in arthritis. 
 Essentially it is the ratio between the inflammatory effect of neutrophiles vs the anti-inflammatory effect of SL-TRM macrophages. 
-It suggests that drugs acting \emph{differently} on neutrophiles and SL-TRM macrophages could be effective in curing arthritis or SIRS.
-In future work, we plan to study the effect of such drugs using optimal control theory.
+It suggests that drugs acting \emph{specifically} on neutrophiles and SL-TRM macrophages could be effective in curing arthritis.
 
 
 
@@ -1008,8 +1007,10 @@ Matar-Tine L, Torres N, Volpert V. (2024)
 \newblock A qualitative analysis of an A$\beta$-monomer model with inflammation processes for Alzheimer’s
 disease.
 \newblock \emph{R. Soc. Open Sci.}, 11, 231536.
-\url{https://doi.org/10.1098/rsos.231536} 
+\url{https://doi.org/10.1098/rsos.231536}
 
+\bibitem{courties}Courties, G., et al. (2025)
+\newblock in preparation
 \end{thebibliography}
 
 
