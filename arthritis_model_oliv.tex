@@ -45,11 +45,10 @@ within the joint, namely neutrophils (N), synovial sublining tissue-resident mac
  and circulating monocytes that are recruited into the inflamed joint and differentiate into monocyte-derived macrophages (MoMac, M).
 An inflammatory signal (S), representing the response to an external arthritogenic stimulus, 
 drives the recruitment and activation of neutrophils and Momac, while SL-TRM exert a regulatory and protective role.
-We propose a minimal ordinary differential equation model of acute inflammatory response into a joint that couples an inflammatory signal S to the three cell populations (N, T, M) and incorporates recruitment, conversion, nonlinear self-limitation and mutual regulation.
+We propose a minimal ordinary differential equation model of acute inflammatory response into a joint that couples an inflammatory signal S to the three cell populations (N, T, M) and incorporates recruitment, stimulation, nonlinear self-limitation and mutual regulation.
  We showed that the equilibrium structure depends on three adimensional parameters A, B, C and derived a cubic equation characterizing nontrivial steady states.
-We performed an analytical study of equilibria and their stability, and identified a bifurcation at A = 1 separating a disease-free regime from a sustained inflammatory state, 
-and discussed conditions for multiple biological feasible steady states, consistent with transient or persistent inflammation. 
-Numerical simulations illustrate typical transient dynamics under various scenarios. 
+We performed an analytical study of equilibria and their stability, and identified a bifurcation at A = 1 separating a disease-free regime from a sustained inflammatory state. 
+Numerical simulations illustrate typical transient dynamics under various scenarios and show the ability of the model to capture the transition from acute to chronic inflammation, as well as the resolution of inflammation under certain conditions. 
 In conclusion, our model provides a framework to explore mechanisms underlying acute versus sustained joint inflammation and offers a basis for parameter estimation from experimental data, and future extensions toward evaluation of therapeutic strategies.
 
 \end{abstract}
@@ -91,7 +90,7 @@ Here we chose a compromise between simplicity and accuracy   to catch essential 
 Despite its simplicity (or due to) we hope that it can bring some understanding of the arthritis process and new ideas for therapy.\par
 The paper is organized as follows.
 In Section \ref{sec:model} we present the model discussed in the paper. In Section \ref{sec:analysis} we analyse the mathematical properties of the differential system, compute its steady states and discuss their stability. In Section \ref{sec:numerical_simulations}, we present some numerical simulations pertaining to different scenarii.
-The paper ends with  Section \ref{sec:conclusion} concluding remarks and future work perspectives.
+The paper ends with  Section \ref{sec:conclusion} concluding remarks and  perspectives.
 
 
 \section{Biological Model}\label{sec:model}
@@ -190,9 +189,9 @@ To make things easier to undestand, we summarize the model in the following diag
         \draw[dashed,-|, line width=1.5pt] (T) to[bend left=20] node[right, xshift=2mm] {inhibition $(b)$} (S);
         \draw[mid arrow, line width=1.5pt] (S) to[bend left=20] node[left] {activation$(\alpha)$} (N);
         \draw[mid arrow, line width=1.5pt] (S) to[bend left=10] node[left,xshift=6mm] {activation $(\beta)$} (M);
-        \draw[dashed, line width=1.5pt, -|] (S) to[bend left=20] node[left, xshift=2mm] {inhibition $(\gamma)$} (T);
-        \draw[dashed,-|, line width=1.5pt, loop above, looseness=8] (N) to node[above] {regulation $(\delta_N)$} (N);
-        \draw[dashed,-|, line width=1.5pt, loop above, looseness=8] (M) to node[above] {regulation $(\delta_M)$} (M);
+        \draw[ dashed, line width=1.5pt, -|] (S) to[bend left=20] node[left, xshift=2mm] {inhibition $(\gamma)$} (T);
+        \draw[ line width=1.5pt, loop above, looseness=8] (N) to node[above] {regulation $(\delta_N)$} (N);
+        \draw[line width=1.5pt, loop above, looseness=8] (M) to node[above] {regulation $(\delta_M)$} (M);
         \draw[mid arrow, line width=1.5pt] (M.east) -- node[below, yshift=-2mm] {stimulation $(\delta_M)$} (T.west);
 
     \end{tikzpicture}
@@ -848,7 +847,7 @@ we plot in Fig. \ref{heal} a $(A,S)$ plane figure where for each value of $A$ an
  We color in red points which end up far away from the equilibrium.
  \begin{figure}[!htbp]
     \centering
-    \includegraphics[scale=0.5]{healing.png}
+    \includegraphics[scale=0.5]{healing_color.png}
     \caption{Healing w.r.t. $A=a/b$ and initial dose of immune signal $S$}
     \label{heal}
 \end{figure}
@@ -880,6 +879,7 @@ For $A>1$, the system diverges away from the disease-free equilibrium for all va
 %\emph{We need to have realistic values for the parameters to feed the model.}
 
 The Python Jupyter notebook used to perform the simulations is available at \url{https://github.com/azerad/immunomath}.
+
 \section{Concluding remarks and perspectives.}\label{sec:conclusion} In this work, we designed a simple model able to describe essential features of the monocyte-macrophages, neutrophiles and sub lining tissue resident macrophages dynamics submitted to an inflammatory stimulus.
 We identify a single parameter controlling the positive or negative feedbacks processes at stake in arthritis. 
 Essentially it is the ratio between the inflammatory effect of neutrophiles vs the anti-inflammatory effect of SL-TRM macrophages. 
@@ -1009,7 +1009,7 @@ disease.
 \newblock \emph{R. Soc. Open Sci.}, 11, 231536.
 \url{https://doi.org/10.1098/rsos.231536}
 
-\bibitem{courties}Courties, G., et al. (2025)
+\bibitem{courties}Courties, G., et al. 
 \newblock in preparation
 \end{thebibliography}
 
