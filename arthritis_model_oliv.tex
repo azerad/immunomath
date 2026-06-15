@@ -19,16 +19,17 @@
 \renewcommand\Authands{, }
 
 
-\author[1]{P.~Azerad}
+\author[1]{P.~Azerad\thanks{Corresponding author.}}
 \author[1]{O.~Iosifescu}
 \author[2]{A.~Parmeggiani}
 \author[3]{O.~Bortolotti}
 \author[3]{G.~Courties}
 \author[3]{F.~Apparailly}
 
-\affil[3]{IRMB, UMR1183, Université de Montpellier and INSERM, France}
 \affil[1]{IMAG, UMR5149, Université de Montpellier, France}
 \affil[2]{L2C, UMR5221, Université de Montpellier, France}
+\affil[3]{IRMB, UMR1183, Université de Montpellier and INSERM, France}
+
 \newtheorem{rem}{Remark}[section]
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{proposition}{Proposition}[section]
@@ -109,7 +110,7 @@ In the experimental mouse model of arthritis used in this study, namely Serum Tr
    to the local production of cytokines and chemokines. This activation promotes the rapid recruitment of neutrophils (N) from the bloodstream into the joint, 
    where they become the dominant cell population during the acute phase of inflammation.
     Neutrophils amplify the inflammatory response through the release of pro-inflammatory mediators. 
-     Based on these biological observations \cite{courties}, we modeled the joint inflammatory response as the interaction between an inflammatory signal and three cell populations—N, SL-TRM, and Momac—capturing recruitment,
+     Based on these biological observations, see \textcolor{red}{\cite{courties} and \cite{other}}, we modeled the joint inflammatory response as the interaction between an inflammatory signal and three cell populations—N, SL-TRM, and Momac—capturing recruitment,
       amplification, and regulatory mechanisms in a minimal dynamical framework.
 
 
@@ -881,6 +882,32 @@ For $A>1$, the system diverges away from the disease-free equilibrium for all va
 
 The Python Jupyter notebook used to perform the simulations is available at \url{https://github.com/azerad/immunomath}.
 
+\section{\textcolor{red}{Biological insights and testable predictions}}\label{sec:insights_predictions}
+
+{\color{red}
+
+Beyond the mathematical characterization of equilibria and stability, the model provides mechanistic insights that can be linked to experimentally testable hypotheses.
+The key control quantity is the non-dimensional ratio $A=a/b$, which compares neutrophil-driven amplification of inflammation to SL-TRM-mediated regulation.
+When $A$ crosses the critical value $1$, the disease-free equilibrium changes stability (Section \ref{sec:stab}), which supports the interpretation of a threshold between resolving and self-sustained inflammatory regimes.
+
+The model also highlights a second determinant of outcome: the initial inflammatory load represented by $S(0)$.
+For fixed parameters with $A<1$, numerical simulations in Section \ref{sec:numerical_simulations} show a finite basin of attraction of the disease-free state, while sufficiently large initial perturbations may still lead to persistent inflammation over the considered time window.
+This predicts that both intrinsic regulatory balance ($A$) and inflammatory burden at flare onset jointly shape disease trajectory.
+
+These results suggest the following testable predictions in the STA setting:
+\begin{itemize}
+\item Increasing the effective SL-TRM regulatory contribution (decreasing $A$ through larger $b$) should reduce peak neutrophil and Momac levels, and shorten time to resolution.
+\item Reducing neutrophil-driven amplification (decreasing $a$) should shift the system toward recovery and increase tolerance to larger initial inflammatory stimuli.
+\item For fixed cellular parameters, varying the arthritogenic stimulus dose should reveal a threshold-like transition in outcomes, consistent with the model dependence on $S(0)$ and on the position relative to $A=1$.
+\item Initial depletion of SL-TRM should increase the probability of entering a persistent inflammatory trajectory even when the exogenous stimulus is moderate.
+\end{itemize}
+
+To connect model and experiments quantitatively, a minimal validation protocol can combine longitudinal measurements of neutrophils, Momac, and SL-TRM after controlled perturbations of stimulus intensity and macrophage regulation.
+A practical primary endpoint is time to return near baseline $(S,N,M,T)=(0,1,1,1)$, with secondary endpoints given by peak amplitudes and area-under-curve of inflammatory variables.
+This framework can be used for parameter estimation and for ranking intervention strategies targeting either neutrophil amplification or macrophage-mediated regulation.
+
+}
+
 \section{Concluding remarks and perspectives.}\label{sec:conclusion} In this work, we designed a simple model able to describe essential features of the monocyte-macrophages, neutrophiles and sub lining tissue resident macrophages dynamics submitted to an inflammatory stimulus.
 We identify a single parameter controlling the positive or negative feedbacks processes at stake in arthritis. 
 Essentially it is the ratio between the inflammatory effect of neutrophiles vs the anti-inflammatory effect of SL-TRM macrophages. 
@@ -1010,8 +1037,10 @@ disease.
 \newblock \emph{R. Soc. Open Sci.}, 11, 231536.
 \url{https://doi.org/10.1098/rsos.231536}
 
-\bibitem{courties}Courties, G., et al. 
+\textcolor{red}{\bibitem{courties}Courties, G., et al. }
 \newblock in preparation
+
+\textcolor{red}{\bibitem{other}Other authors ? (2024).}
 \end{thebibliography}
 
 
