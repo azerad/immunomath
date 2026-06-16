@@ -23,8 +23,9 @@
 \author[1]{O.~Iosifescu}
 \author[2]{A.~Parmeggiani}
 \author[3]{O.~Bortolotti}
-\author[3]{G.~Courties}
 \author[3]{F.~Apparailly}
+\author[3]{G.~Courties}
+
 
 \affil[1]{IMAG, UMR5149, Université de Montpellier, France}
 \affil[2]{L2C, UMR5221, Université de Montpellier, France}
@@ -92,6 +93,7 @@ Here we chose a compromise between simplicity and accuracy   to catch essential 
 Despite its simplicity (or due to) we hope that it can bring some understanding of the arthritis process and new ideas for therapy.\par
 The paper is organized as follows.
 In Section \ref{sec:model} we present the model discussed in the paper. In Section \ref{sec:analysis} we analyse the mathematical properties of the differential system, compute its steady states and discuss their stability. In Section \ref{sec:numerical_simulations}, we present some numerical simulations pertaining to different scenarii.
+Section \ref{sec:insights_predictions} discusses biological insights and testable predictions derived from the model.
 The paper ends with  Section \ref{sec:conclusion} concluding remarks and  perspectives.
 
 
@@ -110,7 +112,7 @@ In the experimental mouse model of arthritis used in this study, namely Serum Tr
    to the local production of cytokines and chemokines. This activation promotes the rapid recruitment of neutrophils (N) from the bloodstream into the joint, 
    where they become the dominant cell population during the acute phase of inflammation.
     Neutrophils amplify the inflammatory response through the release of pro-inflammatory mediators. 
-     Based on these biological observations, see \textcolor{red}{\cite{courties} and \cite{other}}, we modeled the joint inflammatory response as the interaction between an inflammatory signal and three cell populations—N, SL-TRM, and Momac—capturing recruitment,
+     Based on these biological observations, see \cite{courties} and \cite{weihaupt26}, we modeled the joint inflammatory response as the interaction between an inflammatory signal and three cell populations—N, SL-TRM, and Momac—capturing recruitment,
       amplification, and regulatory mechanisms in a minimal dynamical framework.
 
 
@@ -232,9 +234,9 @@ We observe that the vector field $F$ is \emph{quasi-positive}, i.e. for each $i=
 This property is biologically meaningful since the variables $S$, $N$, $M$, and $T$ represent cell populations, which cannot be negative. Our model thus ensures that the solutions remain within the biologically relevant domain.       
 \subsection{Boundedness of the solution.}
 Considering the equation for $T$, one can easily prove that $T(t)$  is always bounded by its initial value $T(0)$ or by 1 if $T(0) \leq 1$, for all $t \geq 0$. 
-\begin{rem}This is biologically relevant since the population of SL-TRM cells is limited by spatial constraints within the joint tissue and regulatory mechanisms that control their proliferation.
+\begin{rem}%This is biologically relevant since the population of SL-TRM cells is limited by spatial constraints within the joint tissue and regulatory mechanisms that control their proliferation.
+From a biological point of view, the upper bound on T can be interpreted as a modelling assumption reflecting the niche-limited nature of sublining tissue-resident macrophages. Rather than implying that SL-TRM are strictly capped at their disease-free level in all biological situations, this assumption represents the idea that their expansion is constrained by local tissue space and homeostatic regulatory mechanisms.
 \end{rem}
-\textcolor{red}{\small is it biological fact that SL-TRM is bounded by disease-free value?}
 
 \begin{proposition}
 Assume that the initial condition $T(0)$ is less than or equal to 1, then
@@ -292,9 +294,12 @@ Assume that the initial condition $M(0)$ (resp. $N(0)$) is greater than or equal
 the variable $M(t)$ (resp. $N(t)$) is greater than or equal to 1 for all $t \geq 0$. If $M(0) < 1$ (resp. $N(0) < 1$), then $M(t)$ (resp. $N(t)$) is greater than or equal to $M(0)$ (resp. $N(0)$) for all $t \geq 0$.    
 \end{proposition}
 \begin{rem}
-The upper boundedness of $T$ and the lower bounds for $M$ and $N$ are biologically relevant since they reflect the regulatory mechanisms that control the populations of SL-TRM, Momac, and neutrophils within the joint tissue. The population of SL-TRM cells is limited by spatial constraints and regulatory feedback, while the populations of Momac and neutrophils cannot fall below certain levels due to their large supply in blood and marrow.
+%The upper boundedness of $T$ and the lower bounds for $M$ and $N$ are biologically relevant since they reflect the regulatory mechanisms that control the populations of SL-TRM, Momac, and neutrophils within the joint tissue. The population of SL-TRM cells is limited by spatial constraints and regulatory feedback, while the populations of Momac and neutrophils cannot fall below certain levels due to their large supply in blood and marrow.
+The lower bounds on M and N should be interpreted in the context of normalized variables and systemic availability.
+ They do not imply that monocyte-derived macrophages or neutrophils cannot decrease locally within the joint during resolution, but rather that, in this minimal model,
+  their recruitment potential is maintained by circulating and bone marrow reservoirs.
+
 \end{rem}
-\textcolor{red}{\small is it biologically correct?}
 
 \subsection{Equilibria points}
 \emph{Equilibria points} of the system are found by setting the right-hand side of the system to zero, i.e.
@@ -795,16 +800,20 @@ We can plot the bifurcation diagram in the $(A,S^*)$ plane (see figure \ref{fig:
 %\end{tikzpicture}
 %\end{center}
 \section{Numerical simulations}\label{sec:numerical_simulations}
-Here we reproduce some typical simulations of the model using the following parameters:
+In this section we present some numerical simulations of the model to illustrate the different dynamic regimes and the effect of the parameter $A=a/b$, the initial immune signal $S(0)$, as well as the initial value of SL-TRM $T(0)$ on the healing prognosis.
+Let us emphasize that these are qualitative scenarios illustrating dynamic regimes, and not a quantitative fit to experimental kinetics.
+
+Below we reproduce some typical simulations of the model using the following parameters:
 $\alpha=1, \beta=1, \gamma=1,
        \delta_N=1, \delta_M=1, a=0.35,\; b=1$,  duration=20 days and initial conditions $S(0)=1, N(0)=1, M(0)=1, T(0)=1$.
+        
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=.7\textwidth]{A=0,35.png}
     \caption{A=0.35}
     \label{035}
 \end{figure}
-Now let us take $a=0.38$, keeping the other parameters unchanged.
+First let us take $a=0.38$, keeping the other parameters unchanged.
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=.7\textwidth]{A=0,38.png}
@@ -849,15 +858,13 @@ we plot in Fig. \ref{heal} a $(A,S)$ plane figure where for each value of $A$ an
  We color in red points which end up far away from the equilibrium.
  \begin{figure}[!htbp]
     \centering
-    \includegraphics[scale=0.5]{healing_color.png}
+    \includegraphics[scale=0.5]{phase_plane_classification.png}
     \caption{Healing w.r.t. $A=a/b$ and initial dose of immune signal $S$}
     \label{heal}
 \end{figure}
 We notice that for $A<1$, the system converges to the disease-free equilibrium provided that the   initial immune signal $S(0)$ is below a given threshold.
- This threshold increases as $A$ decreases, meaning that the system can tolerate higher initial immune signals without diverging away from the disease-free equilibrium when $A$ is smaller. 
- For $S(0)> 5$, meaning the immune signal dosis is five times the standard value, the system diverges away from the disease-free equilibrium for all values of $A$, 
- indicating a persistent inflammatory state regardless of the value of $A>0$ when the initial immune signal is too high.
-For $A>1$, the system diverges away from the disease-free equilibrium for all values of the initial immune signal $S(0)$, indicating a persistent inflammatory state regardless of the initial conditions. This suggests that for $A>1$ the system is in a persistent inflammatory state, where the  inflammation is self-sustained and does not resolve, even if the initial immune signal is low.
+ This threshold increases as $A$ decreases, meaning that the system can tolerate higher initial immune signals without diverging away from the disease-free equilibrium when $A$ is small enough. 
+ For $A>1$, the system diverges away from the disease-free equilibrium for all values of the initial immune signal $S(0)$, indicating a persistent inflammatory state regardless of the initial conditions. This suggests that for $A>1$ the system is in a persistent inflammatory state, where the  inflammation is self-sustained and does not resolve, even if the initial immune signal is low.
 % \mbox{}\\   
 % \par\noindent
 % We can plot a phase space trajectory in the $(S,N,M,T)$ 4D space, using color intensity to represent the $S$ variable in fig. \ref{phase_space_color}.
@@ -882,31 +889,16 @@ For $A>1$, the system diverges away from the disease-free equilibrium for all va
 
 The Python Jupyter notebook used to perform the simulations is available at \url{https://github.com/azerad/immunomath}.
 
-\section{\textcolor{red}{Biological insights and testable predictions}}\label{sec:insights_predictions}
+\section{Biological insights and testable predictions}\label{sec:insights_predictions}
+Although deliberately minimal, 
+the model suggests that the outcome of serum-transfer arthritis may depend on a balance between inflammatory amplification and resident macrophage-mediated regulation. 
+In this framework, neutrophil-driven amplification promotes the persistence of the inflammatory signal, whereas SL-TRM exert a counter-regulatory effect. 
+The model therefore predicts the existence of a threshold separating self-limited inflammation from sustained arthritis. 
+This threshold may be shifted by the intensity of the initial arthritogenic stimulus, the efficiency of monocyte/macrophage recruitment, and the integrity of the resident macrophage compartment. 
+These predictions could be tested experimentally by time-resolved quantification of neutrophils, monocyte-derived macrophages and resident synovial macrophages during STA, 
+combined with perturbations that either reduce neutrophil recruitment or preserve/enhance resident macrophage regulatory functions.
 
-{\color{red}
 
-Beyond the mathematical characterization of equilibria and stability, the model provides mechanistic insights that can be linked to experimentally testable hypotheses.
-The key control quantity is the non-dimensional ratio $A=a/b$, which compares neutrophil-driven amplification of inflammation to SL-TRM-mediated regulation.
-When $A$ crosses the critical value $1$, the disease-free equilibrium changes stability (Section \ref{sec:stab}), which supports the interpretation of a threshold between resolving and self-sustained inflammatory regimes.
-
-The model also highlights a second determinant of outcome: the initial inflammatory load represented by $S(0)$.
-For fixed parameters with $A<1$, numerical simulations in Section \ref{sec:numerical_simulations} show a finite basin of attraction of the disease-free state, while sufficiently large initial perturbations may still lead to persistent inflammation over the considered time window.
-This predicts that both intrinsic regulatory balance ($A$) and inflammatory burden at flare onset jointly shape disease trajectory.
-
-These results suggest the following testable predictions in the STA setting:
-\begin{itemize}
-\item Increasing the effective SL-TRM regulatory contribution (decreasing $A$ through larger $b$) should reduce peak neutrophil and Momac levels, and shorten time to resolution.
-\item Reducing neutrophil-driven amplification (decreasing $a$) should shift the system toward recovery and increase tolerance to larger initial inflammatory stimuli.
-\item For fixed cellular parameters, varying the arthritogenic stimulus dose should reveal a threshold-like transition in outcomes, consistent with the model dependence on $S(0)$ and on the position relative to $A=1$.
-\item Initial depletion of SL-TRM should increase the probability of entering a persistent inflammatory trajectory even when the exogenous stimulus is moderate.
-\end{itemize}
-
-To connect model and experiments quantitatively, a minimal validation protocol can combine longitudinal measurements of neutrophils, Momac, and SL-TRM after controlled perturbations of stimulus intensity and macrophage regulation.
-A practical primary endpoint is time to return near baseline $(S,N,M,T)=(0,1,1,1)$, with secondary endpoints given by peak amplitudes and area-under-curve of inflammatory variables.
-This framework can be used for parameter estimation and for ranking intervention strategies targeting either neutrophil amplification or macrophage-mediated regulation.
-
-}
 
 \section{Concluding remarks and perspectives.}\label{sec:conclusion} In this work, we designed a simple model able to describe essential features of the monocyte-macrophages, neutrophiles and sub lining tissue resident macrophages dynamics submitted to an inflammatory stimulus.
 We identify a single parameter controlling the positive or negative feedbacks processes at stake in arthritis. 
@@ -1030,17 +1022,21 @@ lipopolysaccharide exposure in humans
 \url{https://doi.org/10.1038/s41540-024-00473-y}
 
 \bibitem{torres2024}
-Ciuperca I, Pujo-Menjouet L,
-Matar-Tine L, Torres N, Volpert V. (2024)
+Ciuperca I., Pujo-Menjouet L., 
+Matar-Tine L., Torres N., Volpert V. (2024)
 \newblock A qualitative analysis of an A$\beta$-monomer model with inflammation processes for Alzheimer’s
 disease.
 \newblock \emph{R. Soc. Open Sci.}, 11, 231536.
 \url{https://doi.org/10.1098/rsos.231536}
-
-\textcolor{red}{\bibitem{courties}Courties, G., et al. }
+%2026
+\bibitem{courties}Courties, G., et al. 
 \newblock in preparation
+\bibitem{weihaupt26}
+Weishaupt K., et al.  (2026)
+\newblock Spatiotemporal molecular profiling of macrophage-fibroblast crosstalk defines checkpoints orchestrating onset and resolution of inflammation
+\newblock \emph{Cell Reports},  45, 117091.
+\url{https://doi.org/10.1016/j.celrep.2026.117091}
 
-\textcolor{red}{\bibitem{other}Other authors ? (2024).}
 \end{thebibliography}
 
 
