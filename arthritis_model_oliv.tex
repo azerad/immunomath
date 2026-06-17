@@ -37,6 +37,9 @@
 \newcommand{\keywords}[1]{%
   \par\noindent\textbf{Keywords : }#1
 }
+\newcommand{\msc}[1]{%
+  \par\noindent\textbf{MSC Classification : }#1
+}
 
 \begin{document}
 
@@ -56,8 +59,8 @@ In conclusion, our model provides a framework to explore mechanisms underlying a
 
 \end{abstract}
 \keywords{Arthritis;  Bifurcation Analysis; Inflammation; Persistence.}
-
-\section{Introduction}
+\msc{92C50, 92D25, 34D20, 34C23, 37N25.}
+\section{Introduction.}
 Mathematical modelling of  auto-immune disease is relatively recent.
 According to the systematic survey on mathematical modelling of auto-immune disease by  Ugolkov et. al. \cite{frontiers2024},
 the ﬁrst papers date back to the 1970s. Since
@@ -97,7 +100,7 @@ Section \ref{sec:insights_predictions} discusses biological insights and testabl
 The paper ends with  Section \ref{sec:conclusion} concluding remarks and  perspectives.
 
 
-\section{Biological Model}\label{sec:model}
+\section{Biological Model.}\label{sec:model}
 In the experimental mouse model of arthritis used in this study, namely Serum Transfer Arthritis (STA),
  the acute inflammatory response is triggered by an external signal (injection of an arthritogenic serum) 
  that activates the immune system and initiates an inflammatory response 
@@ -112,7 +115,7 @@ In the experimental mouse model of arthritis used in this study, namely Serum Tr
    to the local production of cytokines and chemokines. This activation promotes the rapid recruitment of neutrophils (N) from the bloodstream into the joint, 
    where they become the dominant cell population during the acute phase of inflammation.
     Neutrophils amplify the inflammatory response through the release of pro-inflammatory mediators. 
-     Based on these biological observations, see \cite{courties} and \cite{weihaupt26}, we modeled the joint inflammatory response as the interaction between an inflammatory signal and three cell populations—N, SL-TRM, and Momac—capturing recruitment,
+     Based on these biological observations, see \cite{weihaupt26} and \cite{courties}, we modeled the joint inflammatory response as the interaction between an inflammatory signal and three cell populations—N, SL-TRM, and Momac—capturing recruitment,
       amplification, and regulatory mechanisms in a minimal dynamical framework.
 
 
@@ -123,16 +126,14 @@ In the experimental mouse model of arthritis used in this study, namely Serum Tr
 %These cytokines activate the fibroblasts which in turn recruit the neutrophiles cells from the blood stream into the joint. 
 %The cytokines also recruit the Momac cells from the blood stream into the joint. There is a positive feedback since the inflammation is amplified by the neutrophiles that are recruited in the joint by the chemokines secreted by the Momac cells. 
 %The macrophages SL-TRM cells have a protective role since they inhibit the inflammation but they are depleted during the crisis because they are inhibited by the proliferation of Momac cells.
-\subsection{Mathematical Modelling}
+\subsection{Mathematical Modelling.}
 % explain the model when S=0 with the usual logistic growth of the cell populations, and then explain the effect of the inflammation on the recruitment and proliferation of the cells.
 %explain the effect of the cells on the inflammation and the feedback loop between the inflammation and the cell populations.
 The variable $S(t)$ is the inflammatory signal at time $t$. We take as unity the standard dose of the arthritogenic serum, so that $S(t)$ is dimensionless and represents the relative strength of the inflammatory signal with respect to the standard dose.
 We rescale all variables by their respective baseline values in the disease-free state, so that they are dimensionless and represent relative populations with respect to their baseline levels.
 Namely variable $N(t)$ (resp. $M(t)$, $T(t)$) designates the relative population of neutrophils (resp. Momac cells, SL-TRM cells) at time $t$ with respect to the baseline population $\widehat{N}$ (resp. $\widehat{M}$, $\widehat{T}$).\\
 The model is given by the following system of ordinary differential equations:
-
 \begin{subequations}\label{eq:system}
-
 \renewcommand{\theequation}{\theparentequation.\arabic{equation}}
 \begin{align}
 \frac{dS}{dt} &= (a\, N - b\,T) S \label{eq:system:S}\\
@@ -147,6 +148,7 @@ Let us explain the meaning of each term in the system \eqref{eq:system}.
 The growth rate of the inflammatory signal $S(t)$ is enhanced by neutrophils $N$ (factor $a$) and inhibited by SL-TRM macrophages $T$ (factor $b$), which translates into the differential equation \eqref{eq:system:S}.
 Neutrophils $N$ are recruited by the inflammatory signal $S$ (factor $\alpha$) and they have a nonlinear logistic self-limitation (factor $\delta_N$). This is modeled by the term $\delta_N N (N-1)$ in the equation for $N$,
 which is negative when N > 1 and positive when N < 1, hence in the absence of inflammation it tends to stabilize the
+which is negative when $N>1$ and positive when $N<1$, hence in the absence of inflammation it tends to stabilize the
 population of neutrophils around its baseline level. This is the meaning of equation \eqref{eq:system:N}.
  
 Equation \eqref{eq:system:M} describes the dynamics of the Momac cells $M$. They are recruited from the blood stream at a  rate $\beta S$ proportional to the inflammatory signal. They have a logistic self-regulation mechanism analogous to that of neutrophils.
@@ -159,7 +161,7 @@ In the system \eqref{eq:system}, we see that inflammation further increases neut
 
 Notice that we do not keep track of the population of fibroblasts, but rather the population of neutrophils, which are recruited by inflammatory chemokines.\\
 \begin{rem}
-The term $\delta_M M (1-T)$ in the equation for $T$ models somehow the stimulation of  SL-TRM cells by Momac cells, which is supported by experimental evidence \cite{courties}.
+The term $\delta_M M (1-T)$ in the equation for $T$ models somehow the stimulation of  SL-TRM cells by Momac cells, which is supported by experimental evidence \cite{weihaupt26}.
 Note that we could have taken another parameter $\delta_T\neq \delta_M$ in this equation for $T$, but we choose to keep it simple by limiting the number of parameters, since analysis and numerical simulations show that it does not change the dynamics of the crisis.
 To make things easier to undestand, we summarize the model in the following diagram (see figure \ref{fig:graphe}).
 \end{rem}
@@ -211,7 +213,7 @@ To make things easier to undestand, we summarize the model in the following diag
 
 
 
-\section{Analysis of the model}\label{sec:analysis}
+\section{Analysis of the model.}\label{sec:analysis}
 \subsection{Existence and non-negativity of the solution.}
 Existence and uniqueness of a local solution of the system \eqref{eq:system} is guaranteed by the Cauchy-Lipschitz theorem since the right-hand side of the system is locally Lipschitz continuous.
 \begin{proposition}
@@ -301,7 +303,7 @@ The lower bounds on M and N should be interpreted in the context of normalized v
 
 \end{rem}
 
-\subsection{Equilibria points}
+\subsection{Equilibria points.}
 \emph{Equilibria points} of the system are found by setting the right-hand side of the system to zero, i.e.
  the equilibrium points $(S^*, N^*, M^*, T^*)$ satisfy the following system of algebraic equations:
 \begin{align}
@@ -626,7 +628,7 @@ None when $A \geq 1$. We shall see in the numerical simulations that in this cas
 When $A < 1$, there is only one biologically feasible equilibria with $S^* \neq 0$. We shall see in the next section that this equilibrium is unstable, and the numerical simulations suggest that the system converges to the disease-free equilibrium, hence the inflammation is resolved.
 \end{itemize} 
 %     
-\subsection{Stability analysis}
+\subsection{Stability analysis.}
 \emph{Linear stability analysis} of the equilibria point $ (S^*, N^*, M^*, T^*)$ is done by linearizing the system around this point.
 The Jacobian matrix of the system is given by:
 \[
@@ -762,7 +764,7 @@ Due to \eqref{ineq2} and \eqref{ineq3}, the coefficient of $\lambda^2$ is positi
 We proved that biologically feasible equilibrium with $S^* \neq 0$ only exists if $A<1$ and is unstable.
 For $A\geq 1$ the only biologically feasible equilibrium is the disease-free equilibrium which is unstable, as we have seen.
 
-\subsection{Bifurcation diagram}
+\subsection{Bifurcation diagram.}
 We perform a bifurcation analysis with respect to the \emph{non dimensional} parameters $A=a/b$. We restict to the biologically relevant feasible equilibria.
 From the stability analysis above, we see that we  have only one  bifurcation at  $A=1$: for $A<1$ there are two biologically feasible equilibria, one  inflammatory one with $S^* \neq 0$ which is unstable and the disease-free equilibrium which  is stable; 
 for $A\geq 1$ the disease-free equilibrium is unstable and there is no other biologically feasible equilibrium.
@@ -799,7 +801,7 @@ We can plot the bifurcation diagram in the $(A,S^*)$ plane (see figure \ref{fig:
     %\end{minipage}
 %\end{tikzpicture}
 %\end{center}
-\section{Numerical simulations}\label{sec:numerical_simulations}
+\section{Numerical simulations.}\label{sec:numerical_simulations}
 In this section we present some numerical simulations of the model to illustrate the different dynamic regimes and the effect of the parameter $A=a/b$, the initial immune signal $S(0)$, as well as the initial value of SL-TRM $T(0)$ on the healing prognosis.
 Let us emphasize that these are qualitative scenarios illustrating dynamic regimes, and not a quantitative fit to experimental kinetics.
 
@@ -889,7 +891,7 @@ We notice that for $A<1$, the system converges to the disease-free equilibrium p
 
 The Python Jupyter notebook used to perform the simulations is available at \url{https://github.com/azerad/immunomath}.
 
-\section{Biological insights and testable predictions}\label{sec:insights_predictions}
+\section{Biological insights and testable predictions.}\label{sec:insights_predictions}
 Although deliberately minimal, 
 the model suggests that the outcome of serum-transfer arthritis may depend on a balance between inflammatory amplification and resident macrophage-mediated regulation. 
 In this framework, neutrophil-driven amplification promotes the persistence of the inflammatory signal, whereas SL-TRM exert a counter-regulatory effect. 
@@ -908,8 +910,8 @@ It suggests that drugs acting \emph{specifically} on neutrophiles and SL-TRM mac
 
 
 
-\section*{Acknowledgments}
-We acknowledge the support of Immun4Cure University Hospital Institute "Institute for innovative immunotherapies in autoimmune diseases" [France 2030/ANR-23-IHUA-0009].
+\section*{Acknowledgments.}
+We acknowledge the support of Immun4Cure University Hospital Institute ``Institute for innovative immunotherapies in autoimmune diseases'' [France 2030/ANR-23-IHUA-0009].
 %\clearpage
 % Bibliography réarrangée par ordre chronologique
 %\newpage
@@ -1029,14 +1031,15 @@ disease.
 \newblock \emph{R. Soc. Open Sci.}, 11, 231536.
 \url{https://doi.org/10.1098/rsos.231536}
 %2026
-\bibitem{courties}Courties, G., et al. 
-\newblock in preparation
+
 \bibitem{weihaupt26}
 Weishaupt K., et al.  (2026)
 \newblock Spatiotemporal molecular profiling of macrophage-fibroblast crosstalk defines checkpoints orchestrating onset and resolution of inflammation
 \newblock \emph{Cell Reports},  45, 117091.
 \url{https://doi.org/10.1016/j.celrep.2026.117091}
 
+\bibitem{courties}Courties, G., et al. 
+\newblock in preparation
 \end{thebibliography}
 
 
