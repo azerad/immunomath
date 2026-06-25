@@ -29,7 +29,7 @@
 
 \affil[1]{IMAG, UMR5149, Université de Montpellier, France}
 \affil[2]{L2C, UMR5221, Université de Montpellier, France}
-\affil[3]{IRMB, UMR1183, Université de Montpellier and INSERM, France}
+\affil[3]{IRMB, UMR1183, Université de Montpellier, INSERM, France}
 \affil[4]{Clinical Department for osteoarticular diseases, Montpellier University Hospital Lapeyronie, France}
 
 \newtheorem{rem}{Remark}[section]
@@ -809,8 +809,9 @@ In this section we present some numerical simulations of the model to illustrate
 Let us emphasize that these are qualitative scenarios illustrating dynamic regimes, and not a quantitative fit to experimental kinetics.
 
 Below we reproduce some typical simulations of the model using the following parameters:
-$\alpha=1, \beta=1, \gamma=1,
-       \delta_N=1, \delta_M=1, a=0.35,\; b=1$,  duration=20 days and initial conditions $S(0)=1, N(0)=1, M(0)=1, T(0)=1$.
+$\alpha=1,\, \beta=1,\, \gamma=1,\,
+       \delta_N=1,\, \delta_M=1,\, a=0.35,\; b=1$,  
+       duration=20 days and initial conditions $S(0)=1,\, N(0)=1,\, M(0)=1,\, T(0)=1$.
         
 \begin{figure}[htbp]
     \centering
@@ -835,11 +836,11 @@ Halving the initial immune signal i.e.taking $S(0)=0.5$ and $A=0.38$, we obtain 
     \label{038_05}
 \end{figure}
 We see in fig.~\ref{038_05} that even if $A=0.38$, the system converges to the disease-free equilibrium, indicating that the initial immune signal is not strong enough to trigger a persistent inflammatory state.
-We can also start from a depressed immunitory state, taking $S(0)=0.5, N(0)=1, M(0)=0.1, T(0)=0.05$ and $A=0.38$. We observe in fig. \ref{038_depressed} that the system diverges away from the disease-free equilibrium, indicating a persistent inflammatory state, even if the initial immune signal is low.
+Let us start from an immunocompromised state, $M(0)=0.1,\, T(0)=0.05$, taking  a half-value of the initial immune signal, $S(0)=0.5$, keeping $N(0)=1$ and $A=0.38$. We observe in fig. \ref{038_depressed} that the system diverges away from the disease-free equilibrium, indicating a persistent inflammatory state, even if the initial immune signal is low.
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=.7\textwidth]{A=0,38_S0=0,5_M=0,1_T=0,05.png}
-    \caption{A=0.38, depressed initial conditions}
+    \caption{A=0.38, immunocompromised initial conditions}
     \label{038_depressed}
 \end{figure}
 \begin{figure}[htbp]
@@ -848,7 +849,7 @@ We can also start from a depressed immunitory state, taking $S(0)=0.5, N(0)=1, M
     \caption{A=0.072, S(0)=5}
     \label{A=0,072}
 \end{figure}
-We can also start from a very high initial immune signal, taking $S(0)=5, N(0)=1, M(0)=1, T(0)=1$ and $A=0.072$. We observe in fig. \ref{A=0,072} that the system returns to the disease-free equilibrium, indicating that even if the initial immune signal is high, the system can still heal when $A=0.072 < 1$.
+We can also start from a very high initial immune signal, taking $S(0)=5,\, N(0)=1, \,M(0)=1,\, T(0)=1$ and $A=0.072$. We observe in fig. \ref{A=0,072} that the system returns to the disease-free equilibrium, indicating that even if the initial immune signal is high, the system can still heal when $A=0.072 \ll 1$.
 But if we slightly increase $A$ to $A=0.073$, keeping the other parameters unchanged, we observe in fig. \ref{A=0,073} that the system diverges away from the disease-free equilibrium, indicating a persistent inflammatory state.
 \begin{figure}[htbp]
     \centering
@@ -907,9 +908,9 @@ combined with perturbations that either reduce neutrophil recruitment or preserv
 
 
 \section{Concluding remarks and perspectives.}\label{sec:conclusion} In this work, we designed a simple model able to describe essential features of the monocyte-macrophages, neutrophiles and sub lining tissue resident macrophages dynamics submitted to an inflammatory stimulus.
-We identify a single parameter controlling the positive or negative feedbacks processes at stake in arthritis. 
-Essentially it is the ratio between the inflammatory effect of neutrophiles vs the anti-inflammatory effect of SL-TRM macrophages. 
-It suggests that drugs acting \emph{specifically} on neutrophiles and SL-TRM macrophages could be effective in curing arthritis.
+We identified a single parameter controlling the positive or negative feedbacks processes at stake in arthritis. 
+Essentially the ratio between the inflammatory effect of neutrophiles and the anti-inflammatory effect of SL-TRM macrophages appeared critical. 
+Our study suggests that drugs acting \emph{differently} on neutrophiles and SL-TRM macrophages could be effective in curing arthritis.
 
 
 
