@@ -826,7 +826,7 @@ First let us take $a=0.38$, keeping the other parameters unchanged.
     \caption{A=0.38}
     \label{038}
 \end{figure}
-We see clearly  in fig.~\ref{035} that for $A=0.35 < 1$ the system converges to the disease-free equilibrium, whereas for $A=0.38$ the system diverges away from this equilibrium, indicating a chronic inflammatory state, see fig. \ref{038}. 
+We see clearly  in fig.~\ref{035} that for $A=0.35 < 1$ the system converges to the disease-free equilibrium, whereas for $A=0.38$ the system diverges away from this equilibrium, indicating a chronic inflammatory state, see fig.~\ref{038}. 
 We can also decrease the initial immune signal $S(0)$ to see if the system converges to the disease-free equilibrium or diverges away from it.
 Halving the initial immune signal i.e.taking $S(0)=0.5$ and $A=0.38$, we obtain the following result:
 \begin{figure}[htbp]
@@ -836,7 +836,8 @@ Halving the initial immune signal i.e.taking $S(0)=0.5$ and $A=0.38$, we obtain 
     \label{038_05}
 \end{figure}
 We see in fig.~\ref{038_05} that even if $A=0.38$, the system converges to the disease-free equilibrium, indicating that the initial immune signal is not strong enough to trigger a persistent inflammatory state.
-Let us start from an immunocompromised state, $M(0)=0.1,\, T(0)=0.05$, taking  a half-value of the initial immune signal, $S(0)=0.5$, keeping $N(0)=1$ and $A=0.38$. We observe in fig. \ref{038_depressed} that the system diverges away from the disease-free equilibrium, indicating a persistent inflammatory state, even if the initial immune signal is low.
+Keeping the same halved initial immune signal, $S(0)=0.5$, 
+and the same $N(0)=1$ and $A=0.38$, but starting from an immunocompromised state, that is $M(0)=0.1,\, T(0)=0.05$, we now observe in fig.~\ref{038_depressed} that the system diverges away from the disease-free equilibrium, indicating a persistent inflammatory state, even if the initial immune signal is low.
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=.7\textwidth]{A=0,38_S0=0,5_M=0,1_T=0,05.png}
@@ -849,8 +850,8 @@ Let us start from an immunocompromised state, $M(0)=0.1,\, T(0)=0.05$, taking  a
     \caption{A=0.072, S(0)=5}
     \label{A=0,072}
 \end{figure}
-We can also start from a very high initial immune signal, taking $S(0)=5,\, N(0)=1, \,M(0)=1,\, T(0)=1$ and $A=0.072$. We observe in fig. \ref{A=0,072} that the system returns to the disease-free equilibrium, indicating that even if the initial immune signal is high, the system can still heal when $A=0.072 \ll 1$.
-But if we slightly increase $A$ to $A=0.073$, keeping the other parameters unchanged, we observe in fig. \ref{A=0,073} that the system diverges away from the disease-free equilibrium, indicating a persistent inflammatory state.
+We can also start from a very high initial immune signal, taking $S(0)=5,\, N(0)=1, \,M(0)=1,\, T(0)=1$ and $A=0.072$. We observe in fig.~\ref{A=0,072} that the system returns to the disease-free equilibrium, indicating that even if the initial immune signal is high, the system can still heal when $A=0.072 \ll 1$.
+But if we slightly increase $A$ to $A=0.073$, keeping the other parameters unchanged, we observe in fig.~\ref{A=0,073} that the system diverges away from the disease-free equilibrium, indicating a persistent inflammatory state.
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=.7\textwidth]{A=0,073_S0=5.png}
@@ -858,7 +859,7 @@ But if we slightly increase $A$ to $A=0.073$, keeping the other parameters uncha
     \label{A=0,073}
 \end{figure}
 To see how the parameter $A=a/b$ controls the healing prognosis
-we plot in Fig. \ref{heal} a $(A,S)$ plane figure where for each value of $A$ and starting value $(S(0)=S,N=1,M=1,T=1)$
+we plot in fig.~\ref{heal} a $(A,S)$ plane figure where for each value of $A$ and starting value $(S(0)=S,N=1,M=1,T=1)$
  we run the model for three weeks and see how far from the disease-free state the systems ends up.
  We color in green points where $(S,M,N,T)$ is close to $(0,1,1,1)$ up to a given tolerance (say 5\%).
  We color in red points which end up far away from the equilibrium.
@@ -874,7 +875,7 @@ We notice that for $A<1$, the system converges to the disease-free equilibrium p
   This suggests that for $A\geq 1$ the system is in a persistent inflammatory state, where the  inflammation is self-sustained and does not resolve, even if the initial immune signal is low.
 % \mbox{}\\   
 % \par\noindent
-% We can plot a phase space trajectory in the $(S,N,M,T)$ 4D space, using color intensity to represent the $S$ variable in fig. \ref{phase_space_color}.
+% We can plot a phase space trajectory in the $(S,N,M,T)$ 4D space, using color intensity to represent the $S$ variable in fig.~\ref{phase_space_color}.
 % \begin{figure}[!htbp]
 %    \centering
  %   \includegraphics[width=.7\textwidth]{phase_space.png}
@@ -882,7 +883,7 @@ We notice that for $A<1$, the system converges to the disease-free equilibrium p
  %   \label{phase_space_color}
 %\end{figure}
 %\par\noindent
-%We can also plot some 2D projections of the 4D phase space trajectory using the tesseract representation in fig. \ref{phase_space_tesseract}.
+%We can also plot some 2D projections of the 4D phase space trajectory using the tesseract representation in fig.~\ref{phase_space_tesseract}.
 %\begin{figure}[!htbp]
  %   \centering
  %   \includegraphics[width=.45\textwidth]{phase_space_tesseract.png}
@@ -931,7 +932,7 @@ mediated by cytokine-receptor dynamics in monocytes.
 \newblock \url{https://doi.org/10.1093/imammb/18.2.159}
 % 2005
 \bibitem{jit2005}
-Jit, M., et al. (2005).% ode compartement
+Jit, M., \textit{et al.} (2005).% ode compartement
 \newblock Mathematical modelling of rheumatoid arthritis.
 \newblock \emph{Rheumatology}, 44, 323--331.
 \newblock \url{https://doi.org/10.1093/rheumatology/keh491}
@@ -946,7 +947,7 @@ Bocharov, G. A. (2007)
 
 % 2013
 \bibitem{baker2013}
-Baker, M., et al. (2013).
+Baker, M., \textit{et al.} (2013).
 \newblock Mathematical modelling of cytokine-mediated inflammation in rheumatoid arthritis
 \newblock \emph{Mathematical Medicine and Biology}, 30, 311--337. \url{https://doi.org/10.1093/imammb/dqs026}
 % 2016
@@ -957,7 +958,7 @@ Haraux A. (2016)
 \newblock\url{https://doi.org/10.4134/JKMS.j160701}
 % 2017
 \bibitem{baker2017} %ode compartement
-Baker, M., et al. (2017).
+Baker, M., \textit{et al.} (2017).
 \newblock Mathematical modelling of cytokines, MMPs and
 fibronectin fragments in osteoarthritic cartilage
 \newblock \emph{Journal of Mathematical Biology}, 75, 985--1024 (2017).
@@ -965,14 +966,14 @@ fibronectin fragments in osteoarthritic cartilage
 
 % 2018
 \bibitem{zhou2018}
-Zhou, X., et al. (2018).% ode compartement
+Zhou, X., \textit{et al.} (2018).% ode compartement
 \newblock Circuit Design Features of a Stable Two-Cell System.
 \newblock \emph{Cell}, 172, 744--757.
 \newblock \url{https://doi.org/10.1016/j.cell.2018.01.015}
 
 % 2019
 \bibitem{dsairm2019}
-Handel, A. et al. (2019)
+Handel, A. \textit{et al.} (2019)
 \newblock Software DSAIRM: dynamical systems
 approach to immune response modeling. GitHub
 \newblock\url{https://ahgroup.github.io/DSAIRM/}
@@ -1014,7 +1015,7 @@ Macfarlane, F. R., Chaplain, M. A. J., \& Eftimie, R. (2022).
 
 % 2024
 \bibitem{frontiers2024} %review
-Ugolkov, Y., et al. (2024)
+Ugolkov, Y., \textit{et al.} (2024)
 \newblock Mathematical modeling in
 autoimmune diseases: from theory to clinical application
 \newblock \emph{Frontiers in Immunology}, 15, 1371620. \url{https://doi.org/10.3389/fimmu.2024.1371620}
@@ -1038,12 +1039,12 @@ disease.
 %2026
 
 \bibitem{weihaupt26}
-Weishaupt K., et al.  (2026)
+Weishaupt K., \textit{et al.}  (2026)
 \newblock Spatiotemporal molecular profiling of macrophage-fibroblast crosstalk defines checkpoints orchestrating onset and resolution of inflammation
 \newblock \emph{Cell Reports},  45, 117091.
 \url{https://doi.org/10.1016/j.celrep.2026.117091}
 
-\bibitem{courties}Courties, G., et al. 
+\bibitem{courties}Courties, G., \textit{et al.} 
 \newblock in preparation
 \end{thebibliography}
 
