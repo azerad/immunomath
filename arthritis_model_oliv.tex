@@ -46,20 +46,20 @@
 
 \maketitle 
 \begin{abstract}
-We developed a mathematical model to describe the inflammatory dynamics 
+We have developed a mathematical model to describe the inflammatory dynamics 
 during arthritis development and resolution, focusing on the interaction between three key immune cell populations 
 within the joint tissue, namely neutrophils (N),  sublining synovial tissue-resident macrophages (SL-TRM, T),
  and circulating monocytes that are recruited into the inflamed joint and differentiate into monocyte-derived macrophages (MoMac, M).
 An inflammatory signal (S), representing the response to an external arthritogenic stimulus, 
 drives the recruitment and activation of neutrophils and MoMac, while SL-TRM exert a regulatory and protective role.
 We propose a minimal ordinary differential equation model of acute inflammatory response into a joint that couples an inflammatory signal S to the three cell populations (N, T, M) and incorporates recruitment, stimulation, nonlinear self-limitation and mutual regulation.
- We showed that the equilibrium structure depends on three adimensional parameters A, B, C and derived a cubic equation characterizing nontrivial steady states.
-We performed an analytical study of equilibria and their stability, and identified a bifurcation at A = 1 separating a disease-free regime from a sustained inflammatory state. 
+ We show that the equilibrium structure depends on three adimensional parameters A, B, C and derive a cubic equation characterizing nontrivial steady states.
+We perform an analytical study of equilibria and their stability, and identify a bifurcation at A = 1 separating a disease-free regime from a sustained inflammatory state. 
 Numerical simulations illustrate typical transient dynamics under various scenarios and show the ability of the model to capture the transition from acute to chronic inflammation, as well as the resolution of inflammation under certain conditions. 
-In conclusion, our model provides a framework to explore mechanisms underlying acute versus sustained joint inflammation and offers a basis for parameter estimation from experimental data, and future extensions toward evaluation of therapeutic strategies.
+In conclusion, our model provides a framework to explore mechanisms underlying acute versus sustained joint inflammation and offers a basis for parameter estimation from experimental data, as well as future extensions toward evaluation of therapeutic strategies.
 
 \end{abstract}
-\keywords{Arthritis;  Bifurcation Analysis; Inflammation; Persistence.}
+\keywords{Arthritis;  Bifurcation Analysis; Inflammation; Persistence; Mathematical Modelling.}
 \msc{92C50, 92D25, 34D20, 34C23, 37N25.}
 \section{Introduction.}
 Mathematical modelling of  auto-immune disease is relatively recent.
@@ -72,14 +72,14 @@ An illuminative survey paper introducing the issues and pitfalls of mathematical
 Let us cite Handel \textit{et al.} \cite{Handel2020} for  examples and guidelines for sound mathematical modelling in immunology and also for the free software R-package DSAIRM \cite{dsairm2019} which allows to easily simulate and analyze a large variety of mathematical models of immune response.
 Among mathematical models that deal with aspects
 of RA, we can mention the following ones.
-In Seymour \textit{et al.} \cite{seymour2001} a four equations model was introduced to describe the dynamics of the population of monocytes and the concentrations of three cytokines, namely IL-6, TNF-$\alpha$ and IL-10. 
+In Seymour \textit{et al.} \cite{seymour2001} a four differential equations model was introduced to describe the dynamics of the population of monocytes and the concentrations of three cytokines, namely IL-1, TNF-$\alpha$ and IL-10. 
 In Jit \textit{et al.}  \cite{jit2005} RA versus systemic inflammatory response syndrom was modelled by a system of four differential equations, describing the evolution of population of certain cell compartments, namely TNF-$\alpha$ (free or bound), antibodies and antibody-antigen complexes.
 The effect of TNF-$\alpha$ inhibitors like (s)TNFR2, Etanecerp, Infliximab was investigated.
 Baker et al.\cite{baker2013} introduced a model with pro-inﬂammation 
-(p) and anti-inﬂammation cells (a) and considered a system of two differential equations for p and a. 
+(p) and anti-inﬂammation cells (a) and considered a system of two coupled differential equations for p and a. 
 More complex models exhibiting various types of  bifurcations were introduced in \cite{baker2017}. 
 In Odisharia \textit{et al.} \cite{jaiani2019} a five differential equations system was investigated to simulate the effect of tocilizumab on the populations of B and T-lymphocytes and cell population of cartilage.  
-There exist also spatialized models, see Friedman \textit{et al.} \cite{friedman} where PDE (partial differential equations) were used to model a joint (synovial fluid and cartilage) and  Macfarlane \textit{et al.} \cite{macfarlane2022}
+There exist also spatialized models, see Friedman \textit{et al.} \cite{friedman} where partial differential equations were used to model a joint (synovial fluid and cartilage) and  Macfarlane \textit{et al.} \cite{macfarlane2022}
  where an hybrid model was introduced to describe pannus formation in the arthritic joint.
 Effects of drugs such as inﬂiximab, which blocks TNF-$\alpha$ ; methotrexate
 which blocks cell growth, and tocilizumab
@@ -94,20 +94,20 @@ A$\beta$-monomers,
 microglial cells, and
 interleukins.
 
-Here we chose a compromise between simplicity and accuracy   to catch essential features. We chose to focus on cell populations and their interactions instead of the fine description of the many cytokines dynamics involved.
- Specifically, our model, presented in the next section, has four equations and only seven parameters and is an ordinary differential equations systems. We showed that the behavior of our system depended on a single nondimensional parameter.
-Despite its simplicity (or due to), we suggest that such a model provides a better understanding of the arthritis process and opens new avenues for the desig of future therapies.\par
+Here we chose a compromise between simplicity and accuracy   to catch essential features of cell populations dynamics in the response to an acute inflammation signal. We chose to focus on cell populations and their interactions instead of the fine description of the many cytokines dynamics involved.
+ Specifically, our model, presented in the next section, has four equations and only seven parameters and is an ordinary differential equations systems. We show that the behavior of our system depends on a single nondimensional parameter.
+Despite its simplicity (or due to), we suggest that such a model provides a better understanding of the arthritis process and opens up interesting avenues for the design of future therapies.\par
 The present paper is organized as follows.
-In Section~\ref{sec:model}, we present the model discussed in the paper. In Section~\ref{sec:analysis}, we analyse the mathematical properties of the differential system, compute its steady states and discuss their stability. In Section~\ref{sec:numerical_simulations}, we present some numerical simulations pertaining to different scenarii.
+In Section~\ref{sec:model}, we present the model. In Section~\ref{sec:analysis}, we analyse the mathematical properties of the differential equations system, compute its steady states and discuss their stability. In Section~\ref{sec:numerical_simulations}, we present some numerical simulations pertaining to different scenarii.
 Section~\ref{sec:insights_predictions} discusses biological insights and testable predictions derived from the model.
 The paper ends with  Section~\ref{sec:conclusion} that includes concluding remarks and  perspectives.
 
 
 \section{Biological Model.}\label{sec:model}
-In the experimental mouse model of arthritis used in this study, namely the serum transfer arthritis (STA) model,
+In the experimental mouse model of arthritis used in this study, namely the serum transfer arthritis (STA) model, see \cite{weihaupt26} and \cite{courties},
  the acute inflammatory response is triggered by an external signal (the injection of an arthritogenic serum) 
  that activates the immune system and initiates an inflammatory response 
- within the joint tissue, which is composed of a lining (L) and sub-lining (SL)membrane.
+ within the joint tissue, which is composed of a lining (L) and sublining (SL) membrane.
   At steady state, the synovial lining membrane is populated by specialized tissue-resident macrophages (TRM) 
   that form a protective barrier and contribute to immune regulation (L-TRM). TRM are also present within the sublining membrane (SL-TRM),
    scattered and fewer in number. 
@@ -118,8 +118,10 @@ In the experimental mouse model of arthritis used in this study, namely the seru
    to the local production of cytokines and chemokines. This activation promotes the rapid recruitment of neutrophils (N) from the bloodstream into the joint, 
    where they become the dominant cell population during the acute phase of inflammation.
     Neutrophils amplify the inflammatory response through the release of pro-inflammatory mediators. 
-     Based on these biological observations, see \cite{weihaupt26} and \cite{courties}, we modeled the joint inflammatory response as the interaction between an inflammatory signal and three cell populations—N, SL-TRM, and MoMac—capturing recruitment,
+     Based on these biological observations, we modeled the joint inflammatory response as the interaction between an inflammatory signal and three cell populations—N, SL-TRM, and MoMac—capturing recruitment,
       amplification, and regulatory mechanisms in a minimal dynamical framework.
+      %Note that we choose not to keep track of the population of fibroblasts, but rather the population of neutrophils, which are recruited by inflammatory chemokines.\\
+
 
 
 
@@ -132,7 +134,7 @@ In the experimental mouse model of arthritis used in this study, namely the seru
 \subsection{Mathematical Modelling.}
 % explain the model when S=0 with the usual logistic growth of the cell populations, and then explain the effect of the inflammation on the recruitment and proliferation of the cells.
 %explain the effect of the cells on the inflammation and the feedback loop between the inflammation and the cell populations.
-The variable $S(t)$ is the inflammatory signal at time $t$. We take as unity the standard dose of the arthritogenic serum, so that $S(t)$ is dimensionless and represents the relative strength of the inflammatory signal with respect to the standard dose.
+The variable $S(t)$ is the inflammatory signal at time $t$. We normalize it by the standard dose of the arthritogenic serum, so that $S(t)$ is dimensionless and represents the relative strength of the inflammatory signal with respect to the standard dose.
 We rescale all variables by their respective baseline values in the disease-free state, so that they are dimensionless and represent relative populations with respect to their baseline levels.
 Namely variable $N(t)$ (resp. $M(t)$, $T(t)$) designates the relative population of neutrophils (resp. MoMac cells, SL-TRM cells) at time $t$ with respect to the baseline population $\widehat{N}$ (resp. $\widehat{M}$, $\widehat{T}$).\\
 The model is given by the following system of ordinary differential equations:
@@ -145,15 +147,14 @@ The model is given by the following system of ordinary differential equations:
 \frac{dT}{dt} &= -\gamma S T + \delta_M M (1-T) \label{eq:system:T} 
 \end{align}
 \end{subequations}
-where $a,b,\alpha,\beta,\gamma, \delta_N, \delta_M$ are positive parameters.
+where $a,b,\alpha,\beta,\gamma, \delta_N, \delta_M$ are real positive parameters.
 
 Let us explain the meaning of each term in the system \eqref{eq:system}.
 The growth rate of the inflammatory signal $S(t)$ is enhanced by neutrophils $N$ (factor $a$) and inhibited by SL-TRM macrophages $T$ (factor $b$), which translates into the differential equation \eqref{eq:system:S}.
-Neutrophils $N$ are recruited by the inflammatory signal $S$ (factor $\alpha$) and they have a nonlinear logistic self-limitation (factor $\delta_N$). This is modeled by the term $\delta_N N (N-1)$ in the equation for $N$,
+Equation \eqref{eq:system:N} describes the dynamics of the neutrophils $N$.
+ Neutrophils $N$ are recruited by the inflammatory signal $S$ (factor $\alpha$) and they have a nonlinear logistic self-limitation (factor $\delta_N$). This is modeled by the term $\delta_N N (N-1)$ in the equation for $N$,
 which is negative when N > 1 and positive when N < 1, hence in the absence of inflammation it tends to stabilize the
-which is negative when $N>1$ and positive when $N<1$, hence in the absence of inflammation it tends to stabilize the
-population of neutrophils around its baseline level. This is the meaning of equation \eqref{eq:system:N}.
- 
+population of neutrophils around its baseline level. 
 Equation \eqref{eq:system:M} describes the dynamics of the MoMac cells $M$. They are recruited from the blood stream at a  rate $\beta S$ proportional to the inflammatory signal. They have a logistic self-regulation mechanism analogous to that of neutrophils.
  Note that the linear rate $\beta S$ of recruitment of MoMac cells is not proportional to the current population of MoMac cells, which models the fact that the recruitment of MoMac cells from the blood stream is not directly influenced by the current population of MoMac cells in the joint, but rather by the level of inflammation.
 
@@ -161,14 +162,11 @@ Equation \eqref{eq:system:T} describes the dynamics of the SL-TRM cells $T$. The
 
 
 In the system \eqref{eq:system}, we see that inflammation further increases neutrophils (factor $\alpha$), increases MoMac (factor $\beta$), and decreases SL-TRM (factor $\gamma$).
-
-Notice that we do not keep track of the population of fibroblasts, but rather the population of neutrophils, which are recruited by inflammatory chemokines.\\
 \begin{rem}
-The term $\delta_M M (1-T)$ in the equation for $T$ models somehow the stimulation of  SL-TRM cells by MoMac cells, which is supported by experimental evidence \cite{weihaupt26}.
-Note that we could have taken another parameter $\delta_T\neq \delta_M$ in this equation for $T$, but we choose to keep it simple by limiting the number of parameters, since analysis and numerical simulations show that it does not change the dynamics of the crisis.
-To make things easier to undestand, we summarize the model in the following diagram (see figure \ref{fig:graphe}).
+The term $\delta_M M (1-T)$ in the equation for $T$ models  the stimulation of  SL-TRM cells by MoMac cells, which is supported by experimental evidence \cite{weihaupt26}.
+Note that we could have introduced another parameter $\delta_T\neq \delta_M$ in this equation for $T$, but we choose to avoid it, since analysis and numerical simulations showed us that it did not change the dynamics of the crisis.
 \end{rem}
-
+To make the model more intuitive, we provide a schematic representation of the interactions between the inflammatory signal and the three cell populations in Figure~\ref{fig:graphe}.
 \usetikzlibrary{decorations.markings}
 \tikzset{
     mid arrow/.style={
@@ -197,8 +195,8 @@ To make things easier to undestand, we summarize the model in the following diag
         \draw[mid arrow, line width=1.5pt] (N) to[bend left=20] node[left, xshift=-2mm, yshift=2mm] {foster $(a)$} (S);
         \draw[dashed,-|, line width=1.5pt] (T) to[bend left=20] node[right, xshift=2mm] {inhibition $(b)$} (S);
         \draw[mid arrow, line width=1.5pt] (S) to[bend left=20] node[left] {activation$(\alpha)$} (N);
-        \draw[mid arrow, line width=1.5pt] (S) to[bend left=10] node[left,xshift=6mm] {activation $(\beta)$} (M);
-        \draw[ dashed, line width=1.5pt, -|] (S) to[bend left=20] node[left, xshift=2mm] {inhibition $(\gamma)$} (T);
+        \draw[mid arrow, line width=1.5pt] (S) to[bend left=10] node[left,xshift=8mm, yshift=6mm] {activation $(\beta)$} (M);
+        \draw[ dashed, line width=1.5pt, -|] (S) to[bend left=20] node[left, xshift=10mm, yshift=2mm] {inhibition $(\gamma)$} (T);
         \draw[ line width=1.5pt, loop above, looseness=8] (N) to node[above] {regulation $(\delta_N)$} (N);
         \draw[line width=1.5pt, loop above, looseness=8] (M) to node[above] {regulation $(\delta_M)$} (M);
         \draw[mid arrow, line width=1.5pt] (M.east) -- node[below, yshift=-2mm] {stimulation $(\delta_M)$} (T.west);
@@ -315,7 +313,7 @@ The lower bounds on M and N should be interpreted in the context of normalized v
 \beta S^* - \delta_M M^* (M^* - 1) &= 0 \label{eq:equilibrium_M} \\
 -\gamma S^* T^* + \delta_M M^* (1 - T^*) &= 0 \label{eq:equilibrium_T}
 \end{align}
-\subsubsection{Inflammation free equilibria ($S^* =0$).}
+\subsubsection{Inflammation-free equilibrium points ($S^* =0$).}\label{sec:disease_free}
 A first natural equilibrium point is given by $S^* = 0, N^* = 1, M^* = 1, T^* = 1$. This point corresponds to the disease-free state, where there is no inflammation ($S^* = 0$) and the populations of neutrophils, MoMac, and SL-TRM are at their baseline    levels ($N^* = 1, M^* = 1, T^* = 1$).
 
 There are other equilibria points with $S^* = 0$  namely
@@ -380,7 +378,7 @@ Furthermore, we will prove later that these equilibria points are unstable, so t
 %    \caption{equilibria in the $(N^*, M^*)$ plane, left $a < b$, right $a > b$.}
 %    \label{fig:intersections}
 %\end{figure}
-\subsubsection{Equilibria points with $S^* \neq 0$.}
+\subsubsection{Inflammatory equilibrium points ($S^* \neq 0$).}
 We express $N^*$ in terms of $T^*$ from equation \eqref{eq:equilibrium_S}:
 \begin{equation}
 N^* = \frac{b}{a} T^*
@@ -455,7 +453,7 @@ We have the following cases:
 \item If $B +C  > 1$ and $B < 1/2$, then there is one sign change and the cubic has only one positive root.
 \end{itemize}
 \bigskip
-We can plot some typical cases in the following figure (see figure \ref{fig:cubics}).
+We can plot some typical cases in  Figure \ref{fig:cubics}).
 \begin{figure}[!htbp]
     \centering
     \includegraphics[width=0.45\textwidth, height=5cm]{cubic_1.png}
@@ -559,6 +557,10 @@ So the biological feasibility conditions can be summarized as follows:
 &A  \leq  T^*   &\text{if } B \leq 1, \label{feas_T1} \\
 &A  \leq  T^*   \leq  \frac{B}{B-1}&  \text{if } B > 1. \label{feas_T2}
 \end{align}
+\begin{rem}
+In the case $B>1$, if $A > \frac{B}{B-1}$, then     the feasibility condition \eqref{feas_T2} cannot be satisfied and there is no feasible root. In the limit case $A = \frac{B}{B-1}$, the only feasible root is $T^* = A = \frac{B}{B-1}$
+ which corresponds to $S^* = 0$, $N^* = 1$, $M^* = 0$ which has already been found in the inflammation-free section \ref{sec:disease_free}. In the rest of this section, we will assume that $A < \frac{B}{B-1}$ if $B > 1$.
+\end{rem}
 Let us consider first the particular case $A = a/b = 1$. In this case, we have an obvious solution $T^* = 1$ which corresponds to the disease-free equilibrium point.
 Therefore we can factor the cubic polynomial as follows:
     \begin{equation}
