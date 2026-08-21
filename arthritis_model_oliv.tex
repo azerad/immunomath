@@ -63,31 +63,31 @@ In conclusion, our model provides a framework to explore mechanisms underlying a
 \msc{92C50, 92D25, 34D20, 34C23, 37N25.}
 \section{Introduction.}
 Mathematical modelling of  auto-immune disease is relatively recent.
-According to the systematic survey on mathematical modelling of auto-immune disease by  Ugolkov \textit{et al.} \cite{frontiers2024},
+According to the systematic survey on mathematical modelling of auto-immune disease by  Ugolkov \textit{et al.}~\cite{frontiers2024},
 the ﬁrst papers date back to the 1970s. Since
 then, the number of relevant articles increased exponentially,
 reaching more than 200 publications per year by 2024. 
-However according to Macfarlane \textit{et al.} \cite{macfarlane2020} which provides another careful and exhaustive bibliographic survey in 2020, the number of  mathematical models of Rheumatoid Arthritis (RA) is still relatively small.
-An illuminative survey paper introducing the issues and pitfalls of mathematical modelling in immunology was from Andrew \textit{et al.}  \cite{andrew}. 
-Let us cite Handel \textit{et al.} \cite{Handel2020} for  examples and guidelines for sound mathematical modelling in immunology and also for the free software R-package DSAIRM \cite{dsairm2019} which allows to easily simulate and analyze a large variety of mathematical models of immune response.
+However according to Macfarlane \textit{et al.}~\cite{macfarlane2020} which provides another careful and exhaustive bibliographic survey in 2020, the number of  mathematical models of Rheumatoid Arthritis (RA) is still relatively small.
+An illuminative survey paper introducing the issues and pitfalls of mathematical modelling in immunology was from Andrew \textit{et al.}~\cite{andrew}. 
+Let us cite Handel \textit{et al.}~\cite{Handel2020} for  examples and guidelines for sound mathematical modelling in immunology and also for the free software R-package DSAIRM \cite{dsairm2019} which allows to easily simulate and analyze a large variety of mathematical models of immune response.
 Among mathematical models that deal with aspects
 of RA, we can mention the following ones.
-In Seymour \textit{et al.} \cite{seymour2001} a four differential equations model was introduced to describe the dynamics of the population of monocytes and the concentrations of three cytokines, namely IL-1, TNF-$\alpha$ and IL-10. 
-In Jit \textit{et al.}  \cite{jit2005} RA versus systemic inflammatory response syndrom was modelled by a system of four differential equations, describing the evolution of population of certain cell compartments, namely TNF-$\alpha$ (free or bound), antibodies and antibody-antigen complexes.
+In Seymour \textit{et al.}~\cite{seymour2001} a four differential equations model was introduced to describe the dynamics of the population of monocytes and the concentrations of three cytokines, namely IL-1, TNF-$\alpha$ and IL-10. 
+In Jit \textit{et al.}~\cite{jit2005} RA versus systemic inflammatory response syndrom was modelled by a system of four differential equations, describing the evolution of population of certain cell compartments, namely TNF-$\alpha$ (free or bound), antibodies and antibody-antigen complexes.
 The effect of TNF-$\alpha$ inhibitors like (s)TNFR2, Etanecerp, Infliximab was investigated.
-Baker et al.\cite{baker2013} introduced a model with pro-inﬂammation 
+Baker \textit{et al.}~\cite{baker2013} introduced a model with pro-inﬂammation 
 (p) and anti-inﬂammation cells (a) and considered a system of two coupled differential equations for p and a. 
 More complex models exhibiting various types of  bifurcations were introduced in \cite{baker2017}. 
-In Odisharia \textit{et al.} \cite{jaiani2019} a five differential equations system was investigated to simulate the effect of tocilizumab on the populations of B and T-lymphocytes and cell population of cartilage.  
-There exist also spatialized models, see Friedman \textit{et al.} \cite{friedman} where partial differential equations were used to model a joint (synovial fluid and cartilage) and  Macfarlane \textit{et al.} \cite{macfarlane2022}
+In Odisharia \textit{et al.}~\cite{jaiani2019} a five differential equations system was investigated to simulate the effect of tocilizumab on the populations of B and T-lymphocytes and cell population of cartilage.  
+There exist also spatialized models, see Friedman \textit{et al.}~\cite{friedman} where partial differential equations were used to model a joint (synovial fluid and cartilage) and  Macfarlane \textit{et al.} \cite{macfarlane2022}
  where an hybrid model was introduced to describe pannus formation in the arthritic joint.
-Effects of drugs such as inﬂiximab, which blocks TNF-$\alpha$ ; methotrexate
+Effects of drugs such as inﬂiximab, which blocks TNF-$\alpha$; methotrexate
 which blocks cell growth, and tocilizumab
 which blocks the receptor of IL-6 were investigated.
-In Relouw \textit{et al.} \cite{relouw} a fifteen equations model with 48 parameters was introduced to model sepsis.
-In Zhou \textit{et al.} \cite{zhou2018} a four differential equations model was used to describe the dynamics of the population of macrophages and fibroblasts  and their mutual growth factors.
+In Relouw \textit{et al.}~\cite{relouw} a fifteen equations model with 48 parameters was introduced to model sepsis.
+In Zhou \textit{et al.}~\cite{zhou2018} a four differential equations model was used to describe the dynamics of the population of macrophages and fibroblasts  and their mutual growth factors.
 A paper that particularly inspired us 
-is from Ciuperca \textit{et al.} \cite{torres2024} which focused on Alzheimer disease and presented a minimal compartment model with  five equations describing the concentrations of 
+is from Ciuperca \textit{et al.}~\cite{torres2024} which focused on Alzheimer disease and presented a minimal compartment model with  five equations describing the concentrations of 
  A$\beta$-oligomers,
 oligomers in the amyloid plaques,
 A$\beta$-monomers,
@@ -217,7 +217,7 @@ To make the model more intuitive, we provide a schematic representation of the i
 \section{Analysis of the model.}\label{sec:analysis}
 \subsection{Existence and non-negativity of the solution.}
 Existence and uniqueness of a local solution of the system \eqref{eq:system} is guaranteed by the Cauchy-Lipschitz theorem since the right-hand side of the system is locally Lipschitz continuous.
-\begin{proposition}
+\begin{proposition}\label{prop:positivity}
 If the initial conditions $S(0)$, $N(0)$, $M(0)$, and $T(0)$ are nonnegative, then the solution $(S(t), N(t), M(t), T(t))$ of the system \eqref{eq:system} remains nonnegative for all $t \geq 0$.   
 \end{proposition}
 \begin{proof}
@@ -314,13 +314,13 @@ The lower bounds on M and N should be interpreted in the context of normalized v
 -\gamma S^* T^* + \delta_M M^* (1 - T^*) &= 0 \label{eq:equilibrium_T}
 \end{align}
 \subsubsection{Inflammation-free equilibrium points ($S^* =0$).}\label{sec:disease_free}
-A first natural equilibrium point is given by $S^* = 0, N^* = 1, M^* = 1, T^* = 1$. This point corresponds to the disease-free state, where there is no inflammation ($S^* = 0$) and the populations of neutrophils, MoMac, and SL-TRM are at their baseline    levels ($N^* = 1, M^* = 1, T^* = 1$).
+A first natural equilibrium point is given by $(S^* = 0, N^* = 1, M^* = 1, T^* = 1)$. This point corresponds to the disease-free state, where there is no inflammation ($S^* = 0$) and the populations of neutrophils, MoMac, and SL-TRM are at their baseline    levels ($N^* = 1, M^* = 1, T^* = 1$).
 
 There are other equilibria points with $S^* = 0$  namely
-$S^* = 0, N^* = 0, M^* = 0, T^* = R$, with arbitrary $R$;
- $S^* = 0, N^* = 0, M^* = 1, T^* = 1$;
- $S^* = 0, N^* = 1, M^* = 0, T^* = R$, with arbitrary $R$.
-\begin{rem}
+$(S^* = 0, N^* = 0, M^* = 0, T^* = R)$, with arbitrary $R$;
+ $(S^* = 0, N^* = 0, M^* = 1, T^* = 1)$;
+ $(S^* = 0, N^* = 1, M^* = 0, T^* = R)$, with arbitrary $R$.
+\begin{rem}\label{rem:vanishing}
 These equilibria points with  $N^* = 0$ or $M^* = 0$ are not biologically relevant since they correspond to the absence of neutrophils or MoMac cells, which is not realistic in a living organism.
 Furthermore, we will prove later that these equilibria points are unstable, so they will not be observed in physiological conditions.
 \end{rem}
@@ -378,7 +378,7 @@ Furthermore, we will prove later that these equilibria points are unstable, so t
 %    \caption{equilibria in the $(N^*, M^*)$ plane, left $a < b$, right $a > b$.}
 %    \label{fig:intersections}
 %\end{figure}
-\subsubsection{Inflammatory equilibrium points ($S^* \neq 0$).}
+\subsubsection{Inflammatory equilibrium points ($S^* \neq 0$).}\label{sec:inflammatory_equilibria}
 We express $N^*$ in terms of $T^*$ from equation \eqref{eq:equilibrium_S}:
 \begin{equation}
 N^* = \frac{b}{a} T^*
@@ -422,13 +422,13 @@ Notice that we need only 3 \emph{non dimensional} parameters $a/b$, $\beta/\gamm
  %   The fact that only 3 non dimensional parameters determine the number of equilibria points with $S^* \neq 0$ suggests that it might be possible to reduce the original system \eqref{eq:system} to a simpler system depending only on these 3 parameters. 
   %  Although the equilibrium points depend indeed on 3 parameters only, the dynamical behavior could be more complex. Anyway it is not obvious to design the synthetic variables which could capture this complexity. They might not be easily expressible in terms of the original variables. This could be an interesting direction for further research.
 %\end{rem}
-In the following, we denote the 3 \emph{non dimensional} parameters as $A=a/b$, $B=\beta/\gamma$, and $C=\displaystyle{\frac{\gamma \,\delta_N}{\alpha\,\delta_M}}$.
+In the following, we denote them as $A=a/b$, $B=\beta/\gamma$, and $C=\displaystyle{\frac{\gamma \,\delta_N}{\alpha\,\delta_M}}$.
 \begin{rem}
-The parameters $A$, $B$, and $C$ have the following biological interpretations:
+Interestingly, the parameters $A$, $B$, and $C$ have the following biological interpretations:
 \begin{itemize}
-    \item $A = a/b$. This parameter represents the ratio of the inflammatory effect of the neutrophils w.r.t. the anti-inflammatory effect of the macrophages.
-    \item $B = \beta/\gamma$. This parameter represents the ratio of the increasing rate of the MoMac to the decreasing rate of the macrophage.
-    \item $C = \frac{\gamma \,\delta_N}{\alpha\,\delta_M} = \left[\frac{\gamma}{\delta_M} : \frac{\alpha}{\delta_N}\right]$. This parameter represents the ratio of the macrophages vs the neutrophiles effects in the disease progression.
+    \item $A = a/b$. This parameter represents the ratio of the inflammatory effect of the neutrophils with respect to the anti-inflammatory effect of the macrophages, see equation~\eqref{eq:system:S}.
+    \item $B = \beta/\gamma$. This parameter represents the ratio of the increasing rate of the MoMac to the decreasing rate of the macrophage cell population, see equations~\eqref{eq:system:M}-\eqref{eq:system:T}.
+    \item $C = \frac{\gamma \,\delta_N}{\alpha\,\delta_M} = \left[\frac{\gamma}{\delta_M} : \frac{\alpha}{\delta_N}\right]$. This parameter represents the ratio of the macrophages vs the neutrophiles logistic control parameters (growth vs stabilization) in the disease progression, see equations~\eqref{eq:system:N}-\eqref{eq:system:T}.
 \end{itemize}   
 \end{rem}
 Using these parameters, the cubic equation in $T^*$ becomes:
@@ -438,7 +438,7 @@ Using these parameters, the cubic equation in $T^*$ becomes:
 \end{equation}
 \par\noindent We now determine the number of positive roots of the cubic equation \eqref{eq:cubic_T}.
 From basic algebra, we can show that there are at most 3 such intersection points, hence at most 3 equilibria points with $S^* \neq 0$. 
-We have to take into account  the biological feasibility which imposes the roots to be real nonnegative numbers.
+We have to take into account here the biological feasibility which imposes the roots to be real nonnegative numbers, see proposition~\ref{prop:positivity}.
 Since $\frac{AB}{C} > 0$,  there is at least one positive root. 
 But we can be more precise using 
 \emph{Descartes' rule of signs}. It states that the number of positive real roots of a polynomial (counting multiplicities) is equal to the number of sign changes between consecutive nonzero coefficients, or less than that by an even number. 
@@ -452,17 +452,17 @@ We have the following cases:
 \item If $B +C  < 1$ and $B < 1/2$, then there is one sign changes and the cubic has only one positive root.
 \item If $B +C  > 1$ and $B < 1/2$, then there is one sign change and the cubic has only one positive root.
 \end{itemize}
-\bigskip
-We can plot some typical cases in  Figure \ref{fig:cubics}).
-\begin{figure}[!htbp]
-    \centering
-    \includegraphics[width=0.45\textwidth, height=5cm]{cubic_1.png}
-    \includegraphics[width=0.45\textwidth, height=5cm]{cubic_2.png}\\
-    \includegraphics[width=0.45\textwidth, height=5cm]{cubic_3.png}
-    \includegraphics[width=0.45\textwidth, height=5cm]{cubic_4.png}\\
-    \caption{Cubic equation in $T^*$, left $B<1/2$, right $B>1/2$.}
-    \label{fig:cubics}
-\end{figure}
+%\bigskip
+%We can plot some typical cases in  Figure \ref{fig:cubics}).
+%\begin{figure}[!htbp]
+%    \centering
+%    \includegraphics[width=0.45\textwidth, height=5cm]{cubic_1.png}
+%    \includegraphics[width=0.45\textwidth, height=5cm]{cubic_2.png}\\
+%    \includegraphics[width=0.45\textwidth, height=5cm]{cubic_3.png}
+%    \includegraphics[width=0.45\textwidth, height=5cm]{cubic_4.png}\\
+%    \caption{Cubic equation in $T^*$, left $B<1/2$, right $B>1/2$.}
+%    \label{fig:cubics}
+%\end{figure}
 
 \par\noindent We can use Cardano's method to find the roots of the cubic equation \eqref{eq:cubic_T}. We rewrite it in the standard form:
 \[ T^3 + p T^2 + q T + r = 0
@@ -511,7 +511,7 @@ The discriminant $\Delta_3$ can be rewritten in terms of the original parameters
 
 
 The real roots can be found using Cardano's formulas. 
-If $\Delta_3 > 0$, the real root is given by:
+If $\Delta_3 > 0$, the unique real root is given by:
 \[
 x^* = \sqrt[3]{-\frac{\mathcal{B}}{2} + \sqrt{\Delta_3}} + \sqrt[3]{-\frac{\mathcal{B}}{2} - \sqrt{\Delta_3}}
 \]
@@ -524,7 +524,7 @@ If $\Delta_3 = 0$, the real roots are given by:
 \]
 \par\noindent
 Here we plot a case with three distinct positive roots (see figure \ref{fig:three_roots}).
-Namely we take $A = 1.1$, $B = 5$ and $C = \frac{2}{3}$.
+Namely we take $A = 1.1$, $B = 5$ and $C = \frac{2}{3}$ which gives $\Delta_3 \approx -0.49$.
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.6\textwidth]{three_roots.png}
@@ -633,7 +633,7 @@ When $A < 1$, there is only one biologically feasible equilibria with $S^* \neq 
 \end{itemize} 
 %     
 \subsection{Stability analysis.}
-\emph{Linear stability analysis} of the equilibria point $ (S^*, N^*, M^*, T^*)$ is done by linearizing the system around this point.
+\emph{Linear stability analysis} of the equilibrium point $ (S^*, N^*, M^*, T^*)$ is performed by linearizing the differential equations system around this point.
 The Jacobian matrix of the system is given by:
 \[
 J = \begin{pmatrix}
@@ -658,12 +658,14 @@ a - b & 0 & 0 & 0 \\
 \end{pmatrix}
 \]
 We notice immediately that the eigenvalues of this matrix are  $a-b$, $-\delta_N$ and $-\delta_M$.
- The last two are negative since $\delta_N, \delta_M > 0$. The remaining eigenvalue  is $a-b$. Thus the disease-free equilibrium is stable if $a < b$ and unstable if $a > b$. 
-This means that if the inflammatory effect of Neutrophiles cells controlled by paramater $a$ is less than the curing effect of the  SL-TRM macrophages controlled by parameter $b$, the system will return to the disease-free state. Conversely, if $a > b$, the system may move away from this equilibrium, potentially leading to a persistent inflammatory state.
-The particular case $a = b$ corresponds to a bifurcation point where the stability of the disease-free equilibrium changes. In this case, a more detailed analysis is needed to determine the behavior of the system near this point, which  involve higher-order terms in the Taylor expansion of the system around the equilibrium.
-The numerical simulations, see section \ref{sec:numerical_simulations} suggest that for $a=b$ the system quickly diverges from the disease-free equilibrium, and indeed this equilibrium is unstable in this case as we prove below using the center manifold theory.
+ The last two are negative since $\delta_N, \delta_M > 0$. The remaining eigenvalue  is $a-b$. Thus the disease-free equilibrium is stable if $A = a/b < 1$ and unstable if $A =a/b > 1$. 
+This means that if the inflammatory effect of Neutrophiles cells controlled by paramater $a$ is less than the curing effect of the  SL-TRM macrophages controlled by parameter $b$, the system will return to the disease-free state.
+ Conversely, if $A=a/b > 1$, the system will move away from this equilibrium, potentially leading to a persistent inflammatory state.
+The particular case $A=1$ corresponds to a bifurcation point where the stability of the disease-free equilibrium changes. In this case, a more detailed analysis is needed to determine the behavior of the system near this point, which  involve higher-order terms in the Taylor expansion of the system around the equilibrium.
+The numerical simulations, see section~\ref{sec:numerical_simulations}, suggest that for $A=1$ the system quickly diverges from the disease-free equilibrium. 
+Indeed in this case the disease-free equilibrium is unstable, as we prove below.
 \par For $a=b$ the disease-free equilibrium is a non-hyperbolic equilibrium with eigenvalues $0$, $-\delta_N$, $-\delta_M$ and $-\delta_M$. 
-The stability of this equilibrium can be analyzed using center manifold theory. We prove here that the center manifold is repulsive for $S^* \geq 0$, hence the equilibrium is unstable.\\
+The stability of this equilibrium can be analyzed using the center manifold theory, see~\cite{perko}. We prove here that the center manifold is repulsive for $S^* \geq 0$, hence the equilibrium is unstable.\\
 In this case there is one center direction and three stable directions. We define new variables $x=S$, $y=N-1$, $z=M-1$, and $w=T-1$ to shift the equilibrium point to the origin. The system can be rewritten as:
 \begin{eqnarray*}
 \dot{x} &=&  ax (y - w) \\
@@ -683,12 +685,13 @@ The center manifold can be expressed as a graph of the form $h(x) = (h_1(x), h_2
 We can compute the Taylor expansion of $h$ and find that the first nonzero term is given by $h_1(x) = \frac{\alpha}{\delta_N} x + o(x)$, $h_2(x) = \frac{\beta}{\delta_M} x + o(x)$, and $h_3(x) = -\frac{\gamma}{\delta_M} x + o(x)$.
 The dynamics on the center manifold is given by: 
 \begin{eqnarray*}
-\dot{x} &=& ax^2(\frac{\alpha}{\delta_N}+ \frac{\gamma}{\delta_M}) + o(x^2)
+\dot{x} &=& ax^2\left(\frac{\alpha}{\delta_N}+ \frac{\gamma}{\delta_M}\right) + o(x^2)
 \end{eqnarray*}
 Since $\frac{\alpha}{\delta_N}+ \frac{\gamma}{\delta_M} > 0$, the center manifold is repulsive for $x \geq 0$, hence the equilibrium is unstable.
 
-The stability of other equilibria points can be analyzed similarly by evaluating the Jacobian matrix at those points and determining the eigenvalues.
-\par\noindent For $S^* = 0, N^* = 0, M^* = 0, T^* = R$, with arbitrary $R$, the Jacobian matrix becomes:
+The stability of other equilibria points can be analyzed similarly by evaluating the Jacobian matrix at those points and inspecting the eigenvalues.
+\begin{itemize}
+\item For $(S^* = 0, N^* = 0, M^* = 0, T^* = R)$, with arbitrary $R$, the Jacobian matrix becomes:
 \[
 J|_{(S^*, N^*, M^*, T^*) = (0, 0, 0, R)} =
 \begin{pmatrix}
@@ -698,8 +701,8 @@ J|_{(S^*, N^*, M^*, T^*) = (0, 0, 0, R)} =
 -\gamma R & 0 & \delta_M (1 - R) & 0
 \end{pmatrix}
 \]
-The eigenvalues of this matrix are $-b R$, $\delta_N$, $\delta_M$, and $0$. Since $\delta_N$ and $\delta_M$ are positive, this equilibrium point is unstable. Even if the immune signal will decrease exponentially fast, the populations of neutrophiles and MoMac will grow out of bound. This unstable equilibrium where the inflammation is zero as well as the population of neutrophiles and MoMac is highly unlikely to be observed in practice.
-\par\noindent For $S^* = 0, N^* = 0, M^* = 1, T^* = 1$, the Jacobian matrix is:
+The eigenvalues of this matrix are $-b R$, $\delta_N$, $\delta_M$, and $0$. Since $\delta_N$ and $\delta_M$ are positive, this equilibrium point is unstable. Even if the immune signal will decrease exponentially fast, the populations of neutrophiles and MoMac will grow out of bound. This unstable equilibrium where the population of neutrophiles and MoMac is zero is  not physiologically relevant and will not be observed in practice, see Remark \ref{rem:vanishing}.
+\item For $(S^* = 0, N^* = 0, M^* = 1, T^* = 1)$, the Jacobian matrix is:
 \[
 J|_{(S^*, N^*, M^*, T^*) = (0, 0, 1, 1)} =
 \begin{pmatrix}
@@ -709,8 +712,8 @@ J|_{(S^*, N^*, M^*, T^*) = (0, 0, 1, 1)} =
 -\gamma & 0 & 0 & -\delta_M
 \end{pmatrix}
 \]
-The eigenvalues of this matrix are $-b$, $\delta_N$, $-\delta_M$, and $-\gamma$. Since there is a positive eigenvalue , this equilibrium point is unstable. Neutrophiles can grow out of bound. This equilibrium will not be observed in practice neither.
-\par\noindent For $S^* = 0, N^* = 1, M^* = 0, T^* = R$, with arbitrary $R$, the Jacobian matrix is
+The eigenvalues of this matrix are $-b$, $\delta_N$, $-\delta_M$, and $-\gamma$. Since there is a positive eigenvalue , this equilibrium point is unstable. Neutrophiles can grow out of bound. This equilibrium where the population of neutrophiles is zero will not be observed in practice neither, see Remark \ref{rem:vanishing}.
+\item For $(S^* = 0, N^* = 1, M^* = 0, T^* = R)$, with arbitrary $R$, the Jacobian matrix is
 \[
 J|_{(S^*, N^*, M^*, T^*) = (0, 1, 0, R)} =
 \begin{pmatrix}
@@ -720,8 +723,9 @@ a - b R & 0 & 0 & 0 \\
 -\gamma R & 0 & \delta_M (1 - R) & 0
 \end{pmatrix}
 \]
-There is a positive eigenvalue $\delta_M$, hence this equilibrium point is unstable. MoMac can grow out of bound. This equilibrium will not be observed in practice neither.
-\subsubsection{Stability of equilibrium with $S^*\neq 0$.}
+There is a positive eigenvalue $\delta_M$, hence this equilibrium point is unstable. MoMac can grow out of bound. This equilibrium  where the population of MoMac is zero will not be observed in practice neither, see Remark \ref{rem:vanishing}.
+\end{itemize}
+\subsubsection{Stability of inflammatory equilibrium points ($S^*\neq 0$).}
 The stability of the equilibria with $S^* \neq 0$ can be analyzed similarly by evaluating the Jacobian matrix at those points and determining the eigenvalues.
 Taking into account the equilibrium equations \eqref{eq:equilibrium_S}, \eqref{eq:equilibrium_N}, and \eqref{eq:equilibrium_T}, the Jacobian matrix at $(S^*, N^*, M^*, T^*)$ is:
 
@@ -765,11 +769,11 @@ a S \alpha N < a S \alpha N\left(\frac{{\delta_M}^2 {(2M-1+\frac{M}{T}) }^2}{{\d
 \end{equation}
 Due to \eqref{ineq2} and \eqref{ineq3}, the coefficient of $\lambda^2$ is positive.
 \par\noindent
-This proves that biologically feasible equilibrium with $S^* \neq 0$ only exists if $A<1$ and is unstable.
-For $A\geq 1$ the only biologically feasible equilibrium is the disease-free equilibrium which is unstable, as we have seen.
+This proves that biologically feasible equilibrium with $S^* \neq 0$, which only exists if $A<1$ see section \ref{sec:inflammatory_equilibria},  is unstable.
+For $A\geq 1$ the only biologically feasible equilibrium is the disease-free equilibrium which is unstable, as we have seen in section \ref{sec:stab}.
 
 \subsection{Bifurcation diagram.}
-We perform a bifurcation analysis with respect to the \emph{non dimensional} parameters $A=a/b$. We restict to the biologically relevant feasible equilibria.
+We perform here a bifurcation analysis with respect to the \emph{non dimensional} parameters $A=a/b$. Naturally, we restrict our analysis to the biologically relevant feasible equilibria.
 From the stability analysis above, we see that we  have only one  bifurcation at  $A=1$: for $A<1$ there are two biologically feasible equilibria, one  inflammatory one with $S^* \neq 0$ which is unstable and the disease-free equilibrium which  is stable; 
 for $A\geq 1$ the disease-free equilibrium is unstable and there is no other biologically feasible equilibrium.
 The number and stability of equilibria change as the parameter $A$ crosses the critical value $A=1$, indicating bifurcation points in the system's dynamics.   
@@ -827,9 +831,9 @@ First let us take $a=0.38$, keeping the other parameters unchanged.
     \caption{A=0.38}
     \label{038}
 \end{figure}
-We see clearly  in fig.~\ref{035} that for $A=0.35 < 1$ the system converges to the disease-free equilibrium, whereas for $A=0.38$ the system diverges away from this equilibrium, indicating a chronic inflammatory state, see fig.~\ref{038}. 
+We see clearly  in fig.~\ref{035} that for $A=0.35 < 1$ the system converges to the disease-free equilibrium, whereas for $A=0.38$ the system diverges away from this equilibrium, indicating a persistent inflammatory state, see fig.~\ref{038}. 
 We can also decrease the initial immune signal $S(0)$ to see if the system converges to the disease-free equilibrium or diverges away from it.
-Halving the initial immune signal i.e.taking $S(0)=0.5$ and $A=0.38$, we obtain the following result:
+Halving the initial immune signal i.e.~taking $S(0)=0.5$ and $A=0.38$, we obtain the following result:
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=.7\textwidth]{A=0,38_S0=0,5.png}
@@ -862,7 +866,7 @@ But if we slightly increase $A$ to $A=0.073$, keeping the other parameters uncha
 To see how the parameter $A=a/b$ controls the healing prognosis
 we plot in fig.~\ref{heal} a $(A,S)$ plane figure where for each value of $A$ and starting value $(S(0)=S,N=1,M=1,T=1)$
  we run the model for three weeks and see how far from the disease-free state the systems ends up.
- We color in green points where $(S,M,N,T)$ is close to $(0,1,1,1)$ up to a given tolerance (say 5\%).
+ We color in green points where $(S,M,N,T)$ is close to $(0,1,1,1)$ up to a given tolerance of 5\%.
  We color in red points which end up far away from the equilibrium.
  \begin{figure}[!htbp]
     \centering
@@ -871,7 +875,7 @@ we plot in fig.~\ref{heal} a $(A,S)$ plane figure where for each value of $A$ an
     \label{heal}
 \end{figure}
 We notice that for $A<1$, the system converges to the disease-free equilibrium provided that the   initial immune signal $S(0)$ is below a given threshold.
- This threshold increases as $A$ decreases, meaning that the system can tolerate higher initial immune signals and still come back  to the disease-free equilibrium when $A$ is small enough. 
+ This threshold increases as $A$ decreases, meaning that the system can tolerate higher initial immune signals and still come back  to the disease-free equilibrium when $A$ is small enough. This is consistent with the bifurcation diagram in fig.~\ref{fig:bifurcation} where for $A<1$ the stable and unstable  equilibrium are farther away when $A$ decreases.
  For $A\geq 1$, the system diverges away from the disease-free equilibrium for all non zero values of the initial immune signal $S(0)$.
   This suggests that for $A\geq 1$ the system is in a persistent inflammatory state, where the  inflammation is self-sustained and does not resolve, even if the initial immune signal is low.
 % \mbox{}\\   
@@ -924,6 +928,11 @@ We acknowledge the support of Immun4Cure University Hospital Institute ``Institu
 % Bibliography réarrangée par ordre chronologique
 %\newpage
 \begin{thebibliography}{9}
+% 2001
+\bibitem{perko}
+Perko, L. (2001)
+\newblock Differential Equations and Dynamical Systems, third edition
+\newblock \emph{Springer}.
 % 2001
 \bibitem{seymour2001}
 Seymour, R. M. \& Anderson, B. (2001)
