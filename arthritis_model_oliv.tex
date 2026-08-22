@@ -36,10 +36,10 @@
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{proposition}{Proposition}[section]
 \newcommand{\keywords}[1]{%
-  \par\noindent\textbf{Keywords : }#1
+  \par\noindent\textbf{Keywords: }#1
 }
 \newcommand{\msc}[1]{%
-  \par\noindent\textbf{MSC Classification : }#1
+  \par\noindent\textbf{MSC Classification: }#1
 }
 
 \begin{document}
@@ -69,7 +69,7 @@ then, the number of relevant articles increased exponentially,
 reaching more than 200 publications per year by 2024. 
 However according to Macfarlane \textit{et al.}~\cite{macfarlane2020} which provides another careful and exhaustive bibliographic survey in 2020, the number of  mathematical models of Rheumatoid Arthritis (RA) is still relatively small.
 An illuminative survey paper introducing the issues and pitfalls of mathematical modelling in immunology was from Andrew \textit{et al.}~\cite{andrew}. 
-Let us cite Handel \textit{et al.}~\cite{Handel2020} for  examples and guidelines for sound mathematical modelling in immunology and also for the free software R-package DSAIRM \cite{dsairm2019} which allows to easily simulate and analyze a large variety of mathematical models of immune response.
+Let us cite Handel \textit{et al.}~\cite{Handel2020} for  examples and guidelines for sound mathematical modelling in immunology and also for the free software R-package DSAIRM~\cite{dsairm2019} which allows to easily simulate and analyze a large variety of mathematical models of immune response.
 Among mathematical models that deal with aspects
 of RA, we can mention the following ones.
 In Seymour \textit{et al.}~\cite{seymour2001} a four differential equations model was introduced to describe the dynamics of the population of monocytes and the concentrations of three cytokines, namely IL-1, TNF-$\alpha$ and IL-10. 
@@ -77,9 +77,9 @@ In Jit \textit{et al.}~\cite{jit2005} RA versus systemic inflammatory response s
 The effect of TNF-$\alpha$ inhibitors like (s)TNFR2, Etanecerp, Infliximab was investigated.
 Baker \textit{et al.}~\cite{baker2013} introduced a model with pro-inﬂammation 
 (p) and anti-inﬂammation cells (a) and considered a system of two coupled differential equations for p and a. 
-More complex models exhibiting various types of  bifurcations were introduced in \cite{baker2017}. 
+More complex models exhibiting various types of  bifurcations were introduced in~\cite{baker2017}. 
 In Odisharia \textit{et al.}~\cite{jaiani2019} a five differential equations system was investigated to simulate the effect of tocilizumab on the populations of B and T-lymphocytes and cell population of cartilage.  
-There exist also spatialized models, see Friedman \textit{et al.}~\cite{friedman} where partial differential equations were used to model a joint (synovial fluid and cartilage) and  Macfarlane \textit{et al.} \cite{macfarlane2022}
+There exist also spatialized models, see Friedman \textit{et al.}~\cite{friedman} where partial differential equations were used to model a joint (synovial fluid and cartilage) and  Macfarlane \textit{et al.}~\cite{macfarlane2022}
  where an hybrid model was introduced to describe pannus formation in the arthritic joint.
 Effects of drugs such as inﬂiximab, which blocks TNF-$\alpha$; methotrexate
 which blocks cell growth, and tocilizumab
@@ -104,7 +104,7 @@ The paper ends with  Section~\ref{sec:conclusion} that includes concluding remar
 
 
 \section{Biological Model.}\label{sec:model}
-In the experimental mouse model of arthritis used in this study, namely the serum transfer arthritis (STA) model, see \cite{STA}, \cite{weihaupt26} and \cite{courties},
+In the experimental mouse model of arthritis used in this study, namely the serum transfer arthritis (STA) model, see~\cite{STA},~\cite{weihaupt26} and~\cite{courties},
  the acute inflammatory response is triggered by an external signal (the injection of an arthritogenic serum) 
  that activates the immune system and initiates an inflammatory response 
  within the joint tissue, which is composed of a lining (L) and sublining (SL) membrane.
@@ -149,21 +149,21 @@ The model is given by the following system of ordinary differential equations:
 \end{subequations}
 where $a,b,\alpha,\beta,\gamma, \delta_N, \delta_M$ are real positive parameters.
 
-Let us explain the meaning of each term in the system \eqref{eq:system}.
-The growth rate of the inflammatory signal $S(t)$ is enhanced by neutrophils $N$ (factor $a$) and inhibited by SL-TRM macrophages $T$ (factor $b$), which translates into the differential equation \eqref{eq:system:S}.
-Equation \eqref{eq:system:N} describes the dynamics of the neutrophils $N$.
+Let us explain the meaning of each term in the system~\eqref{eq:system}.
+The growth rate of the inflammatory signal $S(t)$ is enhanced by neutrophils $N$ (factor $a$) and inhibited by SL-TRM macrophages $T$ (factor $b$), which translates into the differential equation~\eqref{eq:system:S}.
+Equation~\eqref{eq:system:N} describes the dynamics of the neutrophils $N$.
  Neutrophils $N$ are recruited by the inflammatory signal $S$ (factor $\alpha$) and they have a nonlinear logistic self-limitation (factor $\delta_N$). This is modeled by the term $\delta_N N (N-1)$ in the equation for $N$,
 which is negative when N > 1 and positive when N < 1, hence in the absence of inflammation it tends to stabilize the
 population of neutrophils around its baseline level. 
-Equation \eqref{eq:system:M} describes the dynamics of the MoMac cells $M$. They are recruited from the blood stream at a  rate $\beta S$ proportional to the inflammatory signal. They have a logistic self-regulation mechanism analogous to that of neutrophils.
+Equation~\eqref{eq:system:M} describes the dynamics of the MoMac cells $M$. They are recruited from the blood stream at a  rate $\beta S$ proportional to the inflammatory signal. They have a logistic self-regulation mechanism analogous to that of neutrophils.
  Note that the linear rate $\beta S$ of recruitment of MoMac cells is not proportional to the current population of MoMac cells, which models the fact that the recruitment of MoMac cells from the blood stream is not directly influenced by the current population of MoMac cells in the joint, but rather by the level of inflammation.
 
-Equation \eqref{eq:system:T} describes the dynamics of the SL-TRM cells $T$. The SL-TRM cells $T$ are destroyed by the inflammatory signal at a rate $\gamma S$. When $T$ is less than 1, the term $\delta_M M (1-T)$ is positive and contributes to the growth of $T$, while when $T$ is greater than 1, this term becomes negative and contributes to the decrease of $T$. This models the fact that the population of SL-TRM cells is regulated by the population of MoMac cells, which can promote their proliferation when they are depleted, but can also inhibit them when they are in excess. 
+Equation~\eqref{eq:system:T} describes the dynamics of the SL-TRM cells $T$. The SL-TRM cells $T$ are destroyed by the inflammatory signal at a rate $\gamma S$. When $T$ is less than 1, the term $\delta_M M (1-T)$ is positive and contributes to the growth of $T$, while when $T$ is greater than 1, this term becomes negative and contributes to the decrease of $T$. This models the fact that the population of SL-TRM cells is regulated by the population of MoMac cells, which can promote their proliferation when they are depleted, but can also inhibit them when they are in excess. 
 
 
-In the system \eqref{eq:system}, we see that inflammation further increases neutrophils (factor $\alpha$), increases MoMac (factor $\beta$), and decreases SL-TRM (factor $\gamma$).
+In the system~\eqref{eq:system}, we see that inflammation further increases neutrophils (factor $\alpha$), increases MoMac (factor $\beta$), and decreases SL-TRM (factor $\gamma$).
 \begin{rem}
-The term $\delta_M M (1-T)$ in the equation for $T$ models  the stimulation of  SL-TRM cells by MoMac cells, which is supported by experimental evidence \cite{weihaupt26}.
+The term $\delta_M M (1-T)$ in the equation for $T$ models  the stimulation of  SL-TRM cells by MoMac cells, which is supported by experimental evidence~\cite{weihaupt26}.
 Note that we could have introduced another parameter $\delta_T\neq \delta_M$ in this equation for $T$, but we choose to avoid it, since analysis and numerical simulations showed us that it did not change the dynamics of the crisis.
 \end{rem}
 To make the model more intuitive, we provide a schematic representation of the interactions between the inflammatory signal and the three cell populations in Figure~\ref{fig:graphe}.
@@ -202,8 +202,7 @@ To make the model more intuitive, we provide a schematic representation of the i
         \draw[mid arrow, line width=1.5pt] (M.east) -- node[below, yshift=-2mm] {stimulation $(\delta_M)$} (T.west);
 
     \end{tikzpicture}
-\end{center}
-\label{fig:graphe}
+\end{center}\label{fig:graphe}
 \caption{Schematic representation of the model}
 \end{figure}
 
@@ -216,9 +215,9 @@ To make the model more intuitive, we provide a schematic representation of the i
 
 \section{Analysis of the model.}\label{sec:analysis}
 \subsection{Existence and non-negativity of the solution.}
-Existence and uniqueness of a local solution of the system \eqref{eq:system} is guaranteed by the Cauchy-Lipschitz theorem since the right-hand side of the system is locally Lipschitz continuous.
+Existence and uniqueness of a local solution of the system~\eqref{eq:system} is guaranteed by the Cauchy-Lipschitz theorem since the right-hand side of the system is locally Lipschitz continuous.
 \begin{proposition}\label{prop:positivity}
-If the initial conditions $S(0)$, $N(0)$, $M(0)$, and $T(0)$ are nonnegative, then the solution $(S(t), N(t), M(t), T(t))$ of the system \eqref{eq:system} remains nonnegative for all $t \geq 0$.   
+If the initial conditions $S(0)$, $N(0)$, $M(0)$, and $T(0)$ are nonnegative, then the solution $(S(t), N(t), M(t), T(t))$ of the system~\eqref{eq:system} remains nonnegative for all $t \geq 0$.   
 \end{proposition}
 \begin{proof}
 We consider the vector field $F=(f_1, f_2, f_3, f_4)$ for $y=(y_1, y_2, y_3, y_4)\in \mathbb{R}^4$ given by:
@@ -232,7 +231,7 @@ f_4(y) &= -\gamma y_1 y_4 + \delta_M y_3 (1 - y_4).
 \end{aligned}
 \right.
 \end{equation*}
-We observe that the vector field $F$ is \emph{quasi-positive}, i.e. for each $i=1,2,3,4$, we have $f_i(y) \geq 0$ whenever $y_i = 0$ and $y_j \geq 0$ for all $j \neq i$. Thus from Proposition 2.1 in \cite{haraux2016}, we deduce that if the initial conditions are nonnegative, then the solution remains nonnegative for all $t \geq 0$.
+We observe that the vector field $F$ is \emph{quasi-positive}, i.e.\ for each $i=1,2,3,4$, we have $f_i(y) \geq 0$ whenever $y_i = 0$ and $y_j \geq 0$ for all $j \neq i$. Thus from Proposition 2.1 in~\cite{haraux2016}, we deduce that if the initial conditions are nonnegative, then the solution remains nonnegative for all $t \geq 0$.
 \end{proof}
 This property is biologically meaningful since the variables $S$, $N$, $M$, and $T$ represent cell populations, which cannot be negative. Our model thus ensures that the solutions remain within the biologically relevant domain.       
 \subsection{Boundedness of the solution.}
@@ -284,7 +283,7 @@ T(t) - T(0) \leq (T(0) - T(0)) \exp{\int_0^t (-\gamma S(s) - \delta_M M(s)) ds} 
 which proves that $T(t) \leq T(0)$ for all $t \geq 0$.  
 \end{proof}
 About the variables $S$, $N$ and $M$, we did not  include degradation terms in the $S$, $N$ and  $M$ equations, which could ensure the boundedness of $S$, $N$ and $M$.
-    Indeed we shall see in Section \ref{sec:numerical_simulations} that in some cases the solution may not be bounded for all time, at least for $S$, $N$ and $M$.
+    Indeed we shall see in Section~\ref{sec:numerical_simulations} that in some cases the solution may not be bounded for all time, at least for $S$, $N$ and $M$.
      Actually we are interested in the  immune response to an external stimulus, which can lead to a very high level of inflammation and cell recruitment from the bloodstream or marrow. 
      The transient dynamics of the system can involve large variations in the levels of inflammation and cell populations, which may be shadowed by a model that includes degradation terms that dampens the growth of these variables.
     In our model, the solution may not be bounded for all time,
@@ -379,19 +378,19 @@ Furthermore, we will prove later that these equilibria points are unstable, so t
 %    \label{fig:intersections}
 %\end{figure}
 \subsubsection{Inflammatory equilibrium points ($S^* \neq 0$).}\label{sec:inflammatory_equilibria}
-We express $N^*$ in terms of $T^*$ from equation \eqref{eq:equilibrium_S}:
+We express $N^*$ in terms of $T^*$ from equation~\eqref{eq:equilibrium_S}:
 \begin{equation}
 N^* = \frac{b}{a} T^*
 \label{eq:N_in_terms_of_T}
 \end{equation}
-Substituting this expression for $N^*$ into equation \eqref{eq:equilibrium_N}, we obtain:
+Substituting this expression for $N^*$ into equation~\eqref{eq:equilibrium_N}, we obtain:
 \begin{equation}
 S^* = \frac{\delta_N}{\alpha} \left(\frac{b}{a} T^* - 1\right)
 \label{eq:S_in_terms_of_T}
 \end{equation}
-Since we are now looking for equilibria points with $S^* \neq 0$, \eqref{eq:equilibrium_M} and \eqref{eq:equilibrium_T} imply both $M^* \neq 1$ and $T^* \neq 1$.
+Since we are now looking for equilibria points with $S^* \neq 0$,~\eqref{eq:equilibrium_M} and~\eqref{eq:equilibrium_T} imply both $M^* \neq 1$ and $T^* \neq 1$.
  %Thus, we can express $M^*$ in terms of $S^*$ from equation \eqref{eq:equilibrium_M}: 
-From equation \eqref{eq:equilibrium_M} and equation \eqref{eq:equilibrium_T}, 
+From equation~\eqref{eq:equilibrium_M} and equation~\eqref{eq:equilibrium_T}, 
 we derive  $\delta_M M^* = \frac{\beta S^*}{M^* - 1}$ and $\delta_M M^* = \frac{\gamma S^* T^*}{1 - T^*}$.
 Equating these two expressions for $\delta_M M^*$, we obtain:
 \[\frac{\beta S^*}{M^* - 1} = \frac{\gamma S^* T^*}{1 - T^*}
@@ -405,17 +404,17 @@ M^* = 1 + \frac{\beta (1 - T^*)}{\gamma T^*} = 1 - \frac{\beta}{\gamma} + \frac{
 \label{eq:M_in_terms_of_T}
 \end{equation}  
 
-Substituting the expression for $M^*$  and $S^*$ into the last equation \eqref{eq:equilibrium_T}, we obtain 
+Substituting the expression for $M^*$  and $S^*$ into the last equation~\eqref{eq:equilibrium_T}, we obtain 
 \begin{equation}
   -\gamma \frac{\delta_N}{\alpha} \left(\frac{b}{a} T^* - 1\right) T^* + \delta_M \left(1 - \frac{\beta}{\gamma} + \frac{\beta}{\gamma T^*}\right) (1 - T^*) = 0      
 \end{equation}
 Since $T^* \neq 0$, we can multiply this equation by $T^*$ and rearrange the terms to obtain a cubic equation for $T^*$:
 \begin{equation}
-\frac{\gamma}{\alpha} \frac{\delta_N}{\delta_M} \frac{b}{a} (T^*)^3 + \left( 1-   \frac{\gamma}{\alpha} \frac{\delta_N}{\delta_M}  - \frac{\beta}{\gamma}\right) (T^*)^2 + \left( 2\frac{\beta}{\gamma} -1 \right) T^* - \frac{\beta}{\gamma} = 0
+\frac{\gamma}{\alpha} \frac{\delta_N}{\delta_M} \frac{b}{a} {(T^*)}^3 + \left( 1-   \frac{\gamma}{\alpha} \frac{\delta_N}{\delta_M}  - \frac{\beta}{\gamma}\right) {(T^*)}^2 + \left( 2\frac{\beta}{\gamma} -1 \right) T^* - \frac{\beta}{\gamma} = 0
 \end{equation}
-Rewriting this equation in the standard unitary form $(T^*)^3 + p (T^*)^2 + q T^* + r = 0$, we have:
+Rewriting this equation in the standard unitary form ${(T^*)}^3 + p {(T^*)}^2 + q T^* + r = 0$, we have:
 \begin{equation}
-\left(T^*\right)^3 + \frac{\alpha}{\gamma} \frac{\delta_M}{\delta_N} \frac{a}{b} \left(1- \frac{\beta}{\gamma} - \frac{\gamma}{\alpha} \frac{\delta_N}{\delta_M}\right) (T^*)^2 + \frac{\alpha}{\gamma} \frac{\delta_M}{\delta_N} \frac{a}{b} \left(2\frac{\beta}{\gamma} -1 \right) T^* - \frac{\alpha}{\gamma} \frac{\delta_M}{\delta_N} \frac{a}{b} \frac{\beta}{\gamma} = 0
+{\left(T^*\right)}^3 + \frac{\alpha}{\gamma} \frac{\delta_M}{\delta_N} \frac{a}{b} \left(1- \frac{\beta}{\gamma} - \frac{\gamma}{\alpha} \frac{\delta_N}{\delta_M}\right) {(T^*)}^2 + \frac{\alpha}{\gamma} \frac{\delta_M}{\delta_N} \frac{a}{b} \left(2\frac{\beta}{\gamma} -1 \right) T^* - \frac{\alpha}{\gamma} \frac{\delta_M}{\delta_N} \frac{a}{b} \frac{\beta}{\gamma} = 0
 \end{equation}
 Notice that we need only 3 \emph{non dimensional} parameters $a/b$, $\beta/\gamma$, $\displaystyle{\frac{\gamma \delta_N}{\alpha \delta_M}}$ instead of the 7 original parameters.
 %\begin{rem}
@@ -433,16 +432,16 @@ Interestingly, the parameters $A$, $B$, and $C$ have the following biological in
 \end{rem}
 Using these parameters, the cubic equation in $T^*$ becomes:
 \begin{equation} 
-\left(T^*\right)^3 +  \frac{A}{C}  \left(1- B- C \right) (T^*)^2 + \frac{A}{C} \left(2 B -1 \right) T^* - \frac{A B}{C} = 0
+{\left(T^*\right)}^3 +  \frac{A}{C}  \left(1- B- C \right) {(T^*)}^2 + \frac{A}{C} \left(2 B -1 \right) T^* - \frac{A B}{C} = 0
 \label{eq:cubic_T}
 \end{equation}
-\par\noindent We now determine the number of positive roots of the cubic equation \eqref{eq:cubic_T}.
+\par\noindent We now determine the number of positive roots of the cubic equation~\eqref{eq:cubic_T}.
 From basic algebra, we can show that there are at most 3 such intersection points, hence at most 3 equilibria points with $S^* \neq 0$. 
-We have to take into account here the biological feasibility which imposes the roots to be real nonnegative numbers, see proposition~\ref{prop:positivity}.
+We have to take into account the biological feasibility condition requiring the roots to be real and nonnegative, as stated in Proposition~\ref{prop:positivity}.
 Since $\frac{AB}{C} > 0$,  there is at least one positive root. 
 But we can be more precise using 
 \emph{Descartes' rule of signs}. It states that the number of positive real roots of a polynomial (counting multiplicities) is equal to the number of sign changes between consecutive nonzero coefficients, or less than that by an even number. 
-In our case, the coefficients of the cubic polynomial in \eqref{eq:cubic_T} are:
+In our case, the coefficients of the cubic polynomial in~\eqref{eq:cubic_T} are:
 \[1, \quad \frac{A}{C} \left(1- B- C \right), \quad \frac{A}{C} \left(2 B -1 \right), \quad - \frac{A B}{C}   \]  
 So the number of sign changes depends on the signs of the second and third coefficients.
 We have the following cases:
@@ -464,7 +463,7 @@ We have the following cases:
 %    \label{fig:cubics}
 %\end{figure}
 
-\par\noindent We can use Cardano's method to find the roots of the cubic equation \eqref{eq:cubic_T}. We rewrite it in the standard form:
+\par\noindent We can use Cardano's method to find the roots of the cubic equation~\eqref{eq:cubic_T}. We rewrite it in the standard form:
 \[ T^3 + p T^2 + q T + r = 0
 \]
 where
@@ -482,7 +481,7 @@ where
 \]
 The discriminant of this equation is given by:
 \[
-\Delta_3 = \left(\frac{\mathcal{B}}{2}\right)^2 + \left(\frac{\mathcal{A}}{3}\right)^3
+\Delta_3 = {\left(\frac{\mathcal{B}}{2}\right)}^2 + {\left(\frac{\mathcal{A}}{3}\right)}^3
 \]
 
 The nature of the roots depends on the sign of the discriminant $\Delta_3$:
@@ -492,19 +491,19 @@ The nature of the roots depends on the sign of the discriminant $\Delta_3$:
 \item If $\Delta_3 < 0$, all roots are real and unequal.
 \end{itemize}
 Hence we can characterize the case when we have three distinct real roots by the condition $\Delta_3 < 0$, which is equivalent to:
-\[ \left(\frac{\mathcal{A}}{3}\right)^3 < - \left(\frac{\mathcal{B}}{2}\right)^2.
+\[ {\left(\frac{\mathcal{A}}{3}\right)}^3 < - {\left(\frac{\mathcal{B}}{2}\right)}^2.
 \]
 The parameters $\mathcal{A}$ and $\mathcal{B}$ can be rewritten in terms of the original parameters  using computer algebra as follows:
 %%%% TO DO: compute again with sympy
 \[
-\mathcal{A}=\frac{A}{ 3 C^2} \Big(-A (B + C - 1)^2 + 3 C(2B - 1)\Big)
+\mathcal{A}=\frac{A}{ 3 C^2} \Big(-A {(B + C - 1)}^2 + 3 C(2B - 1)\Big)
 \]
 \[
-\mathcal{B}= \frac{A} {27 C^3} \Big(-2A^2 (B + C - 1)^3 + 9 A C (2 B - 1)(B + C - 1) - 27 B C^2\Big)
+\mathcal{B}= \frac{A} {27 C^3} \Big(-2A^2 {(B + C - 1)}^3 + 9 A C (2 B - 1)(B + C - 1) - 27 B C^2\Big)
 \]
 The discriminant $\Delta_3$ can be rewritten in terms of the original parameters as follows:
 \[
-\Delta_3 = \frac{A^2} {108 C^4} \Bigg(A^2 (4BC-1) (B + C - 1)^2 - 2AC (2B-1)(B^2-9BC-B-2) + 27 B^2 C^2\Bigg)
+\Delta_3 = \frac{A^2} {108 C^4} \Bigg(A^2 (4BC-1) {(B + C - 1)}^2 - 2AC (2B-1)(B^2-9BC-B-2) + 27 B^2 C^2\Bigg)
 \]
 \par\noindent
 
@@ -523,13 +522,12 @@ If $\Delta_3 = 0$, the real roots are given by:
 \[x_1^* = 2 \sqrt[3]{-\frac{\mathcal{B}}{2}}, \quad x_2^* = x_3^* =  \sqrt[3]{\frac{\mathcal{B}}{2}}
 \]
 \par\noindent
-Here we plot a case with three distinct positive roots (see figure \ref{fig:three_roots}).
+Here we plot a case with three distinct positive roots (see figure~\ref{fig:three_roots}).
 Namely we take $A = 1.1$, $B = 5$ and $C = \frac{2}{3}$ which gives $\Delta_3 \approx -0.49$.
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.6\textwidth]{three_roots.png}
-    \caption{Cubic equation with three distinct real roots.}
-    \label{fig:three_roots}
+    \caption{Cubic equation with three distinct real roots.}\label{fig:three_roots}
 \end{figure}
 % \begin{rem}
 %     there is an interesting phenomenon of potential \emph{bifurcation} when the parameters vary and the number of equilibria points changes. This is a topic for further study.
@@ -540,10 +538,10 @@ Namely we take $A = 1.1$, $B = 5$ and $C = \frac{2}{3}$ which gives $\Delta_3 \a
 Finally, we can recover the roots $T^*$ of the original cubic equation 
 using the relation $T^* = x^* - p/3$.
 \bigskip\\
-We have to make sure that the nonegative roots $T^*$ found are biologically feasible, i.e. that they lead to nonnegative values of $S^*$, $N^*$, and $M^*$.
-For instance in the case $A=1.1$, $B=5$, $C=2/3$ plotted in figure \ref{fig:three_roots}, we have three distinct positive roots of the cubic equation \eqref{eq:cubic_T},
+We have to make sure that the nonegative roots $T^*$ found are biologically feasible, i.e.\ that they lead to nonnegative values of $S^*$, $N^*$, and $M^*$.
+For instance in the case $A=1.1$, $B=5$, $C=2/3$ plotted in figure~\ref{fig:three_roots}, we have three distinct positive roots of the cubic equation~\eqref{eq:cubic_T},
 but none satisfying the biological feasibility conditions.\smallskip\\
-From equations \eqref{eq:N_in_terms_of_T}, \eqref{eq:S_in_terms_of_T}, and \eqref{eq:M_in_terms_of_T}, we have: 
+From equations~\eqref{eq:N_in_terms_of_T},~\eqref{eq:S_in_terms_of_T}, and~\eqref{eq:M_in_terms_of_T}, we have: 
 \[N^* = \frac{b}{a} T^*, \quad S^* = \frac{\delta_N}{\alpha} \left(\frac{b}{a} T^* - 1\right), \quad M^* = 1 - \frac{\beta}{\gamma} + \frac{\beta}{\gamma T^*}
 \]
 Thus, the conditions for biological feasibility are:
@@ -558,32 +556,32 @@ So the biological feasibility conditions can be summarized as follows:
 &A  \leq  T^*   \leq  \frac{B}{B-1}&  \text{if } B > 1. \label{feas_T2}
 \end{align}
 \begin{rem}
-In the case $B>1$, if $A > \frac{B}{B-1}$, then     the feasibility condition \eqref{feas_T2} cannot be satisfied and there is no feasible root. In the limit case $A = \frac{B}{B-1}$, the only feasible root is $T^* = A = \frac{B}{B-1}$
- which corresponds to $S^* = 0$, $N^* = 1$, $M^* = 0$ which has already been found in the inflammation-free section \ref{sec:disease_free}. In the rest of this section, we will assume that $A < \frac{B}{B-1}$ if $B > 1$.
+In the case $B>1$, if $A > \frac{B}{B-1}$, then     the feasibility condition~\eqref{feas_T2} cannot be satisfied and there is no feasible root. In the limit case $A = \frac{B}{B-1}$, the only feasible root is $T^* = A = \frac{B}{B-1}$
+ which corresponds to $S^* = 0$, $N^* = 1$, $M^* = 0$ which has already been found in the inflammation-free section~\ref{sec:disease_free}. In the rest of this section, we will assume that $A < \frac{B}{B-1}$ if $B > 1$.
 \end{rem}
 Let us consider first the particular case $A = a/b = 1$. In this case, we have an obvious solution $T^* = 1$ which corresponds to the disease-free equilibrium point.
 Therefore we can factor the cubic polynomial as follows:
     \begin{equation}
-    (T^* - 1) \left( (T^*)^2 - \frac{1}{C} (B - 1) T^* + \frac{B}{C} \right) = 0.
+    (T^* - 1) \left( {(T^*)}^2 - \frac{1}{C} (B - 1) T^* + \frac{B}{C} \right) = 0.
     \label{eq:factored_cubic}
     \end{equation}
- If $B \leq 1$, all the coefficient of the quadratic polynomial are positive, so there is only one equilibrium, the disease-free $(S^*, N^*, M^*, T^*) = (0, 1, 1, 1).$ 
- Otherwise if $B>1$ the feasibility condition \eqref{feas_T2} reads:
+ If $B \leq 1$, all the coefficient of the quadratic polynomial are positive, so there is only one equilibrium, the disease-free $(S^*, N^*, M^*, T^*) = (0, 1, 1, 1)$. 
+ Otherwise if $B>1$ the feasibility condition~\eqref{feas_T2} reads:
 \begin{equation}
 1 \leq T^* \leq \frac{B}{B-1}.
 \end{equation}
  We can check easily that only the disease-free root $T^* = 1$ satisfies this condition, while the other two roots are outside this interval.
- Indeed if the discriminant of the quadratic factor $\Delta = \frac{(B-1)^2 - 4BC}{C^2}$ is non-negative, we have $C \leq \frac{(B-1)^2}{4B}$, 
+ Indeed if the discriminant of the quadratic factor $\Delta = \frac{{(B-1)}^2 - 4BC}{C^2}$ is non-negative, we have $C \leq \frac{{(B-1)}^2}{4B}$, 
  hence $\frac{B-1}{2C} \geq  \frac{2B}{B-1}$ thus the root $T_+^* = \frac{B-1}{2C} + \frac{\sqrt{\Delta}}{2} \geq \frac{2B}{B-1} > \frac{B}{B-1}  $ is not feasible.
- Consider the other root $T_-^* = \frac{B-1}{2C} - \frac{\sqrt{\Delta}}{2}.$
- Should this root be feasible, we would have $ T_-^* \leq \frac{B}{B-1}$. Since $T_+^* > \frac{B}{B-1}$, the quadratic factor would have to be negative or zero at $T^* = \frac{B}{B-1}$. But we have: $\left(\frac{B}{B-1}\right)^2 - \frac{1}{C} (B - 1) \frac{B}{B-1} + \frac{B}{C} = \frac{B^2}{(B-1)^2} > 0$ so the root $T_-^*$ is not feasible either.  
+ Consider the other root $T_-^* = \frac{B-1}{2C} - \frac{\sqrt{\Delta}}{2}$.
+ Should this root be feasible, we would have $ T_-^* \leq \frac{B}{B-1}$. Since $T_+^* > \frac{B}{B-1}$, the quadratic factor would have to be negative or zero at $T^* = \frac{B}{B-1}$. But we have: ${\left(\frac{B}{B-1}\right)}^2 - \frac{1}{C} (B - 1) \frac{B}{B-1} + \frac{B}{C} = \frac{B^2}{{(B-1)}^2} > 0$ so the root $T_-^*$ is not feasible either.  
 \bigskip\\
-In the general case $A \neq 1$, the feasibility conditions \eqref{feas_T1}-\eqref{feas_T2} have to be checked for each positive root found. 
-For $A>1$, we will show that none of the positive roots satisfy the feasibility conditions (like in figure \ref{fig:three_roots}) whereas for $A<1$, there is always exactly one feasible root (in addition to the disease-free equilibrium). 
+In the general case $A \neq 1$, the feasibility conditions~\eqref{feas_T1}-\eqref{feas_T2} have to be checked for each positive root found. 
+For $A>1$, we will show that none of the positive roots satisfy the feasibility conditions (like in figure~\ref{fig:three_roots}) whereas for $A<1$, there is always exactly one feasible root (in addition to the disease-free equilibrium). 
 To this aim, we consider four cases  depending on the signs of $A - 1$ and $B - 1$.
 \begin{description}
 \item[-] Case $A > 1$ and $B \geq 1$.\\ 
-Let us define $f(T^*)$ as the cubic polynomial in the left-hand side of equation \eqref{eq:cubic_T}. 
+Let us define $f(T^*)$ as the cubic polynomial in the left-hand side of equation~\eqref{eq:cubic_T}. 
 If $B>1$ we have
 \begin{eqnarray*}
 f(T^*)&=&{T^*}^3-\frac{A}{C}(B-1){T^*}^2-A{T^*}^2+\frac{A}{C}(B-1)T^*+\frac{A}{C}BT^*-\frac{AB}{C}\\\nonumber
@@ -591,7 +589,7 @@ f(T^*)&=&{T^*}^3-\frac{A}{C}(B-1){T^*}^2-A{T^*}^2+\frac{A}{C}(B-1)T^*+\frac{A}{C
 \end{eqnarray*} 
 So $f(T^*)>0$, for $T^* \in [A, \frac{B}{B-1}]$  if $B>1$.\\
 If $B=1$ then $f(T^*)={T^*}^2(T^*-A)+\frac{A}{C}(T^*-1)>0$ for $T^*>A$.\\
-Hence, thanks to \eqref{feas_T1} and \eqref{feas_T2}, there is no feasible root in this case.
+Hence, thanks to~\eqref{feas_T1} and~\eqref{feas_T2}, there is no feasible root in this case.
 \item[-] Case $A > 1$ and $B < 1$.
 Since \begin{eqnarray*}
 f(T^*)=\frac{A}{C}(B-1)(T^*-\frac{B}{B-1})(1-T^*)+{T^*}^2(T^*-A)&>&0
@@ -616,7 +614,7 @@ Let $\tilde{T}=T^*-A$ and $\tilde{f}(\tilde{T})=f(\tilde{T}+A)$. Then the equati
     =\tilde{T}^3+\left(2A+\frac{A}{C}(1-B)\right)\tilde{T}^2&+&\left(A^2+2\frac{A^2}{C}(1-B)+\frac{A}{C}(2B-1)\right)\tilde{T}\\
     &+&\frac{A}{C}(A-1)\left(A(1-B)+B\right)=0.
     \end{eqnarray*}
-    Using {\sl Descartes' rule of signs} we can see that there is exactly one positive root $\tilde{T}$ 
+    Using \textsl{Descartes' rule of signs} we can see that there is exactly one positive root $\tilde{T}$ 
     of the cubic equation $\tilde{f}(\tilde{T})=0$  as the coefficients of $\tilde{T}^3$ and $\tilde{T}^2$ are positive and the constant term is negative. 
     So there is exactly one feasible root $T^*\geq A$ in this case too.
 \end{description}
@@ -701,7 +699,7 @@ J|_{(S^*, N^*, M^*, T^*) = (0, 0, 0, R)} =
 -\gamma R & 0 & \delta_M (1 - R) & 0
 \end{pmatrix}
 \]
-The eigenvalues of this matrix are $-b R$, $\delta_N$, $\delta_M$, and $0$. Since $\delta_N$ and $\delta_M$ are positive, this equilibrium point is unstable. Even if the immune signal will decrease exponentially fast, the populations of neutrophiles and MoMac will grow out of bound. This unstable equilibrium where the population of neutrophiles and MoMac is zero is  not physiologically relevant and will not be observed in practice, see Remark \ref{rem:vanishing}.
+The eigenvalues of this matrix are $-b R$, $\delta_N$, $\delta_M$, and $0$. Since $\delta_N$ and $\delta_M$ are positive, this equilibrium point is unstable. Even if the immune signal will decrease exponentially fast, the populations of neutrophiles and MoMac will grow out of bound. This unstable equilibrium where the population of neutrophiles and MoMac is zero is  not physiologically relevant and will not be observed in practice, see Remark~\ref{rem:vanishing}.
 \item For $(S^* = 0, N^* = 0, M^* = 1, T^* = 1)$, the Jacobian matrix is:
 \[
 J|_{(S^*, N^*, M^*, T^*) = (0, 0, 1, 1)} =
@@ -712,7 +710,7 @@ J|_{(S^*, N^*, M^*, T^*) = (0, 0, 1, 1)} =
 -\gamma & 0 & 0 & -\delta_M
 \end{pmatrix}
 \]
-The eigenvalues of this matrix are $-b$, $\delta_N$, $-\delta_M$, and $-\gamma$. Since there is a positive eigenvalue , this equilibrium point is unstable. Neutrophiles can grow out of bound. This equilibrium where the population of neutrophiles is zero will not be observed in practice neither, see Remark \ref{rem:vanishing}.
+The eigenvalues of this matrix are $-b$, $\delta_N$, $-\delta_M$, and $-\gamma$. Since there is a positive eigenvalue, this equilibrium point is unstable. Neutrophiles can grow out of bound. This equilibrium where the population of neutrophiles is zero will not be observed in practice neither, see Remark~\ref{rem:vanishing}.
 \item For $(S^* = 0, N^* = 1, M^* = 0, T^* = R)$, with arbitrary $R$, the Jacobian matrix is
 \[
 J|_{(S^*, N^*, M^*, T^*) = (0, 1, 0, R)} =
@@ -723,11 +721,11 @@ a - b R & 0 & 0 & 0 \\
 -\gamma R & 0 & \delta_M (1 - R) & 0
 \end{pmatrix}
 \]
-There is a positive eigenvalue $\delta_M$, hence this equilibrium point is unstable. MoMac can grow out of bound. This equilibrium  where the population of MoMac is zero will not be observed in practice neither, see Remark \ref{rem:vanishing}.
+There is a positive eigenvalue $\delta_M$, hence this equilibrium point is unstable. MoMac can grow out of bound. This equilibrium  where the population of MoMac is zero will not be observed in practice neither, see Remark~\ref{rem:vanishing}.
 \end{itemize}
 \subsubsection{Stability of inflammatory equilibrium points ($S^*\neq 0$).}
 The stability of the equilibria with $S^* \neq 0$ can be analyzed similarly by evaluating the Jacobian matrix at those points and determining the eigenvalues.
-Taking into account the equilibrium equations \eqref{eq:equilibrium_S}, \eqref{eq:equilibrium_N}, and \eqref{eq:equilibrium_T}, the Jacobian matrix at $(S^*, N^*, M^*, T^*)$ is:
+Taking into account the equilibrium equations~\eqref{eq:equilibrium_S},~\eqref{eq:equilibrium_N}, and~\eqref{eq:equilibrium_T}, the Jacobian matrix at $(S^*, N^*, M^*, T^*)$ is:
 
 \[
 J = \begin{pmatrix}
@@ -763,25 +761,24 @@ and
  b S\gamma T < {\delta_M}^2(2M-1)\frac{M}{T}.
 \label{ineq2}
 \end{equation}
-Inequality \eqref{ineq1} implies that 
+Inequality~\eqref{ineq1} implies that 
 \begin{equation}\label{ineq3}
 a S \alpha N < a S \alpha N\left(\frac{{\delta_M}^2 {(2M-1+\frac{M}{T}) }^2}{{\delta_M}^2(2M-1)\frac{M}{T}}\right)<\delta_N N \delta_M (2M-1+\frac{M}{T}).
 \end{equation}
-Due to \eqref{ineq2} and \eqref{ineq3}, the coefficient of $\lambda^2$ is positive.
+Due to~\eqref{ineq2} and~\eqref{ineq3}, the coefficient of $\lambda^2$ is positive.
 \par\noindent
-This proves that biologically feasible equilibrium with $S^* \neq 0$, which only exists if $A<1$ see section \ref{sec:inflammatory_equilibria},  is unstable.
-For $A\geq 1$ the only biologically feasible equilibrium is the disease-free equilibrium which is unstable, as we have seen in section \ref{sec:stab}.
+This proves that biologically feasible equilibrium with $S^* \neq 0$, which only exists if $A<1$ see section~\ref{sec:inflammatory_equilibria},  is unstable.
+For $A\geq 1$ the only biologically feasible equilibrium is the disease-free equilibrium which is unstable, as we have seen in section~\ref{sec:stab}.
 
 \subsection{Bifurcation diagram.}
 We perform here a bifurcation analysis with respect to the \emph{non dimensional} parameters $A=a/b$. Naturally, we restrict our analysis to the biologically relevant feasible equilibria.
 From the stability analysis above, we see that we  have only one  bifurcation at  $A=1$: for $A<1$ there are two biologically feasible equilibria, one  inflammatory one with $S^* \neq 0$ which is unstable and the disease-free equilibrium which  is stable; 
 for $A\geq 1$ the disease-free equilibrium is unstable and there is no other biologically feasible equilibrium.
 The number and stability of equilibria change as the parameter $A$ crosses the critical value $A=1$, indicating bifurcation points in the system's dynamics.   
-We can plot the bifurcation diagram in the $(A,S^*)$ plane (see figure \ref{fig:bifurcation}).
+We can plot the bifurcation diagram in the $(A,S^*)$ plane (see figure~\ref{fig:bifurcation}).
 \begin{figure}
  \includegraphics[scale=0.5]{bifurcation.png}      
- \caption{Bifurcation diagram in the $(A,T^*)$ plane.}
- \label{fig:bifurcation}
+ \caption{Bifurcation diagram in the $(A,T^*)$ plane.}\label{fig:bifurcation}
 \end{figure}
 %\par\noindent
 %\bigskip\\
@@ -821,15 +818,13 @@ $\alpha=1,\, \beta=1,\, \gamma=1,\,
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=.7\textwidth]{A=0,35.png}
-    \caption{A=0.35}
-    \label{035}
+    \caption{$A=0.35$}\label{035}
 \end{figure}
 First let us take $a=0.38$, keeping the other parameters unchanged.
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=.7\textwidth]{A=0,38.png}
-    \caption{A=0.38}
-    \label{038}
+    \caption{$A=0.38$}\label{038}
 \end{figure}
 We see clearly  in fig.~\ref{035} that for $A=0.35 < 1$ the system converges to the disease-free equilibrium, whereas for $A=0.38$ the system diverges away from this equilibrium, indicating a persistent inflammatory state, see fig.~\ref{038}. 
 We can also decrease the initial immune signal $S(0)$ to see if the system converges to the disease-free equilibrium or diverges away from it.
@@ -837,8 +832,7 @@ Halving the initial immune signal i.e.~taking $S(0)=0.5$ and $A=0.38$, we obtain
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=.7\textwidth]{A=0,38_S0=0,5.png}
-    \caption{A=0.38, S(0)=0.5}
-    \label{038_05}
+    \caption{$A=0.38, S(0)=0.5$}\label{038_05}
 \end{figure}
 We see in fig.~\ref{038_05} that even if $A=0.38$, the system converges to the disease-free equilibrium, indicating that the initial immune signal is not strong enough to trigger a persistent inflammatory state.
 Keeping the same halved initial immune signal, $S(0)=0.5$, 
@@ -846,22 +840,19 @@ and the same $N(0)=1$ and $A=0.38$, but starting from an immunocompromised state
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=.7\textwidth]{A=0,38_S0=0,5_M=0,1_T=0,05.png}
-    \caption{A=0.38, immunocompromised initial conditions}
-    \label{038_depressed}
+    \caption{$A=0.38$, immunocompromised initial conditions}\label{038_depressed}
 \end{figure}
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=.7\textwidth]{A=0,072_S0=5.png}
-    \caption{A=0.072, S(0)=5}
-    \label{A=0,072}
+    \caption{$A=0.072, S(0)=5$}\label{A=0,072}
 \end{figure}
 We can also start from a very high initial immune signal, taking $S(0)=5,\, N(0)=1, \,M(0)=1,\, T(0)=1$ and $A=0.072$. We observe in fig.~\ref{A=0,072} that the system returns to the disease-free equilibrium, indicating that even if the initial immune signal is high, the system can still heal when $A=0.072 \ll 1$.
 But if we slightly increase $A$ to $A=0.073$, keeping the other parameters unchanged, we observe in fig.~\ref{A=0,073} that the system diverges away from the disease-free equilibrium, indicating a persistent inflammatory state.
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=.7\textwidth]{A=0,073_S0=5.png}
-    \caption{A=0.073, S(0)=5}
-    \label{A=0,073}
+    \caption{$A=0.073, S(0)=5$}\label{A=0,073}
 \end{figure}
 To see how the parameter $A=a/b$ controls the healing prognosis
 we plot in fig.~\ref{heal} a $(A,S)$ plane figure where for each value of $A$ and starting value $(S(0)=S,N=1,M=1,T=1)$
@@ -871,8 +862,7 @@ we plot in fig.~\ref{heal} a $(A,S)$ plane figure where for each value of $A$ an
  \begin{figure}[!htbp]
     \centering
     \includegraphics[scale=0.5]{phase_plane_classification.png}
-    \caption{Healing w.r.t. $A=a/b$ and initial dose of immune signal $S$}
-    \label{heal}
+    \caption{Healing w.r.t. $A=a/b$ and initial dose of immune signal $S$}\label{heal}
 \end{figure}
 We notice that for $A<1$, the system converges to the disease-free equilibrium provided that the   initial immune signal $S(0)$ is below a given threshold.
  This threshold increases as $A$ decreases, meaning that the system can tolerate higher initial immune signals and still come back  to the disease-free equilibrium when $A$ is small enough.
@@ -931,142 +921,142 @@ We acknowledge the support of Immun4Cure University Hospital Institute ``Institu
 \begin{thebibliography}{9}
 % 2001
 \bibitem{perko}
-Perko  L. (2001)
-\newblock Differential Equations and Dynamical Systems, third edition
-\newblock \emph{Springer}.
+Perko L. (2001)
+\newblock{Differential Equations and Dynamical Systems, third edition}
+\newblock{\emph{Springer}.}
 % 2001
 \bibitem{seymour2001}
 Seymour R.M. and Anderson B. (2001)
-\newblock Pro-inflammatory–anti-inflammatory cytokine dynamics
-mediated by cytokine-receptor dynamics in monocytes.
-\newblock \emph{IMA Journal of Mathematics Applied in Medicine and Biology}, 
-  18, 159--192.
-\newblock \url{https://doi.org/10.1093/imammb/18.2.159}
+\newblock{Pro-inflammatory–anti-inflammatory cytokine dynamics
+mediated by cytokine-receptor dynamics in monocytes.}
+\newblock{\emph{IMA Journal of Mathematics Applied in Medicine and Biology}, 
+  18, 159--192.}
+\newblock{\url{https://doi.org/10.1093/imammb/18.2.159}}
 % 2005
 \bibitem{jit2005}
 Jit M., \textit{et al.} (2005)% ode compartement
-\newblock Mathematical modelling of rheumatoid arthritis.
-\newblock \emph{Rheumatology}, 44, 323--331.
-\newblock \url{https://doi.org/10.1093/rheumatology/keh491}
+\newblock{Mathematical modelling of rheumatoid arthritis.}
+\newblock{\emph{Rheumatology}, 44, 323--331.}
+\newblock{\url{https://doi.org/10.1093/rheumatology/keh491}}
 % 2007
 \bibitem{andrew}
  Andrew  S.M.,
 Baker C.T.H.,
 Bocharov G.A. (2007)
-\newblock Rival approaches to mathematical modelling in immunology.
-\newblock \emph{Journal of computational and applied mathematics}, 205, 669--686.
-\newblock \url{https://doi.org/10.1016/j.cam.2006.03.035}
+\newblock{Rival approaches to mathematical modelling in immunology.}
+\newblock{\emph{Journal of computational and applied mathematics}, 205, 669--686.}
+\newblock{\url{https://doi.org/10.1016/j.cam.2006.03.035}}
 
 % 2013
 \bibitem{baker2013}
 Baker M., \textit{et al.} (2013)
-\newblock Mathematical modelling of cytokine-mediated inflammation in rheumatoid arthritis.
-\newblock \emph{Mathematical Medicine and Biology}, 30, 311--337. 
-\newblock \url{https://doi.org/10.1093/imammb/dqs026}
+\newblock{Mathematical modelling of cytokine-mediated inflammation in rheumatoid arthritis.}
+\newblock{\emph{Mathematical Medicine and Biology}, 30, 311--337.} 
+\newblock{\url{https://doi.org/10.1093/imammb/dqs026}}
 % 2016
 \bibitem{haraux2016}
 Haraux A. (2016)
-\newblock A simple characterization of positivity preserving semi-linear parabolic systems. 
-\newblock \emph{J. Korean Math. Soc.} 54,  1817--1828.
-\newblock \url{https://doi.org/10.4134/JKMS.j160701}
+\newblock{A simple characterization of positivity preserving semi-linear parabolic systems.} 
+\newblock{\emph{J. Korean Math. Soc.} 54,  1817--1828.}
+\newblock{\url{https://doi.org/10.4134/JKMS.j160701}}
 \bibitem{STA}
 Christensen A.D., Haase C., Cook A.D. and Hamilton J.A. (2016)
-\newblock K/BxN Serum-Transfer Arthritis as a Model for Human Inflammatory Arthritis.
-\newblock \emph{Front. Immunol.} 7, 213. 
-\newblock \url{https://doi.org/10.3389/fimmu.2016.00213}
+\newblock{K/BxN Serum-Transfer Arthritis as a Model for Human Inflammatory Arthritis.}
+\newblock{\emph{Front. Immunol.} 7, 213.} 
+\newblock{\url{https://doi.org/10.3389/fimmu.2016.00213}}
 % 2017
 \bibitem{baker2017} %ode compartement
 Baker M., \textit{et al.} (2017)
-\newblock Mathematical modelling of cytokines, MMPs and
-fibronectin fragments in osteoarthritic cartilage.
-\newblock \emph{Journal of Mathematical Biology}, 75, 985--1024.
-\newblock \url{https://doi.org/10.1007/s00285-017-1104-y}
+\newblock{Mathematical modelling of cytokines, MMPs and
+fibronectin fragments in osteoarthritic cartilage.}
+\newblock{\emph{Journal of Mathematical Biology}, 75, 985--1024.}
+\newblock{\url{https://doi.org/10.1007/s00285-017-1104-y}}
 
 % 2018
 \bibitem{zhou2018}
-Zhou X., \textit{et al.} (2018)% ode compartement
-\newblock Circuit Design Features of a Stable Two-Cell System.
-\newblock \emph{Cell}, 172, 744--757.
-\newblock \url{https://doi.org/10.1016/j.cell.2018.01.015}
+Zhou X., \textit{et al.} (2018) % ode compartement
+\newblock{Circuit Design Features of a Stable Two-Cell System.}
+\newblock{\emph{Cell}, 172, 744--757.}
+\newblock{\url{https://doi.org/10.1016/j.cell.2018.01.015}}
 
 % 2019
 \bibitem{dsairm2019}
 Handel A., \textit{et al.} (2019)
-\newblock Software DSAIRM: dynamical systems
-approach to immune response modeling. GitHub
-\newblock\url{https://ahgroup.github.io/DSAIRM/}
+\newblock{Software DSAIRM: dynamical systems
+approach to immune response modeling.} GitHub
+\newblock{\url{https://ahgroup.github.io/DSAIRM/}}
 
 \bibitem{friedman}
 Moise N. and Friedman A. (2019)
-\newblock Rheumatoid arthritis, a mathematical model. 
-\newblock \emph{J. Theoret. Biol.}, 461, 17--33.
-\newblock \url{https://doi.org/10.1016/j.jtbi.2018.10.039}
+\newblock{Rheumatoid arthritis, a mathematical model.} 
+\newblock{\emph{J. Theoret. Biol.}, 461, 17--33.}
+\newblock{\url{https://doi.org/10.1016/j.jtbi.2018.10.039}}
 
 \bibitem{jaiani2019}%ode compartement
 Odisharia K.,  Odisharia V.,  Tsereteli P., 
 and  Janikashvili N. (2019)
-\newblock On the Mathematical Model of Drug
-Treatment of Rheumatoid Arthritis
-\newblock In
-Jaiani G and Natroshvili D (eds.).
-\newblock Mathematics, Informatics, and their Applications in Natural Sciences and Engineering AMINSE 2017.
-\newblock \emph{Springer Proceedings in Mathematics \& Statistics}, 276.
-\newblock \url{https://doi.org/10.1007/978-3-030-10419-1_10}
+\newblock{On the Mathematical Model of Drug
+Treatment of Rheumatoid Arthritis}
+\newblock{In}
+\newblock{Jaiani G and Natroshvili D (eds.).}
+\newblock{Mathematics, Informatics, and their Applications in Natural Sciences and Engineering AMINSE 2017.}
+\newblock{\emph{Springer Proceedings in Mathematics \& Statistics}, 276.}
+\newblock{\url{https://doi.org/10.1007/978-3-030-10419-1_10}}
 
 % 2020
 \bibitem{Handel2020}%review
 Handel A., \textit{et al.}   (2020)
-\newblock Simulation modelling for immunologists
-\newblock \emph{Nature Reviews Immunology}, 20, 186--195. 
-\newblock\url{https://doi.org/10.1038/s41577-019-0235-3}
+\newblock{Simulation modelling for immunologists}
+\newblock{\emph{Nature Reviews Immunology}, 20, 186--195.} 
+\newblock{\url{https://doi.org/10.1038/s41577-019-0235-3}}
 % 
 \bibitem{macfarlane2020}
  Macfarlane F.R.,  Chaplain M.A.J., Eftimie R. (2020)
-\newblock Quantitative Predictive Modelling Approaches to
-Understanding Rheumatoid Arthritis: A Brief Review
-\newblock \emph{Cell}, 9, 74. 
-\newblock \url{https://doi.org/10.3390/cells9010074}
+\newblock{Quantitative Predictive Modelling Approaches to
+Understanding Rheumatoid Arthritis: A Brief Review}
+\newblock{\emph{Cell}, 9, 74.} 
+\newblock{\url{https://doi.org/10.3390/cells9010074}}
 % 2022
 \bibitem{macfarlane2022} %review
 Macfarlane F.R., Chaplain  M.A.J., Eftimie R. (2022)
-\newblock Modelling rheumatoid arthritis: A hybrid model of pannus formation in a small joint.  
-\newblock \emph{Immunoinformatics}, 6, 100014. 
- \newblock \url{https://doi.org/10.1016/j.immuno.2022.100014}
+\newblock{Modelling rheumatoid arthritis: A hybrid model of pannus formation in a small joint.}  
+\newblock{\emph{Immunoinformatics}, 6, 100014.} 
+ \newblock{\url{https://doi.org/10.1016/j.immuno.2022.100014}}
 
 % 2024
 \bibitem{frontiers2024} %review
 Ugolkov Y., \textit{et al.} (2024)
-\newblock Mathematical modeling in
-autoimmune diseases: from theory to clinical application
-\newblock \emph{Front. Immunol.}, 15, 1371620. 
-\newblock\url{https://doi.org/10.3389/fimmu.2024.1371620}
+\newblock{Mathematical modeling in
+autoimmune diseases: from theory to clinical application}
+\newblock{\emph{Front. Immunol.}, 15, 1371620.} 
+\newblock{\url{https://doi.org/10.3389/fimmu.2024.1371620}}
 
 \bibitem{relouw}
  Relouw F.J.A.,    Kox M.,  Taal H.R.,  \textit{et al.}
 (2024)
-\newblock Mathematical model of the inﬂammatory
+\newblock{Mathematical model of the inﬂammatory
 response to acute and prolonged
-lipopolysaccharide exposure in humans
-\newblock \emph{npj|Systems Biology and Applications} 10, 146.
-\newblock \url{https://doi.org/10.1038/s41540-024-00473-y}
+lipopolysaccharide exposure in humans}
+\newblock{\emph{npj|Systems Biology and Applications} 10, 146.}
+\newblock{\url{https://doi.org/10.1038/s41540-024-00473-y}}
 
 \bibitem{torres2024}
 Ciuperca I., Pujo-Menjouet L., 
 Matar-Tine L., Torres N., Volpert V. (2024)
-\newblock A qualitative analysis of an A$\beta$-monomer model with inflammation processes for Alzheimer’s
-disease.
-\newblock \emph{R. Soc. Open Sci.}, 11, 231536.
-\newblock \url{https://doi.org/10.1098/rsos.231536}
+\newblock{A qualitative analysis of an A$\beta$-monomer model with inflammation processes for Alzheimer’s
+disease.}
+\newblock{\emph{R. Soc. Open Sci.}, 11, 231536.}
+\newblock{\url{https://doi.org/10.1098/rsos.231536}}
 %2026
 
 \bibitem{weihaupt26}
 Weishaupt K., \textit{et al.}  (2026)
-\newblock Spatiotemporal molecular profiling of macrophage-fibroblast crosstalk defines checkpoints orchestrating onset and resolution of inflammation
-\newblock \emph{Cell Reports},  45, 117091.
-\newblock \url{https://doi.org/10.1016/j.celrep.2026.117091}
+\newblock{Spatiotemporal molecular profiling of macrophage-fibroblast crosstalk defines checkpoints orchestrating onset and resolution of inflammation}
+\newblock{\emph{Cell Reports},  45, 117091.}
+\newblock{\url{https://doi.org/10.1016/j.celrep.2026.117091}}
 
 \bibitem{courties}Courties G., \textit{et al.} 
-\newblock in preparation
+\newblock{in preparation}
  
 \end{thebibliography}
 
