@@ -163,7 +163,7 @@ Equation~\eqref{eq:system:T} describes the dynamics of the SL-TRM cells $T$. The
 
 In the system~\eqref{eq:system}, we see that inflammation further increases neutrophils (factor $\alpha$), increases MoMac (factor $\beta$), and decreases SL-TRM (factor $\gamma$).
 \begin{rem}
-The term $\delta_M M (1-T)$ in the equation for $T$ models  the stimulation of  SL-TRM cells by MoMac cells, which is supported by experimental evidence~\cite{weihaupt26}.
+The term $\delta_M M (1-T)$ in the equation for $T$ models  the stimulation of  SL-TRM cells by MoMac cells, which is supported by experimental evidence~\cite{STA},\cite{weihaupt26}.
 Note that we could have introduced another parameter $\delta_T\neq \delta_M$ in this equation for $T$, but we choose to avoid it, since analysis and numerical simulations showed us that it did not change the dynamics of the crisis.
 \end{rem}
 To make the model more intuitive, we provide a schematic representation of the interactions between the inflammatory signal and the three cell populations in Figure~\ref{fig:graphe}.
@@ -202,8 +202,8 @@ To make the model more intuitive, we provide a schematic representation of the i
         \draw[mid arrow, line width=1.5pt] (M.east) -- node[below, yshift=-2mm] {stimulation $(\delta_M)$} (T.west);
 
     \end{tikzpicture}
-\end{center}\label{fig:graphe}
-\caption{Schematic representation of the model}
+\end{center}
+\caption{Schematic representation of the model}\label{fig:graphe}
 \end{figure}
 
 \bigskip
@@ -427,7 +427,7 @@ Interestingly, the parameters $A$, $B$, and $C$ have the following biological in
 \begin{itemize}
     \item $A = a/b$. This parameter represents the ratio of the inflammatory effect of the neutrophils with respect to the anti-inflammatory effect of the macrophages, see equation~\eqref{eq:system:S}.
     \item $B = \beta/\gamma$. This parameter represents the ratio of the increasing rate of the MoMac to the decreasing rate of the macrophage cell population, see equations~\eqref{eq:system:M}-\eqref{eq:system:T}.
-    \item $C = \frac{\gamma \,\delta_N}{\alpha\,\delta_M} = \left[\frac{\gamma}{\delta_M} : \frac{\alpha}{\delta_N}\right]$. This parameter represents the ratio of the macrophages vs the neutrophiles logistic control parameters (growth vs stabilization) in the disease progression, see equations~\eqref{eq:system:N}-\eqref{eq:system:T}.
+    \item $C = \frac{\gamma \,\delta_N}{\alpha\,\delta_M} = \left[\frac{\gamma}{\delta_M} : \frac{\alpha}{\delta_N}\right]$. This parameter represents the ratio of the macrophages vs the neutrophiles growth/logistic control parameters in the disease progression, see equations~\eqref{eq:system:N}-\eqref{eq:system:T}.
 \end{itemize}   
 \end{rem}
 Using these parameters, the cubic equation in $T^*$ becomes:
@@ -522,7 +522,7 @@ If $\Delta_3 = 0$, the real roots are given by:
 \[x_1^* = 2 \sqrt[3]{-\frac{\mathcal{B}}{2}}, \quad x_2^* = x_3^* =  \sqrt[3]{\frac{\mathcal{B}}{2}}.
 \]
 \par\noindent
-Here we plot a case with three distinct positive roots (see figure~\ref{fig:three_roots}).
+Here we plot a case with three distinct positive roots (see Figure~\ref{fig:three_roots}).
 Namely we take $A = 1.1$, $B = 5$ and $C = \frac{2}{3}$ which gives $\Delta_3 \approx -0.49$.
 \begin{figure}[htbp]
     \centering
@@ -539,7 +539,7 @@ Finally, we can recover the roots $T^*$ of the original cubic equation
 using the relation $T^* = x^* - p/3$.
 \bigskip\\
 We have to make sure that the nonegative roots $T^*$ found are biologically feasible, i.e.\ that they lead to nonnegative values of $S^*$, $N^*$, and $M^*$.
-For instance in the case $A=1.1$, $B=5$, $C=2/3$ plotted in figure~\ref{fig:three_roots}, we have three distinct positive roots of the cubic equation~\eqref{eq:cubic_T},
+For instance in the case $A=1.1$, $B=5$, $C=2/3$ plotted in Figure~\ref{fig:three_roots}, we have three distinct positive roots of the cubic equation~\eqref{eq:cubic_T},
 but none satisfying the biological feasibility conditions.\smallskip\\
 From equations~\eqref{eq:N_in_terms_of_T},~\eqref{eq:S_in_terms_of_T}, and~\eqref{eq:M_in_terms_of_T}, we have: 
 \[N^* = \frac{b}{a} T^*, \quad S^* = \frac{\delta_N}{\alpha} \left(\frac{b}{a} T^* - 1\right), \quad M^* = 1 - \frac{\beta}{\gamma} + \frac{\beta}{\gamma T^*}
@@ -710,7 +710,7 @@ J|_{(S^*, N^*, M^*, T^*) = (0, 0, 1, 1)} =
 -\gamma & 0 & 0 & -\delta_M
 \end{pmatrix}
 \]
-The eigenvalues of this matrix are $-b$, $\delta_N$, $-\delta_M$, and $-\gamma$. Since there is a positive eigenvalue, this equilibrium point is unstable. Neutrophiles can grow out of bound. This equilibrium where the population of neutrophiles is zero will not be observed in practice neither, see Remark~\ref{rem:vanishing}.
+The eigenvalues of this matrix are $-b$, $\delta_N$, $-\delta_M$, and $-\gamma$. Since there is a positive eigenvalue, this equilibrium point is unstable. Neutrophiles can grow out of bound. This equilibrium where the population of neutrophiles is zero will not be observed in practice either, see Remark~\ref{rem:vanishing}.
 \item For $(S^* = 0, N^* = 1, M^* = 0, T^* = R)$, with arbitrary $R$, the Jacobian matrix is
 \[
 J|_{(S^*, N^*, M^*, T^*) = (0, 1, 0, R)} =
@@ -721,7 +721,7 @@ a - b R & 0 & 0 & 0 \\
 -\gamma R & 0 & \delta_M (1 - R) & 0
 \end{pmatrix}
 \]
-There is a positive eigenvalue $\delta_M$, hence this equilibrium point is unstable. MoMac can grow out of bound. This equilibrium  where the population of MoMac is zero will not be observed in practice neither, see Remark~\ref{rem:vanishing}.
+There is a positive eigenvalue $\delta_M$, hence this equilibrium point is unstable. MoMac can grow out of bound. This equilibrium  where the population of MoMac is zero will not be observed in practice either, see Remark~\ref{rem:vanishing}.
 \end{itemize}
 \subsubsection{Stability of inflammatory equilibrium points (S> 0).}
 The stability of the equilibria with $S^* \neq 0$ can be analyzed similarly by evaluating the Jacobian matrix at those points and determining the eigenvalues.
@@ -775,7 +775,7 @@ We perform here a bifurcation analysis with respect to the \emph{non dimensional
 From the stability analysis above, we see that we  have only one  bifurcation at  $A=1$: for $A<1$ there are two biologically feasible equilibria, one  inflammatory one with $S^* \neq 0$ which is unstable and the disease-free equilibrium which  is stable; 
 for $A\geq 1$ the disease-free equilibrium is unstable and there is no other biologically feasible equilibrium.
 The number and stability of equilibria change as the parameter $A$ crosses the critical value $A=1$, indicating  a bifurcation point in the system's dynamics.   
-We can plot the bifurcation diagram in the $(A,S^*)$ plane (see figure~\ref{fig:bifurcation}).
+We can plot the bifurcation diagram in the $(A,S^*)$ plane (see Figure~\ref{fig:bifurcation}).
 \begin{figure}
  \includegraphics[scale=0.5]{bifurcation.png}      
  \caption{Bifurcation diagram in the $(A,T^*)$ plane.}\label{fig:bifurcation}
@@ -826,7 +826,7 @@ First let us take $a=0.38$, keeping the other parameters unchanged.
     \includegraphics[width=.7\textwidth]{A=0,38.png}
     \caption{$A=0.38$}\label{038}
 \end{figure}
-We see clearly  in fig.~\ref{035} that for $A=0.35 < 1$ the system converges to the disease-free equilibrium, whereas for $A=0.38$ the system diverges away from this equilibrium, indicating a persistent inflammatory state, see fig.~\ref{038}. 
+We see clearly  in Fig.~\ref{035} that for $A=0.35 < 1$ the system converges to the disease-free equilibrium, whereas for $A=0.38$ the system diverges away from this equilibrium, indicating a persistent inflammatory state, see Fig.~\ref{038}. 
 We can also decrease the initial immune signal $S(0)$ to see if the system converges to the disease-free equilibrium or diverges away from it.
 Halving the initial immune signal i.e.~taking $S(0)=0.5$ and $A=0.38$, we obtain the following result:
 \begin{figure}[htbp]
@@ -834,9 +834,9 @@ Halving the initial immune signal i.e.~taking $S(0)=0.5$ and $A=0.38$, we obtain
     \includegraphics[width=.7\textwidth]{A=0,38_S0=0,5.png}
     \caption{$A=0.38, S(0)=0.5$}\label{038_05}
 \end{figure}
-We see in fig.~\ref{038_05} that even if $A=0.38$, the system converges to the disease-free equilibrium, indicating that the initial immune signal is not strong enough to trigger a persistent inflammatory state.
+We see in Fig.~\ref{038_05} that even if $A=0.38$, the system converges to the disease-free equilibrium, indicating that the initial immune signal is not strong enough to trigger a persistent inflammatory state.
 Keeping the same halved initial immune signal, $S(0)=0.5$, 
-and the same $N(0)=1$ and $A=0.38$, but starting from an immunocompromised state, that is $M(0)=0.1,\, T(0)=0.05$, we now observe in fig.~\ref{038_depressed} that the system diverges away from the disease-free equilibrium, indicating a persistent inflammatory state, even if the initial immune signal is low.
+and the same $N(0)=1$ and $A=0.38$, but starting from an immunocompromised state, that is $M(0)=0.1,\, T(0)=0.05$, we now observe in Fig.~\ref{038_depressed} that the system diverges away from the disease-free equilibrium, indicating a persistent inflammatory state, even if the initial immune signal is low.
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=.7\textwidth]{A=0,38_S0=0,5_M=0,1_T=0,05.png}
@@ -847,15 +847,15 @@ and the same $N(0)=1$ and $A=0.38$, but starting from an immunocompromised state
     \includegraphics[width=.7\textwidth]{A=0,072_S0=5.png}
     \caption{$A=0.072, S(0)=5$}\label{A=0,072}
 \end{figure}
-We can also start from a very high initial immune signal, taking $S(0)=5,\, N(0)=1, \,M(0)=1,\, T(0)=1$ and $A=0.072$. We observe in fig.~\ref{A=0,072} that the system returns to the disease-free equilibrium, indicating that even if the initial immune signal is high, the system can still heal when $A=0.072 \ll 1$.
-But if we slightly increase $A$ to $A=0.073$, keeping the other parameters unchanged, we observe in fig.~\ref{A=0,073} that the system diverges away from the disease-free equilibrium, indicating a persistent inflammatory state.
+We can also start from a very high initial immune signal, taking $S(0)=5,\, N(0)=1, \,M(0)=1,\, T(0)=1$ and $A=0.072$. We observe in Fig.~\ref{A=0,072} that the system returns to the disease-free equilibrium, indicating that even if the initial immune signal is high, the system can still heal when $A=0.072 \ll 1$.
+But if we slightly increase $A$ to $A=0.073$, keeping the other parameters unchanged, we observe in Fig.~\ref{A=0,073} that the system diverges away from the disease-free equilibrium, indicating a persistent inflammatory state.
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=.7\textwidth]{A=0,073_S0=5.png}
     \caption{$A=0.073, S(0)=5$}\label{A=0,073}
 \end{figure}
 To see how the parameter $A=a/b$ controls the healing prognosis
-we plot in fig.~\ref{heal} a $(A,S)$ plane figure where for each value of $A$ and starting value $(S(0)=S,N=1,M=1,T=1)$
+we plot in Fig.~\ref{heal} a $(A,S)$ plane figure where for each value of $A$ and starting value $(S(0)=S,N=1,M=1,T=1)$
  we run the model for three weeks and see how far from the disease-free state the systems ends up.
  We color in green points where $(S,M,N,T)$ is close to $(0,1,1,1)$ up to a given tolerance of 5\%.
  We color in red points which end up far away from the equilibrium.
@@ -866,12 +866,12 @@ we plot in fig.~\ref{heal} a $(A,S)$ plane figure where for each value of $A$ an
 \end{figure}
 We notice that for $A<1$, the system converges to the disease-free equilibrium provided that the   initial immune signal $S(0)$ is below a given threshold.
  This threshold increases as $A$ decreases, meaning that the system can tolerate higher initial immune signals and still come back  to the disease-free equilibrium when $A$ is small enough.
-  This is consistent with the bifurcation diagram in fig.~\ref{fig:bifurcation} where for $A<1$ the unstable inflammatory equilibrium moves away from the disease-free equilibrium when $A$ decreases.
+  This is consistent with the bifurcation diagram in Fig.~\ref{fig:bifurcation} where for $A<1$ the unstable inflammatory equilibrium moves away from the disease-free equilibrium when $A$ decreases.
  For $A\geq 1$, the system diverges away from the disease-free equilibrium for all non zero values of the initial immune signal $S(0)$.
   This suggests that for $A\geq 1$ the system is in a persistent inflammatory state, where the  inflammation is self-sustained and does not resolve, even if the initial immune signal is low.
 % \mbox{}\\   
 % \par\noindent
-% We can plot a phase space trajectory in the $(S,N,M,T)$ 4D space, using color intensity to represent the $S$ variable in fig.~\ref{phase_space_color}.
+% We can plot a phase space trajectory in the $(S,N,M,T)$ 4D space, using color intensity to represent the $S$ variable in Fig.~\ref{phase_space_color}.
 % \begin{figure}[!htbp]
 %    \centering
  %   \includegraphics[width=.7\textwidth]{phase_space.png}
@@ -879,7 +879,7 @@ We notice that for $A<1$, the system converges to the disease-free equilibrium p
  %   \label{phase_space_color}
 %\end{figure}
 %\par\noindent
-%We can also plot some 2D projections of the 4D phase space trajectory using the tesseract representation in fig.~\ref{phase_space_tesseract}.
+%We can also plot some 2D projections of the 4D phase space trajectory using the tesseract representation in Fig.~\ref{phase_space_tesseract}.
 %\begin{figure}[!htbp]
  %   \centering
  %   \includegraphics[width=.45\textwidth]{phase_space_tesseract.png}
