@@ -1,5 +1,7 @@
 # immunomath
 a repo to interact with colleagues on the project IHU IMMUN4CARE WP1-3
+material in this repo has been used to write the paper
+Pascal Azerad, Oana Iosifescu, Andrea Parmeggiani, Olivier Bortolotti, Florence Apparailly, Gabriel Courties, A mathematical modelling of rheumatoid arthritis.. 2026. ⟨hal-05725795⟩ (submitted)
 
 ## 🚀 Guide rapide Git & GitHub pour collaborer
 
