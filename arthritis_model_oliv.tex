@@ -68,7 +68,7 @@ the ﬁrst papers date back to the 1970s. Since
 then, the number of relevant articles increased exponentially,
 reaching more than 200 publications per year by 2024. 
 However according to Macfarlane \textit{et al.}~\cite{macfarlane2020} which provides another careful and exhaustive bibliographic survey in 2020, the number of  mathematical models of Rheumatoid Arthritis (RA) is still relatively small.
-An illuminative survey paper introducing the issues and pitfalls of mathematical modelling in immunology was from Andrew \textit{et al.}~\cite{andrew}. 
+An illuminative survey paper introducing the issues and pitfalls of mathematical modelling in immunology is Andrew \textit{et al.}~\cite{andrew}. 
 Let us cite Handel \textit{et al.}~\cite{Handel2020} for  examples and guidelines for sound mathematical modelling in immunology and also for the free software R-package DSAIRM~\cite{dsairm2019} which allows to easily simulate and analyze a large variety of mathematical models of immune response.
 Among mathematical models that deal with aspects
 of RA, we can mention the following ones.
@@ -303,8 +303,8 @@ The lower bounds on M and N should be interpreted in the context of normalized v
 
 \end{rem}
 
-\subsection{Equilibria points.}
-\emph{Equilibria points} of the system are found by setting the right-hand side of the system to zero, i.e.
+\subsection{Equilibrium points.}
+\emph{Equilibrium points} of the system are found by setting the right-hand side of the system to zero, i.e.
  the equilibrium points $(S^*, N^*, M^*, T^*)$ satisfy the following system of algebraic equations:
 \begin{align}
 (a N^* - b T^*) S^* &= 0 \label{eq:equilibrium_S} \\
@@ -315,13 +315,13 @@ The lower bounds on M and N should be interpreted in the context of normalized v
 \subsubsection{Inflammation-free equilibrium points (S =0).}\label{sec:disease_free}
 A first natural equilibrium point is given by $(S^* = 0, N^* = 1, M^* = 1, T^* = 1)$. This point corresponds to the disease-free state, where there is no inflammation ($S^* = 0$) and the populations of neutrophils, MoMac, and SL-TRM are at their baseline    levels ($N^* = 1, M^* = 1, T^* = 1$).
 
-There are other equilibria points with $S^* = 0$  namely
+There are other equilibrium points with $S^* = 0$  namely
 $(S^* = 0, N^* = 0, M^* = 0, T^* = R)$, with arbitrary $R$;
  $(S^* = 0, N^* = 0, M^* = 1, T^* = 1)$;
  $(S^* = 0, N^* = 1, M^* = 0, T^* = R)$, with arbitrary $R$.
 \begin{rem}\label{rem:vanishing}
-These equilibria points with  $N^* = 0$ or $M^* = 0$ are not biologically relevant since they correspond to the absence of neutrophils or MoMac cells, which is not realistic in a living organism.
-Furthermore, we will prove later that these equilibria points are unstable, so they will not be observed in physiological conditions.
+These equilibrium points with  $N^* = 0$ or $M^* = 0$ are not biologically relevant since they correspond to the absence of neutrophils or MoMac cells, which is not realistic in a living organism.
+Furthermore, we will prove later that these equilibrium points are unstable, so they will not be observed in physiological conditions.
 \end{rem}
 
 % Commented-out derivation for equilibria with S^* \neq 0
@@ -388,7 +388,7 @@ Substituting this expression for $N^*$ into equation~\eqref{eq:equilibrium_N}, w
 S^* = \frac{\delta_N}{\alpha} \left(\frac{b}{a} T^* - 1\right)
 \label{eq:S_in_terms_of_T}
 \end{equation}
-Since we are now looking for equilibria points with $S^* \neq 0$,~\eqref{eq:equilibrium_M} and~\eqref{eq:equilibrium_T} imply both $M^* \neq 1$ and $T^* \neq 1$.
+Since we are now looking for equilibrium points with $S^* \neq 0$,~\eqref{eq:equilibrium_M} and~\eqref{eq:equilibrium_T} imply both $M^* \neq 1$ and $T^* \neq 1$.
  %Thus, we can express $M^*$ in terms of $S^*$ from equation \eqref{eq:equilibrium_M}: 
 From equation~\eqref{eq:equilibrium_M} and equation~\eqref{eq:equilibrium_T}, 
 we derive  $\delta_M M^* = \frac{\beta S^*}{M^* - 1}$ and $\delta_M M^* = \frac{\gamma S^* T^*}{1 - T^*}$.
@@ -436,7 +436,7 @@ Using these parameters, the cubic equation in $T^*$ becomes:
 \label{eq:cubic_T}
 \end{equation}
 \par\noindent We now determine the number of positive roots of the cubic equation~\eqref{eq:cubic_T}.
-From basic algebra, we can show that there are at most 3 such intersection points, hence at most 3 equilibria points with $S^* \neq 0$. 
+From basic algebra, we can show that there are at most 3 roots, hence at most 3 equilibrium points with $S^* \neq 0$. 
 We have to take into account the biological feasibility condition requiring the roots to be real and nonnegative, as stated in Proposition~\ref{prop:positivity}.
 Since $\frac{AB}{C} > 0$,  there is at least one positive root. 
 But we can be more precise using 
@@ -447,9 +447,9 @@ So the number of sign changes depends on the signs of the second and third coeff
 We have the following cases:
 \begin{itemize}
 \item If $ B +C > 1$ and $B > 1/2$, then there are 3 sign changes and the cubic has one or three positive roots, which can collapse according to their multiplicities.
-\item If $B +C  < 1$ and $B > 1/2 $, then there is one sign change and the cubic has only one positive roots.
-\item If $B +C  < 1$ and $B < 1/2$, then there is one sign changes and the cubic has only one positive root.
-\item If $B +C  > 1$ and $B < 1/2$, then there is one sign change and the cubic has only one positive root.
+\item If $B +C  \leq 1$ and $B > 1/2 $, then there is one sign change and the cubic has only one positive roots.
+\item If $B +C  \leq  1$ and $B \leq 1/2$, then there is one sign changes and the cubic has only one positive root.
+\item If $B +C  > 1$ and $B \leq 1/2$, then there is one sign change and the cubic has only one positive root.
 \end{itemize}
 %\bigskip
 %We can plot some typical cases in  Figure \ref{fig:cubics}).
@@ -555,22 +555,24 @@ So the biological feasibility conditions can be summarized as follows:
 &A  \leq  T^*   &\text{if } B \leq 1, \label{feas_T1} \\
 &A  \leq  T^*   \leq  \frac{B}{B-1}&  \text{if } B > 1. \label{feas_T2}
 \end{align}
-\begin{rem}
+\begin{rem}\label{rem:feasibility}
 In the case $B>1$, if $A > \frac{B}{B-1}$, then     the feasibility condition~\eqref{feas_T2} cannot be satisfied and there is no feasible root. In the limit case $A = \frac{B}{B-1}$, the only feasible root is $T^* = A = \frac{B}{B-1}$
- which corresponds to $S^* = 0$, $N^* = 1$, $M^* = 0$ which has already been found in the inflammation-free section~\ref{sec:disease_free}. In the rest of this section, we will assume that $A < \frac{B}{B-1}$ if $B > 1$.
+ which corresponds to $S^* = 0$, $N^* = 1$, $M^* = 0$ which has already been found in the inflammation-free section~\ref{sec:disease_free}. 
+ \emph{In the rest of this section, we will assume that $A < \frac{B}{B-1}$ if $B > 1$}.
 \end{rem}
-Let us consider first the particular case $A = a/b = 1$. In this case, we have an obvious solution $T^* = 1$ which corresponds to the disease-free equilibrium point.
+Let us consider first the particular case $A = a/b = 1$. In this case, we have an obvious solution $T^* = 1$, which by equation~\eqref{eq:equilibrium_T} gives  $S^* = 0$,
+which corresponds to an inflammation-free equilibrium point already found in subsection~\ref{sec:disease_free}.
 Therefore we can factor the cubic polynomial as follows:
     \begin{equation}
     (T^* - 1) \left( {(T^*)}^2 - \frac{1}{C} (B - 1) T^* + \frac{B}{C} \right) = 0.
     \label{eq:factored_cubic}
     \end{equation}
- If $B \leq 1$, all the coefficient of the quadratic polynomial are positive, so there is only one equilibrium, the disease-free $(S^*, N^*, M^*, T^*) = (0, 1, 1, 1)$. 
+ If $B \leq 1$, all the coefficient of the quadratic polynomial are positive, so there is only one root $T^* = 1$, and we obtain again the inflammation-free equilibrium points of subsection~\ref{sec:disease_free}. 
  Otherwise if $B>1$ the feasibility condition~\eqref{feas_T2} reads:
 \begin{equation}
 1 \leq T^* \leq \frac{B}{B-1}.
 \end{equation}
- We can check easily that only the disease-free root $T^* = 1$ satisfies this condition, while the other two roots are outside this interval.
+ We can check easily that only the inflammation-free root $T^* = 1$ satisfies this condition, while the other two roots are outside this interval.
  Indeed if the discriminant of the quadratic factor $\Delta = \frac{{(B-1)}^2 - 4BC}{C^2}$ is non-negative, we have $C \leq \frac{{(B-1)}^2}{4B}$, 
  hence $\frac{B-1}{2C} \geq  \frac{2B}{B-1}$ thus the root $T_+^* = \frac{B-1}{2C} + \frac{\sqrt{\Delta}}{2} \geq \frac{2B}{B-1} > \frac{B}{B-1}  $ is not feasible.
  Consider the other root $T_-^* = \frac{B-1}{2C} - \frac{\sqrt{\Delta}}{2}$.
@@ -587,26 +589,28 @@ If $B>1$ we have
 f(T^*)&=&{T^*}^3-\frac{A}{C}(B-1){T^*}^2-A{T^*}^2+\frac{A}{C}(B-1)T^*+\frac{A}{C}BT^*-\frac{AB}{C}\\\nonumber
 &=&\frac{A}{C}(B-1)(T^*-\frac{B}{B-1})(1-T^*)+{T^*}^2(T^*-A)
 \end{eqnarray*} 
-So $f(T^*)>0$, for $T^* \in [A, \frac{B}{B-1}]$  if $B>1$.\\
-If $B=1$ then $f(T^*)={T^*}^2(T^*-A)+\frac{A}{C}(T^*-1)>0$ for $T^*>A$.\\
+So $f(T^*)>0$, for $T^* \in [A, \frac{B}{B-1}]$  if $B>1$, recall Remark~\ref{rem:feasibility} that we assume $A < \frac{B}{B-1}$.\\
+If $B=1$ then $f(T^*)={T^*}^2(T^*-A)+\frac{A}{C}(T^*-1)>0$ for $T^*\geq A > 1$.\\
 Hence, thanks to~\eqref{feas_T1} and~\eqref{feas_T2}, there is no feasible root in this case.
 \item[-] Case $A > 1$ and $B < 1$.
 Since \begin{eqnarray*}
-f(T^*)=\frac{A}{C}(B-1)(T^*-\frac{B}{B-1})(1-T^*)+{T^*}^2(T^*-A)&>&0
+f(T^*)=\frac{A}{C}(B-1)(T^*+\frac{B}{1-B})(1-T^*)+{T^*}^2(T^*-A)&>&0
 \end{eqnarray*}
-for $T^* \geq A$ and $B<1$, there is no feasible root in this case either. 
-\item[-] Case $A < 1$ and $B  \geq1$.\\
-We compute $f(1)=1-A>0$ and $f(A)=(A-1)\frac{A}{C}(A(1-B)+B)<0$, so there is at least one feasible root in this case.\\
+for $T^* \geq A > 1$ and $B<1$, there is no feasible root in this case either. 
+\item[-] Case $A < 1$ and $B  \geq 1$.\\
+We compute $f(1)=1-A>0$ and $f(A)=(A-1)\frac{A}{C}(B(1-A)+A)<0$, 
+so there is at least one feasible root  $T^* \in ]A,1[$ in this case.\\
 If $B>1$, computing the derivative $f'(T^*)$ we have:
 \begin{eqnarray*}
 f'(T^*) &=& \frac{A}{C}(B-1)\big[(\frac{B}{B-1}-T^*)+(1-T^*)\big]+2{T^*}(T^*-A)+{T^*}^2 >0
 \end{eqnarray*}
-for $T^* \in [A,1]$. So there is exactly one root in the interval $[A,1]$.
-Since once again $f(T^*)=\frac{A}{C}(B-1)(T^*-\frac{B}{B-1})(1-T^*)+{T^*}^2(T^*-A)$ is positive for $T^* \in [1, \frac{B}{B-1}]$, there is exactly one feasible root in this case.\\
+for $T^* \in [A,1]$. So there is exactly one root in the interval $]A,1[$.
+Since once again $f(T^*)=\frac{A}{C}(B-1)(T^*-\frac{B}{B-1})(1-T^*)+{T^*}^2(T^*-A) >0$  for $T^* \in [1, \frac{B}{B-1}]$, 
+there is exactly one feasible root in this case, which lies in the interval $]A, 1[$.\\
 If $B=1$, we have $f(T^*)={T^*}^2(T^*-A)+\frac{A}{C}(T^*-1)>0$ for $T^*>1$ and $f'(T^*)={T^*}^2+2{T^*}({T^*}-A)+\frac{A}{C}>0$ for $T^* \in [A,1]$. 
-So there is exactly one feasible root in this case too.
+So there is exactly one feasible root in this case too, which lies in the interval $]A,1[$.
 \item[-] Case $A < 1$ and $B < 1$.\\
-Since $f(1)=1-A>0$ and $f(A)=(A-1)\frac{A}{C}(A(1-B)+B)<0$, there is at least one feasible root in this case too.
+Since $f(1)=1-A>0$ and $f(A)=(A-1)\frac{A}{C}(A(1-B)+B)<0$, there is at least one feasible root in this case too, which lies in the interval $]A,1[$.
 Let $\tilde{T}=T^*-A$ and $\tilde{f}(\tilde{T})=f(\tilde{T}+A)$. Then the equation $\tilde{f}(\tilde{T})=0$ is written as:
 \begin{eqnarray*}
 \tilde{T}^3 +\left(3A+\frac{A}{C}(1-B-C)\right)\tilde{T}^2&+&\left(3A^2+2\frac{A^2}{C}(1-B-C)+\frac{A}{C}(2B-1)\right)\tilde{T}\\
@@ -616,18 +620,22 @@ Let $\tilde{T}=T^*-A$ and $\tilde{f}(\tilde{T})=f(\tilde{T}+A)$. Then the equati
     \end{eqnarray*}
     Using \textsl{Descartes' rule of signs} we can see that there is exactly one positive root $\tilde{T}$ 
     of the cubic equation $\tilde{f}(\tilde{T})=0$  as the coefficients of $\tilde{T}^3$ and $\tilde{T}^2$ are positive and the constant term is negative. 
-    So there is exactly one feasible root $T^*\geq A$ in this case too.
+    So there is exactly one feasible root $A<T^*<1$ in this case too.
 \end{description}
 \par\noindent Let us summarize. The feasible equilibria points of the system can be classified as follows:
 \begin{itemize}
 \item Disease-free equilibrium: $(S^*, N^*, M^*, T^*) = (0, 1, 1, 1)$.
-\item Other equilibria with $S^* = 0$: 
+\item Other inflammation-free equilibria with $S^* = 0$: 
 $S^* = 0, N^* = 0, M^* = 0, T^* = R$, with arbitrary $R$;
  $S^* = 0, N^* = 0, M^* = 1, T^* = 1$;
  $S^* = 0, N^* = 1, M^* = 0, T^* = R$, with arbitrary $R$.
 \item Feasible equilibria with $S^* \neq 0$: 
-None when $A \geq 1$. We shall see in the numerical simulations that in this case the system quickly diverges away from the disease-free equilibrium, no matter how weak is the initial inflammation. This suggests that the system is in a persistent inflammatory state with $S^* \neq 0$.
-When $A < 1$, there is only one biologically feasible equilibria with $S^* \neq 0$. We shall see in the next section that this equilibrium is unstable, and the numerical simulations suggest that the system converges to the disease-free equilibrium, hence the inflammation is resolved.
+None when $A \geq 1$. We shall see in the numerical simulations that in this case the system quickly diverges away from the disease-free equilibrium, no matter how weak is the initial inflammation. 
+This suggests that the system is in a persistent inflammatory state.
+
+When $A < 1$, there is only one biologically feasible equilibria with $S^* \neq 0$. In addition $T^*$ lies in the interval $]A, 1[$.
+ We shall see in the next section that this equilibrium is unstable,
+  and the numerical simulations suggest that the system either comes back to the disease-free equilibrium, or evolves to a persistent inflammatory state with growing $S^*$, according to the initial conditions.
 \end{itemize} 
 %     
 \subsection{Stability analysis.}
@@ -642,7 +650,7 @@ aN - bT & aS & 0 & -bS \\
 \end{pmatrix}
 \]
 According to the linear stability theory, the equilibrium point is (locally asymptotically) stable if all eigenvalues of the Jacobian matrix have negative real parts, and unstable if at least one eigenvalue has a positive real part. In what follows,
- we analyze the stability of the different equilibria points found in the previous section. By locally asymptotically stable, we mean that if the system is perturbed slightly from the equilibrium point, it will return to the equilibrium point as time goes to infinity. On the other hand, if the equilibrium point is unstable, a small perturbation will cause the system to move away from the equilibrium point.
+ we analyze the stability of the different equilibrium points found in the previous section. By locally asymptotically stable, we mean that if the system is perturbed slightly from the equilibrium point, it will return to the equilibrium point as time goes to infinity. On the other hand, if the equilibrium point is unstable, a small perturbation will cause the system to move away from the equilibrium point.
 \subsubsection{Stability of  inflammation free equilibria (S =0).}\label{sec:stab}
 We analyze first the stability of the disease-free equilibrium point $(S^*, N^*, M^*, T^*) = (0, 1, 1, 1)$.
 At this point, the Jacobian matrix simplifies to:
@@ -669,17 +677,16 @@ In this case there is one center direction and three stable directions. We defin
 \dot{x} &=&  ax (y - w) \\
 \dot{y} &=& (y+1)(\alpha x - \delta_N y ) \\
 \dot{z} &=& \beta x - \delta_M z (z+1)\\
-\dot{w} &=& -\gamma x(w + 1) - \delta_M w (z+ 1)
+\dot{w} &=& -\gamma x(w + 1) - \delta_M w (z+ 1).
 \end{eqnarray*} 
 The linear part of the system is given by:
 \begin{eqnarray*}
 \dot{x} &=& 0 \\
 \dot{y} &=&\alpha x - \delta_N y \\
 \dot{z} &=&\beta x - \delta_M z \\
-\dot{w} &=&-\gamma x - \delta_M w
+\dot{w} &=&-\gamma x - \delta_M w.
 \end{eqnarray*}
-where the center direction is given by the variable $x$ and the stable directions are given by the variables $y$, $z$, and $w$.
-The center manifold can be expressed as a graph of the form $h(x) = (h_1(x), h_2(x), h_3(x))$ where $h_i(0) = 0$ for $i=1,2,3$.
+The center manifold can be expressed locally as a graph of the form $(x, h(x)) = (x, h_1(x), h_2(x), h_3(x))$ where $h_i(0) = 0$ for $i=1,2,3$.
 We can compute the Taylor expansion of $h$ and find that the first nonzero term is given by $h_1(x) = \frac{\alpha}{\delta_N} x + o(x)$, $h_2(x) = \frac{\beta}{\delta_M} x + o(x)$, and $h_3(x) = -\frac{\gamma}{\delta_M} x + o(x)$.
 The dynamics on the center manifold is given by: 
 \begin{eqnarray*}
@@ -687,7 +694,8 @@ The dynamics on the center manifold is given by:
 \end{eqnarray*}
 Since $\frac{\alpha}{\delta_N}+ \frac{\gamma}{\delta_M} > 0$, the center manifold is repulsive for $x \geq 0$, hence the equilibrium is unstable.
 
-The stability of other equilibria points can be analyzed similarly by evaluating the Jacobian matrix at those points and inspecting the eigenvalues.
+
+The stability of other equilibrium points can be analyzed similarly by evaluating the Jacobian matrix at those points and inspecting the eigenvalues.
 \begin{itemize}
 \item For $(S^* = 0, N^* = 0, M^* = 0, T^* = R)$, with arbitrary $R$, the Jacobian matrix becomes:
 \[
@@ -724,7 +732,7 @@ a - b R & 0 & 0 & 0 \\
 There is a positive eigenvalue $\delta_M$, hence this equilibrium point is unstable. MoMac can grow out of bound. This equilibrium  where the population of MoMac is zero will not be observed in practice either, see Remark~\ref{rem:vanishing}.
 \end{itemize}
 \subsubsection{Stability of inflammatory equilibrium points (S> 0).}
-The stability of the equilibria with $S^* \neq 0$ can be analyzed similarly by evaluating the Jacobian matrix at those points and determining the eigenvalues.
+The stability of the equilibria with $S^* > 0$ can be analyzed similarly by evaluating the Jacobian matrix at those points and determining the eigenvalues.
 Taking into account the equilibrium equations~\eqref{eq:equilibrium_S},~\eqref{eq:equilibrium_N}, and~\eqref{eq:equilibrium_T}, the Jacobian matrix at $(S^*, N^*, M^*, T^*)$ is:
 
 \[
@@ -742,6 +750,8 @@ The eigenvalues of this matrix can be found by solving the characteristic polyno
 &+ \Big(- a S \alpha N \delta_M (2M-1+\frac{M}{T})  - b S\gamma T\delta_N N + \delta_N N {\delta_M}^2(2M-1)\frac{M}{T}- b{\delta_M}^2 M^2(1-T)\Big) \lambda \\
 &- a S \alpha N {\delta_M}^2 (2M-1) \frac{M}{T} - b \delta_N N {\delta_M}^2 M^2 (1-T)
 \end{eqnarray*}
+Note first that $M(M-1) = \frac{\beta S}{\delta_M}$, by equation~\eqref{eq:equilibrium_M}, thus  $M^* >1$ since $S^* > 0$. 
+Moreover, by equation~\eqref{eq:equilibrium_T}, we have $T^* < 1$.
 Due to the Descartes' rule of signs, we claim that the polynomial $P(\lambda)$ has one positive root (hence the equilibrium is unstable). Indeed, the coefficients of $P(\lambda)$ are positive for the terms in 
 $\lambda^4$ and $\lambda^3$, whereas the constant term is negative. To prove that there is only one change of sign and hence one positive root, we have to check that if the coefficient of $\lambda$ is positive then the coefficient of 
 $\lambda^2$ is positive too. 
