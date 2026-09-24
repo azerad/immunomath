@@ -109,13 +109,13 @@ In the experimental mouse model of arthritis used in this study, namely the seru
  that activates the immune system and initiates an inflammatory response 
  within the joint tissue, which is composed of a lining (L) and sublining (SL) membrane.
   At steady state, the synovial lining membrane is populated by specialized tissue-resident macrophages (TRM) 
-  that form a protective barrier and contribute to immune regulation (L-TRM). TRM are also present within the sublining membrane (SL-TRM),
+  that form a protective barrier and contribute to immune regulation (L-TRM) \cite{culemann2019}. TRM are also present within the sublining membrane (SL-TRM),
    scattered and fewer in number. 
   Both types of TRM contribute to early immune sensing of environmental cues, exerting overall protective and regulatory roles by limiting excessive inflammation.
    However, during arthritis inflammatory flares, while L-TRM remain preserved, SL-TRM are progressively depleted. 
    This depletion is concomitant with the accumulation of macrophages derived from blood monocytes infiltrating the inflamed joints (MoMac). 
    The loss of the SL-TRM population weakens synovial immune regulation and favors persistent inflammatory cell infiltration through 
-   to the local production of cytokines and chemokines. This activation promotes the rapid recruitment of neutrophils (N) from the bloodstream into the joint, 
+   to the local production of cytokines and chemokines. This activation promotes the rapid recruitment of neutrophils (N) from the bloodstream into the joint \cite{culemann2019}, 
    where they become the dominant cell population during the acute phase of inflammation.
     Neutrophils amplify the inflammatory response through the release of pro-inflammatory mediators. 
      Based on these biological observations, we modeled the joint inflammatory response as the interaction between an inflammatory signal and three cell populations—N, SL-TRM, and MoMac—capturing recruitment,
@@ -539,8 +539,6 @@ Finally, we can recover the roots $T^*$ of the original cubic equation
 using the relation $T^* = x^* - p/3$.
 \bigskip\\
 We have to make sure that the nonegative roots $T^*$ found are biologically feasible, i.e.\ that they lead to nonnegative values of $S^*$, $N^*$, and $M^*$.
-For instance in the case $A=1.1$, $B=5$, $C=2/3$ plotted in Figure~\ref{fig:three_roots}, we have three distinct positive roots of the cubic equation~\eqref{eq:cubic_T},
-but none satisfying the biological feasibility conditions.\smallskip\\
 From equations~\eqref{eq:N_in_terms_of_T},~\eqref{eq:S_in_terms_of_T}, and~\eqref{eq:M_in_terms_of_T}, we have: 
 \[N^* = \frac{b}{a} T^*, \quad S^* = \frac{\delta_N}{\alpha} \left(\frac{b}{a} T^* - 1\right), \quad M^* = 1 - \frac{\beta}{\gamma} + \frac{\beta}{\gamma T^*}
 \]
@@ -555,10 +553,12 @@ So the biological feasibility conditions can be summarized as follows:
 &A  \leq  T^*   &\text{if } B \leq 1, \label{feas_T1} \\
 &A  \leq  T^*   \leq  \frac{B}{B-1}&  \text{if } B > 1. \label{feas_T2}
 \end{align}
+For instance in the case $A=1.1$, $B=5$, $C=2/3$ plotted in Figure~\ref{fig:three_roots}, we have three distinct positive roots of the cubic equation~\eqref{eq:cubic_T},
+but none satisfying the biological feasibility condition which  in this case reads $1.1 \leq T \leq 5/4$.%\smallskip\\
 \begin{rem}\label{rem:feasibility}
 In the case $B>1$, if $A > \frac{B}{B-1}$, then     the feasibility condition~\eqref{feas_T2} cannot be satisfied and there is no feasible root. In the limit case $A = \frac{B}{B-1}$, the only feasible root is $T^* = A = \frac{B}{B-1}$
  which corresponds to $S^* = 0$, $N^* = 1$, $M^* = 0$ which has already been found in the inflammation-free section~\ref{sec:disease_free}. 
- \emph{In the rest of this section, we will assume that $A < \frac{B}{B-1}$ if $B > 1$}.
+ \emph{In the rest of this section, we will therefore assume that $A < \frac{B}{B-1}$ if $B > 1$}.
 \end{rem}
 Let us consider first the particular case $A = a/b = 1$. In this case, we have an obvious solution $T^* = 1$, which by equation~\eqref{eq:equilibrium_T} gives  $S^* = 0$,
 which corresponds to an inflammation-free equilibrium point already found in subsection~\ref{sec:disease_free}.
@@ -579,7 +579,7 @@ Therefore we can factor the cubic polynomial as follows:
  Should this root be feasible, we would have $ T_-^* \leq \frac{B}{B-1}$. Since $T_+^* > \frac{B}{B-1}$, the quadratic factor would have to be negative or zero at $T^* = \frac{B}{B-1}$. But we have: ${\left(\frac{B}{B-1}\right)}^2 - \frac{1}{C} (B - 1) \frac{B}{B-1} + \frac{B}{C} = \frac{B^2}{{(B-1)}^2} > 0$ so the root $T_-^*$ is not feasible either.  
 \bigskip\\
 In the general case $A \neq 1$, the feasibility conditions~\eqref{feas_T1}-\eqref{feas_T2} have to be checked for each positive root found. 
-For $A>1$, we will show that none of the positive roots satisfy the feasibility conditions (like in figure~\ref{fig:three_roots}) whereas for $A<1$, there is always exactly one feasible root (in addition to the disease-free equilibrium). 
+For $A>1$, we will show that none of the positive roots satisfy the feasibility conditions (like in figure~\ref{fig:three_roots}) whereas for $A<1$, there is always exactly one feasible root with $S>0$. 
 To this aim, we consider four cases  depending on the signs of $A - 1$ and $B - 1$.
 \begin{description}
 \item[-] Case $A > 1$ and $B \geq 1$.\\ 
@@ -625,17 +625,18 @@ Let $\tilde{T}=T^*-A$ and $\tilde{f}(\tilde{T})=f(\tilde{T}+A)$. Then the equati
 \par\noindent Let us summarize. The feasible equilibria points of the system can be classified as follows:
 \begin{itemize}
 \item Disease-free equilibrium: $(S^*, N^*, M^*, T^*) = (0, 1, 1, 1)$.
-\item Other inflammation-free equilibria with $S^* = 0$: 
+\item Other inflammation-free equilibria with $S^* = 0$ and $N^* = 0$ or $M^* = 0$: 
 $S^* = 0, N^* = 0, M^* = 0, T^* = R$, with arbitrary $R$;
  $S^* = 0, N^* = 0, M^* = 1, T^* = 1$;
  $S^* = 0, N^* = 1, M^* = 0, T^* = R$, with arbitrary $R$.
+ These equilibria are not biologically relevant as we already pointed out in Remark~\ref{rem:vanishing}.
 \item Feasible equilibria with $S^* \neq 0$: 
 None when $A \geq 1$. We shall see in the numerical simulations that in this case the system quickly diverges away from the disease-free equilibrium, no matter how weak is the initial inflammation. 
 This suggests that the system is in a persistent inflammatory state.
 
 When $A < 1$, there is only one biologically feasible equilibria with $S^* \neq 0$. In addition $T^*$ lies in the interval $]A, 1[$.
  We shall see in the next section that this equilibrium is unstable,
-  and the numerical simulations suggest that the system either comes back to the disease-free equilibrium, or evolves to a persistent inflammatory state with growing $S^*$, according to the initial conditions.
+  and the numerical simulations suggest that the system either comes back to the disease-free equilibrium, or evolves to a persistent inflammatory state with growing $S$, according to the initial conditions.
 \end{itemize} 
 %     
 \subsection{Stability analysis.}
@@ -695,7 +696,8 @@ The dynamics on the center manifold is given by:
 Since $\frac{\alpha}{\delta_N}+ \frac{\gamma}{\delta_M} > 0$, the center manifold is repulsive for $x \geq 0$, hence the equilibrium is unstable.
 
 
-The stability of other equilibrium points can be analyzed similarly by evaluating the Jacobian matrix at those points and inspecting the eigenvalues.
+The stability of other inflammation-free equilibrium points can be analyzed similarly by evaluating the Jacobian matrix at those points and inspecting the eigenvalues. 
+We already pointed out that  these equilibrium points are not biologically relevant, as they correspond to the vanishing of one or more cell populations, see Remark~\ref{rem:vanishing}.
 \begin{itemize}
 \item For $(S^* = 0, N^* = 0, M^* = 0, T^* = R)$, with arbitrary $R$, the Jacobian matrix becomes:
 \[
@@ -707,7 +709,8 @@ J|_{(S^*, N^*, M^*, T^*) = (0, 0, 0, R)} =
 -\gamma R & 0 & \delta_M (1 - R) & 0
 \end{pmatrix}
 \]
-The eigenvalues of this matrix are $-b R$, $\delta_N$, $\delta_M$, and $0$. Since $\delta_N$ and $\delta_M$ are positive, this equilibrium point is unstable. Even if the immune signal will decrease exponentially fast, the populations of neutrophiles and MoMac will grow out of bound. This unstable equilibrium where the population of neutrophiles and MoMac is zero is  not physiologically relevant and will not be observed in practice, see Remark~\ref{rem:vanishing}.
+The eigenvalues of this matrix are $-b R$, $\delta_N$, $\delta_M$, and $0$. Since $\delta_N$ and $\delta_M$ are positive, this equilibrium point is unstable and will not be observed in practice. 
+
 \item For $(S^* = 0, N^* = 0, M^* = 1, T^* = 1)$, the Jacobian matrix is:
 \[
 J|_{(S^*, N^*, M^*, T^*) = (0, 0, 1, 1)} =
@@ -718,7 +721,7 @@ J|_{(S^*, N^*, M^*, T^*) = (0, 0, 1, 1)} =
 -\gamma & 0 & 0 & -\delta_M
 \end{pmatrix}
 \]
-The eigenvalues of this matrix are $-b$, $\delta_N$, $-\delta_M$, and $-\gamma$. Since there is a positive eigenvalue, this equilibrium point is unstable. Neutrophiles can grow out of bound. This equilibrium where the population of neutrophiles is zero will not be observed in practice either, see Remark~\ref{rem:vanishing}.
+The eigenvalues of this matrix are $-b$, $\delta_N$, $-\delta_M$, and $-\gamma$. Since there is a positive eigenvalue, this equilibrium point is unstable and will not be observed in practice either.
 \item For $(S^* = 0, N^* = 1, M^* = 0, T^* = R)$, with arbitrary $R$, the Jacobian matrix is
 \[
 J|_{(S^*, N^*, M^*, T^*) = (0, 1, 0, R)} =
@@ -729,7 +732,7 @@ a - b R & 0 & 0 & 0 \\
 -\gamma R & 0 & \delta_M (1 - R) & 0
 \end{pmatrix}
 \]
-There is a positive eigenvalue $\delta_M$, hence this equilibrium point is unstable. MoMac can grow out of bound. This equilibrium  where the population of MoMac is zero will not be observed in practice either, see Remark~\ref{rem:vanishing}.
+There is a positive eigenvalue $\delta_M$, hence this equilibrium point is unstable and will not be observed in practice either.
 \end{itemize}
 \subsubsection{Stability of inflammatory equilibrium points (S> 0).}
 The stability of the equilibria with $S^* > 0$ can be analyzed similarly by evaluating the Jacobian matrix at those points and determining the eigenvalues.
@@ -771,7 +774,7 @@ and
  b S\gamma T < {\delta_M}^2(2M-1)\frac{M}{T}.
 \label{ineq2}
 \end{equation}
-Inequality~\eqref{ineq1} implies that 
+We have obviously $(2M-1)\frac{M}{T} \leq (2M-1 + \frac{M}{T})^2$. So inequality~\eqref{ineq1} implies that 
 \begin{equation}\label{ineq3}
 a S \alpha N < a S \alpha N\left(\frac{{\delta_M}^2 {(2M-1+\frac{M}{T}) }^2}{{\delta_M}^2(2M-1)\frac{M}{T}}\right)<\delta_N N \delta_M (2M-1+\frac{M}{T}).
 \end{equation}
@@ -819,6 +822,7 @@ We can plot the bifurcation diagram in the $(A,S^*)$ plane (see Figure~\ref{fig:
 \section{Numerical simulations.}\label{sec:numerical_simulations}
 In this section we present some numerical simulations of the model to illustrate the different dynamic regimes and the effect of the parameter $A=a/b$, the initial immune signal $S(0)$, as well as the initial value of SL-TRM $T(0)$ on the healing prognosis.
 Let us emphasize that these are qualitative scenarios illustrating dynamic regimes, and not a quantitative fit to experimental kinetics.
+An interesting feature of the model is that it can reproduce the concomitant depletion of SL-TRM and the accumulation of neutrophiles, which is observed in arthritis \cite{courties}.
 
 Below we reproduce some typical simulations of the model using the following parameters:
 $\alpha=1,\, \beta=1,\, \gamma=1,\,
@@ -990,6 +994,12 @@ Zhou X., \textit{et al.} (2018) % ode compartement
 \newblock{\url{https://doi.org/10.1016/j.cell.2018.01.015}}
 
 % 2019
+\bibitem{culemann2019}
+Culemann S., \textit{et al.} (2019)
+\newblock{Locally renewing resident synovial macrophages provide a protective barrier for the joint.}
+\newblock{\emph{Nature}, 572, 670--675.}
+\newblock{\url{https://doi.org/10.1038/s41586-019-1471-1}}
+
 \bibitem{dsairm2019}
 Handel A., \textit{et al.} (2019)
 \newblock{Software DSAIRM: dynamical systems
@@ -1065,8 +1075,8 @@ Weishaupt K., \textit{et al.}  (2026)
 \newblock{\emph{Cell Reports},  45, 117091.}
 \newblock{\url{https://doi.org/10.1016/j.celrep.2026.117091}}
 
-%\bibitem{courties}Courties G., \textit{et al.} 
-%\newblock{in preparation}
+\bibitem{courties}Courties G., \textit{et al.} 
+\newblock{in preparation}
  
 \end{thebibliography}
 
