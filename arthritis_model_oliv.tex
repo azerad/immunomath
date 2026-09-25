@@ -158,7 +158,8 @@ population of neutrophils around its baseline level.
 Equation~\eqref{eq:system:M} describes the dynamics of the MoMac cells $M$. They are recruited from the blood stream at a  rate $\beta S$ proportional to the inflammatory signal. They have a logistic self-regulation mechanism analogous to that of neutrophils.
  Note that the linear rate $\beta S$ of recruitment of MoMac cells is not proportional to the current population of MoMac cells, which models the fact that the recruitment of MoMac cells from the blood stream is not directly influenced by the current population of MoMac cells in the joint, but rather by the level of inflammation.
 
-Equation~\eqref{eq:system:T} describes the dynamics of the SL-TRM cells $T$. The SL-TRM cells $T$ are destroyed by the inflammatory signal at a rate $\gamma S$. When $T$ is less than 1, the term $\delta_M M (1-T)$ is positive and contributes to the growth of $T$, while when $T$ is greater than 1, this term becomes negative and contributes to the decrease of $T$. This models the fact that the population of SL-TRM cells is regulated by the population of MoMac cells, which can promote their proliferation when they are depleted, but can also inhibit them when they are in excess. 
+Equation~\eqref{eq:system:T} describes the dynamics of the SL-TRM cells $T$. The SL-TRM cells $T$ are destroyed by the inflammatory signal at a rate $\gamma S$. When $T$ is less than 1, the term $\delta_M M (1-T)$ is positive and contributes to the growth of $T$, while when $T$ is greater than 1, this term becomes negative and contributes to the decrease of $T$. 
+This models the fact that the population of SL-TRM cells is regulated by the population of MoMac cells, which can promote their restoration when they are depleted, but can also inhibit them when they are in excess. 
 
 
 In the system~\eqref{eq:system}, we see that inflammation further increases neutrophils (factor $\alpha$), increases MoMac (factor $\beta$), and decreases SL-TRM (factor $\gamma$).
@@ -323,60 +324,6 @@ $(S^* = 0, N^* = 0, M^* = 0, T^* = R)$, with arbitrary $R$;
 These equilibrium points with  $N^* = 0$ or $M^* = 0$ are not biologically relevant since they correspond to the absence of neutrophils or MoMac cells, which is not realistic in a living organism.
 Furthermore, we will prove later that these equilibrium points are unstable, so they will not be observed in physiological conditions.
 \end{rem}
-
-% Commented-out derivation for equilibria with S^* \neq 0
-%For equilibria points with $S^* \neq 0$, from equation \eqref{eq:equilibrium_S} we have $a N^* - b T^* = 0$, hence 
-%Therefore $\alpha S^* - \delta_N (N^* - 1) = 0$, so we can express $S^*$ in terms of $N^*$:
-%\begin{equation}
-%S^* = \frac{\delta_N}{\alpha} (N^* - 1)
-%\label{eq:S_in_terms_of_N}
-%\end{equation}
-%We substitute \eqref{eq:T_in_terms_of_N}-\eqref{eq:S_in_terms_of_N}  into equation \eqref{eq:equilibrium_M} and \eqref{eq:equilibrium_T} and obtain a 2 by 2 system for  $M^*$ and  $N^*$:
-%By substituting $T^* = \frac{a}{b} N^*$ and $S^* = \frac{\delta_N}{\alpha}(N^* - 1)$ into the equilibrium equations for $M^*$ and $T^*$, we obtain the following system for $N^*$ and $M^*$:
-%\[
-%\left\{
-%\begin{aligned}
-%&\beta \frac{\delta_N}{\alpha}(N^* - 1) - \delta_M M^* (M^* - 1) = 0 \\
-%&-\gamma \frac{\delta_N}{\alpha}(N^* - 1) \cdot \frac{a}{b} N^* + \delta_M M^* \left(1 - \frac{a}{b} N^*\right) = 0
-%\end{aligned}
-%\right.
-%\]
-%This system allows us to determine the equilibrium values $N^*$ and $M^*$ when $S^* \neq 0$.
-%Indeed we can express $N^*$ in terms of $M^*$ from the first equation:
-%\begin{equation}
-%N^* = 1 + \frac{\alpha \,\delta_M}{\beta \,\delta_N} M^* (M^* - 1)
-%\label{eq:N_in_terms_of_M}
-%\end{equation}
-%Substituting this expression for $N^*$ into the second equation, we obtain an equation for $M^*$:
-%\begin{equation}
-%    M^* = \frac{a \,\gamma \,\delta_N}{b\, \alpha \,\delta_M} \frac{N^* (N^* - 1)}{(1 - \frac{a}{b} N^*)}
-%    \label{eq:M_in_terms_of_N}
-%\end{equation}
-%Geometrically, the equilibria points with $S^* \neq 0$ correspond to the intersection points of the parabola defined by equations \eqref{eq:N_in_terms_of_M} and  the hyperbola defined by equation \eqref{eq:M_in_terms_of_N} in the $(N^*, M^*)$ plane. The number of such intersection points (and hence the number of equilibria with $S^* \neq 0$) depends on the parameters of the model.
-%Substituting \eqref{eq:N_in_terms_of_M} into \eqref{eq:M_in_terms_of_N}, we  would obtain a quartic equation in $N^*$, which we do not write explicitly here due to its complexity.
-%From basic algebra, we can show that there are at most 4 such intersection points, hence at most 4 equilibria points with $S^* \neq 0$. 
-%We can be more precise because the biological feasibility imposes the roots to be real nonnegative numbers.
-%Due to the structure of the irreducible  polynomial on $\mathbb{R}$ we can have either 0, or 2, or 4 real roots.
-%We can find the asymptotes of the hyperbola and the apex of the parabola to determine the possible number of intersection points in the first quadrant.
-%We rewrite the equation  \eqref{eq:M_in_terms_of_N} of the hyperbola as follows:
-%\begin{equation}
-%M^*= -\frac{\gamma \delta_N}{\alpha \delta_M}  (N^* + b/a -1) + \frac{(b/a)^{2}(1-b/a)}{(N^* - b/a)} 
-%\label{eq:hyperbola_rewritten}
-%\end{equation}
-%From this expression, we see that the hyperbola has a vertical asymptote at $N^* = b/a$ and an oblique asymptote $M^* = -\frac{\gamma \delta_N}{\alpha \delta_M} (N^*+ b/a - 1)$.
-%The parabola  \eqref{eq:N_in_terms_of_M} is horizontal in the $N,M$ plane, has its apex at  $N_{min} = 1 - \frac{\alpha \,\delta_M}{4 \beta \,\delta_N}$ and $M=1/2$ and is symmetric with respect to the horizontal line $M = 1/2$ and opens eastwards.
-%We plot some typical cases in the following figure.
-
-
-%\begin{figure}[htbp]
-%    \centering
-%    \includegraphics[width=0.45\textwidth]{equilibres.png}
-%    \includegraphics[width=0.45\textwidth]{equilibres_1.png}\\
-%    \includegraphics[width=0.45\textwidth]{equilibres_2.png}
-%    \includegraphics[width=0.45\textwidth]{equilibres_3.png}\\
-%    \caption{equilibria in the $(N^*, M^*)$ plane, left $a < b$, right $a > b$.}
-%    \label{fig:intersections}
-%\end{figure}
 \subsubsection{Inflammatory equilibrium points (S > 0).}\label{sec:inflammatory_equilibria}
 We express $N^*$ in terms of $T^*$ from equation~\eqref{eq:equilibrium_S}:
 \begin{equation}
@@ -436,7 +383,7 @@ Using these parameters, the cubic equation in $T^*$ becomes:
 \label{eq:cubic_T}
 \end{equation}
 \par\noindent We now determine the number of positive roots of the cubic equation~\eqref{eq:cubic_T}.
-From basic algebra, we can show that there are at most 3 roots, hence at most 3 equilibrium points with $S^* \neq 0$. 
+From basic algebra, we know that there are at most 3 roots, hence at most 3 equilibrium points with $S^* \neq 0$. 
 We have to take into account the biological feasibility condition requiring the roots to be real and nonnegative, as stated in Proposition~\ref{prop:positivity}.
 Since $\frac{AB}{C} > 0$,  there is at least one positive root. 
 But we can be more precise using 
@@ -652,7 +599,7 @@ aN - bT & aS & 0 & -bS \\
 \]
 According to the linear stability theory, the equilibrium point is (locally asymptotically) stable if all eigenvalues of the Jacobian matrix have negative real parts, and unstable if at least one eigenvalue has a positive real part. In what follows,
  we analyze the stability of the different equilibrium points found in the previous section. By locally asymptotically stable, we mean that if the system is perturbed slightly from the equilibrium point, it will return to the equilibrium point as time goes to infinity. On the other hand, if the equilibrium point is unstable, a small perturbation will cause the system to move away from the equilibrium point.
-\subsubsection{Stability of  inflammation free equilibria (S =0).}\label{sec:stab}
+\subsubsection{Stability of  inflammation-free equilibria (S =0).}\label{sec:stab}
 We analyze first the stability of the disease-free equilibrium point $(S^*, N^*, M^*, T^*) = (0, 1, 1, 1)$.
 At this point, the Jacobian matrix simplifies to:
 \[
@@ -774,13 +721,13 @@ and
  b S\gamma T < {\delta_M}^2(2M-1)\frac{M}{T}.
 \label{ineq2}
 \end{equation}
-We have obviously $(2M-1)\frac{M}{T} \leq (2M-1 + \frac{M}{T})^2$. So inequality~\eqref{ineq1} implies that 
+We have obviously $(2M-1)\frac{M}{T} < (2M-1 + \frac{M}{T})^2$. So inequality~\eqref{ineq1} implies that 
 \begin{equation}\label{ineq3}
 a S \alpha N < a S \alpha N\left(\frac{{\delta_M}^2 {(2M-1+\frac{M}{T}) }^2}{{\delta_M}^2(2M-1)\frac{M}{T}}\right)<\delta_N N \delta_M (2M-1+\frac{M}{T}).
 \end{equation}
 Due to~\eqref{ineq2} and~\eqref{ineq3}, the coefficient of $\lambda^2$ is positive.
 \par\noindent
-This proves that biologically feasible equilibrium with $S^* \neq 0$, which only exists if $A<1$ see section~\ref{sec:inflammatory_equilibria},  is unstable.
+This proves that the biologically feasible equilibrium with $S^* \neq 0$, which only exists if $A<1$ see section~\ref{sec:inflammatory_equilibria},  is unstable.
 For $A\geq 1$ the only biologically feasible equilibrium is the disease-free equilibrium which is unstable, as we have seen in section~\ref{sec:stab}.
 
 \subsection{Bifurcation diagram.}
@@ -822,7 +769,7 @@ We can plot the bifurcation diagram in the $(A,S^*)$ plane (see Figure~\ref{fig:
 \section{Numerical simulations.}\label{sec:numerical_simulations}
 In this section we present some numerical simulations of the model to illustrate the different dynamic regimes and the effect of the parameter $A=a/b$, the initial immune signal $S(0)$, as well as the initial value of SL-TRM $T(0)$ on the healing prognosis.
 Let us emphasize that these are qualitative scenarios illustrating dynamic regimes, and not a quantitative fit to experimental kinetics.
-An interesting feature of the model is that it can reproduce the concomitant depletion of SL-TRM and the accumulation of neutrophiles, which is observed in arthritis \cite{courties}.
+An interesting feature of the model is that it can reproduce the concomitant depletion of SL-TRM macrophages and the accumulation of neutrophiles and MoMac, which is observed in arthritis.% \cite{courties}.
 
 Below we reproduce some typical simulations of the model using the following parameters:
 $\alpha=1,\, \beta=1,\, \gamma=1,\,
@@ -832,21 +779,21 @@ $\alpha=1,\, \beta=1,\, \gamma=1,\,
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=.7\textwidth]{A=0,35.png}
-    \caption{$A=0.35$}\label{035}
+    \caption{$A=0.35$, crisis resolution.}\label{035}
 \end{figure}
-First let us take $a=0.38$, keeping the other parameters unchanged.
+First let us slightly increase the value of $a$ to $a=0.38$, keeping the other parameters unchanged.
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=.7\textwidth]{A=0,38.png}
-    \caption{$A=0.38$}\label{038}
+    \caption{$A=0.38$, crisis escalation.}\label{038}
 \end{figure}
-We see clearly  in Fig.~\ref{035} that for $A=0.35 < 1$ the system converges to the disease-free equilibrium, whereas for $A=0.38$ the system diverges away from this equilibrium, indicating a persistent inflammatory state, see Fig.~\ref{038}. 
+We see clearly  in Fig.~\ref{035} that while for $A=0.35 < 1$ the system comes back to the disease-free equilibrium, for $A=0.38$ the system diverges away from this equilibrium, indicating a persistent inflammatory state, see Fig.~\ref{038}. 
 We can also decrease the initial immune signal $S(0)$ to see if the system converges to the disease-free equilibrium or diverges away from it.
 Halving the initial immune signal i.e.~taking $S(0)=0.5$ and $A=0.38$, we obtain the following result:
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=.7\textwidth]{A=0,38_S0=0,5.png}
-    \caption{$A=0.38, S(0)=0.5$}\label{038_05}
+    \caption{$A=0.38, S(0)=0.5$ (half dose of immune signal), crisis resolution.}\label{038_05}
 \end{figure}
 We see in Fig.~\ref{038_05} that even if $A=0.38$, the system converges to the disease-free equilibrium, indicating that the initial immune signal is not strong enough to trigger a persistent inflammatory state.
 Keeping the same halved initial immune signal, $S(0)=0.5$, 
@@ -854,25 +801,25 @@ and the same $N(0)=1$ and $A=0.38$, but starting from an immunocompromised state
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=.7\textwidth]{A=0,38_S0=0,5_M=0,1_T=0,05.png}
-    \caption{$A=0.38$, immunocompromised initial conditions}\label{038_depressed}
+    \caption{$A=0.38, S(0)=0.5$, immunocompromised initial conditions, crisis escalation.}\label{038_depressed}
 \end{figure}
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=.7\textwidth]{A=0,072_S0=5.png}
-    \caption{$A=0.072, S(0)=5$}\label{A=0,072}
+    \caption{$A=0.072, S(0)=5$ (high dose of immune signal), crisis resolution.}\label{A=0,072}
 \end{figure}
 We can also start from a very high initial immune signal, taking $S(0)=5,\, N(0)=1, \,M(0)=1,\, T(0)=1$ and $A=0.072$. We observe in Fig.~\ref{A=0,072} that the system returns to the disease-free equilibrium, indicating that even if the initial immune signal is high, the system can still heal when $A=0.072 \ll 1$.
 But if we slightly increase $A$ to $A=0.073$, keeping the other parameters unchanged, we observe in Fig.~\ref{A=0,073} that the system diverges away from the disease-free equilibrium, indicating a persistent inflammatory state.
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=.7\textwidth]{A=0,073_S0=5.png}
-    \caption{$A=0.073, S(0)=5$}\label{A=0,073}
+    \caption{$A=0.073, S(0)=5$ (high dose of immune signal), crisis escalation.}\label{A=0,073}
 \end{figure}
-To see how the parameter $A=a/b$ controls the healing prognosis
+\par To see how the parameter $A=a/b$ controls the healing prognosis
 we plot in Fig.~\ref{heal} a $(A,S)$ plane figure where for each value of $A$ and starting value $(S(0)=S,N=1,M=1,T=1)$
  we run the model for three weeks and see how far from the disease-free state the systems ends up.
  We color in green points where $(S,M,N,T)$ is close to $(0,1,1,1)$ up to a given tolerance of 5\%.
- We color in red points which end up far away from the equilibrium.
+ We color in red points which end up far away from the disease-free equilibrium.
  \begin{figure}[!htbp]
     \centering
     \includegraphics[scale=0.5]{phase_plane_classification.png}
@@ -1075,8 +1022,8 @@ Weishaupt K., \textit{et al.}  (2026)
 \newblock{\emph{Cell Reports},  45, 117091.}
 \newblock{\url{https://doi.org/10.1016/j.celrep.2026.117091}}
 
-\bibitem{courties}Courties G., \textit{et al.} 
-\newblock{in preparation}
+%\bibitem{courties}Courties G., \textit{et al.} 
+%\newblock{in preparation}
  
 \end{thebibliography}
 
