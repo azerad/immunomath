@@ -688,7 +688,7 @@ Taking into account the equilibrium equations~\eqref{eq:equilibrium_S},~\eqref{e
 \[
 J = \begin{pmatrix}
 0 & aS & 0 & -bS \\
-\alpha N &  - \delta_N (N) & 0 & 0 \\
+\alpha N &  - \delta_N \cdot N & 0 & 0 \\
 \beta & 0 & -\delta_M (2M-1) & 0 \\
 -\gamma T & 0 & \delta_M (1-T) & - \delta_M\frac{M}{T} 
 \end{pmatrix}
@@ -700,8 +700,8 @@ The eigenvalues of this matrix can be found by solving the characteristic polyno
 &+ \Big(- a S \alpha N \delta_M (2M-1+\frac{M}{T})  - b S\gamma T\delta_N N + \delta_N N {\delta_M}^2(2M-1)\frac{M}{T}- b{\delta_M}^2 M^2(1-T)\Big) \lambda \\
 &- a S \alpha N {\delta_M}^2 (2M-1) \frac{M}{T} - b \delta_N N {\delta_M}^2 M^2 (1-T)
 \end{eqnarray*}
-Note first that $M(M-1) = \frac{\beta S}{\delta_M}$, by equation~\eqref{eq:equilibrium_M}, thus  $M^* >1$ since $S^* > 0$. 
-Moreover, by equation~\eqref{eq:equilibrium_T}, we have $T^* < 1$.
+Note first that $M(M-1) = \frac{\beta S}{\delta_M}$, by equation~\eqref{eq:equilibrium_M}, thus  $M >1$ since $S > 0$. 
+Moreover, by equation~\eqref{eq:equilibrium_T}, we have $T < 1$.
 Due to the Descartes' rule of signs, we claim that the polynomial $P(\lambda)$ has one positive root (hence the equilibrium is unstable). Indeed, the coefficients of $P(\lambda)$ are positive for the terms in 
 $\lambda^4$ and $\lambda^3$, whereas the constant term is negative. To prove that there is only one change of sign and hence one positive root, we have to check that if the coefficient of $\lambda$ is positive then the coefficient of 
 $\lambda^2$ is positive too. 
@@ -775,44 +775,50 @@ Below we reproduce some typical simulations of the model using the following par
 $\alpha=1,\, \beta=1,\, \gamma=1,\,
        \delta_N=1,\, \delta_M=1,\, a=0.35,\; b=1$,  
        duration=20 days and initial conditions $S(0)=1,\, N(0)=1,\, M(0)=1,\, T(0)=1$.
-        
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=.7\textwidth]{A=0,35.png}
+    \includegraphics[width=.7\textwidth, height=0.4\textwidth]{A=0,35.png}
     \caption{$A=0.35$, crisis resolution.}\label{035}
 \end{figure}
 First let us slightly increase the value of $a$ to $a=0.38$, keeping the other parameters unchanged.
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=.7\textwidth]{A=0,38.png}
+    \includegraphics[width=.7\textwidth, height=0.4\textwidth]{A=0,38.png}
     \caption{$A=0.38$, crisis escalation.}\label{038}
 \end{figure}
 We see clearly  in Fig.~\ref{035} that while for $A=0.35 < 1$ the system comes back to the disease-free equilibrium, for $A=0.38$ the system diverges away from this equilibrium, indicating a persistent inflammatory state, see Fig.~\ref{038}. 
 We can also decrease the initial immune signal $S(0)$ to see if the system converges to the disease-free equilibrium or diverges away from it.
-Halving the initial immune signal i.e.~taking $S(0)=0.5$ and $A=0.38$, we obtain the following result:
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=.7\textwidth]{A=0,38_S0=0,5.png}
+    \includegraphics[width=.7\textwidth, height=0.4\textwidth]{A=0,38_S0=0,5.png}
     \caption{$A=0.38, S(0)=0.5$ (half dose of immune signal), crisis resolution.}\label{038_05}
 \end{figure}
-We see in Fig.~\ref{038_05} that even if $A=0.38$, the system converges to the disease-free equilibrium, indicating that the initial immune signal is not strong enough to trigger a persistent inflammatory state.
-Keeping the same halved initial immune signal, $S(0)=0.5$, 
-and the same $N(0)=1$ and $A=0.38$, but starting from an immunocompromised state, that is $M(0)=0.1,\, T(0)=0.05$, we now observe in Fig.~\ref{038_depressed} that the system diverges away from the disease-free equilibrium, indicating a persistent inflammatory state, even if the initial immune signal is low.
+Halving the initial immune signal i.e.~taking $S(0)=0.5$ and $A=0.38$, 
+we see in Fig.~\ref{038_05} that  the system converges to the disease-free equilibrium, indicating that the initial immune signal is not strong enough to trigger a persistent inflammatory state.
+Taking again $A=0.35$ with a standard initial immune signal, $S(0)=1$, 
+and  $N(0)=1, M(0)=1$, but starting from an depleted initial SL-TRM population, that is $ T(0)=0.5$, we now observe in Fig.~\ref{035_depressed} that the system diverges away from the disease-free equilibrium, indicating a persistent inflammatory state.
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=.7\textwidth]{A=0,38_S0=0,5_M=0,1_T=0,05.png}
-    \caption{$A=0.38, S(0)=0.5$, immunocompromised initial conditions, crisis escalation.}\label{038_depressed}
+    \includegraphics[width=.7\textwidth, height=0.4\textwidth]{A=0,35_T=0,5.png}
+    \caption{$A=0.35, T(0)=0.5$ (depleted initial population of SL-TRM), crisis escalation.}\label{035_depressed}
 \end{figure}
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=.7\textwidth]{A=0,072_S0=5.png}
-    \caption{$A=0.072, S(0)=5$ (high dose of immune signal), crisis resolution.}\label{A=0,072}
+    \includegraphics[width=.7\textwidth, height=0.4\textwidth]{A=0,38_delta_M=1,1.png}
+    \caption{$A=0.38, \delta_M=1.1$ (increased regulation of MoMac/SL-TRM), crisis resolution.}\label{038_regulation}
 \end{figure}
+Taking again $A=0.38$ and the initial conditions $S(0)=1,\, N(0)=1,\, M(0)=1,\, T(0)=1$,
+we can study the effect of increasing the regulation of MoMac/SL-TRM by increasing the value of $\delta_M$ to $\delta_M=1.1$, keeping the other parameters unchanged. We see in Fig.~\ref{038_regulation} that the system converges to the disease-free equilibrium, indicating that increasing the regulation of MoMac/SL-TRM can help resolve the crisis.  
 We can also start from a very high initial immune signal, taking $S(0)=5,\, N(0)=1, \,M(0)=1,\, T(0)=1$ and $A=0.072$. We observe in Fig.~\ref{A=0,072} that the system returns to the disease-free equilibrium, indicating that even if the initial immune signal is high, the system can still heal when $A=0.072 \ll 1$.
 But if we slightly increase $A$ to $A=0.073$, keeping the other parameters unchanged, we observe in Fig.~\ref{A=0,073} that the system diverges away from the disease-free equilibrium, indicating a persistent inflammatory state.
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=.7\textwidth]{A=0,073_S0=5.png}
+    \includegraphics[width=.7\textwidth, height=0.4\textwidth]{A=0,072_S0=5.png}
+    \caption{$A=0.072, S(0)=5$ (high dose of immune signal), crisis resolution.}\label{A=0,072}
+\end{figure}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=.7\textwidth, height=0.4\textwidth]{A=0,073_S0=5.png}
     \caption{$A=0.073, S(0)=5$ (high dose of immune signal), crisis escalation.}\label{A=0,073}
 \end{figure}
 \par To see how the parameter $A=a/b$ controls the healing prognosis
