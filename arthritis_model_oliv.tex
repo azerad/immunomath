@@ -128,8 +128,8 @@ In the experimental mouse model of arthritis used in this study, namely the seru
 %Basically the crisis scenario is the following:
 %The arthritis crisis is triggered by an external signal (injection of immune serum containing antigens) that activates the immune system and provokes an inflammatory response. 
 %The antigens are recognized by the macrophages L-TRM (lining tissue resident macrophages) cells that secrete inflammatory chemokines and cytokines. 
-%These cytokines activate the fibroblasts which in turn recruit the neutrophiles cells from the blood stream into the joint. 
-%The cytokines also recruit the MoMac cells from the blood stream into the joint. There is a positive feedback since the inflammation is amplified by the neutrophiles that are recruited in the joint by the chemokines secreted by the MoMac cells. 
+%These cytokines activate the fibroblasts which in turn recruit the neutrophils cells from the blood stream into the joint. 
+%The cytokines also recruit the MoMac cells from the blood stream into the joint. There is a positive feedback since the inflammation is amplified by the neutrophils that are recruited in the joint by the chemokines secreted by the MoMac cells. 
 %The macrophages SL-TRM cells have a protective role since they inhibit the inflammation but they are depleted during the crisis because they are inhibited by the proliferation of MoMac cells.
 \subsection{Mathematical Modelling.}
 % explain the model when S=0 with the usual logistic growth of the cell populations, and then explain the effect of the inflammation on the recruitment and proliferation of the cells.
@@ -374,7 +374,7 @@ Interestingly, the parameters $A$, $B$, and $C$ have the following biological in
 \begin{itemize}
     \item $A = a/b$. This parameter represents the ratio of the inflammatory effect of the neutrophils with respect to the anti-inflammatory effect of the macrophages, see equation~\eqref{eq:system:S}.
     \item $B = \beta/\gamma$. This parameter represents the ratio of the increasing rate of the MoMac to the decreasing rate of the macrophage cell population, see equations~\eqref{eq:system:M}-\eqref{eq:system:T}.
-    \item $C = \frac{\gamma \,\delta_N}{\alpha\,\delta_M} = \left[\frac{\gamma}{\delta_M} : \frac{\alpha}{\delta_N}\right]$. This parameter represents the ratio of the macrophages vs the neutrophiles growth/logistic control parameters in the disease progression, see equations~\eqref{eq:system:N}-\eqref{eq:system:T}.
+    \item $C = \frac{\gamma \,\delta_N}{\alpha\,\delta_M} = \left[\frac{\gamma}{\delta_M} : \frac{\alpha}{\delta_N}\right]$. This parameter represents the ratio of the macrophages vs the neutrophils growth/logistic control parameters in the disease progression, see equations~\eqref{eq:system:N}-\eqref{eq:system:T}.
 \end{itemize}   
 \end{rem}
 Using these parameters, the cubic equation in $T^*$ becomes:
@@ -613,7 +613,7 @@ a - b & 0 & 0 & 0 \\
 \]
 We notice immediately that the eigenvalues of this matrix are  $a-b$, $-\delta_N$ and $-\delta_M$.
  The last two are negative since $\delta_N, \delta_M > 0$. The remaining eigenvalue  is $a-b$. Thus the disease-free equilibrium is stable if $A = a/b < 1$ and unstable if $A =a/b > 1$. 
-This means that if the inflammatory effect of Neutrophiles cells controlled by paramater $a$ is less than the curing effect of the  SL-TRM macrophages controlled by parameter $b$, the system will return to the disease-free state.
+This means that if the inflammatory effect of neutrophils cells controlled by paramater $a$ is less than the curing effect of the  SL-TRM macrophages controlled by parameter $b$, the system will return to the disease-free state.
  Conversely, if $A=a/b > 1$, the system will move away from this equilibrium, potentially leading to a persistent inflammatory state.
 The particular case $A=1$ corresponds to a bifurcation point where the stability of the disease-free equilibrium changes. In this case, a more detailed analysis is needed to determine the behavior of the system near this point, which  involve higher-order terms in the Taylor expansion of the system around the equilibrium.
 The numerical simulations, see section~\ref{sec:numerical_simulations}, suggest that for $A=1$ the system quickly diverges from the disease-free equilibrium. 
@@ -757,11 +757,11 @@ We can plot the bifurcation diagram in the $(A,S^*)$ plane (see Figure~\ref{fig:
             %\item[$\blacksquare$] \textcolor{blue}{compute attracting sets for A=1/ when there is a zero eigenvalue (center manifold theory)}
             %\item[$\blacksquare$] \textcolor{blue}{is there hysteresis phenomenon? compute domain of persistence/ disease-free attraction basins in the (S,A) plane as in Torres et al. 2024}
             %\item[$\blacksquare$] \textcolor{blue}{Plot 4d phase space trajectories (projections)}
-            %\item[$\blacksquare$] \textcolor{blue}{Plot 2d phase space trajectories (MoMac, Monocytes) or (neutrophiles, monocytes)(projections)}
+            %\item[$\blacksquare$] \textcolor{blue}{Plot 2d phase space trajectories (MoMac, Monocytes) or (neutrophils, monocytes)(projections)}
             %\item[$\blacksquare$] \textcolor{blue}{Run numerical simulations with realistic rates}
             %\item[$\blacksquare$] \textcolor{blue}{perform sensitivity analysis of parameters}
             %\item[$\blacksquare$] \textcolor{blue}{calibrate results with immunology collaborators}
-            %\item[$\blacksquare$] \textcolor{red}{use optimal control theory to model treatments (corticosteroids, anti TNF alpha, ethanecerp, inhibitor of neutrophiles degranulation,...)}
+            %\item[$\blacksquare$] \textcolor{red}{use optimal control theory to model treatments (corticosteroids, anti TNF alpha, ethanecerp, inhibitor of neutrophils degranulation,...)}
         %\end{itemize}
     %\end{minipage}
 %\end{tikzpicture}
@@ -769,7 +769,7 @@ We can plot the bifurcation diagram in the $(A,S^*)$ plane (see Figure~\ref{fig:
 \section{Numerical simulations.}\label{sec:numerical_simulations}
 In this section we present some numerical simulations of the model to illustrate the different dynamic regimes and the effect of the parameter $A=a/b$, the initial immune signal $S(0)$, as well as the initial value of SL-TRM $T(0)$ on the healing prognosis.
 Let us emphasize that these are qualitative scenarios illustrating dynamic regimes, and not a quantitative fit to experimental kinetics.
-An interesting feature of the model is that it can reproduce the concomitant depletion of SL-TRM macrophages and the accumulation of neutrophiles and MoMac, which is observed in arthritis.% \cite{courties}.
+An interesting feature of the model is that it can reproduce the concomitant depletion of SL-TRM macrophages and the accumulation of neutrophils and MoMac, which is observed in arthritis.% \cite{courties}.
 
 Below we reproduce some typical simulations of the model using the following parameters:
 $\alpha=1,\, \beta=1,\, \gamma=1,\,
@@ -871,11 +871,11 @@ combined with perturbations that either reduce neutrophil recruitment or preserv
 
 
 
-\section{Concluding remarks and perspectives.}\label{sec:conclusion} In this work, we designed a simple model able to describe essential features of the monocyte-macrophages, neutrophiles and sublining tissue-resident macrophages dynamics
+\section{Concluding remarks and perspectives.}\label{sec:conclusion} In this work, we designed a simple model able to describe essential features of the monocyte-macrophages, neutrophils and sublining tissue-resident macrophages dynamics
  submitted to an inflammatory stimulus.
 We identified a single parameter controlling the positive or negative feedbacks processes at stake in arthritis. 
-Essentially the ratio between the inflammatory effect of neutrophiles and the anti-inflammatory effect of SL-TRM macrophages appeared critical. 
-Our study suggests therefore that drugs acting differently on neutrophiles and SL-TRM macrophages could be effective in curing arthritis.
+Essentially the ratio between the inflammatory effect of neutrophils and the anti-inflammatory effect of SL-TRM macrophages appeared critical. 
+Our study suggests therefore that drugs acting differently on neutrophils and SL-TRM macrophages could be effective in curing arthritis.
 
 
 
