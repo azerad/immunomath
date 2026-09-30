@@ -267,7 +267,7 @@ If $T(0) \leq 1$, we can write the equation for $T-1$ as
 \begin{equation*}
 \frac{d(T-1)}{dt} = -\gamma S (T-1) - \delta_M M (T-1) -\gamma S 
 \leq (-\gamma S - \delta_M M) (T-1)
-\end{equation*}
+\end{equation*} since $ S \geq 0$.
 Thus, by Gronwall's lemma, we have
 \begin{equation*}
 T(t) - 1 \leq (T(0) - 1) \exp{\int_0^t (-\gamma S(s) - \delta_M M(s)) ds} \leq 0
@@ -292,7 +292,7 @@ About the variables $S$, $N$ and $M$, we did not  include degradation terms in t
      rather than the long-term behavior of the system.\\
 However, we can still derive some lower bounds for the variables $M$ and $N$.    
 Using Gronwall's lemma like in the previous proof, we can also bound from below the variables $M$ and  $N$.
-\begin{proposition}
+\begin{proposition}\label{prop:lower_bounds}
 Assume that the initial condition $M(0)$ (resp. $N(0)$) is greater than or equal to 1, then
 the variable $M(t)$ (resp. $N(t)$) is greater than or equal to 1 for all $t \geq 0$. If $M(0) < 1$ (resp. $N(0) < 1$), then $M(t)$ (resp. $N(t)$) is greater than or equal to $M(0)$ (resp. $N(0)$) for all $t \geq 0$.    
 \end{proposition}
@@ -322,6 +322,7 @@ $(S^* = 0, N^* = 0, M^* = 0, T^* = R)$, with arbitrary $R$;
  $(S^* = 0, N^* = 1, M^* = 0, T^* = R)$, with arbitrary $R$.
 \begin{rem}\label{rem:vanishing}
 These equilibrium points with  $N^* = 0$ or $M^* = 0$ are not biologically relevant since they correspond to the absence of neutrophils or MoMac cells, which is not realistic in a living organism.
+Besides, if $N(0) > 0$ and $M(0) > 0$, then $N(t)$ and $M(t)$ can never vanish, by Proposition~\ref{prop:lower_bounds}.
 Furthermore, we will prove later that these equilibrium points are unstable, so they will not be observed in physiological conditions.
 \end{rem}
 \subsubsection{Inflammatory equilibrium points (S > 0).}\label{sec:inflammatory_equilibria}
@@ -823,7 +824,7 @@ But if we slightly increase $A$ to $A=0.073$, keeping the other parameters uncha
 \end{figure}
 \par To see how the parameter $A=a/b$ controls the healing prognosis
 we plot in Fig.~\ref{heal} a $(A,S)$ plane figure where for each value of $A$ and starting value $(S(0)=S,N=1,M=1,T=1)$
- we run the model for three weeks and see how far from the disease-free state the systems ends up.
+ we run the model for three weeks and see how far from the disease-free state the systems ends up. We notice that either the system comes back to the disease-free equilibrium or diverges far away from it, depending on the initial immune signal $S(0)$ and the value of $A$.
  We color in green points where $(S,M,N,T)$ is close to $(0,1,1,1)$ up to a given tolerance of 5\%.
  We color in red points which end up far away from the disease-free equilibrium.
  \begin{figure}[!htbp]
