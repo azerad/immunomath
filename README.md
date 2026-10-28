@@ -4,6 +4,15 @@ a repo to interact with colleagues on the project IHU IMMUN4CARE WP1-WP3.
 The material in this repo has been used to write the paper
 Pascal Azerad, Oana Iosifescu, Andrea Parmeggiani, Olivier Bortolotti, Florence Apparailly, Gabriel Courties, *A mathematical modelling of rheumatoid arthritis* 2026, submitted. https://hal.science/hal-05725795
 
+### The  python jupyter notebook to reproduce the simulations presented in the paper is "model_arthritis.ipynb" ###
+
+The other notebooks are variants or attemps to calibrate the parameters with the very scarce experimental data.
+
+Experimental data is in the excel files "KBN_arthritis****.xlsx"
+
+The latex files and figures of different versions of the paper are also in the repo.
+
+
 ## 🚀 Guide rapide Git & GitHub pour collaborer
 
 ### 1. Cloner le dépôt (récupérer le projet sur son ordinateur)
